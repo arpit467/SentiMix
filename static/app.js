@@ -304,7 +304,6 @@ function loadSampleTestDataset() {
     .then(r => r.json())
     .then(d => {
       if (d.records && d.records.length > 0) {
-        // Create a mock CSV Blob
         const rows = ["review,category"];
         d.records.forEach(r => {
           const cleanSent = r.sentence.replace(/"/g, '""');
