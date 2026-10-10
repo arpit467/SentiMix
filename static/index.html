@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- Chart.js for High-Performance Visual Analytics -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="stylesheet" href="/static/style.css?v=2.2">
+  <link rel="stylesheet" href="/static/style.css?v=2.3">
 
   <!-- Guaranteed Embedded Styles for Instant Zero-Cache Flawless Rendering -->
   <style>
@@ -460,17 +460,52 @@
       font-size: 0.82rem;
     }
 
-    .rubric-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-    @media (max-width: 800px) { .rubric-grid { grid-template-columns: 1fr; } }
-    .rubric-card { background: rgba(10, 15, 26, 0.6); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.5rem; position: relative; }
-    .rubric-tag {
+    /* Architecture & Info Cards */
+    .arch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem; margin-top: 1rem; }
+    .arch-card {
+      background: rgba(10, 15, 26, 0.65);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      position: relative;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .arch-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(99, 102, 241, 0.4);
+    }
+    .arch-tag {
       position: absolute; top: 1.25rem; right: 1.25rem;
       background: rgba(99, 102, 241, 0.15); color: var(--primary-light);
       font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: var(--radius-full);
     }
-    .rubric-title { font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; padding-right: 4rem; }
-    .rubric-list { padding-left: 1.25rem; font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; }
-    .rubric-list code { background: rgba(255, 255, 255, 0.08); padding: 0.15rem 0.35rem; border-radius: 4px; color: #38bdf8; font-size: 0.82rem; }
+    .arch-title { font-family: 'Outfit', sans-serif; font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; padding-right: 4rem; }
+    .arch-desc { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0.75rem; }
+    .arch-specs-list { padding-left: 1.25rem; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+    .arch-specs-list b { color: var(--text-main); }
+
+    /* Confusion Matrix Heatmap */
+    .cm-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 6px;
+      margin-top: 0.75rem;
+    }
+    .cm-table th {
+      padding: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    .cm-cell {
+      padding: 1rem 0.5rem;
+      text-align: center;
+      border-radius: var(--radius-sm);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+    }
 
     .spinner-loader {
       width: 48px; height: 48px;
@@ -529,9 +564,9 @@
         <span class="nav-icon">📦</span>
         <span>Preloaded Datasets Explorer</span>
       </button>
-      <button class="nav-item" id="tab-btn-rubric" onclick="switchNavTab('rubric')">
-        <span class="nav-icon">📋</span>
-        <span>Architecture & Rubric</span>
+      <button class="nav-item" id="tab-btn-evaluation" onclick="switchNavTab('evaluation')">
+        <span class="nav-icon">📊</span>
+        <span>Evaluation Metrics & Models Info</span>
       </button>
     </nav>
 
@@ -901,10 +936,10 @@
             <tbody id="benchmark-hub-table-body">
               <tr>
                 <td><b style="color: #6366f1;">TF-IDF + Logistic Regression</b></td>
-                <td><span class="badge-pill positive">72.56%</span></td>
-                <td><span class="badge-pill positive">64.20%</span></td>
-                <td>73.22%</td>
-                <td><span class="badge-pill positive">63.62%</span></td>
+                <td><span class="badge-pill positive">71.25%</span></td>
+                <td><span class="badge-pill positive">65.34%</span></td>
+                <td>72.98%</td>
+                <td><span class="badge-pill positive">64.51%</span></td>
                 <td><b style="color: #10b981;">0.29 ms</b></td>
                 <td>Classical ML (Word + Char N-Grams)</td>
               </tr>
@@ -916,6 +951,15 @@
                 <td>56.94%</td>
                 <td>66.70 ms</td>
                 <td>Indian Language Transformer (110M)</td>
+              </tr>
+              <tr>
+                <td><b>Multilingual MiniLM</b></td>
+                <td>63.00%</td>
+                <td>56.99%</td>
+                <td>64.84%</td>
+                <td>56.88%</td>
+                <td>32.46 ms</td>
+                <td>Sentence Transformer (117M)</td>
               </tr>
               <tr>
                 <td><b>XLM-RoBERTa</b></td>
@@ -937,10 +981,10 @@
               </tr>
               <tr>
                 <td><b>Rule-Based Baseline</b></td>
-                <td>40.12%</td>
-                <td>39.66%</td>
-                <td>43.35%</td>
-                <td>38.05%</td>
+                <td>40.89%</td>
+                <td>40.57%</td>
+                <td>44.54%</td>
+                <td>39.00%</td>
                 <td>0.16 ms</td>
                 <td>Syntactic Proximity Lexicon</td>
               </tr>
@@ -1022,64 +1066,405 @@
       </section>
     </main>
 
-    <!-- TAB 5: ARCHITECTURE & RUBRIC -->
-    <main id="view-rubric" class="view-panel">
+    <!-- TAB 5: EVALUATION METRICS, DATA INFO & MODELS ARCHITECTURE -->
+    <main id="view-evaluation" class="view-panel">
+      
+      <!-- SECTION 1: INTERACTIVE MODEL EVALUATION & METRICS INSPECTOR -->
       <section class="glass-card">
         <div class="card-header-row">
           <div>
-            <h2 class="card-title">📋 Phase 2 Evaluation Rubric & Scientific Viva Guide</h2>
-            <p class="card-desc">Formal presentation of all research methodologies, feature engineering techniques, and architectural decisions.</p>
+            <h2 class="card-title">📊 Evaluation Metrics Deep-Dive & Per-Model Diagnostic Hub</h2>
+            <p class="card-desc">Select any trained model to inspect its comprehensive classification report, precision-recall curve metrics, 3x3 confusion matrix heatmap, and cross-domain generalization.</p>
           </div>
-          <div class="badge-accent">Technical Viva</div>
+          <div class="badge-accent">Per-Model Diagnostics</div>
         </div>
 
-        <div class="rubric-grid">
+        <div class="form-group" style="max-width: 450px; margin-bottom: 1.5rem;">
+          <label class="form-label" for="eval-model-selector">Select Model to Inspect:</label>
+          <select id="eval-model-selector" class="input-select" onchange="updateEvaluationModelView()">
+            <option value="TF-IDF + Logistic Regression" selected>TF-IDF + Logistic Regression (Best Performing ML)</option>
+            <option value="IndicBERT">IndicBERT (ai4bharat Transformer)</option>
+            <option value="Multilingual MiniLM">Multilingual MiniLM (sentence-transformers)</option>
+            <option value="XLM-RoBERTa">XLM-RoBERTa (Cross-Lingual RoBERTa)</option>
+            <option value="MuRIL">MuRIL (Google Indian Lang BERT)</option>
+            <option value="Rule-Based Baseline">Rule-Based Syntactic Lexicon</option>
+          </select>
+        </div>
+
+        <!-- Dynamic Selected Model KPI Metrics -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-icon">🎯</div>
+            <div class="kpi-info">
+              <div class="kpi-value" id="eval-kpi-acc" style="color: #38bdf8;">71.25%</div>
+              <div class="kpi-label">Overall Accuracy</div>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">⚖️</div>
+            <div class="kpi-info">
+              <div class="kpi-value" id="eval-kpi-macro-f1" style="color: #818cf8;">65.34%</div>
+              <div class="kpi-label">Macro F1-Score</div>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">🇮🇳</div>
+            <div class="kpi-info">
+              <div class="kpi-value" id="eval-kpi-hinglish-f1" style="color: #34d399;">64.51%</div>
+              <div class="kpi-label">Hinglish Subset F1</div>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">⚡</div>
+            <div class="kpi-info">
+              <div class="kpi-value" id="eval-kpi-latency" style="color: #fbbf24;">0.29 ms</div>
+              <div class="kpi-label">Latency / Sample</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Confusion Matrix Heatmap & Domain Breakdown Grid -->
+        <div class="charts-dual-grid" style="margin-top: 1.5rem;">
           
-          <div class="rubric-card">
-            <div class="rubric-tag">5% Weight</div>
-            <h3 class="rubric-title">1. Code-Mixed Feature Engineering</h3>
-            <ul class="rubric-list">
-              <li><b>Transliteration Spelling Normalization:</b> Canonicalizing phonetic spelling noise (<code>achha</code>, <code>accha</code> &rarr; <code>accha</code>; <code>bhut</code>, <code>bhot</code> &rarr; <code>bahut</code>).</li>
-              <li><b>Demojization & Sentiment Preservation:</b> Extracting unicode emoji sentiment tokens (e.g. <code>:sparkles:</code>, <code>:disappointed_face:</code>).</li>
-              <li><b>Dual-Level TF-IDF Vectors:</b> Combining Word $(1,3)$ n-grams with Sublinear Character $(2,5)$ n-grams for subword stem matching.</li>
-              <li><b>Clause Boundary Decomposition:</b> Splitting compound reviews around adversative markers (<em>par</em>, <em>lekin</em>, <em>but</em>, <em>halanki</em>).</li>
+          <!-- Confusion Matrix Heatmap Card -->
+          <div class="glass-card" style="background: rgba(10, 15, 26, 0.7);">
+            <h3 class="card-subheading">🔲 3x3 Confusion Matrix Heatmap</h3>
+            <p class="chart-desc">Distribution of Actual vs. Predicted Sentiment Classes (Negative, Neutral, Positive).</p>
+            
+            <table class="cm-table">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Pred Negative</th>
+                  <th>Pred Neutral</th>
+                  <th>Pred Positive</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th style="text-align: right; padding-right: 0.75rem;">True Negative</th>
+                  <td id="cm-0-0" class="cm-cell" style="background: rgba(99, 102, 241, 0.8);">385</td>
+                  <td id="cm-0-1" class="cm-cell" style="background: rgba(99, 102, 241, 0.25);">98</td>
+                  <td id="cm-0-2" class="cm-cell" style="background: rgba(99, 102, 241, 0.2);">92</td>
+                </tr>
+                <tr>
+                  <th style="text-align: right; padding-right: 0.75rem;">True Neutral</th>
+                  <td id="cm-1-0" class="cm-cell" style="background: rgba(99, 102, 241, 0.25);">82</td>
+                  <td id="cm-1-1" class="cm-cell" style="background: rgba(99, 102, 241, 0.65);">245</td>
+                  <td id="cm-1-2" class="cm-cell" style="background: rgba(99, 102, 241, 0.3);">116</td>
+                </tr>
+                <tr>
+                  <th style="text-align: right; padding-right: 0.75rem;">True Positive</th>
+                  <td id="cm-2-0" class="cm-cell" style="background: rgba(99, 102, 241, 0.2);">128</td>
+                  <td id="cm-2-1" class="cm-cell" style="background: rgba(99, 102, 241, 0.35);">273</td>
+                  <td id="cm-2-2" class="cm-cell" style="background: rgba(16, 185, 129, 0.85);">1325</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Domain-Wise Breakdown Bar Chart -->
+          <div class="glass-card" style="background: rgba(10, 15, 26, 0.7);">
+            <h3 class="card-subheading">📈 Cross-Domain Accuracy & F1</h3>
+            <p class="chart-desc">Model generalization performance across all 5 benchmark domains.</p>
+            <div class="chart-canvas-wrapper">
+              <canvas id="evalDomainBarChart"></canvas>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Detailed Classification Report Table -->
+        <div style="margin-top: 1.5rem;">
+          <h3 class="card-subheading">📋 Fine-Grained Per-Class Classification Report</h3>
+          <div class="table-scroll-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Sentiment Class</th>
+                  <th>Precision (%)</th>
+                  <th>Recall (%)</th>
+                  <th>F1-Score (%)</th>
+                  <th>Support (Test Instances)</th>
+                </tr>
+              </thead>
+              <tbody id="eval-report-table-body">
+                <tr>
+                  <td><span class="badge-pill negative">NEGATIVE</span></td>
+                  <td id="cr-neg-p">64.7%</td>
+                  <td id="cr-neg-r">67.0%</td>
+                  <td><b id="cr-neg-f1" style="color: #fb7185;">65.8%</b></td>
+                  <td>575</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-pill neutral">NEUTRAL</span></td>
+                  <td id="cr-neu-p">39.8%</td>
+                  <td id="cr-neu-r">55.3%</td>
+                  <td><b id="cr-neu-f1" style="color: #fbbf24;">46.3%</b></td>
+                  <td>443</td>
+                </tr>
+                <tr>
+                  <td><span class="badge-pill positive">POSITIVE</span></td>
+                  <td id="cr-pos-p">86.4%</td>
+                  <td id="cr-pos-r">76.8%</td>
+                  <td><b id="cr-pos-f1" style="color: #34d399;">81.3%</b></td>
+                  <td>1,726</td>
+                </tr>
+                <tr style="background: rgba(255, 255, 255, 0.03); font-weight: 600;">
+                  <td>Macro Average</td>
+                  <td id="cr-mac-p">63.6%</td>
+                  <td id="cr-mac-r">66.4%</td>
+                  <td><b id="cr-mac-f1" style="color: #818cf8;">64.5%</b></td>
+                  <td>2,744</td>
+                </tr>
+                <tr style="background: rgba(255, 255, 255, 0.05); font-weight: 700;">
+                  <td>Weighted Average</td>
+                  <td id="cr-wt-p">74.3%</td>
+                  <td id="cr-wt-r">71.3%</td>
+                  <td><b id="cr-wt-f1" style="color: #38bdf8;">72.6%</b></td>
+                  <td>2,744</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- SECTION 2: DATASET ARCHITECTURE & CORPUS INFORMATION -->
+      <section class="glass-card" style="margin-top: 1.5rem;">
+        <div class="card-header-row">
+          <div>
+            <h2 class="card-title">📦 Unified E-Commerce Dataset Architecture & Corpus Info</h2>
+            <p class="card-desc">Overview of all training, test, and augmented code-mixed partitions covering 12,604 aspect-sentiment pairs across 5 major domains.</p>
+          </div>
+          <div class="badge-accent">Corpus Ingestion</div>
+        </div>
+
+        <div class="kpi-grid" style="margin-bottom: 1.5rem;">
+          <div class="kpi-card">
+            <div class="kpi-icon">📚</div>
+            <div class="kpi-info">
+              <div class="kpi-value" style="color: #38bdf8;">12,604</div>
+              <div class="kpi-label">Total Aspect Pairs</div>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">🇮🇳</div>
+            <div class="kpi-info">
+              <div class="kpi-value" style="color: #34d399;">93.4%</div>
+              <div class="kpi-label">Hinglish Code-Mixed</div>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">🏷️</div>
+            <div class="kpi-info">
+              <div class="kpi-value" style="color: #fbbf24;">11</div>
+              <div class="kpi-label">Aspect Categories</div>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">🛍️</div>
+            <div class="kpi-info">
+              <div class="kpi-value" style="color: #f43f5e;">5</div>
+              <div class="kpi-label">Domain Partitions</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ingested Datasets Table -->
+        <h3 class="card-subheading">📋 Dataset Partition Breakdown Matrix</h3>
+        <div class="table-scroll-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Dataset Partition</th>
+                <th>Train Aspect Pairs</th>
+                <th>Test Aspect Pairs</th>
+                <th>Total Pairs</th>
+                <th>Domain Category</th>
+                <th>Language Style</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>SemEval Restaurant Benchmark</b></td>
+                <td>3,692</td>
+                <td>1,134</td>
+                <td>4,826</td>
+                <td>Food, Ambience & Service</td>
+                <td>Synthetic Hinglish Transliterations</td>
+              </tr>
+              <tr>
+                <td><b>SemEval Laptop Benchmark</b></td>
+                <td>2,354</td>
+                <td>654</td>
+                <td>3,008</td>
+                <td>Hardware, Display & Performance</td>
+                <td>Synthetic Hinglish Transliterations</td>
+              </tr>
+              <tr>
+                <td><b>Meesho E-Commerce Dataset</b></td>
+                <td>1,184</td>
+                <td>297</td>
+                <td>1,481</td>
+                <td>Fashion, Kurti Fitting, Fabric & Beauty</td>
+                <td>Authentic Indian E-Commerce Hinglish</td>
+              </tr>
+              <tr>
+                <td><b>Flipkart Electronics Dataset</b></td>
+                <td>1,217</td>
+                <td>305</td>
+                <td>1,522</td>
+                <td>Smartphones, Battery & Cameras</td>
+                <td>Authentic Indian E-Commerce Hinglish</td>
+              </tr>
+              <tr>
+                <td><b>Amazon Audio & Tech Dataset</b></td>
+                <td>693</td>
+                <td>174</td>
+                <td>867</td>
+                <td>Earbuds, Bass, Alexa & Logistics</td>
+                <td>Authentic Indian E-Commerce Hinglish</td>
+              </tr>
+              <tr>
+                <td><b>Augmented Hinglish Code-Mixed</b></td>
+                <td>720</td>
+                <td>180</td>
+                <td>900</td>
+                <td>Consumer Electronics & Appliances</td>
+                <td>Adversative Hinglish Code-Mixed</td>
+              </tr>
+              <tr style="background: rgba(99, 102, 241, 0.1); font-weight: 700;">
+                <td>Master Unified Corpus</td>
+                <td>9,860</td>
+                <td>2,744</td>
+                <td>12,604</td>
+                <td>Multi-Domain E-Commerce</td>
+                <td>93.4% Code-Mixed Hinglish</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Preprocessing Pipeline Info -->
+        <div class="glass-card" style="margin-top: 1.5rem; background: rgba(10, 15, 26, 0.7);">
+          <h3 class="card-subheading">⚙️ Code-Mixed NLP Preprocessing Pipeline</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 0.75rem;">
+            <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+              <b style="color: #38bdf8;">1. Phonetic Normalization:</b>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.35rem;">
+                Maps informal transliteration spelling noise (e.g. <code>achha</code>, <code>acha</code> &rarr; <code>accha</code>; <code>bhut</code>, <code>bhot</code> &rarr; <code>bahut</code>; <code>bekaar</code> &rarr; <code>bekar</code>).
+              </p>
+            </div>
+            <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+              <b style="color: #34d399;">2. Demojization & Emoji Vectors:</b>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.35rem;">
+                Converts unicode emojis into descriptive semantic tokens (e.g. <code>:thumbs_up:</code>, <code>:disappointed_face:</code>) to retain emotional polarity.
+              </p>
+            </div>
+            <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+              <b style="color: #fbbf24;">3. Adversative Clause Splitting:</b>
+              <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.35rem;">
+                Segments compound code-mixed reviews around contrastive markers (<em>par</em>, <em>lekin</em>, <em>but</em>, <em>halanki</em>) so conflicting aspect polarities don't interfere.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: MULTI-MODEL ARCHITECTURE SPECIFICATIONS -->
+      <section class="glass-card" style="margin-top: 1.5rem;">
+        <div class="card-header-row">
+          <div>
+            <h2 class="card-title">🧠 Model Architectures & Technical Specifications</h2>
+            <p class="card-desc">Detailed architecture breakdown, embedding representations, and algorithmic formulations for all 6 benchmarked ABSA models.</p>
+          </div>
+          <div class="badge-accent">Technical Specs</div>
+        </div>
+
+        <div class="arch-grid">
+          
+          <!-- Model 1: TF-IDF + Logistic Regression -->
+          <div class="arch-card">
+            <div class="arch-tag">71.25% Acc • 0.29ms</div>
+            <h3 class="arch-title">⚡ TF-IDF + Logistic Regression</h3>
+            <p class="arch-desc">Production-grade classical ML combining dual-level Word & Character N-Grams with calibrated multinomial logistic regression.</p>
+            <ul class="arch-specs-list">
+              <li><b>Feature Representation:</b> Word $(1,3)$ n-grams + Sublinear Character $(2,5)$ n-grams.</li>
+              <li><b>Regularization:</b> $L_2$ penalty ($C=1.0$), balanced class weighting.</li>
+              <li><b>Strengths:</b> Subword character n-grams match noisy transliterations without out-of-vocabulary token fragmentation.</li>
+              <li><b>Production Latency:</b> <b>0.29 ms</b> (220x faster than transformers).</li>
             </ul>
           </div>
 
-          <div class="rubric-card">
-            <div class="rubric-tag">8% Weight</div>
-            <h3 class="rubric-title">2. Multi-Model Architecture Implementation</h3>
-            <ul class="rubric-list">
-              <li><b>Model 1 (Baseline):</b> Syntactic Proximity Lexicon Rule Engine.</li>
-              <li><b>Model 2 (Production ML):</b> TF-IDF + Multinomial Logistic Regression ($L_2$ regularization, balanced class weights).</li>
-              <li><b>Model 3 (Indic Transformer):</b> IndicBERT (<code>ai4bharat/IndicBERTv2-MLM-only</code>, 110M params).</li>
-              <li><b>Model 4 (Cross-Lingual):</b> XLM-RoBERTa (<code>xlm-roberta-base</code>, 278M params).</li>
-              <li><b>Model 5 (Transliteration BERT):</b> MuRIL (<code>google/muril-base-cased</code>, 236M params).</li>
+          <!-- Model 2: IndicBERT -->
+          <div class="arch-card">
+            <div class="arch-tag">63.25% Acc • 110M</div>
+            <h3 class="arch-title">🇮🇳 IndicBERT (ai4bharat)</h3>
+            <p class="arch-desc">Indian language multilingual transformer pre-trained on 12 major Indian languages + Romanized Hindi.</p>
+            <ul class="arch-specs-list">
+              <li><b>Base Model:</b> <code>ai4bharat/IndicBERTv2-MLM-only</code> (Albert architecture).</li>
+              <li><b>Sentence Pair:</b> <code>[CLS] Clause Context [SEP] Aspect Term [SEP]</code>.</li>
+              <li><b>Strengths:</b> Native understanding of Devanagari and phonetic Romanized Hindi structures.</li>
+              <li><b>Latency:</b> 66.70 ms / sample.</li>
             </ul>
           </div>
 
-          <div class="rubric-card">
-            <div class="rubric-tag">5% Weight</div>
-            <h3 class="rubric-title">3. Experimental Benchmark Protocol</h3>
-            <ul class="rubric-list">
-              <li><b>Master Ingestion:</b> 12,604 aspect pairs across 5 e-commerce and benchmark domains.</li>
-              <li><b>Isolated Hinglish Evaluation:</b> 93.4% code-mixed test partition evaluated independently.</li>
-              <li><b>Scientific Metrics:</b> Accuracy, Macro Precision/Recall, Macro/Weighted F1, Hinglish F1, and Latency (ms).</li>
+          <!-- Model 3: Multilingual MiniLM -->
+          <div class="arch-card">
+            <div class="arch-tag">63.00% Acc • 117M</div>
+            <h3 class="arch-title">🌐 Multilingual MiniLM</h3>
+            <p class="arch-desc">High-throughput cross-lingual dense semantic embedding model designed for sub-millisecond semantic representation.</p>
+            <ul class="arch-specs-list">
+              <li><b>Base Model:</b> <code>sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2</code>.</li>
+              <li><b>Embedding Dim:</b> 384-dimensional dense contextual pooling.</li>
+              <li><b>Strengths:</b> Fast cross-lingual transfer, compact model footprint (470 MB).</li>
+              <li><b>Latency:</b> 32.46 ms / sample.</li>
             </ul>
           </div>
 
-          <div class="rubric-card">
-            <div class="rubric-tag">4% Weight</div>
-            <h3 class="rubric-title">4. Key Scientific Insights</h3>
-            <ul class="rubric-list">
-              <li><b>Why TF-IDF Leads (72.6% Acc):</b> Character n-grams match noisy transliterations without suffering from out-of-vocabulary subword token fragmentation.</li>
-              <li><b>IndicBERT Advantage:</b> IndicBERT (63.3%) outperforms generic XLM-RoBERTa (57.1%) due to Indian phonetic pre-training.</li>
-              <li><b>Latency Supremacy:</b> TF-IDF delivers <b>0.29 ms</b> latency (over 220x faster than deep neural models), making it the ideal production deployment choice.</li>
+          <!-- Model 4: XLM-RoBERTa -->
+          <div class="arch-card">
+            <div class="arch-tag">57.12% Acc • 278M</div>
+            <h3 class="arch-title">🤖 XLM-RoBERTa</h3>
+            <p class="arch-desc">Massive cross-lingual masked language model pre-trained on 2.5TB of CommonCrawl data across 100+ languages.</p>
+            <ul class="arch-specs-list">
+              <li><b>Base Model:</b> <code>xlm-roberta-base</code> (278M parameters).</li>
+              <li><b>Embedding Dim:</b> 768-dimensional contextual representations.</li>
+              <li><b>Limitation:</b> Transliterated Hinglish creates subword fragmentation on non-phonetic tokens.</li>
+              <li><b>Latency:</b> 89.16 ms / sample.</li>
+            </ul>
+          </div>
+
+          <!-- Model 5: MuRIL -->
+          <div class="arch-card">
+            <div class="arch-tag">40.62% Acc • 236M</div>
+            <h3 class="arch-title">🔤 MuRIL (Google)</h3>
+            <p class="arch-desc">Multilingual Representations for Indian Languages trained on both native scripts and transliterated Indian texts.</p>
+            <ul class="arch-specs-list">
+              <li><b>Base Model:</b> <code>google/muril-base-cased</code> (236M parameters).</li>
+              <li><b>Target:</b> Specifically pre-trained on Romanized and transliterated Hindi pairs.</li>
+              <li><b>Latency:</b> 63.31 ms / sample.</li>
+            </ul>
+          </div>
+
+          <!-- Model 6: Rule-Based Baseline -->
+          <div class="arch-card">
+            <div class="arch-tag">40.89% Acc • 0.16ms</div>
+            <h3 class="arch-title">📐 Syntactic Rule-Based Lexicon</h3>
+            <p class="arch-desc">Interpretable rule engine computing polarity via syntactic proximity windows, negation words, and clause boundaries.</p>
+            <ul class="arch-specs-list">
+              <li><b>Heuristics:</b> $\pm 4$ token window around aspect terms, Hindi sentiment lexicon.</li>
+              <li><b>Negation Handling:</b> Inverts polarity when markers (<em>nahi, mat, na</em>) precede aspect.</li>
+              <li><b>Role:</b> Serves as an ultra-fast zero-shot baseline and fallback.</li>
+              <li><b>Latency:</b> <b>0.16 ms</b> / sample.</li>
             </ul>
           </div>
 
         </div>
       </section>
+
     </main>
 
     <!-- Footer -->
@@ -1090,6 +1475,6 @@
 
   </div>
 
-  <script src="/static/app.js?v=2.2"></script>
+  <script src="/static/app.js?v=2.3"></script>
 </body>
 </html>
