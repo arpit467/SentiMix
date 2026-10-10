@@ -13,11 +13,13 @@ openpyxl>=3.1.2
 # NLP & Deep Learning (PyTorch & Hugging Face)
 torch>=2.2.0
 transformers>=4.38.0
+huggingface-hub>=0.23.0,<2.0
 datasets>=2.18.0
 evaluate>=0.4.1
 accelerate>=0.28.0
 emoji>=2.10.1
 tqdm>=4.66.0
+
 
 # Network & Utilities
 requests>=2.31.0
