@@ -1,0 +1,1006 @@
+id,sentence,cleaned_sentence,aspect_terms,at_polarity,aspect_categories,#aspect terms,is_hinglish,product_category,rating
+1,very nice quality of this suit it is having three part e suit 2 jama 3 Chunri,very nice quality of this suit it is having three part e suit 2 jama 3 chunri,"['quality', 'chunri', 'suit']","['positive', 'positive', 'positive']","['quality_build', 'product_item', 'product_item']",3,False,Fashion,5.0
+2,Oh my god What a quality 🫶 What a fabric 🫶 Fitting is so good 💯 The length of the duppatta is quite nice The design of the cloth is so so good Everything is to the point I just love it . Go for it guys without any hesitation,oh my god what a quality :heart_hands: what a fabric :heart_hands: fitting is so good :hundred_points: the length of the duppatta is quite nice the design of the cloth is so so good everything is to the point i just love it . go for it guys without any hesitation,"['fitting', 'quality', 'fabric', 'length', 'design', 'cloth']","['positive', 'positive', 'positive', 'positive', 'positive', 'positive']","['fit_size', 'quality_build', 'fabric_material', 'fit_size', 'design_appearance', 'fabric_material']",6,True,Fashion,5.0
+3,Fabric quality is superb it is khadi cotton. The duppata is silk and length is long. There is also interlock in the clothes. Pant fittings is perfect and kurta fitting is good. There is also a pocket in the pants which I liked very much. Overall the kurta set is perfect. Affordable as well. Without any doubt just go for it.😄,fabric quality is superb it is khadi cotton . the duppata is silk and length is long . there is also interlock in the clothes . pant fittings is perfect and kurta fitting is good . there is also a pocket in the pants which i liked very much . overall the kurta set is perfect . affordable as well . without any doubt just go for it . :grinning_face_with_smiling_eyes:,"['quality', 'fabric', 'cotton', 'khadi', 'silk', 'length', 'interlock', 'pant', 'kurta fitting', 'fitting', 'kurta', 'pocket', 'pants', 'set', 'affordable']","['positive', 'positive', 'positive', 'positive', 'positive', 'positive', 'positive', 'positive', 'positive', 'positive', 'positive', 'positive', 'positive', 'positive', 'positive']","['quality_build', 'fabric_material', 'fabric_material', 'fabric_material', 'fabric_material', 'fit_size', 'quality_build', 'product_item', 'fit_size', 'fit_size', 'product_item', 'quality_build', 'product_item', 'product_item', 'price_value']",15,True,Fashion,5.0
+4,Thank you to the seller and also to the meesho Nice dress,thank you to the seller and also to the meesho nice dress,"['seller', 'meesho', 'dress']","['positive', 'positive', 'positive']","['delivery_service', 'delivery_service', 'product_item']",3,True,Fashion,5.0
+5,Fabric bahut achcha hai aur design bhi bahut achcha hai but iske niche mein Aisa Hi design aur de diya hota to aur achcha hota,fabric bahut accha hai aur design bhi bahut accha hai but iske niche mein aisa hi design aur de diya hota to aur accha hota,"['fabric', 'design']","['positive', 'positive']","['fabric_material', 'design_appearance']",2,True,Fashion,5.0
+6,Liked the set.... it's not cotton but mixed overall good according to price.Colour is off white and dupatta is 👍🏻 nice....(⁠≧⁠▽⁠≦⁠),liked the set . . it ' s not cotton but mixed overall good according to price . colour is off white and dupatta is :thumbs_up_light_skin_tone: nice . . ( ⁠ ≧ ⁠ ▽ ⁠ ≦ ⁠ ),"['set', 'cotton', 'price', 'colour', 'dupatta']","['positive', 'negative', 'positive', 'positive', 'positive']","['product_item', 'fabric_material', 'price_value', 'design_appearance', 'product_item']",5,True,Fashion,5.0
+7,"Bhut hi pyara suit aaya h ,🥰😘😚😍😘🥰😍ise aap log buy kr skte h qki mughe bhut hi pyara or comfortable suit Mila h thank you meshoo","bahut hi pyara suit aaya h , :smiling_face_with_hearts: :face_blowing_a_kiss: :kissing_face_with_closed_eyes: :smiling_face_with_heart - eyes: :face_blowing_a_kiss: :smiling_face_with_hearts: :smiling_face_with_heart - eyes: ise aap log buy kr skte h qki mughe bahut hi pyara or comfortable suit mila h thank you meshoo",['suit'],['positive'],['product_item'],1,True,Fashion,5.0
+8,The kurti is delivered exactly the same as shown in the picture great fabric and dupatta is also good,the kurti is delivered exactly the same as shown in the picture great fabric and dupatta is also good,"['fabric', 'kurti', 'dupatta']","['positive', 'positive', 'positive']","['fabric_material', 'product_item', 'product_item']",3,True,Fashion,5.0
+9,Super .. everything is good .. Fabric is ok. In this price mujhe pasand aaye ..go for it ..,super . . everything is good . . fabric is ok . in this price mujhe pasand aaye . . go for it . .,"['fabric', 'price']","['positive', 'positive']","['fabric_material', 'price_value']",2,True,Fashion,5.0
+10,Dress is so good. Quality is amazing. It fits perfect. Must buy ❤👌,dress is so good . quality is amazing . it fits perfect . must buy :red_heart: :ok_hand:,"['dress', 'quality']","['positive', 'positive']","['product_item', 'quality_build']",2,False,Fashion,5.0
+11,beyond expectation... amazing febric I felt very good after wearing the dress. Quality was very very very good 👍,beyond expectation . . amazing febric i felt very good after wearing the dress . quality was very very very good :thumbs_up:,"['dress', 'quality']","['positive', 'positive']","['product_item', 'quality_build']",2,True,Fashion,5.0
+12,Really very good suit I love it 😍😍,really very good suit i love it :smiling_face_with_heart - eyes: :smiling_face_with_heart - eyes:,['suit'],['positive'],['product_item'],1,False,Fashion,5.0
+13,cloth quality is very good,cloth quality is very good,"['quality', 'cloth']","['positive', 'positive']","['quality_build', 'fabric_material']",2,False,Fashion,5.0
+14,Very Good Set. There is quality embroidery work. Also pants have a pocket. Shawl material is not good as expected,very good set . there is quality embroidery work . also pants have a pocket . shawl material is not good as expected,"['set', 'embroidery', 'quality', 'work', 'pocket', 'pants', 'material', 'shawl']","['positive', 'positive', 'positive', 'positive', 'positive', 'positive', 'negative', 'negative']","['product_item', 'design_appearance', 'quality_build', 'design_appearance', 'quality_build', 'product_item', 'fabric_material', 'product_item']",8,False,Fashion,5.0
+15,OMG 😳 kya tarif Karu eski jabardast dress hain..621 me kya milega wow amazing 😍,omg :flushed_face: kya tarif karu eski jabardast dress hain . . 621 me kya milega wow amazing :smiling_face_with_heart - eyes:,['dress'],['positive'],['product_item'],1,True,Fashion,5.0
+16,Bhot acha aya h suit kapda bhi acha h bss duptta acha nhi lga kyuki mujhe lga ye duptta cotton h but ye organza m h baki suit acha h👍🏻💗,bahut accha aya h suit cloth bhi accha h bss duptta accha nahi lga kyuki mujhe lga ye duptta cotton h but ye organza m h baki suit accha h :thumbs_up_light_skin_tone: :growing_heart:,"['cotton', 'cloth', 'suit']","['negative', 'negative', 'negative']","['fabric_material', 'fabric_material', 'product_item']",3,True,Fashion,5.0
+17,"Just wow 😳 soft quality febric so comfortable, smart look 😍 design and embroidery also good. I give 10/10 . Thank you so much for nice suit 😊","just wow :flushed_face: soft quality febric so comfortable , smart look :smiling_face_with_heart - eyes: design and embroidery also good . i give 10 / 10 . thank you so much for nice suit :smiling_face_with_smiling_eyes:","['quality', 'design', 'look', 'embroidery', 'suit']","['positive', 'positive', 'positive', 'positive', 'positive']","['quality_build', 'design_appearance', 'design_appearance', 'design_appearance', 'product_item']",5,False,Fashion,5.0
+18,Etne kam prize me etni achi dress mujhe to mja aa gya le sakte ho bahot badya h kashida bhi nahi niklne wala sach abeatyful,etne kam prize me etni acchi dress mujhe to mja aa gya le sakte ho bahot badya h kashida bhi nahi niklne wala sach abeatyful,['dress'],['negative'],['product_item'],1,True,Fashion,5.0
+19,Bhut bhut sunder hai size bhi thik hai stuff bhi bhut acha hai.... Mujhe to bhut psnd aya.... Thank you meesho,bahut bahut sunder hai size bhi thik hai stuff bhi bahut accha hai . . mujhe to bahut psnd aya . . thank you meesho,"['stuff', 'size', 'meesho']","['positive', 'positive', 'positive']","['fabric_material', 'fit_size', 'delivery_service']",3,True,Fashion,5.0
+20,Very good matrail pure khadi. Same to same as shown… Perfact fitting … Love it love it … must suggest to buy or can gift someone.,very good matrail pure khadi . same to same as shown … perfact fitting … love it love it … must suggest to buy or can gift someone .,"['khadi', 'fitting']","['positive', 'positive']","['fabric_material', 'fit_size']",2,False,Fashion,5.0
+21,Thank you meesho so much 🙏😘,thank you meesho so much :folded_hands: :face_blowing_a_kiss:,['meesho'],['positive'],['delivery_service'],1,False,Fashion,5.0
+22,Bhut sundar dress he for summer pure khadi cotton,bahut sundar dress he for summer pure khadi cotton,"['cotton', 'khadi', 'dress']","['positive', 'positive', 'positive']","['fabric_material', 'fabric_material', 'product_item']",3,False,Fashion,5.0
+23,Liked the color combination and the dupatta is very good with a silk finish,liked the color combination and the dupatta is very good with a silk finish,"['color', 'dupatta', 'finish', 'silk']","['positive', 'positive', 'positive', 'positive']","['design_appearance', 'product_item', 'design_appearance', 'fabric_material']",4,True,Fashion,5.0
+24,Am so so happy with the fabric and the look...size is perfect for me. Worth buying. thank you meesho,am so so happy with the fabric and the look . . size is perfect for me . worth buying . thank you meesho,"['fabric', 'look', 'size', 'worth', 'meesho']","['positive', 'positive', 'positive', 'positive', 'positive']","['fabric_material', 'design_appearance', 'fit_size', 'price_value', 'delivery_service']",5,True,Fashion,5.0
+25,Beautiful and comfortable😍 Go for it 👍,beautiful and comfortable :smiling_face_with_heart - eyes: go for it :thumbs_up:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+26,Tnq so much meesho for this lovely product,tnq so much meesho for this lovely product,"['product', 'meesho']","['positive', 'positive']","['product_item', 'delivery_service']",2,False,Fashion,5.0
+27,A must buy product...Everything is just perfect ! 😊,a must buy product . . everything is just perfect ! :smiling_face_with_smiling_eyes:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+28,Pure khadi too good nd affordable,pure khadi too good nd affordable,"['affordable', 'khadi']","['positive', 'positive']","['price_value', 'fabric_material']",2,False,Fashion,5.0
+29,बहुत ही गजब का कुर्ता सेट आया है every thing is awesome fabric bhi soft our heavy h,ु ी ा ु ् ा े ा ै every thing is awesome fabric bhi soft our heavy h,['fabric'],['positive'],['fabric_material'],1,True,Fashion,5.0
+30,best purchase from Meesho !!!! Fabric is cotton... nest quality,best purchase from meesho ! ! fabric is cotton . . nest quality,"['meesho', 'fabric', 'cotton', 'quality']","['positive', 'positive', 'positive', 'positive']","['delivery_service', 'fabric_material', 'fabric_material', 'quality_build']",4,False,Fashion,5.0
+31,Beautiful outfit at this price ❤️ overall good product ✅,beautiful outfit at this price :red_heart: overall good product :check_mark_button:,"['product', 'price']","['positive', 'positive']","['product_item', 'price_value']",2,False,Fashion,5.0
+32,It's too good in this price. Love itt. Thanks for the product.,it ' s too good in this price . love itt . thanks for the product .,"['price', 'product']","['positive', 'positive']","['price_value', 'product_item']",2,True,Fashion,5.0
+33,Product quality is very good 😊😊 I am satisfied to buy these product 🤗❤️,product quality is very good :smiling_face_with_smiling_eyes: :smiling_face_with_smiling_eyes: i am satisfied to buy these product :smiling_face_with_open_hands: :red_heart:,"['quality', 'product']","['positive', 'positive']","['quality_build', 'product_item']",2,False,Fashion,5.0
+34,My mother like if very much,my mother like if very much,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+35,बहुत ही शानदार पहले भी सिर्फ कुर्ता टाइड था लेकिन इस बार सब कुछ परफेक्ट हैं thank you meesho सभी लोग ले सकते है क्योंकि इसका कपड़ा भी अच्छा है और सूट भी अच्छा है go far it 👌👌👍👍💕💕💞💞,ु ी ा ा े ी ि ् ु ् ा ा ा े ि ा ु े ् ै ं thank you meesho ी ो े े ै ् ो ं ि ा ़ ा ी ् ा ै ू ी ् ा ै go far it :ok_hand: :ok_hand: :thumbs_up: :thumbs_up: :two_hearts: :two_hearts: :revolving_hearts: :revolving_hearts:,['meesho'],['positive'],['delivery_service'],1,True,Fashion,5.0
+36,Fta aya bt mene rakh liya kuk accha he,fta aya bt mene rakh liya kuk accha he,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+37,The quality is very good 👍.It is worth it to buy.,the quality is very good :thumbs_up: . it is worth it to buy .,"['quality', 'worth']","['positive', 'positive']","['quality_build', 'price_value']",2,True,Fashion,5.0
+38,Good quality and fitting is also good,good quality and fitting is also good,"['quality', 'fitting']","['positive', 'positive']","['quality_build', 'fit_size']",2,False,Fashion,5.0
+39,Very things are very good thanks to meesho,very things are very good thanks to meesho,['meesho'],['positive'],['delivery_service'],1,False,Fashion,5.0
+40,"Bohooooottttt hi sundar dress he ….. quality perfect, fabric perfect I love it….. worth it 🥰","bohoott hi sundar dress he … . . quality perfect , fabric perfect i love it … . . worth it :smiling_face_with_hearts:","['dress', 'quality', 'fabric', 'worth']","['positive', 'positive', 'positive', 'positive']","['product_item', 'quality_build', 'fabric_material', 'price_value']",4,False,Fashion,5.0
+41,"I’m very satisfied with my order. The size is perfect, the colour matches exactly as shown, and the material feels good and comfortable. Overall, it was a smooth shopping experience and I’m happy with the quality.❤️👍🏼","i ’ m very satisfied with my order . the size is perfect , the colour matches exactly as shown , and the material feels good and comfortable . overall , it was a smooth shopping experience and i ’ m happy with the quality . :red_heart: :thumbs_up_medium - light_skin_tone:","['size', 'colour', 'material', 'quality']","['positive', 'positive', 'positive', 'positive']","['fit_size', 'design_appearance', 'fabric_material', 'quality_build']",4,True,Fashion,5.0
+42,Bahut sundar,bahut sundar,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+43,"Thanks meeso , Totally satisfied with this deal super ,don't think go and buy you love this suit, and dupatta is awesome .it's give a classy look very nice 🙂stitch finishing also good .","thanks meeso , totally satisfied with this deal super , don ' t think go and buy you love this suit , and dupatta is awesome . it ' s give a classy look very nice :slightly_smiling_face: stitch finishing also good .","['deal', 'suit', 'dupatta', 'finishing', 'look']","['positive', 'positive', 'positive', 'positive', 'positive']","['price_value', 'product_item', 'product_item', 'quality_build', 'design_appearance']",5,False,Fashion,5.0
+44,Very good product and clothes quality is good,very good product and clothes quality is good,"['product', 'quality']","['positive', 'positive']","['product_item', 'quality_build']",2,False,Fashion,5.0
+45,Pure khadi cotton fabric....👌👌😊,pure khadi cotton fabric . . :ok_hand: :ok_hand: :smiling_face_with_smiling_eyes:,"['fabric', 'cotton', 'khadi']","['positive', 'positive', 'positive']","['fabric_material', 'fabric_material', 'fabric_material']",3,False,Fashion,5.0
+46,Very nice fabric and size thank you meesho,very nice fabric and size thank you meesho,"['fabric', 'meesho', 'size']","['positive', 'positive', 'positive']","['fabric_material', 'delivery_service', 'fit_size']",3,False,Fashion,5.0
+47,Beautiful with perfect fitting,beautiful with perfect fitting,['fitting'],['positive'],['fit_size'],1,False,Fashion,5.0
+48,Lightly damaged...but I keep this product.,lightly damaged . . but i keep this product .,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+49,I liked this product very much.,i liked this product very much .,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+50,Superb pent is too good dupatta is beautiful but kurta is too tide finising good packaging good मेरा मन नहीं था वापस करने का लेकिन kurta धुलने के बाद और सिकुड़ जाता इसीलिए रिटर्न किया प्लीज़ जैसे ही XXL हो आपके पास में जरूर से लेना चाहूंगी धन्यवाद meesho 🙏🙏,superb pent is too good dupatta is beautiful but kurta is too tide finising good packaging good े ा ी ं ा ा े ा े ि kurta ु े े ा ि ु ़ ा ा ी ि ि ् ि ा ् ी ़ ै े ी xxl ो े ा े ं ू े े ा ा ू ं ी ् ा meesho :folded_hands: :folded_hands:,"['dupatta', 'packaging', 'meesho', 'kurta']","['positive', 'positive', 'positive', 'positive']","['product_item', 'delivery_service', 'delivery_service', 'product_item']",4,True,Fashion,5.0
+51,Jaisa mangaya tha vaisa hi aaya Hai kapde ki quality bahut hi best,jaisa mangaya tha vaisa hi aaya hai cloth ki quality bahut hi best,"['quality', 'cloth']","['positive', 'positive']","['quality_build', 'fabric_material']",2,True,Fashion,5.0
+52,Everything is perfect I am really so happy to see this type of quality.,everything is perfect i am really so happy to see this type of quality .,['quality'],['positive'],['quality_build'],1,False,Fashion,5.0
+53,Very comfortable and a very good quality this is .for office wear and casual wear. Liked it very much for good price,very comfortable and a very good quality this is . for office wear and casual wear . liked it very much for good price,"['quality', 'price']","['positive', 'positive']","['quality_build', 'price_value']",2,False,Fashion,5.0
+54,the cloth quality is top notch. the fitting omg perfect. colour quality embroidery very thing is just perfect.,the cloth quality is top notch . the fitting omg perfect . colour quality embroidery very thing is just perfect .,"['quality', 'cloth', 'top', 'fitting', 'embroidery', 'colour']","['negative', 'negative', 'negative', 'positive', 'positive', 'positive']","['quality_build', 'fabric_material', 'product_item', 'fit_size', 'design_appearance', 'design_appearance']",6,True,Fashion,5.0
+55,Such a beautiful Kurta set. The fabric is really good and comfortable. At this price it's absolutely wonderful. Love it 🫶,such a beautiful kurta set . the fabric is really good and comfortable . at this price it ' s absolutely wonderful . love it :heart_hands:,"['kurta', 'set', 'fabric', 'price']","['positive', 'positive', 'positive', 'positive']","['product_item', 'product_item', 'fabric_material', 'price_value']",4,True,Fashion,5.0
+56,Super amazing love it's ye magva sakte haii bohot sunndar haii love you meesho 💋💋,super amazing love it ' s ye magva sakte haii bahut sunndar haii love you meesho :kiss_mark: :kiss_mark:,['meesho'],['positive'],['delivery_service'],1,True,Fashion,5.0
+57,Pure cotton kurti but dupatta cotton mix h but overall nice thanku meesho,pure cotton kurti but dupatta cotton mix h but overall nice thanku meesho,"['cotton', 'kurti', 'dupatta', 'meesho']","['positive', 'positive', 'positive', 'positive']","['fabric_material', 'product_item', 'product_item', 'delivery_service']",4,False,Fashion,5.0
+58,Best quality best fabric everything abt the product is very good very happy with the product!!,best quality best fabric everything abt the product is very good very happy with the product ! !,"['quality', 'product', 'fabric']","['positive', 'positive', 'positive']","['quality_build', 'product_item', 'fabric_material']",3,True,Fashion,5.0
+59,"I m so happy...Superb material,fitting👌🏻Lovely dupatta 😍Go for it👍🏻Thanks Meesho🫶🏻","i m so happy . . superb material , fitting :ok_hand_light_skin_tone: lovely dupatta :smiling_face_with_heart - eyes: go for it :thumbs_up_light_skin_tone: thanks meesho :heart_hands_light_skin_tone:","['material', 'fitting', 'dupatta', 'meesho']","['positive', 'positive', 'positive', 'positive']","['fabric_material', 'fit_size', 'product_item', 'delivery_service']",4,False,Fashion,5.0
+60,Superb kurta set it is really decent just without any hesitation go for it,superb kurta set it is really decent just without any hesitation go for it,"['kurta', 'set']","['negative', 'negative']","['product_item', 'product_item']",2,False,Fashion,5.0
+61,Amezing go for it ❤️❤️❤️❤️,amezing go for it :red_heart: :red_heart: :red_heart: :red_heart:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+62,छान आहे,ा े,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+64,Beautiful saree 😍❤️,beautiful saree :smiling_face_with_heart - eyes: :red_heart:,['saree'],['positive'],['product_item'],1,False,Fashion,5.0
+65,बहुत ही सुंदर,ु ी ु ं,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+66,बहुत ज्यादा प्यार है,ु ् ा ा ् ा ै,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+67,Very good 😊👍👌👌👌👌👌,very good :smiling_face_with_smiling_eyes: :thumbs_up: :ok_hand: :ok_hand:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+68,Vaery goood same products I am very happy😊😊,vaery good same products i am very happy :smiling_face_with_smiling_eyes: :smiling_face_with_smiling_eyes:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+69,Saree bohot sunder haii,saree bahut sunder haii,['saree'],['positive'],['product_item'],1,False,Fashion,5.0
+70,Saree bahut acchi hai thank u meeso,saree bahut acchi hai thank u meeso,['saree'],['positive'],['product_item'],1,True,Fashion,5.0
+71,Nice saree thank u meesooo🤗,nice saree thank u meesoo :smiling_face_with_open_hands:,['saree'],['positive'],['product_item'],1,False,Fashion,5.0
+72,Very nice but bilauj pis me bordar nahi hai,very nice but bilauj pis me bordar nahi hai,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+73,Saree is very good. Material is soft. Just buy it.,saree is very good . material is soft . just buy it .,"['saree', 'material']","['positive', 'positive']","['product_item', 'fabric_material']",2,False,Fashion,5.0
+74,This product is good I am happy,this product is good i am happy,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+75,Super se upar he ye saree to,super se upar he ye saree to,['saree'],['positive'],['product_item'],1,True,Fashion,5.0
+76,Rama Colour chiye tha sir,rama colour chiye tha sir,['colour'],['positive'],['design_appearance'],1,True,Fashion,5.0
+77,Jaisa Socha Tha Vaisa hi hai,jaisa socha tha vaisa hi hai,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+78,Mast hai aap le sakte hai,mast hai aap le sakte hai,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+79,So beautiful products and love it,so beautiful products and love it,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+80,"Fabric was good ,length is also good , worth it h","fabric was good , length is also good , worth it h","['fabric', 'length', 'worth']","['positive', 'positive', 'positive']","['fabric_material', 'fit_size', 'price_value']",3,False,Fashion,5.0
+81,"Ordered these for my birthday. They're pretty good, although the fitting could be a little better, it's very cute when worn. The white is a little see through but not that bad, overall it's a good product","ordered these for my birthday . they ' re pretty good , although the fitting could be a little better , it ' s very cute when worn . the white is a little see through but not that bad , overall it ' s a good product","['fitting', 'product']","['positive', 'positive']","['fit_size', 'product_item']",2,True,Fashion,4.0
+82,"Its good according to its prize and the printing as well is very good , love it","its good according to its prize and the printing as well is very good , love it",['product'],['positive'],['product_item'],1,True,Fashion,4.0
+83,The product is good but there are size issues. I had ordered S size. I got 2 T-shirts in S size but one was in M size.,the product is good but there are size issues . i had ordered s size . i got 2 t - shirts in s size but one was in m size .,"['product', 'size']","['positive', 'positive']","['product_item', 'fit_size']",2,True,Fashion,4.0
+84,"Fabric, fit, colour was really good, fabric are sooo soo soft like it very much, but beige colour tshirt print was little bit one sider plzz focus printing work , otherwise product was soo good worth of money. Thank u so much🤗","fabric , fit , colour was really good , fabric are soo soo soft like it very much , but beige colour tshirt print was little bit one sider plzz focus printing work , otherwise product was soo good worth of money . thank u so much :smiling_face_with_open_hands:","['fabric', 'fit', 'colour', 'print', 'work', 'product', 'worth']","['positive', 'positive', 'positive', 'positive', 'positive', 'positive', 'positive']","['fabric_material', 'fit_size', 'design_appearance', 'design_appearance', 'design_appearance', 'product_item', 'price_value']",7,False,Fashion,4.0
+85,"According to the price, it's very good. Fabric is thin. But according to the price, it is worth buying.","according to the price , it ' s very good . fabric is thin . but according to the price , it is worth buying .","['price', 'fabric', 'worth']","['positive', 'positive', 'positive']","['price_value', 'fabric_material', 'price_value']",3,True,Fashion,4.0
+86,Fabric patla hai or paise ke hisab se sahi hai white ka kapda transparent hai thoda,fabric patla hai or paisa ke hisab se sahi hai white ka cloth transparent hai thoda,"['fabric', 'cloth', 'paisa']","['positive', 'positive', 'positive']","['fabric_material', 'fabric_material', 'price_value']",3,True,Fashion,4.0
+87,Fabric patla hai or paise ke hisab se sahi hai white ka kapda transparent hai thoda,fabric patla hai or paisa ke hisab se sahi hai white ka cloth transparent hai thoda,"['fabric', 'cloth', 'paisa']","['positive', 'positive', 'positive']","['fabric_material', 'fabric_material', 'price_value']",3,True,Fashion,4.0
+88,Good fabric according to price love the fit colur material is thin but okay 💕🧿,good fabric according to price love the fit colur material is thin but okay :two_hearts: :nazar_amulet:,"['material', 'fabric', 'price', 'fit']","['positive', 'positive', 'positive', 'positive']","['fabric_material', 'fabric_material', 'price_value', 'fit_size']",4,True,Fashion,4.0
+89,Colour is good but not satisfied with fabric and fit,colour is good but not satisfied with fabric and fit,"['colour', 'fabric', 'fit']","['positive', 'negative', 'positive']","['design_appearance', 'fabric_material', 'fit_size']",3,False,Fashion,4.0
+90,The fabric was good I am so happy with that thank you messho ❤️❤️,the fabric was good i am so happy with that thank you messho :red_heart: :red_heart:,['fabric'],['positive'],['fabric_material'],1,True,Fashion,4.0
+91,Every thing was good but one t shirt color were not same as shown,every thing was good but one t shirt color were not same as shown,['color'],['negative'],['design_appearance'],1,False,Fashion,4.0
+92,"Good packing ,material are very good 95%cotton ,stiches are good,,,,size is perfect,,,,,,,❤️ Thank you Meesho ....for this outfits 😇💜","good packing , material are very good 95 % cotton , stiches are good , , size is perfect , , :red_heart: thank you meesho . . for this outfits :smiling_face_with_halo: :purple_heart:","['packing', 'material', 'cotton', 'size', 'meesho']","['positive', 'positive', 'positive', 'positive', 'positive']","['delivery_service', 'fabric_material', 'fabric_material', 'fit_size', 'delivery_service']",5,False,Fashion,5.0
+93,According to price good but top is short rather than all ok,according to price good but top is short rather than all ok,"['price', 'top']","['positive', 'positive']","['price_value', 'product_item']",2,False,Fashion,4.0
+94,Price ke hisab se theek hai t-shirt aap log le sakte hain,price ke hisab se theek hai t - shirt aap log le sakte hain,['price'],['positive'],['price_value'],1,True,Fashion,4.0
+95,Very nice product Such me bahut achcha aya hai summer ke liye perfect hai I am very very more happy ☺️ ❤️,very nice product such me bahut accha aya hai summer ke liye perfect hai i am very very more happy :smiling_face: :red_heart:,['product'],['positive'],['product_item'],1,True,Fashion,4.0
+96,Many L size magvaya thha but mujy xl size mila ha but dont werry ye bhi chlyga and tshirt achi aai h,many l size magvaya thha but mujy xl size mila ha but dont werry ye bhi chlyga and tshirt acchi aai h,['size'],['positive'],['fit_size'],1,True,Fashion,4.0
+97,Very good fabric and also very comfortable and good print,very good fabric and also very comfortable and good print,"['fabric', 'print']","['positive', 'positive']","['fabric_material', 'design_appearance']",2,False,Fashion,4.0
+98,It's pure cotton that's why I 💕 it Thank you meesho,it ' s pure cotton that ' s why i :two_hearts: it thank you meesho,"['cotton', 'meesho']","['positive', 'positive']","['fabric_material', 'delivery_service']",2,False,Fashion,4.0
+99,"The t-shirts are good for their price, and the fabric and fitting are also good.","the t - shirts are good for their price , and the fabric and fitting are also good .","['price', 'fabric', 'fitting']","['positive', 'positive', 'positive']","['price_value', 'fabric_material', 'fit_size']",3,True,Fashion,4.0
+100,Gd fabric gd size & gd color thnx meesho 🥰🥰,gd fabric gd size & gd color thnx meesho :smiling_face_with_hearts: :smiling_face_with_hearts:,"['fabric', 'meesho', 'color', 'size']","['positive', 'positive', 'positive', 'positive']","['fabric_material', 'delivery_service', 'design_appearance', 'fit_size']",4,False,Fashion,4.0
+101,According to price it's very nice ✌️,according to price it ' s very nice :victory_hand:,['price'],['positive'],['price_value'],1,False,Fashion,4.0
+102,Fabric is... not bad... good product,fabric is . . not bad . . good product,"['fabric', 'product']","['positive', 'positive']","['fabric_material', 'product_item']",2,False,Fashion,4.0
+103,Quality is best..Money Best..Pure Smooth T-Shirt.. size Perfect..Thank you meesho ...Its was my second ordered and this order very fabulous for me.. please People order now .. Thank you so much meesho..East or West our meesho is the best..👍🤗❣️,quality is best . . money best . . pure smooth t - shirt . . size perfect . . thank you meesho . . its was my second ordered and this order very fabulous for me . . please people order now . . thank you so much meesho . . east or west our meesho is the best . . :thumbs_up: :smiling_face_with_open_hands: :heart_exclamation:,"['quality', 'size', 'meesho']","['positive', 'positive', 'positive']","['quality_build', 'fit_size', 'delivery_service']",3,True,Fashion,5.0
+104,Good but very short for me 🙂,good but very short for me :slightly_smiling_face:,['product'],['positive'],['product_item'],1,False,Fashion,4.0
+105,"The t-shirts was so good , good fabric & jesa dikhaya same vesa hi aaya packaging bhi achhi thi colour bhi same hai jesa dikhaya hai Thank You so much meesho I love it 💗😍","the t - shirts was so good , good fabric & jesa dikhaya same vesa hi aaya packaging bhi acchi thi colour bhi same hai jesa dikhaya hai thank you so much meesho i love it :growing_heart: :smiling_face_with_heart - eyes:","['packaging', 'fabric', 'colour', 'meesho']","['positive', 'positive', 'positive', 'positive']","['delivery_service', 'fabric_material', 'design_appearance', 'delivery_service']",4,True,Fashion,5.0
+106,"First I ordered (M) size but it was too short so I ordered (XL) size, it's the perfect size (XL) and the fabric is awesome every top's fabric is thick not thin 😍😍 It's cost friendly no one will give 3 tops under 300🫶","first i ordered ( m ) size but it was too short so i ordered ( xl ) size , it ' s the perfect size ( xl ) and the fabric is awesome every top ' s fabric is thick not thin :smiling_face_with_heart - eyes: :smiling_face_with_heart - eyes: it ' s cost friendly no one will give 3 tops under 300 :heart_hands:","['size', 'fabric', 'cost', 'top']","['positive', 'negative', 'negative', 'negative']","['fit_size', 'fabric_material', 'price_value', 'product_item']",4,True,Fashion,5.0
+107,Good fabric and size uf your size is m so order l because it is crop.worth it bohot acha hai brown cargo ke sath sbhi match ho jayenge,good fabric and size uf your size is m so order l because it is crop . worth it bahut accha hai brown cargo ke sath sbhi match ho jayenge,"['fabric', 'size', 'worth']","['positive', 'positive', 'positive']","['fabric_material', 'fit_size', 'price_value']",3,True,Fashion,5.0
+108,"very nice product in this price,very good quality productand fit in size. thank you meesho","very nice product in this price , very good quality productand fit in size . thank you meesho","['product', 'price', 'quality', 'size', 'fit', 'meesho']","['positive', 'positive', 'positive', 'positive', 'positive', 'positive']","['product_item', 'price_value', 'quality_build', 'fit_size', 'fit_size', 'delivery_service']",6,False,Fashion,5.0
+109,All r good but white is lil see through it came way too long then given time period overall good for 250,all r good but white is lil see through it came way too long then given time period overall good for 250,['product'],['positive'],['product_item'],1,False,Fashion,4.0
+110,Price ke hisab se product bhut asha hai it's nice 🙂,price ke hisab se product bahut asha hai it ' s nice :slightly_smiling_face:,"['product', 'price']","['positive', 'positive']","['product_item', 'price_value']",2,True,Fashion,4.0
+111,This is really too much good .. price range kam hai isaliye bahut accha.. thank to messo app.,this is really too much good . . price range kam hai isaliye bahut accha . . thank to messo app .,['price'],['positive'],['price_value'],1,True,Fashion,5.0
+112,This product is very good 😊👍,this product is very good :smiling_face_with_smiling_eyes: :thumbs_up:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+113,Delivery late hua but product is so good,delivery late hua but product is so good,"['delivery', 'late', 'product']","['negative', 'negative', 'positive']","['delivery_service', 'delivery_service', 'product_item']",3,False,Fashion,4.0
+114,Good but one's print is scratched,good but one ' s print is scratched,['print'],['positive'],['design_appearance'],1,False,Fashion,4.0
+115,Thik h bss jyada short hai mere liye,thik h bss zyada short hai mere liye,['product'],['positive'],['product_item'],1,True,Fashion,4.0
+116,"It's not good , it's very very very much good Just liked it 🫶🏼 fabric was also very good I'm obsessed with it Go buy it guyss don't wait amazing opportunity 🤩 price is also great 👍🏼","it ' s not good , it ' s very very very much good just liked it :heart_hands_medium - light_skin_tone: fabric was also very good i ' m obsessed with it go buy it guyss don ' t wait amazing opportunity :star - struck: price is also great :thumbs_up_medium - light_skin_tone:","['fabric', 'price']","['positive', 'positive']","['fabric_material', 'price_value']",2,False,Fashion,5.0
+117,One tshirt are missing and all products aur really good 4 tshirt set but I can receive 3 tshirts🥲🥲,one tshirt are missing and all products aur really good 4 tshirt set but i can receive 3 tshirts :smiling_face_with_tear: :smiling_face_with_tear:,['set'],['positive'],['product_item'],1,True,Fashion,4.0
+118,White one is slightly see through but overall all the fabric is really soft and extremely comfortable and it's totally worth buying a good deal at h good price extremely recommended!!!,white one is slightly see through but overall all the fabric is really soft and extremely comfortable and it ' s totally worth buying a good deal at h good price extremely recommended ! !,"['fabric', 'price', 'worth', 'deal']","['positive', 'positive', 'positive', 'positive']","['fabric_material', 'price_value', 'price_value', 'price_value']",4,True,Fashion,5.0
+119,Quality to acchi Hai Magar Maine small size mangaya tha mujhe medium size hai,quality to acchi hai magar maine small size mangaya tha mujhe medium size hai,"['quality', 'size']","['positive', 'positive']","['quality_build', 'fit_size']",2,True,Fashion,5.0
+120,"I really luv it,, omg i didn't expect the quality 😭😭 It fabric ,fit, color was so goodddd😭🧿💕💋 👍👍","i really luv it , , omg i didn ' t expect the quality :loudly_crying_face: :loudly_crying_face: it fabric , fit , color was so goodd :loudly_crying_face: :nazar_amulet: :two_hearts: :kiss_mark: :thumbs_up: :thumbs_up:","['quality', 'fabric', 'fit', 'color']","['positive', 'positive', 'positive', 'positive']","['quality_build', 'fabric_material', 'fit_size', 'design_appearance']",4,True,Fashion,5.0
+121,That black one😍🖤One of the most quality tshirt on meesho super good.i like sooo much. 3 tshirt is also good i really like.must buying product.👍,that black one :smiling_face_with_heart - eyes: :black_heart: one of the most quality tshirt on meesho super good . i like soo much . 3 tshirt is also good i really like . must buying product . :thumbs_up:,"['quality', 'meesho', 'product']","['positive', 'positive', 'positive']","['quality_build', 'delivery_service', 'product_item']",3,True,Fashion,5.0
+122,Fabric was so so so good and actually it fitted me so well I am a L girl but M is also fits me you can definitely go for this thank you ❤,fabric was so so so good and actually it fitted me so well i am a l girl but m is also fits me you can definitely go for this thank you :red_heart:,['fabric'],['positive'],['fabric_material'],1,False,Fashion,4.0
+123,Good,good,['product'],['positive'],['product_item'],1,False,Fashion,4.0
+124,Cloth fabric is very poor because look at and me dress up so my body see because fabric quality is poor and don't like it please your not buy it because fabric quality is poor and very low so please not buy it thank you so much for reading my comment thank you so much and don't buy it ❌❌ and 🙏🙏🙏,cloth fabric is very poor because look at and me dress up so my body see because fabric quality is poor and don ' t like it please your not buy it because fabric quality is poor and very low so please not buy it thank you so much for reading my comment thank you so much and don ' t buy it :cross_mark: :cross_mark: and :folded_hands: :folded_hands:,"['fabric', 'cloth', 'look', 'quality', 'dress']","['negative', 'negative', 'negative', 'negative', 'negative']","['fabric_material', 'fabric_material', 'design_appearance', 'quality_build', 'product_item']",5,False,Fashion,5.0
+125,Bh ivvu ggg,bh ivvu gg,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+126,Meko iska print or kapda bhot hi acha lga quality bhi bhot badiya h bhot sundar hai yah ❤️ Aap bhi isko kharid skte h bhot sundar ha,meko iska print or cloth bahut hi accha lga quality bhi bahut badhiya h bahut sundar hai yah :red_heart: aap bhi isko kharid skte h bahut sundar ha,"['quality', 'cloth', 'print']","['positive', 'positive', 'positive']","['quality_build', 'fabric_material', 'design_appearance']",3,True,Fashion,5.0
+127,Very good,very good,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+128,Ok,ok,[],[],[],0,False,Fashion,3.0
+129,Bad quality,bad quality,['quality'],['negative'],['quality_build'],1,False,Fashion,1.0
+130,Not. Same at all,not . same at all,['product'],['negative'],['product_item'],1,False,Fashion,1.0
+132,Wrong product,wrong product,['product'],['negative'],['product_item'],1,False,Fashion,2.0
+133,V.good,v . good,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+134,"Saree is light weight, easy to wear, worth it. I'm satisfied ☺️","saree is light weight , easy to wear , worth it . i ' m satisfied :smiling_face:","['saree', 'worth']","['positive', 'positive']","['product_item', 'price_value']",2,False,Fashion,5.0
+135,It's good and the quality is also good You can also take it 👍☺️ sachme saree to bohot aacha h,it ' s good and the quality is also good you can also take it :thumbs_up: :smiling_face: sachme saree to bahut accha h,"['quality', 'saree']","['positive', 'positive']","['quality_build', 'product_item']",2,True,Fashion,5.0
+136,Kam lag rahi hai saree bt me bhht patli hu to ho jayega.. baki sab ekdm mast hai ..,kam lag rahi hai saree bt me bhht patli hu to ho jayega . . baki sab ekdm mast hai . .,['saree'],['positive'],['product_item'],1,True,Fashion,5.0
+137,Awesome Saree colour is good 😊,awesome saree colour is good :smiling_face_with_smiling_eyes:,"['colour', 'saree']","['positive', 'positive']","['design_appearance', 'product_item']",2,False,Fashion,5.0
+138,Bahut sunder saree hai aap bhi le sakte hai l am happy,bahut sunder saree hai aap bhi le sakte hai l am happy,['saree'],['positive'],['product_item'],1,True,Fashion,5.0
+139,Ulti lagi hai aur blouse ke kapde mein lass nahin lagi hai ched hai,ulti lagi hai aur blouse ke cloth mein lass nahi lagi hai ched hai,['cloth'],['negative'],['fabric_material'],1,True,Fashion,5.0
+140,Mst saree received Thanks messho,mst saree received thanks messho,['saree'],['positive'],['product_item'],1,False,Fashion,5.0
+141,Worth of money thank you meesho 💓,worth of money thank you meesho :beating_heart:,"['meesho', 'worth']","['positive', 'positive']","['delivery_service', 'price_value']",2,False,Fashion,5.0
+142,Thank you meesho very beautiful saree🥰🥰💕,thank you meesho very beautiful saree :smiling_face_with_hearts: :smiling_face_with_hearts: :two_hearts:,"['meesho', 'saree']","['positive', 'positive']","['delivery_service', 'product_item']",2,False,Fashion,5.0
+143,Bhaut acha aaya hai thanks mesho,bhaut accha aaya hai thanks mesho,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+144,Achi h . Everyone can buy. I dint wanted to return yaa. It was jus amazing. Very prettyyyy color 😍 jus amazing. I regret returning it but will order again soon. When i am married 👀,acchi h . everyone can buy . i dint wanted to return yaa . it was jus amazing . very prettyy color :smiling_face_with_heart - eyes: jus amazing . i regret returning it but will order again soon . when i am married :eyes:,['color'],['positive'],['design_appearance'],1,True,Fashion,5.0
+145,Bahut hi achha mere ko Jimmy Choo ki sare mile ha mere ko to bahut hi pasand aya hai our quality bhi mast hai apne prize ke hisab se bahut hi achha hai thank you mesho☺️☺️,bahut hi accha mere ko jimmy choo ki sare mile ha mere ko to bahut hi pasand aya hai our quality bhi mast hai apne prize ke hisab se bahut hi accha hai thank you mesho :smiling_face: :smiling_face:,['quality'],['positive'],['quality_build'],1,True,Fashion,5.0
+146,"Blouse ke kapde me boder nahi hai blouse ka kapda bina lase ka aaya hai.Overall product good and beautiful,but I am return this product","blouse ke cloth me boder nahi hai blouse ka cloth bina lase ka aaya hai . overall product good and beautiful , but i am return this product","['cloth', 'product']","['negative', 'positive']","['fabric_material', 'product_item']",2,True,Fashion,5.0
+147,Saree achi h but lace me safai nhi h badhi laga rhi h,saree acchi h but lace me safai nahi h badhi laga rhi h,['saree'],['positive'],['product_item'],1,True,Fashion,4.0
+148,Nice product lena sa pehle lace par doubt tha but bhot achi ayi hai saree bhi or iski laces bhi thank you mesho,nice product lena sa pehle lace par doubt tha but bahut acchi ayi hai saree bhi or iski laces bhi thank you mesho,"['product', 'saree']","['positive', 'positive']","['product_item', 'product_item']",2,True,Fashion,5.0
+149,Blouse ka kapda pahle hi se kata hua hai aur vah bhi Sahi tarike se nahin kata hua hai,blouse ka cloth pahle hi se kata hua hai aur vah bhi sahi tarike se nahi kata hua hai,['cloth'],['positive'],['fabric_material'],1,True,Fashion,5.0
+150,Dag lga h tum log Pagal ho kya mndir to h return kr du pr nhi karungi dubara glti Mt krna Ok misso,dag lga h tum log pagal ho kya mndir to h return kr du pr nahi karungi dubara glti mt krna ok misso,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+151,Bhot bhot bhot acha h bina soche mgao jesa dikha same wesa hi aya h,bahut bahut bahut accha h bina soche mgao jesa dikha same wesa hi aya h,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+152,Good fabric but lase ki silai m proper finishing nhi h,good fabric but lase ki silai m proper finishing nahi h,"['fabric', 'finishing']","['positive', 'negative']","['fabric_material', 'quality_build']",2,True,Fashion,5.0
+153,Saree to theek hai lekin ismein kochne wala hissa jo hai vah thoda kata hua hai jiski vajah se dhaaga Nikal Raha hai aur blouse ekadam plane hai koi work nahin hai iska fabric mujhe pasand nahin aaya,saree to theek hai lekin ismein kochne wala hissa jo hai vah thoda kata hua hai jiski vajah se dhaaga nikal raha hai aur blouse ekadam plane hai koi work nahi hai iska fabric mujhe pasand nahi aaya,"['saree', 'fabric', 'work']","['positive', 'negative', 'negative']","['product_item', 'fabric_material', 'design_appearance']",3,True,Fashion,4.0
+154,Very very good and nice I love it TQ soo soo much meesho 😍💯,very very good and nice i love it tq soo soo much meesho :smiling_face_with_heart - eyes: :hundred_points:,['meesho'],['positive'],['delivery_service'],1,False,Fashion,5.0
+155,Blouse length kam hai isliye return kar rahi hu baki sab theek hai,blouse length kam hai isliye return kar rahi hu baki sab theek hai,['length'],['positive'],['fit_size'],1,True,Fashion,5.0
+156,This is awesome... exactly same as I expected.. worth it 🥰,this is awesome . . exactly same as i expected . . worth it :smiling_face_with_hearts:,['worth'],['positive'],['price_value'],1,False,Fashion,5.0
+157,"Bahut sundar Saree hai, thank you meesho aise hi accha product bhejiyega sabhi customer ko jisse customer aap par bharosa kar sake.,,, thank you","bahut sundar saree hai , thank you meesho aise hi accha product bhejiyega sabhi customer ko jisse customer aap par bharosa kar sake . , , thank you","['saree', 'product', 'meesho']","['positive', 'positive', 'positive']","['product_item', 'product_item', 'delivery_service']",3,True,Fashion,4.0
+158,Very very nice 🫶🏻💗,very very nice :heart_hands_light_skin_tone: :growing_heart:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+159,Super quality but blouse ki plan ochindhi saree border raledhu,super quality but blouse ki plan ochindhi saree border raledhu,"['quality', 'saree']","['positive', 'positive']","['quality_build', 'product_item']",2,True,Fashion,4.0
+160,Nice color and fabric 🙏❤️,nice color and fabric :folded_hands: :red_heart:,"['color', 'fabric']","['positive', 'positive']","['design_appearance', 'fabric_material']",2,False,Fashion,5.0
+161,Sooo beautiful iss saree ko mai dobara mangai hu baht hi jyda sundar h tq meeso,soo beautiful iss saree ko mai dobara mangai hu baht hi jyda sundar h tq meeso,['saree'],['positive'],['product_item'],1,True,Fashion,5.0
+162,Good 👍 ret ke hisab se acchi hai,good :thumbs_up: ret ke hisab se acchi hai,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+163,Very nice 👍 butiful go for it 😍👌👌,very nice :thumbs_up: butiful go for it :smiling_face_with_heart - eyes: :ok_hand: :ok_hand:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+164,Bahut hee sundar saree hai tq so much meesho,bahut hee sundar saree hai tq so much meesho,"['meesho', 'saree']","['positive', 'positive']","['delivery_service', 'product_item']",2,True,Fashion,5.0
+165,AWSM I like it very muchhhhh thnku meeshooo,awsm i like it very muchh thnku meeshoo,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+166,Nice saree tanks meesho 🥰,nice saree tanks meesho :smiling_face_with_hearts:,"['meesho', 'saree']","['positive', 'positive']","['delivery_service', 'product_item']",2,False,Fashion,5.0
+167,Nice quality good clothes 🤗🤗🥰 thank you misoo,nice quality good clothes :smiling_face_with_open_hands: :smiling_face_with_open_hands: :smiling_face_with_hearts: thank you misoo,['quality'],['positive'],['quality_build'],1,False,Fashion,5.0
+168,Saree super... but blouse plain vachhindi,saree super . . but blouse plain vachhindi,['saree'],['positive'],['product_item'],1,False,Fashion,5.0
+169,Wonderful 🥰❤️🥰🥰✅bohut achi he 🥰🧿,wonderful :smiling_face_with_hearts: :red_heart: :smiling_face_with_hearts: :smiling_face_with_hearts: :check_mark_button: bohut acchi he :smiling_face_with_hearts: :nazar_amulet:,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+170,Bhut achi sadi h mst by it👍,bahut acchi sadi h mst by it :thumbs_up:,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+171,Waww Awsome saree🥰💕 thnq meesho,waww awsome saree :smiling_face_with_hearts: :two_hearts: thnq meesho,"['meesho', 'saree']","['positive', 'positive']","['delivery_service', 'product_item']",2,False,Fashion,5.0
+172,Bahut achcha hai thank u ☺️❤️,bahut accha hai thank u :smiling_face: :red_heart:,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+173,Sadi fati Hui Hai do jagah se,sadi fati hui hai do jagah se,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+174,Very good saree 👍 shine a& color achcha hai 💯,very good saree :thumbs_up: shine a & color accha hai :hundred_points:,"['color', 'shine', 'saree']","['positive', 'positive', 'positive']","['design_appearance', 'design_appearance', 'product_item']",3,True,Fashion,5.0
+175,Saree bahut axi h pr length chhota hai,saree bahut axi h pr length chhota hai,"['length', 'saree']","['negative', 'negative']","['fit_size', 'product_item']",2,True,Fashion,5.0
+176,Mast saree thankyou meeho,mast saree thankyou meeho,['saree'],['positive'],['product_item'],1,True,Fashion,5.0
+177,Saree ke side se saraa dhaaga nikal rha h,saree ke side se saraa dhaaga nikal rha h,['saree'],['positive'],['product_item'],1,True,Fashion,5.0
+178,Good febric quality is good 👍,good febric quality is good :thumbs_up:,['quality'],['positive'],['quality_build'],1,False,Fashion,5.0
+179,Very very beautiful saree must buy this price according good 👍,very very beautiful saree must buy this price according good :thumbs_up:,"['price', 'saree']","['positive', 'positive']","['price_value', 'product_item']",2,False,Fashion,5.0
+180,Bahut jyada bdiya hai.,bahut zyada bdiya hai .,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+181,So amazing saree yar passa wasol saree ha,so amazing saree yar passa wasol saree ha,['saree'],['positive'],['product_item'],1,False,Fashion,5.0
+182,Saree's design good.but it has defective product,saree ' s design good . but it has defective product,"['design', 'saree', 'product']","['positive', 'positive', 'negative']","['design_appearance', 'product_item', 'product_item']",3,False,Fashion,3.0
+183,Saree acha hai pr blouse pr design wali less hi nahi aaya bahut simple hai,saree accha hai pr blouse pr design wali less hi nahi aaya bahut simple hai,"['design', 'saree']","['negative', 'negative']","['design_appearance', 'product_item']",2,True,Fashion,4.0
+184,Colour fabric achcha hai but blouse ka kapda thoda Chhota hai,colour fabric accha hai but blouse ka cloth thoda chhota hai,"['fabric', 'colour', 'cloth']","['positive', 'positive', 'negative']","['fabric_material', 'design_appearance', 'fabric_material']",3,True,Fashion,4.0
+185,"Super saree,tq meesho😍but blouse piece ki lays raledhu","super saree , tq meesho :smiling_face_with_heart - eyes: but blouse piece ki lays raledhu","['saree', 'meesho']","['positive', 'positive']","['product_item', 'delivery_service']",2,True,Fashion,4.0
+186,Saree is good but thorn saree. So I'm disappointed 😞. Abhi tk exchange ke liye ayay nhi. Please exchange this saree.,saree is good but thorn saree . so i ' m disappointed :disappointed_face: . abhi tk exchange ke liye ayay nahi . please exchange this saree .,['saree'],['positive'],['product_item'],1,True,Fashion,3.0
+187,Bilaus me lace hi ni h or alag se cut krke diye h bilaus pees Saree achi h,bilaus me lace hi nahi h or alag se cut krke diye h bilaus pees saree acchi h,['saree'],['negative'],['product_item'],1,True,Fashion,3.0
+188,Osm hai really Aap sab bhi try kr sakte hai best product quality sab best hai,osm hai really aap sab bhi try kr sakte hai best product quality sab best hai,"['quality', 'product']","['positive', 'positive']","['quality_build', 'product_item']",2,True,Fashion,5.0
+189,Nice 👍 product .....,nice :thumbs_up: product . .,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+190,Bahut aacha hai ke sakte ho sab log,bahut accha hai ke sakte ho sab log,['product'],['positive'],['product_item'],1,True,Fashion,4.0
+191,Really awesome took lot of time to dispatch but reached within delivery date mentioned by meesho love with the lavender color very suttle color suits for everyone but the saree length is only 4.50 meter and what i regret most is they cut the blouse piece to 1.15 meter if they don't cut the blouse part atleast we will use for saree length 😭😭😭😭,really awesome took lot of time to dispatch but reached within delivery date mentioned by meesho love with the lavender color very suttle color suits for everyone but the saree length is only 4 . 50 meter and what i regret most is they cut the blouse piece to 1 . 15 meter if they don ' t cut the blouse part atleast we will use for saree length :loudly_crying_face: :loudly_crying_face:,"['delivery', 'meesho', 'color', 'length', 'saree']","['positive', 'positive', 'positive', 'negative', 'negative']","['delivery_service', 'delivery_service', 'design_appearance', 'fit_size', 'product_item']",5,True,Fashion,2.0
+192,Sari achha hai pr lenth chhota pd rha hai,sari accha hai pr lenth chhota pd rha hai,['product'],['positive'],['product_item'],1,True,Fashion,4.0
+193,Bahut pyaari saree hai guys aap sab le sakte ho 🥰❤️👌👍,bahut pyaari saree hai guys aap sab le sakte ho :smiling_face_with_hearts: :red_heart: :ok_hand: :thumbs_up:,['saree'],['positive'],['product_item'],1,True,Fashion,4.0
+194,Saree ok ok blouse piece was not good,saree ok ok blouse piece was not good,['saree'],['negative'],['product_item'],1,False,Fashion,4.0
+195,Kapda colour design same to same hai but blouse pe less nahi laga hai,cloth colour design same to same hai but blouse pe less nahi laga hai,"['design', 'colour', 'cloth']","['positive', 'positive', 'positive']","['design_appearance', 'design_appearance', 'fabric_material']",3,True,Fashion,4.0
+196,Very nice sareee aap log le sakte ho bhot hi pyari saree,very nice saree aap log le sakte ho bahut hi pyari saree,['saree'],['positive'],['product_item'],1,False,Fashion,4.0
+197,Blause pis me less nhi h,blause pis me less nahi h,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+198,खूप छान आली साडी,ू ा ी ा ी,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+199,Tq messho super saree🥰,tq messho super saree :smiling_face_with_hearts:,['saree'],['positive'],['product_item'],1,False,Fashion,5.0
+200,Very nice product 🥰,very nice product :smiling_face_with_hearts:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+201,Bohot acha hai ❤,bahut accha hai :red_heart:,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+202,Achi sari hai i like it,acchi sari hai i like it,['product'],['positive'],['product_item'],1,True,Fashion,4.0
+203,It a little defective and the material I don't like that' why I return If the material come soft then I will keep it,it a little defective and the material i don ' t like that ' why i return if the material come soft then i will keep it,['material'],['positive'],['fabric_material'],1,True,Fashion,3.0
+204,Accha hai thanks meesho,accha hai thanks meesho,['meesho'],['positive'],['delivery_service'],1,True,Fashion,4.0
+205,Nice saree but stains of dirt so I return the product very disappoint,nice saree but stains of dirt so i return the product very disappoint,"['saree', 'product']","['positive', 'negative']","['product_item', 'product_item']",2,True,Fashion,2.0
+206,Thik hai but jaesa screen mar dikha tha warsz nahi hai oksmell gandi arahi saree say,thik hai but jaesa screen mar dikha tha warsz nahi hai oksmell gandi arahi saree say,['saree'],['negative'],['product_item'],1,True,Fashion,3.0
+207,Super 👍👍👍,super :thumbs_up: :thumbs_up:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+208,Super 👍,super :thumbs_up:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+210,Kapda bohot kharab hai,cloth bahut kharab hai,['cloth'],['negative'],['fabric_material'],1,True,Fashion,2.0
+211,Achh h,achh h,['product'],['positive'],['product_item'],1,False,Fashion,4.0
+212,Bad quality,bad quality,['quality'],['negative'],['quality_build'],1,False,Fashion,2.0
+213,Ok ok,ok ok,['product'],['neutral'],['product_item'],1,False,Fashion,3.0
+214,Bad,bad,['product'],['neutral'],['product_item'],1,False,Fashion,3.0
+215,Shape is not good,shape is not good,['shape'],['negative'],['fit_size'],1,False,Fashion,1.0
+216,Bad,bad,['product'],['negative'],['product_item'],1,False,Fashion,2.0
+217,Nice,nice,['product'],['negative'],['product_item'],1,False,Fashion,1.0
+218,Bad quality,bad quality,['quality'],['negative'],['quality_build'],1,False,Fashion,1.0
+219,Price ke according accha h,price ke according accha h,['price'],['positive'],['price_value'],1,True,Fashion,5.0
+220,...,. .,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+221,Not as expected but wht ever,not as expected but wht ever,['product'],['neutral'],['product_item'],1,False,Fashion,3.0
+222,🫣,:face_with_peeking_eye:,['product'],['neutral'],['product_item'],1,False,Fashion,3.0
+223,Quality issue,quality issue,['quality'],['negative'],['quality_build'],1,False,Fashion,1.0
+224,Bad,bad,['product'],['negative'],['product_item'],1,False,Fashion,2.0
+225,I ordere to my sister this product is amezing It's is very good 👍⭐⭐⭐⭐⭐ (( Aap is product ko kharid te ho jarurat kharidiye bahut achha he ⭐⭐⭐⭐⭐ )) Product quality ⭐⭐⭐⭐⭐ Product finishing ⭐⭐⭐⭐⭐ Product price. ⭐⭐⭐⭐⭐ So buy this product and enjoy Thank you so much 🙏😊,i ordere to my sister this product is amezing it ' s is very good :thumbs_up: :star: :star: ( ( aap is product ko kharid te ho jarurat kharidiye bahut accha he :star: :star: ) ) product quality :star: :star: product finishing :star: :star: product price . :star: :star: so buy this product and enjoy thank you so much :folded_hands: :smiling_face_with_smiling_eyes:,"['finishing', 'quality', 'product', 'price']","['positive', 'positive', 'positive', 'positive']","['quality_build', 'quality_build', 'product_item', 'price_value']",4,True,Fashion,5.0
+226,Colour nd size is different. I ordered red. But it is maroon colour. It's ok. Blouse is 👌. Tq meesho,colour nd size is different . i ordered red . but it is maroon colour . it ' s ok . blouse is :ok_hand: . tq meesho,"['colour', 'size', 'meesho']","['positive', 'positive', 'positive']","['design_appearance', 'fit_size', 'delivery_service']",3,False,Fashion,4.0
+227,Good,good,['product'],['positive'],['product_item'],1,False,Fashion,4.0
+228,Nice,nice,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+229,Khop chan,khop chan,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+230,Good,good,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+231,"Good embroidery work good fabric, my money worth it.","good embroidery work good fabric , my money worth it .","['embroidery', 'fabric', 'work', 'worth']","['positive', 'positive', 'positive', 'positive']","['design_appearance', 'fabric_material', 'design_appearance', 'price_value']",4,False,Fashion,5.0
+232,"Good febric, good embroidery work, overall good","good febric , good embroidery work , overall good","['embroidery', 'work']","['positive', 'positive']","['design_appearance', 'design_appearance']",2,False,Fashion,5.0
+233,Super tawa 🥰🤣😂,super tawa :smiling_face_with_hearts: :rolling_on_the_floor_laughing: :face_with_tears_of_joy:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+234,Mast ahe,mast ahe,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+235,Summer k liye ek dum andy product,summer k liye ek dum andy product,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+236,Top kafi chota tha.baki acha tha,top kafi chhota tha . baki accha tha,['top'],['negative'],['product_item'],1,True,Fashion,4.0
+237,Colour is good but fabric is very thin 🥺,colour is good but fabric is very thin :pleading_face:,"['colour', 'fabric']","['positive', 'positive']","['design_appearance', 'fabric_material']",2,False,Fashion,4.0
+238,Good quality,good quality,['quality'],['positive'],['quality_build'],1,False,Fashion,5.0
+239,Nice product 😃,nice product :grinning_face_with_big_eyes:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+240,Very good,very good,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+241,Nice,nice,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+242,I love it,i love it,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+243,Nice,nice,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+244,Nice 👍,nice :thumbs_up:,['product'],['positive'],['product_item'],1,False,Fashion,4.0
+245,Oo bhai lower khup tight ahe,oo bhai lower khup tight ahe,['tight'],['negative'],['fit_size'],1,False,Fashion,2.0
+246,Very good,very good,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+247,"The fabric of suit and bottom is pure cotton but the fabric of dupatta is cotton blend and it looks like Pakistani suit , overall according to the price it's very nice 👍🙂","the fabric of suit and bottom is pure cotton but the fabric of dupatta is cotton blend and it looks like pakistani suit , overall according to the price it ' s very nice :thumbs_up: :slightly_smiling_face:","['fabric', 'suit', 'cotton', 'dupatta', 'looks', 'price']","['positive', 'positive', 'positive', 'positive', 'positive', 'positive']","['fabric_material', 'product_item', 'fabric_material', 'product_item', 'design_appearance', 'price_value']",6,True,Fashion,5.0
+248,Suit to bahut hi pyara h suit ka fabric pure cotton h Design bhi mast h ap log le sakte h without any doubt 😊,suit to bahut hi pyara h suit ka fabric pure cotton h design bhi mast h ap log le sakte h without any doubt :smiling_face_with_smiling_eyes:,"['fabric', 'cotton', 'design', 'suit']","['negative', 'negative', 'negative', 'negative']","['fabric_material', 'fabric_material', 'design_appearance', 'product_item']",4,True,Fashion,5.0
+249,Pure cotton febric hai thanks you meesho aise hi product bhejiye ki dubara return na karna pade,pure cotton febric hai thanks you meesho aise hi product bhejiye ki dubara return na karna pade,"['product', 'cotton', 'meesho']","['negative', 'negative', 'negative']","['product_item', 'fabric_material', 'delivery_service']",3,True,Fashion,5.0
+250,Bhut hi acha aaya hai thank you so much mesho,bahut hi accha aaya hai thank you so much mesho,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+251,Thank you meesho diil khush ho gaya,thank you meesho diil khush ho gaya,['meesho'],['positive'],['delivery_service'],1,False,Fashion,5.0
+252,Shut ka kpdha bhot acha hai lekin ptla bhot hai or front me puri sant hai,shut ka kpdha bahut accha hai lekin ptla bahut hai or front me puri sant hai,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+253,Kapda bahut jyada naram Hai per achcha hai color halka hai,cloth bahut zyada naram hai per accha hai color halka hai,"['cloth', 'color']","['positive', 'positive']","['fabric_material', 'design_appearance']",2,True,Fashion,4.0
+254,Febric colour dupatta quality sab kuch thik hai bas dhone ke baad colour na jaye baki febric pure cotton hai top and pent ka dupatt malmal cotton zaisa hai,febric colour dupatta quality sab kuch thik hai bas dhone ke baad colour na jaye baki febric pure cotton hai top and pent ka dupatt malmal cotton zaisa hai,"['quality', 'dupatta', 'cotton', 'colour', 'top']","['negative', 'negative', 'negative', 'negative', 'negative']","['quality_build', 'product_item', 'fabric_material', 'design_appearance', 'product_item']",5,True,Fashion,5.0
+255,Lesekata hain very good,lesekata hain very good,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+256,Bahut badhiya h yaar le sakte h lo ...... Ek dam cotton ka h ... I love it 🤩💓,bahut badhiya h yaar le sakte h lo . . ek dam cotton ka h . . i love it :star - struck: :beating_heart:,['cotton'],['positive'],['fabric_material'],1,True,Fashion,5.0
+257,Fabric is very good 👍,fabric is very good :thumbs_up:,['fabric'],['positive'],['fabric_material'],1,False,Fashion,5.0
+258,Dress acha hai lekin pant ka kapda 2 meter se bhi kam hai .or patla bhi hai bahut kapda,dress accha hai lekin pant ka cloth 2 meter se bhi kam hai . or patla bhi hai bahut cloth,"['dress', 'cloth', 'pant']","['positive', 'neutral', 'neutral']","['product_item', 'fabric_material', 'product_item']",3,True,Fashion,3.0
+259,Mashallah bohut acha aaya hai,mashallah bohut accha aaya hai,['product'],['positive'],['product_item'],1,True,Fashion,4.0
+260,Febric is ok but colour is different,febric is ok but colour is different,['colour'],['positive'],['design_appearance'],1,False,Fashion,4.0
+261,Fabric quality good,fabric quality good,"['quality', 'fabric']","['positive', 'positive']","['quality_build', 'fabric_material']",2,False,Fashion,5.0
+262,Very god,very god,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+263,Good,good,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+264,Quality is good,quality is good,['quality'],['positive'],['quality_build'],1,False,Fashion,5.0
+265,Cloth is lightly thin,cloth is lightly thin,['cloth'],['positive'],['fabric_material'],1,False,Fashion,5.0
+266,Nice fabric & Colour,nice fabric & colour,"['fabric', 'colour']","['positive', 'positive']","['fabric_material', 'design_appearance']",2,False,Fashion,5.0
+267,Super,super,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+268,Very nice hum jasa dekha wasa hi hai,very nice hum jasa dekha wasa hi hai,['product'],['positive'],['product_item'],1,True,Fashion,4.0
+269,Bhut Sundar hai,bahut sundar hai,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+270,All good 😊,all good :smiling_face_with_smiling_eyes:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+271,good product,good product,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+272,👌👌👌,:ok_hand: :ok_hand:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+273,Good 💯,good :hundred_points:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+274,Very good product,very good product,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+275,Kpra achhaa h,kpra achhaa h,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+276,Bahut acha hai,bahut accha hai,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+277,👌👌👌👌👍👍,:ok_hand: :ok_hand: :thumbs_up: :thumbs_up:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+278,👍👍👍,:thumbs_up: :thumbs_up:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+279,Same vaisa hi Aya hai ok thanks mesho,same vaisa hi aya hai ok thanks mesho,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+280,Very good product. Soft cotton 🥰,very good product . soft cotton :smiling_face_with_hearts:,"['product', 'cotton']","['positive', 'positive']","['product_item', 'fabric_material']",2,False,Fashion,5.0
+281,Very nice suit piece pure cotton hai,very nice suit piece pure cotton hai,"['cotton', 'suit']","['positive', 'positive']","['fabric_material', 'product_item']",2,True,Fashion,5.0
+282,Achha aya cotton h . colour v achha h osm tq mesho,accha aya cotton h . colour v accha h osm tq mesho,"['cotton', 'colour']","['positive', 'positive']","['fabric_material', 'design_appearance']",2,True,Fashion,5.0
+283,Good product good size good cooler good cotton Pura cotton,good product good size good cooler good cotton pura cotton,"['product', 'cotton', 'size']","['positive', 'positive', 'positive']","['product_item', 'fabric_material', 'fit_size']",3,False,Fashion,5.0
+284,Bhut accha shuit h kapda quality bhi bhut acchi h,bahut accha shuit h cloth quality bhi bahut acchi h,"['quality', 'cloth']","['positive', 'positive']","['quality_build', 'fabric_material']",2,True,Fashion,5.0
+285,Kapada bahut achha h quality bhi achhi h ap log le sakte ho,kapada bahut accha h quality bhi acchi h ap log le sakte ho,['quality'],['positive'],['quality_build'],1,True,Fashion,5.0
+286,Le sakte ho bhut acha aya h grmi ke lie bhut aramdayak hai,le sakte ho bahut accha aya h grmi ke lie bahut aramdayak hai,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+287,Dress Martial is so good i love it thank you meesho 🤌🏻,dress martial is so good i love it thank you meesho :pinched_fingers_light_skin_tone:,"['meesho', 'dress']","['positive', 'positive']","['delivery_service', 'product_item']",2,False,Fashion,5.0
+288,Bhut jada acha h...expect nhi kiya tha...nice product 🥰 Affordable price 🫶,bahut zyada accha h . . expect nahi kiya tha . . nice product :smiling_face_with_hearts: affordable price :heart_hands:,"['affordable', 'product', 'price']","['positive', 'positive', 'positive']","['price_value', 'product_item', 'price_value']",3,True,Fashion,5.0
+289,Bahot acha aya h suit par tupatta ka kapra thora thik nahi h,bahot accha aya h suit par tupatta ka kapra thoda thik nahi h,['suit'],['positive'],['product_item'],1,True,Fashion,5.0
+290,Good fabric,good fabric,['fabric'],['positive'],['fabric_material'],1,False,Fashion,4.0
+291,Nice 👍,nice :thumbs_up:,['product'],['positive'],['product_item'],1,False,Fashion,4.0
+292,Good fabric and good quality 👍🏻,good fabric and good quality :thumbs_up_light_skin_tone:,"['fabric', 'quality']","['positive', 'positive']","['fabric_material', 'quality_build']",2,False,Fashion,5.0
+293,Bahut achcha hai kapda lekin dupatta mix hai,bahut accha hai cloth lekin dupatta mix hai,"['cloth', 'dupatta']","['positive', 'positive']","['fabric_material', 'product_item']",2,True,Fashion,5.0
+294,Very good fabric and value for money,very good fabric and value for money,"['fabric', 'value for money']","['positive', 'positive']","['fabric_material', 'price_value']",2,False,Fashion,5.0
+295,Very very beautiful blown my mind,very very beautiful blown my mind,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+296,Too good material and print and price,too good material and print and price,"['material', 'print', 'price']","['positive', 'positive', 'positive']","['fabric_material', 'design_appearance', 'price_value']",3,False,Fashion,5.0
+297,I love it good fabric soft cotton,i love it good fabric soft cotton,"['fabric', 'cotton']","['positive', 'positive']","['fabric_material', 'fabric_material']",2,False,Fashion,5.0
+298,It is really very good fabric is also good,it is really very good fabric is also good,['fabric'],['positive'],['fabric_material'],1,False,Fashion,5.0
+299,Pure cotton + soft fabric✅✌️,pure cotton + soft fabric :check_mark_button: :victory_hand:,"['fabric', 'cotton']","['positive', 'positive']","['fabric_material', 'fabric_material']",2,False,Fashion,5.0
+300,Good but salwar fabric is not good,good but salwar fabric is not good,['fabric'],['negative'],['fabric_material'],1,False,Fashion,5.0
+301,Shukriya beutifullllll dresses messho,shukriya beutifull dresses messho,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+302,Good product thank you very much,good product thank you very much,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+303,Bahot acha hai or febric bhi acha hai,bahot accha hai or febric bhi accha hai,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+304,Nice colour nd cloth. Buy now,nice colour nd cloth . buy now,"['colour', 'cloth']","['positive', 'positive']","['design_appearance', 'fabric_material']",2,False,Fashion,5.0
+305,Very good clothe jaisa hona waisa hi am happy 😊,very good clothe jaisa hona waisa hi am happy :smiling_face_with_smiling_eyes:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+306,हा कुर्ता सेट खरंच खूप nice आहे. Fitting perfect आहे and fabric quality पण चांगली. Recommended! 👍,ा ु ् ा े ं ू nice े . fitting perfect े and fabric quality ा ं ी . recommended ! :thumbs_up:,"['fitting', 'quality', 'fabric']","['positive', 'positive', 'positive']","['fit_size', 'quality_build', 'fabric_material']",3,True,Fashion,5.0
+307,"सेट दिसायला खूप सुंदर आहे, पण दुपट्ट्याची quality average आहे. बाकी सर्व ठीक.","े ि ा ा ू ु ं े , ु ् ् ा ी quality average े . ा ी ् ी .",['quality'],['positive'],['quality_build'],1,True,Fashion,4.0
+308,अप्रतिम सेट! Party wear साठी best आहे. Color and design exactly same as shown.,् ि े ! party wear ा ी best े . color and design exactly same as shown .,"['color', 'design']","['positive', 'positive']","['design_appearance', 'design_appearance']",2,True,Fashion,5.0
+309,कुर्त्याची शिलाई काही ठिकाणी निघालेली आहे. Size पण थोडा tight आहे.,ु ् ् ा ी ि ा ा ी ि ा ी ि ा े ी े . size ो ा tight े .,"['tight', 'size']","['negative', 'negative']","['fit_size', 'fit_size']",2,True,Fashion,3.0
+310,खूपच सुंदर आणि comfortable. Daily wear साठी उत्तम. I am so happy with this purchase. 😊,ू ु ं ि comfortable . daily wear ा ी ् . i am so happy with this purchase . :smiling_face_with_smiling_eyes:,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+311,"Product is good, पण delivery ला खूपच उशीर झाला.","product is good , delivery ा ू ी ा ा .","['product', 'delivery']","['positive', 'positive']","['product_item', 'delivery_service']",2,True,Fashion,4.0
+312,"रंग खूपच छान आहे, एकदम fresh look येतो. कापड पण soft आहे.","ं ू ा े , fresh look े ो . ा soft े .",['look'],['positive'],['design_appearance'],1,True,Fashion,5.0
+313,फोटोमध्ये वेगळा आणि प्रत्यक्षात वेगळाच product आला. Totally different design. Returning. 😠,ो ो ् े े ा ि ् ् ् ा े ा product ा . totally different design . returning . :angry_face:,"['product', 'design']","['negative', 'negative']","['product_item', 'design_appearance']",2,True,Fashion,2.0
+314,"Just wow! Fitting, fabric, design, everything is perfect. Must buy! ✨","just wow ! fitting , fabric , design , everything is perfect . must buy ! :sparkles:","['fitting', 'fabric', 'design']","['positive', 'positive', 'positive']","['fit_size', 'fabric_material', 'design_appearance']",3,False,Fashion,5.0
+315,"सेट चांगला आहे, फक्त pant ची लांबी थोडी कमी आहे.","े ा ं ा े , ् pant ी ा ं ी ो ी ी े .",['pant'],['positive'],['product_item'],1,True,Fashion,4.0
+316,400 रुपयांखाली इतका सुंदर कुर्ता सेट मिळेल असं वाटलं नव्हतं. Peach color खूपच lovely आहे. ❤️,400 ु ा ं ा ी ा ु ं ु ् ा े ि े ं ा ं ् ं . peach color ू lovely े . :red_heart:,['color'],['positive'],['design_appearance'],1,True,Fashion,5.0
+317,"Cotton fabric आहे, summer साठी best. Print पण छान आहे. Worth the price.","cotton fabric े , summer ा ी best . print ा े . worth the price .","['fabric', 'cotton', 'print', 'price', 'worth']","['positive', 'positive', 'positive', 'positive', 'positive']","['fabric_material', 'fabric_material', 'design_appearance', 'price_value', 'price_value']",5,True,Fashion,4.0
+318,कापड खूप पातळ आहे. One wash नंतर खराब होण्याची शक्यता वाटते.,ा ू ा े . one wash ं ा ो ् ा ी ् ा ा े .,['product'],['neutral'],['product_item'],1,True,Fashion,3.0
+319,It's really a good deal. Pure cotton and very comfortable. I liked it.,it ' s really a good deal . pure cotton and very comfortable . i liked it .,"['deal', 'cotton']","['positive', 'positive']","['price_value', 'fabric_material']",2,False,Fashion,5.0
+320,Product defective आहे. कुर्त्यावर डाग लागलेला आहे. Very disappointed.,product defective े . ु ् ् ा ा ा े ा े . very disappointed .,['product'],['negative'],['product_item'],1,True,Fashion,2.0
+321,खूपच छान सेट आहे. Fitting पण perfect आली. Thank you Meesho. 🙏,ू ा े े . fitting perfect ी . thank you meesho . :folded_hands:,"['fitting', 'meesho']","['positive', 'positive']","['fit_size', 'delivery_service']",2,True,Fashion,5.0
+322,Color is exactly as shown. Fabric is also good. Just go for it.,color is exactly as shown . fabric is also good . just go for it .,"['color', 'fabric']","['positive', 'positive']","['design_appearance', 'fabric_material']",2,False,Fashion,4.0
+323,Budget friendly आणि सुंदर सेट. Office wear साठी पण चालेल.,budget friendly ि ु ं े . office wear ा ी ा े .,['budget'],['positive'],['price_value'],1,True,Fashion,5.0
+324,"Size M order केला होता, L आला. Exchange करत आहे, पण product quality चांगली आहे.","size m order े ा ो ा , l ा . exchange े , product quality ा ं ी े .","['size', 'quality', 'product']","['positive', 'positive', 'positive']","['fit_size', 'quality_build', 'product_item']",3,True,Fashion,4.0
+325,माझी मुलगी खूप happy झाली. It's a very pretty set. 😇,ा ी ु ी ू happy ा ी . it ' s a very pretty set . :smiling_face_with_halo:,['set'],['positive'],['product_item'],1,True,Fashion,5.0
+326,Amazing palazzo pants! Wrinkle crush fabric खूपच stylish दिसतो. Pack of 2 is a great deal.,amazing palazzo pants ! wrinkle crush fabric ू stylish ि ो . pack of 2 is a great deal .,"['palazzo', 'pants', 'fabric', 'deal']","['positive', 'positive', 'positive', 'positive']","['product_item', 'product_item', 'fabric_material', 'price_value']",4,True,Fashion,5.0
+327,दोन्ही palazzo चे colors छान आहेत. कापड आरामदायक आहे.,ो ् ी palazzo े colors ा े . ा ा ा े .,['palazzo'],['positive'],['product_item'],1,True,Fashion,4.0
+328,एका palazzo ची शिलाई व्यवस्थित नाही. Quality could be better.,ा palazzo ी ि ा ् ् ि ा ी . quality could be better .,"['palazzo', 'quality']","['neutral', 'neutral']","['product_item', 'quality_build']",2,True,Fashion,3.0
+329,खूपच comfortable आणि free size आहे. Material पण soft आहे. Just go for it! 👌,ू comfortable ि free size े . material soft े . just go for it ! :ok_hand:,"['size', 'material']","['positive', 'positive']","['fit_size', 'fabric_material']",2,True,Fashion,5.0
+330,Plazzo ची लांबी थोडी जास्त आहे. बाकी quality is good.,plazzo ी ा ं ी ो ी ा ् े . ा ी quality is good .,['quality'],['positive'],['quality_build'],1,True,Fashion,4.0
+331,"Black आणि maroon color आले, दोन्ही खूप सुंदर आहेत. पैसे वसूल झाले.","black ि maroon color े , ो ् ी ू ु ं े . ै े ू ा े .",['color'],['positive'],['design_appearance'],1,True,Fashion,5.0
+332,कापड खूपच पारदर्शक (transparent) आहे. बाहेर घालून जाता येणार नाही.,ा ू ा ् ( transparent ) े . ा े ा ू ा ा े ा ा ी .,['product'],['negative'],['product_item'],1,True,Fashion,2.0
+333,Super comfortable! कोणत्याही kurti वर छान दिसतात. I recommend this.,super comfortable ! ो ् ा ी kurti ा ि ा . i recommend this .,['kurti'],['positive'],['product_item'],1,True,Fashion,5.0
+334,Good product in this price. दोन्ही palazzos useful आहेत.,good product in this price . ो ् ी palazzos useful े .,"['product', 'price']","['positive', 'positive']","['product_item', 'price_value']",2,True,Fashion,4.0
+335,Crush material मुळे इस्त्री करायची गरज नाही. खूपच convenient! 🤩,crush material ु े ् ् ी ा ी ा ी . ू convenient ! :star - struck:,['material'],['positive'],['fabric_material'],1,True,Fashion,5.0
+336,4 shorts चा pack खूपच useful आहे. Colors पण छान आले. Very happy with the quality.,4 shorts ा pack ू useful े . colors ा े . very happy with the quality .,['quality'],['positive'],['quality_build'],1,True,Fashion,5.0
+337,"Shorts aaramdayak आहेत, रात्री झोपताना घालण्यासाठी best. Fabric is soft.","shorts aaramdayak े , ा ् ी ो ा ा ा ् ा ा ी best . fabric is soft .",['fabric'],['positive'],['fabric_material'],1,True,Fashion,4.0
+338,Quality खूपच poor आहे. एका short ला छिद्र होते. Not recommended. 😠,quality ू poor े . ा short ा ि ् ो े . not recommended . :angry_face:,['quality'],['negative'],['quality_build'],1,True,Fashion,2.0
+339,"Size M मागवला होता, perfect fit झाला. Colors random आले पण all are good.","size m ा ा ो ा , perfect fit ा ा . colors random े all are good .","['size', 'perfect fit', 'fit']","['positive', 'positive', 'positive']","['fit_size', 'fit_size', 'fit_size']",3,True,Fashion,4.0
+340,Great value for money! चारही shorts चे कापड चांगले आहे.,great value for money ! ा ी shorts े ा ा ं े े .,['value for money'],['positive'],['price_value'],1,True,Fashion,5.0
+341,एका wash मध्ये रंग गेला. आता खूपच fade दिसतात.,ा wash ् े ं े ा . ा ू fade ि ा .,['product'],['neutral'],['product_item'],1,True,Fashion,3.0
+342,Gym/workout साठी घेतले होते. Very comfortable and stretchable.,gym / workout ा ी े े ो े . very comfortable and stretchable .,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+343,"prodotto buono, colori diversi. tutto ok. (Product is good, different colors. All okay.)","prodotto buono , colori diversi . tutto ok . ( product is good , different colors . all okay . )",['product'],['positive'],['product_item'],1,False,Fashion,4.0
+344,Perfect for summers! कापड breathable आहे. मला खूप आवडले. 😊,perfect for summers ! ा breathable े . ा ू े . :smiling_face_with_smiling_eyes:,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+345,4 पैकी फक्त 3 shorts आले. एक missing आहे. Very bad service.,4 ै ी ् 3 shorts े . missing े . very bad service .,['service'],['negative'],['delivery_service'],1,True,Fashion,1.0
+346,Awesome denim skirt! Stretch fabric मुळे खूप comfortable आहे. High waist look खूप stylish दिसतो. Loved it! ❤️,awesome denim skirt ! stretch fabric ु े ू comfortable े . high waist look ू stylish ि ो . loved it ! :red_heart:,"['fabric', 'waist', 'look']","['positive', 'positive', 'positive']","['fabric_material', 'fit_size', 'design_appearance']",3,True,Fashion,5.0
+347,"Skirt ची quality चांगली आहे, पण color photo पेक्षा थोडा dark आहे.","skirt ी quality ा ं ी े , color photo े ् ा ो ा dark े .","['quality', 'color']","['positive', 'positive']","['quality_build', 'design_appearance']",2,True,Fashion,4.0
+348,Fitting is just perfect. Flared design खूपच cute दिसतो. Must buy for college girls. 😉,fitting is just perfect . flared design ू cute ि ो . must buy for college girls . :winking_face:,"['fitting', 'design']","['positive', 'positive']","['fit_size', 'design_appearance']",2,True,Fashion,5.0
+349,"Denim material खूपच hard आहे, comfortable वाटत नाही.","denim material ू hard े , comfortable ा ा ी .",['material'],['negative'],['fabric_material'],1,True,Fashion,3.0
+350,Two buttons मुळे look खूपच classy येतो. Quality पण premium आहे.,two buttons ु े look ू classy े ो . quality premium े .,"['buttons', 'look', 'quality']","['positive', 'positive', 'positive']","['quality_build', 'design_appearance', 'quality_build']",3,True,Fashion,5.0
+351,"Good skirt, पण length थोडी short आहे. बाकी सर्व छान आहे.","good skirt , length ो ी short े . ा ी ् ा े .",['length'],['positive'],['fit_size'],1,True,Fashion,4.0
+352,Superb skirt! कोणत्याही top वर match होतो. Very versatile.,superb skirt ! ो ् ा ी top match ो ो . very versatile .,['top'],['positive'],['product_item'],1,True,Fashion,5.0
+353,"Button ची quality खूप खराब आहे, एका दिवसात निघाले.","button ी quality ू ा े , ा ि ा ि ा े .",['quality'],['negative'],['quality_build'],1,True,Fashion,2.0
+354,"It's a beautiful skirt, fitting is amazing. Go for it without any doubt. ✨","it ' s a beautiful skirt , fitting is amazing . go for it without any doubt . :sparkles:",['fitting'],['positive'],['fit_size'],1,False,Fashion,5.0
+355,"Skirt चांगला आहे, पण delivery partner ने खूप त्रास दिला.","skirt ा ं ा े , delivery partner े ू ् ा ि ा .",['delivery'],['positive'],['delivery_service'],1,True,Fashion,4.0
+356,खरंच खूप stylish आणि beautiful आहे. Black color is just wow! 😍,ं ू stylish ि beautiful े . black color is just wow ! :smiling_face_with_heart - eyes:,['color'],['positive'],['design_appearance'],1,True,Fashion,5.0
+357,"Skirt is attractive, पण material is not that great. किमतीनुसार ठीक आहे.","skirt is attractive , material is not that great . ि ी ु ा ी े .",['material'],['negative'],['fabric_material'],1,True,Fashion,4.0
+358,Party साठी perfect आहे. Look खूपच elegant येतो. I love this skirt.,party ा ी perfect े . look ू elegant े ो . i love this skirt .,['look'],['positive'],['design_appearance'],1,True,Fashion,5.0
+359,खूपच cheap quality आहे. Fabric is very rough. Not satisfied.,ू cheap quality े . fabric is very rough . not satisfied .,"['quality', 'cheap', 'fabric']","['negative', 'negative', 'negative']","['quality_build', 'price_value', 'fabric_material']",3,True,Fashion,2.0
+360,It's a must have black skirt for every girl. So versatile and pretty.,it ' s a must have black skirt for every girl . so versatile and pretty .,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+361,Fitting is a bit loose. Alter करून घ्यावा लागेल.,fitting is a bit loose . alter ू ् ा ा ा े .,"['fitting', 'loose']","['negative', 'negative']","['fit_size', 'fit_size']",2,True,Fashion,3.0
+362,The skirt is really beautiful. Good quality fabric. Worth buying.,the skirt is really beautiful . good quality fabric . worth buying .,"['quality', 'fabric', 'worth']","['positive', 'positive', 'positive']","['quality_build', 'fabric_material', 'price_value']",3,True,Fashion,5.0
+363,"Black color is perfect, not faded. Length is also good.","black color is perfect , not faded . length is also good .","['color', 'length']","['positive', 'positive']","['design_appearance', 'fit_size']",2,False,Fashion,4.0
+364,खूपच छान skirt आहे. कोणत्याही crop top वर super दिसतो.,ू ा skirt े . ो ् ा ी crop top super ि ो .,['top'],['positive'],['product_item'],1,True,Fashion,5.0
+365,Skirt फाटलेला आला होता. Very bad experience with seller.,skirt ा े ा ा ो ा . very bad experience with seller .,['seller'],['negative'],['delivery_service'],1,True,Fashion,1.0
+366,खूपच सुंदर long skirt. Print is very beautiful. Fabric खूप flowy आहे.,ू ु ं long skirt . print is very beautiful . fabric ू flowy े .,"['print', 'fabric']","['positive', 'positive']","['design_appearance', 'fabric_material']",2,True,Fashion,5.0
+367,"Skirt चांगला आहे, summer साठी perfect. पण color थोडा dull आहे.","skirt ा ं ा े , summer ा ी perfect . color ो ा dull े .",['color'],['negative'],['design_appearance'],1,True,Fashion,4.0
+368,The print is so elegant. मला खूप आवडला. Fitting is also very good.,the print is so elegant . ा ू ा . fitting is also very good .,"['print', 'fitting']","['positive', 'positive']","['design_appearance', 'fit_size']",2,True,Fashion,5.0
+369,कमरेचे elastic खूपच tight आहे. Uncomfortable वाटते.,े े elastic ू tight े . uncomfortable ा े .,['tight'],['negative'],['fit_size'],1,True,Fashion,3.0
+370,It's a very comfortable and stylish skirt. I will order another color soon. 😊,it ' s a very comfortable and stylish skirt . i will order another color soon . :smiling_face_with_smiling_eyes:,['color'],['negative'],['design_appearance'],1,False,Fashion,5.0
+371,एकदा wash केल्यावर print पूर्णपणे खराब झाली. Poor quality print.,ा wash े ् ा print ू ् े ा ा ी . poor quality print .,"['print', 'quality']","['negative', 'negative']","['design_appearance', 'quality_build']",2,True,Fashion,2.0
+372,Skirt चा घेर (flair) खूपच छान आहे. Looks very graceful.,skirt ा े ( flair ) ू ा े . looks very graceful .,['looks'],['positive'],['design_appearance'],1,True,Fashion,5.0
+373,"Print is nice, fabric is soft. Good product for the price.","print is nice , fabric is soft . good product for the price .","['print', 'fabric', 'product', 'price']","['positive', 'positive', 'positive', 'positive']","['design_appearance', 'fabric_material', 'product_item', 'price_value']",4,True,Fashion,4.0
+374,White top सोबत खूपच छान दिसतो. Perfect for a day out. ✨,white top ो ू ा ि ो . perfect for a day out . :sparkles:,['top'],['positive'],['product_item'],1,True,Fashion,5.0
+375,"Skirt is beautiful, पण transparent आहे, need to wear inner.","skirt is beautiful , transparent े , need to wear inner .",['product'],['positive'],['product_item'],1,True,Fashion,4.0
+376,आजच delivery झाली. Set खूपच beautiful आहे. Festive season साठी perfect! ✨,delivery ा ी . set ू beautiful े . festive season ा ी perfect ! :sparkles:,"['delivery', 'set']","['positive', 'positive']","['delivery_service', 'product_item']",2,True,Fashion,5.0
+377,"कुर्त्याचे कापड उत्तम आहे, पण pant थोडा transparent आहे. Inner घालावा लागेल.","ु ् ् ा े ा ् े , pant ो ा transparent े . inner ा ा ा ा े .",['pant'],['negative'],['product_item'],1,True,Fashion,4.0
+378,It's a very elegant set. I wore it for a family function and got so many compliments.,it ' s a very elegant set . i wore it for a family function and got so many compliments .,['set'],['positive'],['product_item'],1,False,Fashion,5.0
+379,दुपट्ट्याची लांबी खूपच कमी आहे. It looks very odd.,ु ् ् ा ी ा ं ी ू ी े . it looks very odd .,['looks'],['neutral'],['design_appearance'],1,True,Fashion,3.0
+380,Price range नुसार quality खूपच भारी आहे. Peach color is very soothing. Go for it!,price range ु ा quality ू ा ी े . peach color is very soothing . go for it !,"['quality', 'price', 'color']","['positive', 'positive', 'positive']","['quality_build', 'price_value', 'design_appearance']",3,True,Fashion,5.0
+381,"Good for daily use. कापड थोडे पातळ आहे, पण comfortable आहे.","good for daily use . ा ो े ा े , comfortable े .",['product'],['positive'],['product_item'],1,True,Fashion,4.0
+382,It's a wonderful cotton kurti set. The print is very nice. Totally satisfied. 👍,it ' s a wonderful cotton kurti set . the print is very nice . totally satisfied . :thumbs_up:,"['cotton', 'kurti', 'set', 'print']","['positive', 'positive', 'positive', 'positive']","['fabric_material', 'product_item', 'product_item', 'design_appearance']",4,True,Fashion,5.0
+383,Set चांगला आहे पण fitting थोडी loose आहे. Alteration करावे लागेल.,set ा ं ा े fitting ो ी loose े . alteration ा े ा े .,"['fitting', 'loose', 'set']","['negative', 'negative', 'negative']","['fit_size', 'fit_size', 'product_item']",3,True,Fashion,4.0
+384,Elastic quality is very good. खूपच comfortable आहेत. Must have product.,elastic quality is very good . ू comfortable े . must have product .,"['quality', 'product']","['positive', 'positive']","['quality_build', 'product_item']",2,True,Fashion,5.0
+385,"एक Red आणि एक Blue आला, दोन्ही colors nice आहेत. Fabric is good.","red ि blue ा , ो ् ी colors nice े . fabric is good .",['fabric'],['positive'],['fabric_material'],1,True,Fashion,4.0
+386,एका palazzo चा रंग wash केल्यावर गेला. Quality average आहे.,ा palazzo ा ं wash े ् ा े ा . quality average े .,"['palazzo', 'quality']","['neutral', 'neutral']","['product_item', 'quality_build']",2,True,Fashion,3.0
+387,Very useful combo pack. The material is so soft. I loved it. ❤️,very useful combo pack . the material is so soft . i loved it . :red_heart:,['material'],['positive'],['fabric_material'],1,True,Fashion,5.0
+388,Perfect for sleeping and lounging at home. Very soft and comfy.,perfect for sleeping and lounging at home . very soft and comfy .,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+389,"4 पैकी एका short चा color आवडला नाही, but overall it's a good deal.","4 ै ी ा short ा color ा ा ी , but overall it ' s a good deal .","['color', 'deal']","['positive', 'positive']","['design_appearance', 'price_value']",2,True,Fashion,4.0
+390,Shorts ची length खूपच short आहे. Expected पेक्षा लहान आहेत.,shorts ी length ू short े . expected े ् ा ा े .,['length'],['neutral'],['fit_size'],1,True,Fashion,3.0
+391,This denim skirt is awesome! High waist fitting is very flattering. I feel so confident in it! 💃,this denim skirt is awesome ! high waist fitting is very flattering . i feel so confident in it ! :woman_dancing:,"['fitting', 'waist']","['positive', 'positive']","['fit_size', 'fit_size']",2,False,Fashion,5.0
+392,"Skirt is stylish, but the denim is not very stretchable. Size up if you're unsure.","skirt is stylish , but the denim is not very stretchable . size up if you ' re unsure .",['size'],['positive'],['fit_size'],1,True,Fashion,4.0
+393,"The flare is perfect, not too much not too little. Quality is also superb. 👌","the flare is perfect , not too much not too little . quality is also superb . :ok_hand:",['quality'],['positive'],['quality_build'],1,True,Fashion,5.0
+394,It's a classic black skirt. Looks very elegant and can be styled in many ways. A wardrobe essential!,it ' s a classic black skirt . looks very elegant and can be styled in many ways . a wardrobe essential !,['looks'],['positive'],['design_appearance'],1,False,Fashion,5.0
+395,"Skirt is okay, पण fabric attracts a lot of dust and lint.","skirt is okay , fabric attracts a lot of dust and lint .",['fabric'],['neutral'],['fabric_material'],1,True,Fashion,3.0
+396,खूपच beautiful skirt आहे. The material has a slight shine to it which looks great. 😍,ू beautiful skirt े . the material has a slight shine to it which looks great . :smiling_face_with_heart - eyes:,"['material', 'looks', 'shine']","['positive', 'positive', 'positive']","['fabric_material', 'design_appearance', 'design_appearance']",3,True,Fashion,5.0
+397,The print is so vibrant and pretty! Perfect for a beach vacation. 🌴☀️,the print is so vibrant and pretty ! perfect for a beach vacation . :palm_tree: :sun:,['print'],['positive'],['design_appearance'],1,True,Fashion,5.0
+398,"Skirt is very flowy and comfortable. The print is a little different from the picture, but still nice.","skirt is very flowy and comfortable . the print is a little different from the picture , but still nice .",['print'],['positive'],['design_appearance'],1,True,Fashion,4.0
+399,Material is very cheap polyester. It's not breathable at all. Disappointed. 😞,material is very cheap polyester . it ' s not breathable at all . disappointed . :disappointed_face:,"['polyester', 'material', 'cheap']","['negative', 'negative', 'negative']","['fabric_material', 'fabric_material', 'price_value']",3,False,Fashion,2.0
+400,खूपच graceful skirt आहे. It makes me feel so elegant. Must buy! ✨,ू graceful skirt े . it makes me feel so elegant . must buy ! :sparkles:,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+401,Bht hi acchi cream I Hai jaisi dekhi Thi per use karne ke bad pata chalega ki kaisi hai vaise to bahut acchi lag rahi hai dikhne Mein khushbu bhi kafi acchi hai ❤️❤️❤️❤️,bahut hi acchi cream i hai jaisi dekhi thi per use karne ke bad pata chalega ki kaisi hai vaise to bahut acchi lag rahi hai dikhne mein fragrance bhi kafi acchi hai :red_heart: :red_heart: :red_heart: :red_heart:,"['fragrance', 'cream']","['negative', 'negative']","['scent_fragrance', 'product_item']",2,True,Beauty,5.0
+402,Mamaaerth vitamin c daily glow face cream with vitamin c & turmeric for skin illumination light of a good day 💜💜,mamaaerth vitamin c daily glow face cream with vitamin c & turmeric for skin illumination light of a good day :purple_heart: :purple_heart:,"['cream', 'glow', 'skin', 'face']","['positive', 'positive', 'positive', 'positive']","['product_item', 'skin_beauty_effect', 'skin_beauty_effect', 'skin_beauty_effect']",4,False,Beauty,5.0
+403,I love the product.mamaearth product is tooo good 👍🏻 i like it🤛🏻,i love the product . mamaearth product is too good :thumbs_up_light_skin_tone: i like it :left - facing_fist_light_skin_tone:,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+404,"👍Packing all good quantity vi aachi hei ,meri dry skin hei ,muje thodi dry lagi ,,baki summer main suite ho sakti hai,baki use kr k dekhte hei Maine first time mama Arth ka product purchase Kiya hei experience dekhte hain kaisa hota hai ☺️🙂",":thumbs_up: packing all good quantity vi aachi hei , meri dry skin hei , muje thodi dry lagi , , baki summer main suite ho sakti hai , baki use kr k dekhte hei maine first time mama arth ka product purchase kiya hei experience dekhte hain kaisa hota hai :smiling_face: :slightly_smiling_face:","['packing', 'skin', 'product']","['positive', 'positive', 'positive']","['delivery_service', 'skin_beauty_effect', 'product_item']",3,True,Beauty,5.0
+405,Bhut he acha aaya h mujhe bhut pasand aaya Tq messho 🙃🙃 ab use krne ke baad pta chlega kaisa h,bahut he accha aaya h mujhe bahut pasand aaya tq messho :upside - down_face: :upside - down_face: ab use krne ke baad pta chlega kaisa h,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+406,Nai product achcha hai magar use karne ke bad pata chalega delivery is nice Maine use Kiya hai product bahut achcha use hua hai Maine yah product use kiya hai aur meri skin bahut hi bright skin ho chuki hai bahut achcha product hai Le sakte hain thank u mesho,nai product accha hai magar use karne ke bad pata chalega delivery is nice maine use kiya hai product bahut accha use hua hai maine yah product use kiya hai aur meri skin bahut hi bright skin ho chuki hai bahut accha product hai le sakte hain thank u mesho,"['product', 'delivery', 'skin']","['positive', 'positive', 'positive']","['product_item', 'delivery_service', 'skin_beauty_effect']",3,True,Beauty,5.0
+407,"Good packing Good product Tq meesho Ye pani jese kyu hai cream me ,kya aise hi rahti hai ? Very bad yrr 😌aise cream se skin kharab ho sakti hai Pahle thik tha bad me pani jese ho gya 😌","good packing good product tq meesho ye pani jese kyu hai cream me , kya aise hi rahti hai ? very bad yrr :relieved_face: aise cream se skin kharab ho sakti hai pahle thik tha bad me pani jese ho gya :relieved_face:","['packing', 'product', 'meesho', 'cream', 'skin']","['positive', 'positive', 'positive', 'positive', 'negative']","['delivery_service', 'product_item', 'delivery_service', 'product_item', 'skin_beauty_effect']",5,True,Beauty,5.0
+408,Bohot accha product hai....... packing bhi bohot pyaari thi........ cream ki quantity bhi kafi hai.....baki use krne k baad pata chalega............. ....,bahut accha product hai . . packing bhi bahut pyaari thi . . cream ki quantity bhi kafi hai . . baki use krne k baad pata chalega . . . .,"['product', 'packing', 'cream']","['positive', 'positive', 'positive']","['product_item', 'delivery_service', 'product_item']",3,True,Beauty,5.0
+409,"Super, cream use cheyaka mundu jidduga dull ga undedi , ee cream use chesaka bright ga , glow ga super ga undi, thank you meeshow 💕💕","super , cream use cheyaka mundu jidduga dull ga undedi , ee cream use chesaka bright ga , glow ga super ga undi , thank you meeshow :two_hearts: :two_hearts:","['cream', 'glow']","['negative', 'positive']","['product_item', 'skin_beauty_effect']",2,False,Beauty,5.0
+410,छान आहे .पण थोड पाण्यासारखे आहे but it is ok,ा े . ो ा ् ा ा े े but it is ok,['product'],['neutral'],['product_item'],1,True,Beauty,3.0
+411,Empty box,empty box,['box'],['negative'],['delivery_service'],1,False,Beauty,1.0
+412,Expired product,expired product,['product'],['negative'],['product_item'],1,False,Beauty,1.0
+413,Product aadha khatam h,product aadha khatam h,['product'],['negative'],['product_item'],1,False,Beauty,1.0
+414,Quantity is small,quantity is small,['product'],['neutral'],['product_item'],1,False,Beauty,3.0
+415,Product good but late delivery,product good but late delivery,"['product', 'delivery', 'late']","['positive', 'negative', 'negative']","['product_item', 'delivery_service', 'delivery_service']",3,False,Beauty,2.0
+416,It's intermediate👍🏻,it ' s intermediate :thumbs_up_light_skin_tone:,['product'],['neutral'],['product_item'],1,False,Beauty,3.0
+417,Very nice quality and very nice colour. I like it very much,very nice quality and very nice colour . i like it very much,"['quality', 'colour']","['positive', 'positive']","['quality_build', 'design_appearance']",2,False,Beauty,5.0
+418,Axa hai but powder thoda khrab hai or brush bhi kotna xota hai,axa hai but powder thoda kharab hai or brush bhi kotna xota hai,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+419,Bht choti h like a toy lekin bht pyari h meri beti ko to khilona lg rhi h,bahut chhoti h like a toy lekin bahut pyari h meri beti ko to khilona lg rhi h,['product'],['positive'],['product_item'],1,True,Beauty,4.0
+420,👍🏻🥰,:thumbs_up_light_skin_tone: :smiling_face_with_hearts:,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+421,Jo mangvaya tha vah wala Nahin bheja pink mangaya tha rate bhej diya is not good Mishu,jo mangvaya tha vah wala nahi bheja pink mangaya tha rate bhej diya is not good mishu,['rate'],['negative'],['price_value'],1,True,Beauty,5.0
+422,It actually works I mean I was having a dark pigmentation in my chin which occurred due to excessive wearing of a mask and scarf but then it went worse as if I was having a small moustache below my lips it was horrible but after applying it regularly twice in a day for almost 2 to 3 months it was vanished not lying... Abhi to mai kisi heroine se kam nahi dikhti 😂I'm super happy with this product do give it a try but external use k liye hi hai otherwise ye jalan dega if u do razor n all be careful side effects to esa kuch hai ni but peel off skin ho skti hai which means it's working recommended 💯💯💯,it actually works i mean i was having a dark pigmentation in my chin which occurred due to excessive wearing of a mask and scarf but then it went worse as if i was having a small moustache below my lips it was horrible but after applying it regularly twice in a day for almost 2 to 3 months it was vanished not lying . . abhi to mai kisi heroine se kam nahi dikhti :face_with_tears_of_joy: i ' m super happy with this product do give it a try but external use k liye hi hai otherwise ye jalan dega if u do razor n all be careful side effects to esa kuch hai nahi but peel off skin ho skti hai which means it ' s working recommended :hundred_points: :hundred_points:,"['pigmentation', 'product', 'skin']","['positive', 'negative', 'positive']","['design_appearance', 'product_item', 'skin_beauty_effect']",3,True,Beauty,5.0
+423,Jaisa dikhaya vaisa hi aaya Safe no damage product,jaisa dikhaya vaisa hi aaya safe no damage product,"['product', 'damage']","['positive', 'positive']","['product_item', 'delivery_service']",2,False,Beauty,5.0
+424,Best product for all skin types packing bhi safe thi and quantity bhi full hai thank you meesho🥰🥰👍,best product for all skin types packing bhi safe thi and quantity bhi full hai thank you meesho :smiling_face_with_hearts: :smiling_face_with_hearts: :thumbs_up:,"['packing', 'product', 'skin', 'meesho']","['positive', 'positive', 'positive', 'positive']","['delivery_service', 'product_item', 'skin_beauty_effect', 'delivery_service']",4,True,Beauty,5.0
+425,Ami pilgrim vitamin c serum oder korechilam but onno brand er vitamin c serum asche 😭 ami amar taka ferot chai . Ai amar Frist holo ai rokom tachara amra songe messho kono din o kichu koreni ..,ami pilgrim vitamin c serum oder korechilam but onno brand er vitamin c serum asche :loudly_crying_face: ami amar taka ferot chai . ai amar frist holo ai rokom tachara amra songe messho kono din o kichu koreni . .,['serum'],['positive'],['product_item'],1,False,Beauty,5.0
+426,Must buy because it is pilgrim product,must buy because it is pilgrim product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+427,"I received it in a good quantity and the best packaging in this, go for it ☺️","i received it in a good quantity and the best packaging in this , go for it :smiling_face:",['packaging'],['positive'],['delivery_service'],1,True,Beauty,4.0
+428,Good product.. Go fr it.. Value for money,good product . . go fr it . . value for money,"['product', 'value for money']","['positive', 'positive']","['product_item', 'price_value']",2,False,Beauty,5.0
+429,Boht Acha h shandaar h blkul original,boht accha h shandar h blkul original,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+430,"Good product, normal effect with little bit of glow after 2 weeks. In this cost this product is value for money.","good product , normal effect with little bit of glow after 2 weeks . in this cost this product is value for money .","['product', 'effect', 'glow', 'value for money', 'cost']","['positive', 'positive', 'positive', 'positive', 'positive']","['product_item', 'skin_beauty_effect', 'skin_beauty_effect', 'price_value', 'price_value']",5,False,Beauty,5.0
+431,The product and the package were really awesome ✨,the product and the package were really awesome :sparkles:,"['product', 'package']","['positive', 'positive']","['product_item', 'delivery_service']",2,True,Beauty,5.0
+432,"Moisturizer is good, the fragrance is nice , even a single drop spread well on skin , no darkness or white casting after applying it. Value for money and therefore I bought sunscreen of the same company. I'll give 8/10 ⭐ thnx meesho 👍","moisturizer is good , the fragrance is nice , even a single drop spread well on skin , no darkness or white casting after applying it . value for money and therefore i bought sunscreen of the same company . i ' ll give 8 / 10 :star: thnx meesho :thumbs_up:","['moisturizer', 'fragrance', 'skin', 'value for money', 'meesho']","['positive', 'positive', 'positive', 'positive', 'positive']","['skin_beauty_effect', 'scent_fragrance', 'skin_beauty_effect', 'price_value', 'delivery_service']",5,True,Beauty,5.0
+433,Awesome product nice packing and affordable go for it,awesome product nice packing and affordable go for it,"['packing', 'product', 'affordable']","['positive', 'positive', 'positive']","['delivery_service', 'product_item', 'price_value']",3,False,Beauty,5.0
+434,This moisturizer is soooo good.. doesn't feel sticky or heavy on my face..it is light weight.. suitable for oily skin.. for this price it is a decent product 👍,this moisturizer is soo good . . doesn ' t feel sticky or heavy on my face . . it is light weight . . suitable for oily skin . . for this price it is a decent product :thumbs_up:,"['moisturizer', 'face', 'skin', 'product', 'price']","['positive', 'positive', 'positive', 'positive', 'positive']","['skin_beauty_effect', 'skin_beauty_effect', 'skin_beauty_effect', 'product_item', 'price_value']",5,False,Beauty,5.0
+435,The product is good . The packaging is also good . But regarding the product the perfume should be removed. Everything is fine . Actually it is the best moisturizer in this price segment definitely go for it . It's works well too .,the product is good . the packaging is also good . but regarding the product the perfume should be removed . everything is fine . actually it is the best moisturizer in this price segment definitely go for it . it ' s works well too .,"['product', 'packaging', 'perfume', 'moisturizer', 'price']","['positive', 'positive', 'positive', 'positive', 'positive']","['product_item', 'delivery_service', 'scent_fragrance', 'skin_beauty_effect', 'price_value']",5,True,Beauty,5.0
+436,Everything ok but I ordered moisturizer and meesho give serum But it's ok because this is ur first mistake and I order again this moisturizer pls give me right product ok?,everything ok but i ordered moisturizer and meesho give serum but it ' s ok because this is ur first mistake and i order again this moisturizer pls give me right product ok ?,"['moisturizer', 'meesho', 'serum', 'product']","['positive', 'positive', 'positive', 'positive']","['skin_beauty_effect', 'delivery_service', 'product_item', 'product_item']",4,False,Beauty,5.0
+437,value of money. good smell ❤️❤️,value of money . good smell :red_heart: :red_heart:,['smell'],['positive'],['scent_fragrance'],1,False,Beauty,5.0
+438,This moisturizer is good but might be not suitable for oily skin and combination skin as it can feel heavy but it's good for dry skin,this moisturizer is good but might be not suitable for oily skin and combination skin as it can feel heavy but it ' s good for dry skin,"['moisturizer', 'skin']","['positive', 'negative']","['skin_beauty_effect', 'skin_beauty_effect']",2,False,Beauty,5.0
+439,Good product and packaging is awesome,good product and packaging is awesome,"['product', 'packaging']","['positive', 'positive']","['product_item', 'delivery_service']",2,False,Beauty,5.0
+440,Product and packaging is good 👍😊,product and packaging is good :thumbs_up: :smiling_face_with_smiling_eyes:,"['product', 'packaging']","['positive', 'positive']","['product_item', 'delivery_service']",2,False,Beauty,5.0
+441,Ja k le skte hai but accha hai,ja k le skte hai but accha hai,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+442,Tha best moisturizer skin hydrate 🥰❤️,tha best moisturizer skin hydrate :smiling_face_with_hearts: :red_heart:,"['moisturizer', 'skin']","['positive', 'positive']","['skin_beauty_effect', 'skin_beauty_effect']",2,True,Beauty,5.0
+443,Real product not fake good for oily skin,real product not fake good for oily skin,"['product', 'skin']","['negative', 'negative']","['product_item', 'skin_beauty_effect']",2,False,Beauty,5.0
+444,Ye to hum pehli baar mangaye h use krke pata chalega kaisa h aya to acha hai delivery boy to ky hi bole best bhot ache se baat kiye aur ghar tk de jate,ye to hum pehli baar mangaye h use krke pata chalega kaisa h aya to accha hai delivery boy to ky hi bole best bahut ache se baat kiye aur ghar tk de jate,['delivery'],['positive'],['delivery_service'],1,True,Beauty,5.0
+445,Honestly Saying Product Quality Was So Good 😊 and it's smeel also very nice Let's see the results then I get review Eidit:- after use I gave review I don't have any words to Saying about this product results Beleive me this product was osm when you are applying on your face to it's very cool then in morning you wash you face then you see result 💗🫶🏼 Now I this product was showing out of stock but I waiting for stock available.....thank you everyone,honestly saying product quality was so good :smiling_face_with_smiling_eyes: and it ' s smeel also very nice let ' s see the results then i get review eidit: - after use i gave review i don ' t have any words to saying about this product results beleive me this product was osm when you are applying on your face to it ' s very cool then in morning you wash you face then you see result :growing_heart: :heart_hands_medium - light_skin_tone: now i this product was showing out of stock but i waiting for stock available . . thank you everyone,"['quality', 'product', 'results', 'face']","['positive', 'positive', 'positive', 'positive']","['quality_build', 'product_item', 'skin_beauty_effect', 'skin_beauty_effect']",4,True,Beauty,5.0
+446,Smooth and rich smell 😊Thank you meesho 😍,smooth and rich smell :smiling_face_with_smiling_eyes: thank you meesho :smiling_face_with_heart - eyes:,"['meesho', 'smell']","['positive', 'positive']","['delivery_service', 'scent_fragrance']",2,False,Beauty,5.0
+447,This moisturizer is truly amazing; it prevents pimple and gives the skin a natural glow..👍,this moisturizer is truly amazing ; it prevents pimple and gives the skin a natural glow . . :thumbs_up:,"['moisturizer', 'pimple', 'glow', 'skin']","['positive', 'positive', 'positive', 'positive']","['skin_beauty_effect', 'skin_beauty_effect', 'skin_beauty_effect', 'skin_beauty_effect']",4,True,Beauty,5.0
+448,I have seen many reviews and its a indian brand pakaging is very very good it cames in seal packaging i love the texture affordable so go for it its really good,i have seen many reviews and its a indian brand pakaging is very very good it cames in seal packaging i love the texture affordable so go for it its really good,"['affordable', 'packaging', 'texture']","['positive', 'positive', 'positive']","['price_value', 'delivery_service', 'fabric_material']",3,True,Beauty,5.0
+449,"Very good i ordered their sunscreen, cleanser , moisturizer and serum but all of them were too good also received the product early. Thanks meesho","very good i ordered their sunscreen , cleanser , moisturizer and serum but all of them were too good also received the product early . thanks meesho","['moisturizer', 'serum', 'product', 'meesho']","['positive', 'positive', 'positive', 'positive']","['skin_beauty_effect', 'product_item', 'product_item', 'delivery_service']",4,True,Beauty,5.0
+450,Pump is not working and l can't believe it this is original product because of price,pump is not working and l can ' t believe it this is original product because of price,"['product', 'price']","['positive', 'positive']","['product_item', 'price_value']",2,False,Beauty,4.0
+451,The product is good like the packaging affordable as well good quantity 😊,the product is good like the packaging affordable as well good quantity :smiling_face_with_smiling_eyes:,"['affordable', 'packaging', 'product']","['positive', 'positive', 'positive']","['price_value', 'delivery_service', 'product_item']",3,True,Beauty,5.0
+452,"It's very good, you must buy it It's so underrated I loved it.","it ' s very good , you must buy it it ' s so underrated i loved it .",['product'],['positive'],['product_item'],1,False,Beauty,5.0
+453,"This is my second time purchasing this product, and it is very good.","this is my second time purchasing this product , and it is very good .",['product'],['positive'],['product_item'],1,False,Beauty,5.0
+454,Very good product...no fragrance... hydrating n lightweight,very good product . . no fragrance . . hydrating n lightweight,"['product', 'fragrance']","['positive', 'negative']","['product_item', 'scent_fragrance']",2,False,Beauty,5.0
+455,It's awesome.... Want to buy other products from them!!.... Luv 💞 ittt,it ' s awesome . . want to buy other products from them ! ! . . luv :revolving_hearts: itt,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+456,"Packeging is good ,and texture is good not very thick light weight on skin and not look kala after application","packeging is good , and texture is good not very thick light weight on skin and not look kala after application","['texture', 'skin', 'look']","['negative', 'negative', 'negative']","['fabric_material', 'skin_beauty_effect', 'design_appearance']",3,False,Beauty,4.0
+457,Good product,good product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+458,The best face wash the best moisturizer at the best serum yakin maniye visible result hai aur koi bhi product use karne se रातो-रात kuchh achcha nahin Hai jata hai yahi use karke dekhiae time lagega per sab theek ho jaega kyunki kuchh bhi use karo atlist 3 month lagte Hain to give it a try best product ever bahut acchi value per bahut achcha kuchh mil raha hai,the best face wash the best moisturizer at the best serum yakin maniye visible result hai aur koi bhi product use karne se ा ो - ा kuchh accha nahi hai jata hai yahi use karke dekhiae time lagega per sab theek ho jaega kyunki kuchh bhi use karo atlist 3 month lagte hain to give it a try best product ever bahut acchi value per bahut accha kuchh mil raha hai,"['moisturizer', 'serum', 'face', 'product']","['positive', 'positive', 'positive', 'negative']","['skin_beauty_effect', 'product_item', 'skin_beauty_effect', 'product_item']",4,True,Beauty,5.0
+459,When I order it or last time it delivered just in 2 days but this time 8 days ... what's the problem usually measure delivers before time but this time but the product is good,when i order it or last time it delivered just in 2 days but this time 8 days . . what ' s the problem usually measure delivers before time but this time but the product is good,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+460,"Good 👍😊 ,but quantity is little bit less ,you can buy it","good :thumbs_up: :smiling_face_with_smiling_eyes: , but quantity is little bit less , you can buy it",['product'],['positive'],['product_item'],1,False,Beauty,4.0
+461,"Using from the past 3 days.. It's working on my combination skin type, easily absorbing and its not leaving oily. Value for money","using from the past 3 days . . it ' s working on my combination skin type , easily absorbing and its not leaving oily . value for money","['skin', 'value for money']","['positive', 'positive']","['skin_beauty_effect', 'price_value']",2,True,Beauty,5.0
+462,Really satisfied if you want a glow after doing skin care this is your product!!,really satisfied if you want a glow after doing skin care this is your product ! !,"['product', 'glow', 'skin']","['positive', 'positive', 'positive']","['product_item', 'skin_beauty_effect', 'skin_beauty_effect']",3,False,Beauty,5.0
+463,Best hai raat me agr face wash kr ke sirf isko laga lo to bhi ye best night treatment hai. Loved it,best hai raat me agr face wash kr ke sirf isko laga lo to bhi ye best night treatment hai . loved it,['face'],['positive'],['skin_beauty_effect'],1,True,Beauty,5.0
+464,Worth for money. Nice fragrance,worth for money . nice fragrance,"['worth', 'fragrance']","['positive', 'positive']","['price_value', 'scent_fragrance']",2,False,Beauty,5.0
+465,Best moisturizer for acne,best moisturizer for acne,['moisturizer'],['positive'],['skin_beauty_effect'],1,False,Beauty,5.0
+466,Good 👍products thank you meeso,good :thumbs_up: products thank you meeso,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+467,It's literally underrated,it ' s literally underrated,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+468,Product has come I will come back after using it.,product has come i will come back after using it .,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+469,This is really good and my acne is improving,this is really good and my acne is improving,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+470,Nice product... Very very suitable moisturizer,nice product . . very very suitable moisturizer,"['product', 'moisturizer']","['positive', 'positive']","['product_item', 'skin_beauty_effect']",2,False,Beauty,5.0
+471,Bhut hi acha product h light weight or acne clear he I love it ♥️,bahut hi accha product h light weight or acne clear he i love it :heart_suit:,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+472,Very nice acha aya h jo mangaya h vahi product hai .,very nice accha aya h jo mangaya h vahi product hai .,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+473,Good for acne prone skin. This is second time I ordered this moisturiser.,good for acne prone skin . this is second time i ordered this moisturiser .,['skin'],['positive'],['skin_beauty_effect'],1,False,Beauty,5.0
+474,Good product and good quantity l like it that product 🥰,good product and good quantity l like it that product :smiling_face_with_hearts:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+475,"Very good product with reasonable price,smells very good,","very good product with reasonable price , smells very good ,","['product', 'price']","['positive', 'positive']","['product_item', 'price_value']",2,False,Beauty,5.0
+476,I'll definitely tell the result after usage,i ' ll definitely tell the result after usage,['product'],['positive'],['product_item'],1,True,Beauty,4.0
+477,Outstanding ✨,outstanding :sparkles:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+478,"Okay it's the 1st day: after applying this cream my skin feels soft, I don't know whether its going to work or not but its giving my skin a fresh glow and it's good 🌻","okay it ' s the 1st day: after applying this cream my skin feels soft , i don ' t know whether its going to work or not but its giving my skin a fresh glow and it ' s good :sunflower:","['cream', 'skin', 'work', 'glow']","['positive', 'positive', 'negative', 'positive']","['product_item', 'skin_beauty_effect', 'design_appearance', 'skin_beauty_effect']",4,True,Beauty,4.0
+479,packaging achi hai but product duplicate lg rha hai ponds cream ki smell hai... i m not satisfied🙂 mtt lena guys skin problem ho skti h mt lena,packaging acchi hai but product duplicate lg rha hai ponds cream ki smell hai . . i m not satisfied :slightly_smiling_face: mtt lena guys skin problem ho skti h mt lena,"['packaging', 'product', 'smell', 'cream', 'skin']","['neutral', 'negative', 'negative', 'negative', 'negative']","['delivery_service', 'product_item', 'scent_fragrance', 'product_item', 'skin_beauty_effect']",5,True,Beauty,3.0
+480,Main Ise use Karne Ke Baad Iska Review de Rahi Hu seriously yeh moisturizer amazing hai I like this product !,main ise use karne ke baad iska review de rahi hu seriously yeh moisturizer amazing hai i like this product !,"['moisturizer', 'product']","['positive', 'positive']","['skin_beauty_effect', 'product_item']",2,True,Beauty,4.0
+481,I ordered again got the best,i ordered again got the best,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+482,The product is really good for dry skin,the product is really good for dry skin,"['product', 'skin']","['positive', 'positive']","['product_item', 'skin_beauty_effect']",2,True,Beauty,5.0
+483,Superb package and best results,superb package and best results,"['package', 'results']","['positive', 'positive']","['delivery_service', 'skin_beauty_effect']",2,False,Beauty,5.0
+484,This is the best moisturizer for me ❤️,this is the best moisturizer for me :red_heart:,['moisturizer'],['positive'],['skin_beauty_effect'],1,True,Beauty,5.0
+485,8 love the underated product,8 love the underated product,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+486,Nice packing this moisturizer 👍,nice packing this moisturizer :thumbs_up:,"['moisturizer', 'packing']","['positive', 'positive']","['skin_beauty_effect', 'delivery_service']",2,False,Beauty,5.0
+487,"Good product, affordable+good quality go for it. 🤍","good product , affordable + good quality go for it . :white_heart:","['product', 'affordable', 'quality']","['positive', 'positive', 'positive']","['product_item', 'price_value', 'quality_build']",3,False,Beauty,5.0
+488,Bahut achha hai thank you meesho 🙏🥰,bahut accha hai thank you meesho :folded_hands: :smiling_face_with_hearts:,['meesho'],['positive'],['delivery_service'],1,True,Beauty,5.0
+489,Very very nice and beautiful picture primer use Kiya hua,very very nice and beautiful picture primer use kiya hua,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+490,Product complete h or bhot acha product h thanku meshoo,product complete h or bahut accha product h thanku meshoo,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+491,Thank you for your meesho,thank you for your meesho,['meesho'],['positive'],['delivery_service'],1,False,Beauty,5.0
+492,veri nice product bahut accha hai koi bhi le sakta hai,veri nice product bahut accha hai koi bhi le sakta hai,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+493,Bhut asha hai jesa dikhaya tha besa hi Aya hai thank u meesho,bahut asha hai jesa dikhaya tha besa hi aya hai thank u meesho,['meesho'],['positive'],['delivery_service'],1,True,Beauty,5.0
+494,Very nice 👌👌,very nice :ok_hand: :ok_hand:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+495,Nice product for this,nice product for this,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+496,Good quality products.i like meesho,good quality products . i like meesho,"['quality', 'meesho']","['positive', 'positive']","['quality_build', 'delivery_service']",2,False,Beauty,5.0
+497,This is very good product,this is very good product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+498,Thank you meeshoo..I like products,thank you meeshoo . . i like products,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+499,Nice product hai lekin chipkane wala gaddi nahi aai hai,nice product hai lekin chipkane wala gaddi nahi aai hai,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+500,Very nice product,very nice product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+501,Tuta huwa he,tuta huwa he,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+502,Super products worth for money,super products worth for money,['worth'],['positive'],['price_value'],1,False,Beauty,5.0
+503,Supar supar 🙏🙏👌👌👌👌thank you meesho,supar supar :folded_hands: :folded_hands: :ok_hand: :ok_hand: thank you meesho,['meesho'],['positive'],['delivery_service'],1,False,Beauty,5.0
+504,Bahut achha hai sukriya,bahut accha hai sukriya,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+505,Thank you so much meesho ❤️,thank you so much meesho :red_heart:,['meesho'],['positive'],['delivery_service'],1,False,Beauty,5.0
+506,Bahut accha hai product 😊👍 Thank you mesho ❤️🆗,bahut accha hai product :smiling_face_with_smiling_eyes: :thumbs_up: thank you mesho :red_heart: :ok_button:,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+507,Very very good product I just like it,very very good product i just like it,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+508,Ami bhabini ATO kom price a ATO products pabo,ami bhabini ato kom price a ato products pabo,['price'],['positive'],['price_value'],1,False,Beauty,5.0
+509,Nice thanks meeso,nice thanks meeso,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+510,Nice,nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+511,Best,best,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+512,Khub sundor,khub sundor,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+513,The foundation ell is good 👍🏻 and compact and primer and loose powder ie so good lipstick also makup fixier is good 👍🏻😊👐🏻,the foundation ell is good :thumbs_up_light_skin_tone: and compact and primer and loose powder ie so good lipstick also makup fixier is good :thumbs_up_light_skin_tone: :smiling_face_with_smiling_eyes: :open_hands_light_skin_tone:,"['lipstick', 'loose']","['positive', 'positive']","['product_item', 'fit_size']",2,True,Beauty,4.0
+514,Nice but jeisa sochi thi weisa nhi h,nice but jeisa sochi thi weisa nahi h,['product'],['positive'],['product_item'],1,True,Beauty,4.0
+515,Very good product,very good product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+516,Nice product according to price ❤️,nice product according to price :red_heart:,"['product', 'price']","['positive', 'positive']","['product_item', 'price_value']",2,False,Beauty,4.0
+517,Foundation primer bahut kharab aya ha 😞,foundation primer bahut kharab aya ha :disappointed_face:,['product'],['positive'],['product_item'],1,True,Beauty,4.0
+518,Very nice 👍,very nice :thumbs_up:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+519,🫰,:hand_with_index_finger_and_thumb_crossed:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+520,Good quality,good quality,['quality'],['positive'],['quality_build'],1,False,Beauty,5.0
+521,Excellent product✨,excellent product :sparkles:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+522,Very nice product 😁🥳,very nice product :beaming_face_with_smiling_eyes: :partying_face:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+523,Ok,ok,[],[],[],0,False,Beauty,5.0
+524,Very bad lag raha hi ki chhota baccha ka khulana hi khalanay wala face ma lagana sa face infection ho gaya lagata hi messo per bad product rahata hi etna sashta makeup online milega too log saddi ma 10 hazar ka makeup market sa baker lata hi esha accha online sab kaiu nahi lata hi itna kam rate ma,very bad lag raha hi ki chhota baccha ka khulana hi khalanay wala face ma lagana sa face infection ho gaya lagata hi messo per bad product rahata hi etna sashta makeup online milega too log saddi ma 10 hazar ka makeup market sa baker lata hi esha accha online sab kaiu nahi lata hi itna kam rate ma,"['product', 'rate', 'face']","['negative', 'negative', 'negative']","['product_item', 'price_value', 'skin_beauty_effect']",3,True,Beauty,5.0
+525,There was so dirt on the products,there was so dirt on the products,['product'],['positive'],['product_item'],1,True,Beauty,4.0
+526,Wonderful 😊 thanks 🙏🏻 meso,wonderful :smiling_face_with_smiling_eyes: thanks :folded_hands_light_skin_tone: meso,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+527,Nice,nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+528,Mst,mst,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+529,Thanks 👍,thanks :thumbs_up:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+530,Know any blender,know any blender,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+531,♥️💚🩵❤️💛🩷🤍💜🩶💙🧡🩵💚♥️,:heart_suit: :green_heart: :light_blue_heart: :red_heart: :yellow_heart: :pink_heart: :white_heart: :purple_heart: :grey_heart: :blue_heart: :orange_heart: :light_blue_heart: :green_heart: :heart_suit:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+532,☺️☺️☺️☺️,:smiling_face: :smiling_face: :smiling_face: :smiling_face:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+533,Nice,nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+534,nice,nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+535,Achcha hai,accha hai,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+536,बहुत अच्छा है प्रोडक्ट,ु ् ा ै ् ो ्,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+537,খুব ভালো,ু া ো,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+538,Very good product,very good product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+539,Nice,nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+540,Very good product 👍👍,very good product :thumbs_up: :thumbs_up:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+541,Nice product,nice product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+542,Nice,nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+543,बहुत अच्छा है,ु ् ा ै,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+544,Bahut aacha 👌🌟⭐✨,bahut accha :ok_hand: :glowing_star: :star: :sparkles:,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+545,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+546,Kup Sundor,kup sundor,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+547,😱,:face_screaming_in_fear:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+548,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+549,Mast,mast,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+550,Very nice product,very nice product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+551,I really love this,i really love this,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+552,Good experience,good experience,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+553,Nice,nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+554,Very good 😊😊,very good :smiling_face_with_smiling_eyes: :smiling_face_with_smiling_eyes:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+555,It's good,it ' s good,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+556,Nice,nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+557,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+558,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+559,बहुत अच्छा है,ु ् ा ै,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+560,Acha ji,accha ji,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+561,Bahut achcha hai,bahut accha hai,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+562,Sab kuchh bahut achcha aaya hai thank u miso,sab kuchh bahut accha aaya hai thank u miso,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+563,Bohut acha hai thank you 🤗,bohut accha hai thank you :smiling_face_with_open_hands:,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+564,Nice product i like kit 😍i am impress🥰,nice product i like kit :smiling_face_with_heart - eyes: i am impress :smiling_face_with_hearts:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+565,Good product and super quality thankyou meeshow,good product and super quality thankyou meeshow,"['product', 'quality']","['positive', 'positive']","['product_item', 'quality_build']",2,False,Beauty,5.0
+566,Really lovely product but the face liquid was less,really lovely product but the face liquid was less,"['product', 'face']","['positive', 'positive']","['product_item', 'skin_beauty_effect']",2,True,Beauty,5.0
+567,Saman to achha aaya h ab istamal ke bad pata chalega kaisa h,saman to accha aaya h ab istamal ke bad pata chalega kaisa h,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+568,Photo me dikhaya kuch or jata hai or dusra products deliver karte hai kuch kuch product open the or bohot purane aur use kiye hue lag rahe hai,photo me dikhaya kuch or jata hai or dusra products deliver karte hai kuch kuch product open the or bahut purane aur use kiye hue lag rahe hai,"['deliver', 'product']","['neutral', 'neutral']","['delivery_service', 'product_item']",2,True,Beauty,3.0
+569,Nice and very beautiful,nice and very beautiful,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+570,Very very nice product i love it💋🥰plz don't miss,very very nice product i love it :kiss_mark: :smiling_face_with_hearts: plz don ' t miss,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+571,After makeup looks not good lag raha hai make hi nai kiya 👎,after makeup looks not good lag raha hai make hi nai kiya :thumbs_down:,['looks'],['negative'],['design_appearance'],1,True,Beauty,3.0
+572,Thank uhhhh 😍 meesho ❤️,thank uhh :smiling_face_with_heart - eyes: meesho :red_heart:,['meesho'],['positive'],['delivery_service'],1,False,Beauty,4.0
+573,naka gheu mala kahi products milalech nahi,naka gheu mala kahi products milalech nahi,['product'],['positive'],['product_item'],1,True,Beauty,4.0
+574,mst ahe ghya sarvani,mst ahe ghya sarvani,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+575,Nice,nice,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+576,You have to buy this guys this is really nice,you have to buy this guys this is really nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+577,Good pardot please shop now all,good pardot please shop now all,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+578,Good product..meesho thanks,good product . . meesho thanks,"['product', 'meesho']","['positive', 'positive']","['product_item', 'delivery_service']",2,False,Beauty,5.0
+579,Use full product and nice,use full product and nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+580,Bohot acha thank meesho,bahut accha thank meesho,['meesho'],['positive'],['delivery_service'],1,True,Beauty,5.0
+581,Compect tuta huaa hai baki to sab thik hai,compect tuta huaa hai baki to sab thik hai,['product'],['neutral'],['product_item'],1,True,Beauty,3.0
+582,Best best hai par fondtion nhi mil ha,best best hai par fondtion nahi mil ha,['product'],['neutral'],['product_item'],1,True,Beauty,3.0
+583,primer Pani ekadam Bhalo product😞😞😞,primer pani ekadam bhalo product :disappointed_face: :disappointed_face:,['product'],['neutral'],['product_item'],1,False,Beauty,3.0
+584,Good 💖💖💖😊,good :sparkling_heart: :sparkling_heart: :smiling_face_with_smiling_eyes:,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+585,Nice,nice,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+586,Good 👍🏻,good :thumbs_up_light_skin_tone:,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+587,Good 😊,good :smiling_face_with_smiling_eyes:,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+588,Acha hai,accha hai,['product'],['positive'],['product_item'],1,True,Beauty,4.0
+589,Good product,good product,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+590,Nice,nice,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+591,Thik,thik,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+592,Nice,nice,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+593,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+594,Yes it is very good,yes it is very good,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+595,Very good product,very good product,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+596,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+597,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+598,It is very good produkt,it is very good produkt,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+599,It's very good,it ' s very good,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+600,Nic,nic,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+601,वेरी नाइस प्रोडक्ट,े ी ा ् ो ्,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+602,Okay,okay,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+603,Good producte,good producte,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+604,Just wow😍❤️,just wow :smiling_face_with_heart - eyes: :red_heart:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+605,Very good 👍,very good :thumbs_up:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+606,So beautiful 🤩❤️,so beautiful :star - struck: :red_heart:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+607,Nice 👌👌👌👌👍👍,nice :ok_hand: :ok_hand: :thumbs_up: :thumbs_up:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+608,Very nice product 👌,very nice product :ok_hand:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+609,Very nice product,very nice product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+610,Nice,nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+611,I love this product very much but the foundation like that all are less colour,i love this product very much but the foundation like that all are less colour,"['product', 'colour']","['positive', 'positive']","['product_item', 'design_appearance']",2,True,Beauty,4.0
+612,Apne to spong diya hi nhi mere sath hi aise kyu hota hai😭 baki review use kay baad smell to acha hai baki mummy ayegi to pata lagega,apne to spong diya hi nahi mere sath hi aise kyu hota hai :loudly_crying_face: baki review use kay baad smell to accha hai baki mummy ayegi to pata lagega,['smell'],['negative'],['scent_fragrance'],1,True,Beauty,3.0
+613,Pura damege hai hame exchange karke dusra Lakme compact bheje please,pura damege hai hame exchange karke dusra lakme compact bheje please,['product'],['negative'],['product_item'],1,True,Beauty,1.0
+614,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+615,Gud,gud,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+616,"It came broken, but it's good","it came broken , but it ' s good",['product'],['positive'],['product_item'],1,False,Beauty,4.0
+617,Product are broken,product are broken,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+618,Bahut acha hai,bahut accha hai,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+619,Very good,very good,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+620,Super,super,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+621,総晶, ,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+622,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+623,Nice,nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+624,Fast delivery 総総総総,fast delivery    ,['delivery'],['positive'],['delivery_service'],1,False,Beauty,5.0
+625,Good product,good product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+626,Super,super,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+627,My ORDER LAKME AND DELIVERED FIT ME,my order lakme and delivered fit me,['fit'],['negative'],['fit_size'],1,False,Beauty,1.0
+628,product saara Tuta Hua received hua hai...very much disappointed..koi return ka option bhi nehi hai,product saara tuta hua received hua hai . . very much disappointed . . koi return ka option bhi nehi hai,['product'],['negative'],['product_item'],1,True,Beauty,1.0
+629,Tutaf00ta p hai. Products is defective product is damaged so exchange nhi to customer care ki help lenge ct,tutaf00ta p hai . products is defective product is damaged so exchange nahi to customer care ki help lenge ct,['product'],['positive'],['product_item'],1,True,Beauty,1.0
+630,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+631,Return done from above. Exchange not received nor money.,return done from above . exchange not received nor money .,['product'],['negative'],['product_item'],1,False,Beauty,1.0
+632,"Product is totally demage,very bad","product is totally demage , very bad",['product'],['negative'],['product_item'],1,False,Beauty,1.0
+633,"Old , used and blank product","old , used and blank product",['product'],['negative'],['product_item'],1,False,Beauty,1.0
+634,Worst package is damage,worst package is damage,"['package', 'damage']","['negative', 'negative']","['delivery_service', 'delivery_service']",2,False,Beauty,1.0
+635,Very bad,very bad,['product'],['negative'],['product_item'],1,False,Beauty,2.0
+636,Badd,badd,['product'],['negative'],['product_item'],1,False,Beauty,2.0
+637,So nice,so nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+638,Very good,very good,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+639,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+640,Nice,nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+641,Very good 総 聡,very good  ,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+642,Nice,nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+643,Nice,nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+644,The product paking open and compact powder damage.,the product paking open and compact powder damage .,"['product', 'damage']","['negative', 'negative']","['product_item', 'delivery_service']",2,True,Beauty,1.0
+645,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+646,Thank you so much messo,thank you so much messo,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+647,Nice product,nice product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+648,Broken receive,broken receive,['product'],['negative'],['product_item'],1,False,Beauty,1.0
+649,Worst,worst,['product'],['negative'],['product_item'],1,False,Beauty,1.0
+650,sara bekar product h,sara bekar product h,['product'],['negative'],['product_item'],1,True,Beauty,1.0
+651,The powder is all broken...can't use,the powder is all broken . . can ' t use,['product'],['negative'],['product_item'],1,True,Beauty,1.0
+652,Product fully leaked outside nothing to use,product fully leaked outside nothing to use,['product'],['negative'],['product_item'],1,False,Beauty,1.0
+653,Quality is not good,quality is not good,['quality'],['negative'],['quality_build'],1,False,Beauty,2.0
+654,Return karna hai,return karna hai,['product'],['negative'],['product_item'],1,True,Beauty,1.0
+655,Very bed,very bed,['product'],['negative'],['product_item'],1,False,Beauty,1.0
+656,Kharab,kharab,['product'],['negative'],['product_item'],1,True,Beauty,1.0
+657,Nice,nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+658,Super,super,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+659,-,-,[],[],[],0,False,Beauty,5.0
+660,👌,:ok_hand:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+661,-,-,[],[],[],0,False,Beauty,5.0
+662,-,-,[],[],[],0,False,Beauty,5.0
+663,Very very nice product 😊,very very nice product :smiling_face_with_smiling_eyes:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+664,Ok ok Hai not completely product colour to aaya hi lgne k baad,ok ok hai not completely product colour to aaya hi lgne k baad,"['product', 'colour']","['negative', 'negative']","['product_item', 'design_appearance']",2,True,Beauty,3.0
+665,When I ordered this product I don't think I'll get like amazing product & l love this product... finishing is not good otherwise it amazing uh guys can go for it worth is money Thankyou MEESHO 🫰❤️,when i ordered this product i don ' t think i ' ll get like amazing product & l love this product . . finishing is not good otherwise it amazing uh guys can go for it worth is money thankyou meesho :hand_with_index_finger_and_thumb_crossed: :red_heart:,"['product', 'finishing', 'meesho', 'worth']","['positive', 'negative', 'negative', 'negative']","['product_item', 'quality_build', 'delivery_service', 'price_value']",4,False,Beauty,3.0
+666,kam paise Mein Achcha hai ek Aankh gadha color Hona chahie tha,kam paisa mein accha hai ek aankh gadha color hona chahie tha,"['color', 'paisa']","['positive', 'positive']","['design_appearance', 'price_value']",2,True,Beauty,4.0
+667,2 lipstick ke colour same hai or ek dark hai but product mujhe pasand aaya is price me badhiya hai,2 lipstick ke colour same hai or ek dark hai but product mujhe pasand aaya is price me badhiya hai,"['lipstick', 'colour', 'product', 'price']","['neutral', 'neutral', 'positive', 'positive']","['product_item', 'design_appearance', 'product_item', 'price_value']",4,True,Beauty,3.0
+668,Naic but tino same colour aaya h 😒 abhi toh rakh lati h q ki praise bht acha thaa but next time dhiyan dane ka meesho h na 😊 n tqq,naic but tino same colour aaya h :unamused_face: abhi toh rakh lati h q ki praise bahut accha thaa but next time dhiyan dane ka meesho h na :smiling_face_with_smiling_eyes: n tqq,"['colour', 'meesho']","['positive', 'negative']","['design_appearance', 'delivery_service']",2,True,Beauty,3.0
+669,Nice Product,nice product,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+670,Bad All lipsticks have red spot and broken cover. Plz at firs check properly the product after that send.,bad all lipsticks have red spot and broken cover . plz at firs check properly the product after that send .,['product'],['negative'],['product_item'],1,True,Beauty,2.0
+671,Thanku meesho,thanku meesho,['meesho'],['positive'],['delivery_service'],1,False,Beauty,4.0
+672,"Gud, but all colours are same 😕","gud , but all colours are same :confused_face:",['product'],['positive'],['product_item'],1,False,Beauty,4.0
+673,-,-,[],[],[],0,False,Beauty,5.0
+674,Product is best,product is best,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+675,Good product,good product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+676,Nice colour,nice colour,['colour'],['positive'],['design_appearance'],1,False,Beauty,5.0
+677,Nice product,nice product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+678,-,-,[],[],[],0,False,Beauty,5.0
+679,Very nice product,very nice product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+680,Very nice...,very nice . .,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+681,Bahut achha Aya hai,bahut accha aya hai,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+682,Very nice picture,very nice picture,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+683,-,-,[],[],[],0,False,Beauty,5.0
+684,Nice product,nice product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+685,Super,super,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+686,-,-,[],[],[],0,False,Beauty,5.0
+687,Nice quality,nice quality,['quality'],['positive'],['quality_build'],1,False,Beauty,5.0
+688,Super 😊,super :smiling_face_with_smiling_eyes:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+689,Good 👍,good :thumbs_up:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+690,Very nice super,very nice super,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+691,-,-,[],[],[],0,False,Beauty,5.0
+692,Super,super,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+693,Nice product 😃,nice product :grinning_face_with_big_eyes:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+694,Very good product,very good product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+695,Worth money,worth money,['worth'],['positive'],['price_value'],1,False,Beauty,5.0
+696,गुड,ु,[],[],[],0,True,Beauty,5.0
+697,-,-,[],[],[],0,False,Beauty,5.0
+698,-,-,[],[],[],0,False,Beauty,5.0
+699,Very good,very good,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+700,Affordable,affordable,['affordable'],['positive'],['price_value'],1,False,Beauty,5.0
+701,Bhut achi,bahut acchi,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+702,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+703,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+704,good quality,good quality,['quality'],['positive'],['quality_build'],1,False,Beauty,5.0
+705,Wow nice product,wow nice product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+706,Wergood,wergood,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+707,Aachi h lipstick,aachi h lipstick,['lipstick'],['positive'],['product_item'],1,False,Beauty,5.0
+708,So nice,so nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+709,Very nice product,very nice product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+710,Very good product,very good product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+711,Maine ise lip Bam samajh mein mangaya tha magar yah lipstick hai magar aachi ha,maine ise lip bam samajh mein mangaya tha magar yah lipstick hai magar aachi ha,['lipstick'],['positive'],['product_item'],1,True,Beauty,4.0
+712,"Smoothless, fragranceless. I doubt on quality. Honestly don’t like.","smoothless , fragranceless . i doubt on quality . honestly don ’ t like .",['quality'],['negative'],['quality_build'],1,False,Beauty,2.0
+713,Jab sabse pahli bar mangwaya tha to galat product aaya tha lekin is bar achcha hai,jab sabse pahli bar mangwaya tha to galat product aaya tha lekin is bar accha hai,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+714,Achha aaya hai or iski smell bhi achhi hai,accha aaya hai or iski smell bhi acchi hai,['smell'],['positive'],['scent_fragrance'],1,True,Beauty,4.0
+715,-,-,[],[],[],0,False,Beauty,5.0
+716,Bahut aacha hai,bahut accha hai,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+717,Very good product,very good product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+718,Bht acha hai,bahut accha hai,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+719,Very nice product,very nice product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+720,I like this lipstick 💄😻😻,i like this lipstick :lipstick: :smiling_cat_with_heart - eyes: :smiling_cat_with_heart - eyes:,['lipstick'],['positive'],['product_item'],1,False,Beauty,5.0
+721,Nice,nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+722,Very nice,very nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+723,-,-,[],[],[],0,False,Beauty,5.0
+724,mast hai,mast hai,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+725,Good product,good product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+726,Good product,good product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+727,-,-,[],[],[],0,False,Beauty,5.0
+728,Khub sundor hoyeche ❤️,khub sundor hoyeche :red_heart:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+729,S very good,s very good,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+730,Bahut Sundar,bahut sundar,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+731,Good 👍,good :thumbs_up:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+732,Good product,good product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+733,-,-,[],[],[],0,False,Beauty,5.0
+734,Nice lipstick,nice lipstick,['lipstick'],['positive'],['product_item'],1,False,Beauty,5.0
+735,Good product,good product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+736,Just wow 🥳 tnx meesho 🤗,just wow :partying_face: tnx meesho :smiling_face_with_open_hands:,['meesho'],['positive'],['delivery_service'],1,False,Beauty,5.0
+737,Nice pic,nice pic,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+738,Thank you so much,thank you so much,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+739,Average,average,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+740,Acha h lekin same colour h,accha h lekin same colour h,['colour'],['positive'],['design_appearance'],1,True,Beauty,4.0
+741,Quality is good but coloured same hai,quality is good but coloured same hai,['quality'],['positive'],['quality_build'],1,True,Beauty,4.0
+742,It's too much light to be visible 🙂,it ' s too much light to be visible :slightly_smiling_face:,['product'],['neutral'],['product_item'],1,False,Beauty,3.0
+743,Smooth finish. ..,smooth finish . . .,['finish'],['positive'],['design_appearance'],1,False,Beauty,5.0
+744,Bhat acha hay tq,bhat accha hay tq,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+745,-,-,[],[],[],0,False,Beauty,5.0
+746,-,-,[],[],[],0,False,Beauty,5.0
+747,Very nice 🙂,very nice :slightly_smiling_face:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+748,खूप सुंदर। सुगंध खूप सुंदर। सुपर सॉप्ट लिप्स,ू ु ं । ु ं ू ु ं । ु ॉ ् ि ्,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+749,बहुत अच्छा है,ु ् ा ै,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+750,Mst h,mst h,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+751,Achcha hai,accha hai,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+752,Nice product ❤️,nice product :red_heart:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+753,Very good product,very good product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+754,Very good,very good,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+755,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+756,Vary vary good product.,vary vary good product .,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+757,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+758,Thank you 😊🥰,thank you :smiling_face_with_smiling_eyes: :smiling_face_with_hearts:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+759,-,-,[],[],[],0,False,Beauty,5.0
+760,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+761,Really good 💗,really good :growing_heart:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+762,Good product,good product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+763,Good product,good product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+764,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+765,Very good 😊,very good :smiling_face_with_smiling_eyes:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+766,Good product,good product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+767,Nice,nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+768,-,-,[],[],[],0,False,Beauty,5.0
+769,Very good👍,very good :thumbs_up:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+770,Very nice product,very nice product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+771,Thanks 🙏,thanks :folded_hands:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+772,Very nice 👌🏻 👍,very nice :ok_hand_light_skin_tone: :thumbs_up:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+773,Best,best,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+774,Very good nice product,very good nice product,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+775,खूप सुंदर है 👌,ू ु ं ै :ok_hand:,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+776,Very nice,very nice,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+777,"Okk okk, but brand print nahi h, thoda disappointment jhala.","okk okk , but brand print nahi h , thoda disappointment jhala .",['print'],['negative'],['design_appearance'],1,True,Beauty,4.0
+778,"Exallant, okati extra thegindhi pn dila, 3 by 1 superb asalu.","exallant , okati extra thegindhi pn dila , 3 by 1 superb asalu .",['product'],['positive'],['product_item'],1,False,Beauty,5.0
+779,"Accha product aahe, pn Kajal char ala, eyeliner missing pn ok happy aahe.","accha product aahe , pn kajal char ala , eyeliner missing pn ok happy aahe .","['product', 'kajal']","['positive', 'positive']","['product_item', 'product_item']",2,True,Beauty,5.0
+780,"Nice 👍 Thank you Meesho, mala ha product avadla.","nice :thumbs_up: thank you meesho , mala ha product avadla .","['meesho', 'product']","['positive', 'positive']","['delivery_service', 'product_item']",2,False,Beauty,4.0
+781,"Super product, water proof, super colour ❤️❤️❤️","super product , water proof , super colour :red_heart: :red_heart: :red_heart:","['product', 'colour']","['positive', 'positive']","['product_item', 'design_appearance']",2,False,Beauty,4.0
+782,Onek onek vlo aseche... thank you 😊😊,onek onek vlo aseche . . thank you :smiling_face_with_smiling_eyes: :smiling_face_with_smiling_eyes:,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+783,"Waterproof nahi, baki okk, lagta pn ni.","waterproof nahi , baki okk , lagta pn nahi .",['product'],['positive'],['product_item'],1,True,Beauty,5.0
+784,Good product pn cover damaged ala.,good product pn cover damaged ala .,['product'],['neutral'],['product_item'],1,False,Beauty,3.0
+785,"Good product, material pn changla.","good product , material pn changla .","['product', 'material']","['positive', 'positive']","['product_item', 'fabric_material']",2,False,Beauty,5.0
+786,"This product so nice, thanks Meesho.","this product so nice , thanks meesho .","['product', 'meesho']","['positive', 'positive']","['product_item', 'delivery_service']",2,False,Beauty,5.0
+787,"Very nice product, both eyebrow pencil ani kajal dark black color madhe aale. ⭐⭐⭐⭐⭐ 😊😊","very nice product , both eyebrow pencil ani kajal dark black color madhe aale . :star: :star: :smiling_face_with_smiling_eyes: :smiling_face_with_smiling_eyes:","['product', 'color', 'kajal']","['positive', 'positive', 'positive']","['product_item', 'design_appearance', 'product_item']",3,False,Beauty,5.0
+788,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+789,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+790,👍,:thumbs_up:,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+791,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+792,Best,best,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+793,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+794,"Very bad 😞, tuta hua piece aaya.","very bad :disappointed_face: , tuta hua piece aaya .",['product'],['neutral'],['product_item'],1,False,Beauty,3.0
+795,Good product aale.,good product aale .,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+796,Very good product.,very good product .,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+797,Good,good,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+798,"Kajal achha h, but waterproof nahi h.","kajal accha h , but waterproof nahi h .",['kajal'],['positive'],['product_item'],1,True,Beauty,4.0
+799,Very good 💯,very good :hundred_points:,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+800,According to price good product.,according to price good product .,"['product', 'price']","['positive', 'positive']","['product_item', 'price_value']",2,False,Beauty,4.0
+801,"2 Kajal ani 1 eyeliner dena hota, but 3 Kajal aale, ani mfg date pn nahi h.","2 kajal ani 1 eyeliner dena hota , but 3 kajal aale , ani mfg date pn nahi h .",['kajal'],['neutral'],['product_item'],1,True,Beauty,3.0
+802,Packaging not proper pn product changla h.,packaging not proper pn product changla h .,"['packaging', 'product']","['negative', 'negative']","['delivery_service', 'product_item']",2,False,Beauty,4.0
+803,"One pencil empty aale, kajal nahi h.","one pencil empty aale , kajal nahi h .",['kajal'],['negative'],['product_item'],1,True,Beauty,3.0
+804,Very nice 🙂 👍,very nice :slightly_smiling_face: :thumbs_up:,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+805,Nice product.,nice product .,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+806,Thank you.,thank you .,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+807,चांगले . खूप आवडले.,ा ं े . ू े .,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+808,👍 खूप छान  आहे.,:thumbs_up: ू ा े .,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+809,उत्पाद ठीक आहे पण काही खास नाही.,् ा ी े ा ी ा ा ी .,['product'],['neutral'],['product_item'],1,True,Beauty,3.0
+810,👍 खूप छान उत्पाद.,:thumbs_up: ू ा ् ा .,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+811,मला फ्री eyeliner पेनसिल मिळाली 😁✨✨,ा ् ी eyeliner े ि ि ा ी :beaming_face_with_smiling_eyes: :sparkles: :sparkles:,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+812,खूप छान उत्पाद.,ू ा ् ा .,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+813,उत्पाद ठीक आहे पण विशेष नाही.,् ा ी े ि े ा ी .,['product'],['neutral'],['product_item'],1,True,Beauty,3.0
+814,छान 🤗 उत्पाद आहे.,ा :smiling_face_with_open_hands: ् ा े .,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+815,उत्पाद छान आहे.,् ा ा े .,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+816,👍 खूप छान आहे.,:thumbs_up: ू ा े .,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+817,उत्पाद छान आहे.,् ा ा े .,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+818,👍 खूप छान आहे.,:thumbs_up: ू ा े .,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+819,किंमतीनुसार चांगले आहे.,ि ं ी ु ा ा ं े े .,['product'],['positive'],['product_item'],1,True,Beauty,4.0
+820,"चांगले 👍👍👍, २ काजलसोबत १ फ्री eyeliner आहे.","ा ं े :thumbs_up: :thumbs_up: , ा ो ् ी eyeliner े .",['product'],['positive'],['product_item'],1,True,Beauty,4.0
+821,किंमतीनुसार खूप चांगले आहे.,ि ं ी ु ा ू ा ं े े .,['product'],['positive'],['product_item'],1,True,Beauty,4.0
+822, खूप चांगले आहे.,ू ा ं े े .,['product'],['positive'],['product_item'],1,True,Beauty,4.0
+823,"खूप छान आहे ☺️, संतुष्ट आहे.","ू ा े :smiling_face: , ं ु ् े .",['product'],['positive'],['product_item'],1,True,Beauty,4.0
+824,किंमत अनुसार ठीक आहे.,ि ं ु ा ी े .,['product'],['positive'],['product_item'],1,True,Beauty,4.0
+825,"धन्यवाद Meesho,  छान आहे.","् ा meesho , ा े .",['meesho'],['positive'],['delivery_service'],1,True,Beauty,4.0
+826,"खूप छान आहे, आनंदी आहे, धन्यवाद Meesho 🫶🏻👌👌👌👌👌👌","ू ा े , ं ी े , ् ा meesho :heart_hands_light_skin_tone: :ok_hand: :ok_hand:",['meesho'],['positive'],['delivery_service'],1,True,Beauty,4.0
+827,सर्वसाधारण छान आहे.,् ा ा ा े .,['product'],['positive'],['product_item'],1,True,Beauty,4.0
+828,"मला हा काजल खूप आवडला, धन्यवाद Meesho.","ा ा ा ू ा , ् ा meesho .",['meesho'],['positive'],['delivery_service'],1,True,Beauty,4.0
+829,सर्वोत्तम product धन्यवाद Meesho 😍,् ो ् product ् ा meesho :smiling_face_with_heart - eyes:,"['product', 'meesho']","['positive', 'positive']","['product_item', 'delivery_service']",2,True,Beauty,4.0
+830,mst छान आहे.,mst ा े .,['product'],['positive'],['product_item'],1,True,Beauty,4.0
+831,"खूप वाईट 😞, eyeliner missing आहे पण ठेवले.","ू ा :disappointed_face: , eyeliner missing े े े .",['product'],['negative'],['product_item'],1,True,Beauty,1.0
+832,"प्लास्टिक तुटले, kajal चांगले नाही.","् ा ् ि ु े , kajal ा ं े ा ी .",['kajal'],['negative'],['product_item'],1,True,Beauty,1.0
+833,kajal chi गुणवत्ता चांगली नाही.,kajal chi ु ् ा ा ं ी ा ी .,['kajal'],['negative'],['product_item'],1,True,Beauty,2.0
+834,खूप चांगले आहे.,ू ा ं े े .,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+835,"काजलाची टेक्सचर आणि पिगमेंट नीट नाही, स्मज होतो.","ा ा ी े ् ि ि े ं ी ा ी , ् ो ो .",['product'],['neutral'],['product_item'],1,True,Beauty,3.0
+836,👍 खूप छान  आहे.,:thumbs_up: ू ा े .,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+837,"काजल चांगला नाही, कठीण आहे, रंग खरा नाही, eyeliner ठीक आहे.","ा ा ं ा ा ी , ी े , ं ा ा ी , eyeliner ी े .",['product'],['neutral'],['product_item'],1,True,Beauty,3.0
+838,"जस पाहिले तसेच आले, धन्यवाद Meesho.","ा ि े े े , ् ा meesho .",['meesho'],['positive'],['delivery_service'],1,True,Beauty,5.0
+839,ठीक आहे पण प्रमाण कमी आहे.,ी े ् ा ी े .,['product'],['neutral'],['product_item'],1,True,Beauty,3.0
+840,किंमतीनुसार उत्कृष्ट उत्पाद.,ि ं ी ु ा ् ृ ् ् ा .,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+841,"उत्कृष्ट, काजल खूप गडद आहे 😍😍","् ृ ् , ा ू े :smiling_face_with_heart - eyes: :smiling_face_with_heart - eyes:",['product'],['positive'],['product_item'],1,True,Beauty,5.0
+842,"खूप छान आहे, मला खूप आवडले.","ू ा े , ा ू े .",['product'],['positive'],['product_item'],1,True,Beauty,5.0
+843,"धन्यवाद Meesho, ऑर्डर lavkar मिळाले.","् ा meesho , ् lavkar ि ा े .",['meesho'],['positive'],['delivery_service'],1,True,Beauty,5.0
+844,"काजल खूप छान, वेळेवर मिळाले.","ा ू ा , े े ि ा े .",['product'],['positive'],['product_item'],1,True,Beauty,5.0
+845,"काजलाची गुणवत्ता काहीशी साधारण, liner ठीक आहे.","ा ा ी ु ् ा ा ी ी ा ा , liner ी े .",['product'],['neutral'],['product_item'],1,True,Beauty,3.0
+846,"ठीक आहे पण liner दिला नाही, २ काजल कमी दर्जाचे.","ी े liner ि ा ा ी , ा ी ् ा े .",['product'],['neutral'],['product_item'],1,True,Beauty,3.0
+847,"बहुत बढ़िया product 😍, त्वचा बहुत smooth और soft हुई 🌸✨","ु ़ ि ा product :smiling_face_with_heart - eyes: , ् ा ु smooth soft ु :cherry_blossom: :sparkles:",['product'],['positive'],['product_item'],1,True,Beauty,5.0
+848,"Dam सही है 👍, बहुत अच्छा लगा, Thank you Meesho 😊","dam ी ै :thumbs_up: , ु ् ा ा , thank you meesho :smiling_face_with_smiling_eyes:",['meesho'],['positive'],['delivery_service'],1,True,Beauty,4.0
+849,"मस्त product 😄, satisfied 😍","् product :grinning_face_with_smiling_eyes: , satisfied :smiling_face_with_heart - eyes:",['product'],['positive'],['product_item'],1,True,Beauty,5.0
+850,"बहुत अच्छा 😍, जैसा दिखा था वैसा ही आया 🌟","ु ् ा :smiling_face_with_heart - eyes: , ै ा ि ा ा ै ा ी ा :glowing_star:",['product'],['positive'],['product_item'],1,True,Beauty,5.0
+851,Product अच्छा है 😊,product ् ा ै :smiling_face_with_smiling_eyes:,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+852,"Good 😄, satisfied","good :grinning_face_with_smiling_eyes: , satisfied",['product'],['positive'],['product_item'],1,False,Beauty,5.0
+853,"बहुत अच्छा 😍, बहुत खुश हूँ 😊","ु ् ा :smiling_face_with_heart - eyes: , ु ु ू ँ :smiling_face_with_smiling_eyes:",['product'],['positive'],['product_item'],1,True,Beauty,5.0
+854,"बहुत अच्छा है 😍, सभी को लेना चाहिए 💖🌸","ु ् ा ै :smiling_face_with_heart - eyes: , ी ो े ा ा ि :sparkling_heart: :cherry_blossom:",['product'],['positive'],['product_item'],1,True,Beauty,5.0
+855,❤💖,:red_heart: :sparkling_heart:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+856,"Nice 😄, खुश हूँ 😍","nice :grinning_face_with_smiling_eyes: , ु ू ँ :smiling_face_with_heart - eyes:",['product'],['positive'],['product_item'],1,True,Beauty,5.0
+857,Nice 😄,nice :grinning_face_with_smiling_eyes:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+858,"जैसा देखा था वैसा ही आया 😍, Thank you Meesho 💖","ै ा े ा ा ै ा ी ा :smiling_face_with_heart - eyes: , thank you meesho :sparkling_heart:",['meesho'],['positive'],['delivery_service'],1,True,Beauty,5.0
+859,Wrbsng dghadbsfbchjteru 😄,wrbsng dghadbsfbchjteru :grinning_face_with_smiling_eyes:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+860,"Nice cream 😊, मैंने try किया और साथ में onion hair oil free आया 😄","nice cream :smiling_face_with_smiling_eyes: , ै ं े try ि ा ा े ं onion hair oil free ा :grinning_face_with_smiling_eyes:","['cream', 'hair']","['positive', 'positive']","['product_item', 'skin_beauty_effect']",2,True,Beauty,4.0
+861,"बहुत अच्छा project ❤️❤️❤️, fast delivery 🚀👌","ु ् ा project :red_heart: :red_heart: :red_heart: , fast delivery :rocket: :ok_hand:",['delivery'],['positive'],['delivery_service'],1,True,Beauty,5.0
+862,I really satisfied with the product 😄,i really satisfied with the product :grinning_face_with_smiling_eyes:,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+863,Valo है लेकिन fruit की smell अच्छी नहीं 😕,valo ै े ि fruit ी smell ् ी ी ं :confused_face:,['smell'],['neutral'],['scent_fragrance'],1,True,Beauty,3.0
+864,Nice 😄,nice :grinning_face_with_smiling_eyes:,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+865,"Nice 👍, बहुत खुश हूँ 😍","nice :thumbs_up: , ु ु ू ँ :smiling_face_with_heart - eyes:",['product'],['positive'],['product_item'],1,True,Beauty,5.0
+866,"Very nice 😄, skin soft हुई 🌸","very nice :grinning_face_with_smiling_eyes: , skin soft ु :cherry_blossom:",['skin'],['positive'],['skin_beauty_effect'],1,True,Beauty,5.0
+867,Softly 😍💖,softly :smiling_face_with_heart - eyes: :sparkling_heart:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+868,"Nice 😄, satisfied 😍","nice :grinning_face_with_smiling_eyes: , satisfied :smiling_face_with_heart - eyes:",['product'],['positive'],['product_item'],1,False,Beauty,5.0
+869,"अच्छा है 😍, खुश हूँ 💖","् ा ै :smiling_face_with_heart - eyes: , ु ू ँ :sparkling_heart:",['product'],['positive'],['product_item'],1,True,Beauty,5.0
+870,"Good 😄, satisfied 😍","good :grinning_face_with_smiling_eyes: , satisfied :smiling_face_with_heart - eyes:",['product'],['positive'],['product_item'],1,False,Beauty,5.0
+871,"Good 👍, skin smooth हुई 🌸","good :thumbs_up: , skin smooth ु :cherry_blossom:",['skin'],['positive'],['skin_beauty_effect'],1,True,Beauty,5.0
+872,NYC one 😍✨,nyc one :smiling_face_with_heart - eyes: :sparkles:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+873,"Nice product 😄, बहुत खुश हूँ 💖","nice product :grinning_face_with_smiling_eyes: , ु ु ू ँ :sparkling_heart:",['product'],['positive'],['product_item'],1,True,Beauty,5.0
+874,👎👎 😕,:thumbs_down: :thumbs_down: :confused_face:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+875,Best 😍✨,best :smiling_face_with_heart - eyes: :sparkles:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+876,"Very good 😄, satisfied 💖","very good :grinning_face_with_smiling_eyes: , satisfied :sparkling_heart:",['product'],['positive'],['product_item'],1,False,Beauty,5.0
+877,"Very nice 😍, skin soft 🌸","very nice :smiling_face_with_heart - eyes: , skin soft :cherry_blossom:",['skin'],['positive'],['skin_beauty_effect'],1,False,Beauty,5.0
+878,"Nice 😄, खुश हूँ 😊","nice :grinning_face_with_smiling_eyes: , ु ू ँ :smiling_face_with_smiling_eyes:",['product'],['positive'],['product_item'],1,True,Beauty,5.0
+879,. 😄,. :grinning_face_with_smiling_eyes:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+880,अच्छा है 😍,् ा ै :smiling_face_with_heart - eyes:,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+881,Super product 😍💖,super product :smiling_face_with_heart - eyes: :sparkling_heart:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+882,"Very good, amazing 😄✨","very good , amazing :grinning_face_with_smiling_eyes: :sparkles:",['product'],['positive'],['product_item'],1,False,Beauty,5.0
+883,Good product 😍💖,good product :smiling_face_with_heart - eyes: :sparkling_heart:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+884,"Nice 😕, पर थोड़ा disappointing 😟","nice :confused_face: , ो ़ ा disappointing :worried_face:",['product'],['negative'],['product_item'],1,True,Beauty,2.0
+885,एक बोतल खुली हुई है 😕 और body lotion कम है,ो ु ी ु ै :confused_face: body lotion ै,['product'],['neutral'],['product_item'],1,True,Beauty,3.0
+886,Good 😄,good :grinning_face_with_smiling_eyes:,['product'],['positive'],['product_item'],1,False,Beauty,4.0
+887,बहुत अच्छा 😍,ु ् ा :smiling_face_with_heart - eyes:,['product'],['positive'],['product_item'],1,True,Beauty,4.0
+888,Product quality कम है 😟,product quality ै :worried_face:,"['quality', 'product']","['negative', 'negative']","['quality_build', 'product_item']",2,True,Beauty,2.0
+889,"Not 500, सिर्फ आधा है 😕","not 500 , ि ् ा ै :confused_face:",['product'],['negative'],['product_item'],1,True,Beauty,2.0
+890,Nice 😄,nice :grinning_face_with_smiling_eyes:,['product'],['neutral'],['product_item'],1,False,Beauty,3.0
+891,Local product 😡,local product :enraged_face:,['product'],['negative'],['product_item'],1,False,Beauty,2.0
+892,Very bad product 😡😡,very bad product :enraged_face: :enraged_face:,['product'],['negative'],['product_item'],1,False,Beauty,1.0
+893,Product बेकार 😡,product े ा :enraged_face:,['product'],['negative'],['product_item'],1,True,Beauty,1.0
+894,Product quality zero 😡,product quality zero :enraged_face:,"['quality', 'product']","['negative', 'negative']","['quality_build', 'product_item']",2,False,Beauty,1.0
+895,"मला product खूप छान वाटले 😍, price नुसार perfect 👍","ा product ू ा ा े :smiling_face_with_heart - eyes: , price ु ा perfect :thumbs_up:","['product', 'price']","['positive', 'positive']","['product_item', 'price_value']",2,True,Beauty,5.0
+896,Daily use साठी खूप chhan product aahe 😊🖤,daily use ा ी ू chhan product aahe :smiling_face_with_smiling_eyes: :black_heart:,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+897,"Kajal long lasting नाही, thoda spread होतो 😕","kajal long lasting ा ी , thoda spread ो ो :confused_face:",['kajal'],['neutral'],['product_item'],1,True,Beauty,3.0
+898,"मला product खूप आवडले 😍, very happy 💖","ा product ू े :smiling_face_with_heart - eyes: , very happy :sparkling_heart:",['product'],['positive'],['product_item'],1,True,Beauty,5.0
+899,"Order mix zala 😕, pan product ठीक आहे 😅","order mix zala :confused_face: , pan product ी े :grinning_face_with_sweat:",['product'],['neutral'],['product_item'],1,True,Beauty,3.0
+900,"मला kajal खूप आवडला 😍🖤, smooth aahe 😄","ा kajal ू ा :smiling_face_with_heart - eyes: :black_heart: , smooth aahe :grinning_face_with_smiling_eyes:",['kajal'],['positive'],['product_item'],1,True,Beauty,5.0
+901,"👍👍 Mast kajal aahe 😍, easy to apply 😎",":thumbs_up: :thumbs_up: mast kajal aahe :smiling_face_with_heart - eyes: , easy to apply :smiling_face_with_sunglasses:",['kajal'],['positive'],['product_item'],1,True,Beauty,5.0
+902,"Product ok aahe, price nusar mast 👍","product ok aahe , price nusar mast :thumbs_up:","['product', 'price']","['positive', 'positive']","['product_item', 'price_value']",2,True,Beauty,4.0
+903,"मस्त product 😄, black color perfect 🖤","् product :grinning_face_with_smiling_eyes: , black color perfect :black_heart:","['product', 'color']","['positive', 'positive']","['product_item', 'design_appearance']",2,True,Beauty,4.0
+904,"Nice aahe 😎, daily use साठी ok","nice aahe :smiling_face_with_sunglasses: , daily use ा ी ok",['product'],['positive'],['product_item'],1,True,Beauty,4.0
+905,"Product chhan aahe 😊, price nusar satisfied","product chhan aahe :smiling_face_with_smiling_eyes: , price nusar satisfied","['product', 'price']","['positive', 'positive']","['product_item', 'price_value']",2,False,Beauty,4.0
+906,"Product happy aahe 👍, satisfied","product happy aahe :thumbs_up: , satisfied",['product'],['positive'],['product_item'],1,False,Beauty,4.0
+907,"Product chhan aahe 😄, use karun happy","product chhan aahe :grinning_face_with_smiling_eyes: , use karun happy",['product'],['positive'],['product_item'],1,False,Beauty,4.0
+908,"Product chhan aahe 👌👍, friends ला recommend करेन","product chhan aahe :ok_hand: :thumbs_up: , friends ा recommend े",['product'],['positive'],['product_item'],1,True,Beauty,4.0
+909,"Good product 😊, khup satisfied","good product :smiling_face_with_smiling_eyes: , khup satisfied",['product'],['positive'],['product_item'],1,False,Beauty,4.0
+910,"Must try aahe 😍, quality chhan","must try aahe :smiling_face_with_heart - eyes: , quality chhan",['quality'],['positive'],['quality_build'],1,False,Beauty,4.0
+911,"Good aahe 😄, happy with purchase","good aahe :grinning_face_with_smiling_eyes: , happy with purchase",['product'],['positive'],['product_item'],1,False,Beauty,4.0
+912,"Good 😎, smooth aahe, easy apply","good :smiling_face_with_sunglasses: , smooth aahe , easy apply",['product'],['positive'],['product_item'],1,False,Beauty,4.0
+913,"Tq Meesho, khup chhan product 😊💖","tq meesho , khup chhan product :smiling_face_with_smiling_eyes: :sparkling_heart:","['meesho', 'product']","['positive', 'positive']","['delivery_service', 'product_item']",2,False,Beauty,5.0
+914,Meesho product khup chhan aahe 😍,meesho product khup chhan aahe :smiling_face_with_heart - eyes:,"['product', 'meesho']","['positive', 'positive']","['product_item', 'delivery_service']",2,False,Beauty,5.0
+915,"Ok ok aahe 😕, kahi special nahi","ok ok aahe :confused_face: , kahi special nahi",['product'],['neutral'],['product_item'],1,True,Beauty,3.0
+916,"Waterproof nahi aahe, thoda smudge 😟","waterproof nahi aahe , thoda smudge :worried_face:",['product'],['neutral'],['product_item'],1,True,Beauty,3.0
+917,"Quality khup chhan aahe 😍, results mast aahe 😊","quality khup chhan aahe :smiling_face_with_heart - eyes: , results mast aahe :smiling_face_with_smiling_eyes:","['quality', 'results']","['positive', 'positive']","['quality_build', 'skin_beauty_effect']",2,True,Beauty,5.0
+918,"Kajal thoda hard aahe, pan chhan 😄","kajal thoda hard aahe , pan chhan :grinning_face_with_smiling_eyes:",['kajal'],['negative'],['product_item'],1,False,Beauty,5.0
+919,"Thank you Meesho, gud product 😍","thank you meesho , gud product :smiling_face_with_heart - eyes:","['meesho', 'product']","['positive', 'positive']","['delivery_service', 'product_item']",2,False,Beauty,5.0
+920,Product quality average 😕,product quality average :confused_face:,"['quality', 'product']","['neutral', 'neutral']","['quality_build', 'product_item']",2,False,Beauty,3.0
+921,"Best Product 😊, thanks Meesho 💖","best product :smiling_face_with_smiling_eyes: , thanks meesho :sparkling_heart:","['product', 'meesho']","['positive', 'positive']","['product_item', 'delivery_service']",2,False,Beauty,5.0
+922,"Bahut chhan aahe 😍, very happy","bahut chhan aahe :smiling_face_with_heart - eyes: , very happy",['product'],['positive'],['product_item'],1,True,Beauty,5.0
+923,"Good quality 😊, fast delivery 🚚","good quality :smiling_face_with_smiling_eyes: , fast delivery :delivery_truck:","['quality', 'delivery']","['positive', 'positive']","['quality_build', 'delivery_service']",2,False,Beauty,5.0
+924,Packing thodi weak 😕,packing thodi weak :confused_face:,['packing'],['neutral'],['delivery_service'],1,False,Beauty,3.0
+925,"Long lasting kajal, khup chhan 😍","long lasting kajal , khup chhan :smiling_face_with_heart - eyes:",['kajal'],['positive'],['product_item'],1,False,Beauty,5.0
+926,Meesho var product chhan aahe 😊,meesho var product chhan aahe :smiling_face_with_smiling_eyes:,"['product', 'meesho']","['positive', 'positive']","['product_item', 'delivery_service']",2,False,Beauty,5.0
+927,"Eye liner khup chhan 😍, satisfied","eye liner khup chhan :smiling_face_with_heart - eyes: , satisfied",['product'],['positive'],['product_item'],1,False,Beauty,5.0
+928,"Price nusar ok aahe, special nahi 😕","price nusar ok aahe , special nahi :confused_face:",['price'],['neutral'],['price_value'],1,True,Beauty,3.0
+929,"Kajal smudge proof nahi, jaldi fade hoto 😟","kajal smudge proof nahi , jaldi fade hoto :worried_face:",['kajal'],['negative'],['product_item'],1,True,Beauty,3.0
+930,Nyc product at this price 😍,nyc product at this price :smiling_face_with_heart - eyes:,"['product', 'price']","['positive', 'positive']","['product_item', 'price_value']",2,False,Beauty,5.0
+931,"Khup chhan aahe, beautiful 😄💖","khup chhan aahe , beautiful :grinning_face_with_smiling_eyes: :sparkling_heart:",['product'],['positive'],['product_item'],1,False,Beauty,5.0
+932,Bohot chhan aahe guys 😉👍 go for it 💗🤩,bahut chhan aahe guys :winking_face: :thumbs_up: go for it :growing_heart: :star - struck:,['product'],['positive'],['product_item'],1,False,Beauty,5.0
+933,"Pigment mast aahe 😊, khup satisfied","pigment mast aahe :smiling_face_with_smiling_eyes: , khup satisfied",['pigment'],['positive'],['design_appearance'],1,True,Beauty,5.0
+934,"Nice pic of kajal, thanks 😍","nice pic of kajal , thanks :smiling_face_with_heart - eyes:",['kajal'],['positive'],['product_item'],1,False,Beauty,5.0
+935,"Mast aahe, expected pramane 😄","mast aahe , expected pramane :grinning_face_with_smiling_eyes:",['product'],['positive'],['product_item'],1,True,Beauty,5.0
+936,Kajal andar se tuta aahe 😕,kajal andar se tuta aahe :confused_face:,['kajal'],['neutral'],['product_item'],1,True,Beauty,3.0
+937,"Kajal nahi chhan, eyeliner perfect aahe 😟","kajal nahi chhan , eyeliner perfect aahe :worried_face:",['kajal'],['negative'],['product_item'],1,True,Beauty,3.0
+938,"Thickness sahi nahi, eyes var mast cover nahi 😕","thickness sahi nahi , eyes var mast cover nahi :confused_face:",['product'],['neutral'],['product_item'],1,True,Beauty,3.0
+939,"Really chhan product 😍, price nusar perfect 👍","really chhan product :smiling_face_with_heart - eyes: , price nusar perfect :thumbs_up:","['product', 'price']","['positive', 'positive']","['product_item', 'price_value']",2,False,Beauty,5.0
+940,Daily use साठी khup chhan aahe 😊🖤,daily use ा ी khup chhan aahe :smiling_face_with_smiling_eyes: :black_heart:,['product'],['positive'],['product_item'],1,True,Beauty,5.0
+941,"Kajal long lasting nahi, thoda spread होतो 😕","kajal long lasting nahi , thoda spread ो ो :confused_face:",['kajal'],['negative'],['product_item'],1,True,Beauty,3.0
+942,"Mala product khup avadle 😍, very happy 💖","mala product khup avadle :smiling_face_with_heart - eyes: , very happy :sparkling_heart:",['product'],['positive'],['product_item'],1,False,Beauty,5.0
+943,"Order mix zala 😕, pan product ok 😅","order mix zala :confused_face: , pan product ok :grinning_face_with_sweat:",['product'],['neutral'],['product_item'],1,False,Beauty,3.0
+944,"Mala kajal khup avadla 😍🖤, smooth aahe 😄","mala kajal khup avadla :smiling_face_with_heart - eyes: :black_heart: , smooth aahe :grinning_face_with_smiling_eyes:",['kajal'],['positive'],['product_item'],1,False,Beauty,5.0
+945,"I Can expected I received this quality products 😍 colour ⭐, fabric ⭐ all this good ❤️","i can expected i received this quality products :smiling_face_with_heart - eyes: colour :star: , fabric :star: all this good :red_heart:","['quality', 'colour', 'fabric']","['positive', 'positive', 'positive']","['quality_build', 'design_appearance', 'fabric_material']",3,False,Fashion,5.0
+946,"Its too good but the only thing is the colour is not red, its maroon. It looks so good on me so I’ll keep it. Such a pretty dress 🥰 just go for it girliesssss🎀","its too good but the only thing is the colour is not red , its maroon . it looks so good on me so i ’ ll keep it . such a pretty dress :smiling_face_with_hearts: just go for it girliess :ribbon:","['colour', 'looks', 'dress']","['negative', 'positive', 'positive']","['design_appearance', 'design_appearance', 'product_item']",3,True,Fashion,5.0
+947,"Bohut khubsurat hai 👍😍👍👍 mujhe pasand aya,but mujhe size change karna hai","bohut khubsurat hai :thumbs_up: :smiling_face_with_heart - eyes: :thumbs_up: :thumbs_up: mujhe pasand aya , but mujhe size change karna hai",['size'],['positive'],['fit_size'],1,True,Fashion,5.0
+948,"Looking like a wow😚such a amazing dress,size,fitting osm....❤️","looking like a wow :kissing_face_with_closed_eyes: such a amazing dress , size , fitting osm . . :red_heart:","['dress', 'size', 'fitting']","['positive', 'positive', 'positive']","['product_item', 'fit_size', 'fit_size']",3,False,Fashion,5.0
+949,Very good product nice fitting love it🎀💕,very good product nice fitting love it :ribbon: :two_hearts:,"['fitting', 'product']","['positive', 'positive']","['fit_size', 'product_item']",2,False,Fashion,5.0
+950,It’s very beautiful dress I’m so glad thanks meesho❤️,it ’ s very beautiful dress i ’ m so glad thanks meesho :red_heart:,"['meesho', 'dress']","['positive', 'positive']","['delivery_service', 'product_item']",2,False,Fashion,5.0
+951,Pretty dress 🍒❤️ just go for it guys 👍🏼,pretty dress :cherries: :red_heart: just go for it guys :thumbs_up_medium - light_skin_tone:,['dress'],['positive'],['product_item'],1,False,Fashion,5.0
+952,Bahut he achi hai i love it,bahut he acchi hai i love it,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+953,"Very nice fit, and not exactly the same red colour, it is wine red but still Love it a lot 💖 (Suggestion: Pair it with a pearl necklace and a fur shall and it'll give out old money vibes✨)","very nice fit , and not exactly the same red colour , it is wine red but still love it a lot :sparkling_heart: ( suggestion: pair it with a pearl necklace and a fur shall and it ' ll give out old money vibes :sparkles: )","['fit', 'colour']","['positive', 'negative']","['fit_size', 'design_appearance']",2,True,Fashion,5.0
+954,Price k hisab se dress bahut hi jada acchi h quality wise or size wise mene xs liya h and meri Height 5ft h to mujhe thodei long aai bs baki dress bahut hi jada acchi aai,price k hisab se dress bahut hi zyada acchi h quality wise or size wise mene xs liya h and meri height 5ft h to mujhe thodei long aai bs baki dress bahut hi zyada acchi aai,"['quality', 'price', 'dress', 'size', 'height']","['positive', 'positive', 'positive', 'positive', 'positive']","['quality_build', 'price_value', 'product_item', 'fit_size', 'fit_size']",5,True,Fashion,5.0
+955,"Very good, Unun expect itna accha dresses joga,thank you meesho☺️❤️","very good , unun expect itna accha dresses joga , thank you meesho :smiling_face: :red_heart:",['meesho'],['positive'],['delivery_service'],1,True,Fashion,5.0
+956,"Loved it ❤️event thing is good about this but it is not that but strachy enough, but still looks good","loved it :red_heart: event thing is good about this but it is not that but strachy enough , but still looks good",['looks'],['positive'],['design_appearance'],1,False,Fashion,4.0
+957,O m g it is very beautiful dress guys I think you should try it 🤩🤩🥰,o m g it is very beautiful dress guys i think you should try it :star - struck: :star - struck: :smiling_face_with_hearts:,['dress'],['positive'],['product_item'],1,False,Fashion,5.0
+958,Unexpected product 😍such a beautiful dress I love it.Thkyou Meesho 🫶,unexpected product :smiling_face_with_heart - eyes: such a beautiful dress i love it . thkyou meesho :heart_hands:,"['product', 'dress', 'meesho']","['positive', 'positive', 'positive']","['product_item', 'product_item', 'delivery_service']",3,False,Fashion,5.0
+959,Khup chan dress,khup chan dress,['dress'],['positive'],['product_item'],1,False,Fashion,5.0
+960,Very nice dres. Awesome dress 👗,very nice dres . awesome dress :dress:,['dress'],['positive'],['product_item'],1,False,Fashion,5.0
+961,"It became slightly tight, but it's look so much perfect in my shape the quality is also perfect in Savanna it cost 990 but me show is better from 990 the qualities good very much good to effort","it became slightly tight , but it ' s look so much perfect in my shape the quality is also perfect in savanna it cost 990 but me show is better from 990 the qualities good very much good to effort","['tight', 'quality', 'shape', 'look', 'cost']","['negative', 'positive', 'positive', 'positive', 'positive']","['fit_size', 'quality_build', 'fit_size', 'design_appearance', 'price_value']",5,True,Fashion,5.0
+962,Thid dress is very nice jese dikhaya same vese hi aaya he aur cloth is Best material quality bilkul bhi transparent nhi he bahut achha he so buy now,thid dress is very nice jese dikhaya same vese hi aaya he aur cloth is best material quality bilkul bhi transparent nahi he bahut accha he so buy now,"['dress', 'material', 'quality', 'cloth']","['positive', 'negative', 'negative', 'negative']","['product_item', 'fabric_material', 'quality_build', 'fabric_material']",4,True,Fashion,5.0
+963,"I'm very Disappointed bcz I want this dress on my birthday 17th sep, 😭but I didn't receive the parcel at time. Overall product is nice I like the dress fitting is perfect ❤️","i ' m very disappointed bcz i want this dress on my birthday 17th sep , :loudly_crying_face: but i didn ' t receive the parcel at time . overall product is nice i like the dress fitting is perfect :red_heart:","['dress', 'fitting', 'product']","['negative', 'positive', 'positive']","['product_item', 'fit_size', 'product_item']",3,True,Fashion,5.0
+964,"Bro, the cloth is so beautiful, superb quality, and the size is just perfect — all at a reasonable price. Wow!…❤️","bro , the cloth is so beautiful , superb quality , and the size is just perfect — all at a reasonable price . wow ! … :red_heart:","['cloth', 'quality', 'price', 'size']","['positive', 'positive', 'positive', 'positive']","['fabric_material', 'quality_build', 'price_value', 'fit_size']",4,True,Fashion,5.0
+965,❤️ love it,:red_heart: love it,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+966,Accha dress hai bohot pyara but mujhe size fit issue ho Raha h isliye return kar rahi hu,accha dress hai bahut pyara but mujhe size fit issue ho raha h isliye return kar rahi hu,"['dress', 'size', 'fit']","['positive', 'positive', 'positive']","['product_item', 'fit_size', 'fit_size']",3,True,Fashion,5.0
+967,Such a pretty dress and fitted also good this dress hug's my body.. I really love it 🫶,such a pretty dress and fitted also good this dress hug ' s my body . . i really love it :heart_hands:,['dress'],['positive'],['product_item'],1,False,Fashion,5.0
+968,"✨ “Loved the dress! Perfect fit, great fabric and the red colour looks stunning. Totally worth it!”",":sparkles: “ loved the dress ! perfect fit , great fabric and the red colour looks stunning . totally worth it ! ”","['dress', 'perfect fit', 'fit', 'fabric', 'colour', 'looks', 'worth']","['positive', 'positive', 'positive', 'positive', 'positive', 'positive', 'positive']","['product_item', 'fit_size', 'fit_size', 'fabric_material', 'design_appearance', 'design_appearance', 'price_value']",7,True,Fashion,5.0
+969,Best dress for the price had the best night and got a ton of compliments and it gave me confidence 😍,best dress for the price had the best night and got a ton of compliments and it gave me confidence :smiling_face_with_heart - eyes:,"['price', 'dress']","['positive', 'positive']","['price_value', 'product_item']",2,True,Fashion,5.0
+970,Nice colour bt issue in fit,nice colour bt issue in fit,"['colour', 'fit']","['positive', 'positive']","['design_appearance', 'fit_size']",2,False,Fashion,4.0
+971,Fabulous n gorgeous dress thank you meesho 🫰,fabulous n gorgeous dress thank you meesho :hand_with_index_finger_and_thumb_crossed:,"['meesho', 'dress']","['positive', 'positive']","['delivery_service', 'product_item']",2,False,Fashion,5.0
+972,Good size and good quality 🤗,good size and good quality :smiling_face_with_open_hands:,"['size', 'quality']","['positive', 'positive']","['fit_size', 'quality_build']",2,False,Fashion,5.0
+973,Ek kapda mast hai,ek cloth mast hai,['cloth'],['positive'],['fabric_material'],1,True,Fashion,5.0
+974,Ok h but I want maroon yeh light red ha very bad,ok h but i want maroon yeh light red ha very bad,['product'],['positive'],['product_item'],1,True,Fashion,5.0
+975,Very very good quality. Unexpected 🫢 😊,very very good quality . unexpected :face_with_open_eyes_and_hand_over_mouth: :smiling_face_with_smiling_eyes:,['quality'],['positive'],['quality_build'],1,False,Fashion,5.0
+976,Unexpected product wow💫💫🥹❤️❤️❤️❤️,unexpected product wow :dizzy: :dizzy: :face_holding_back_tears: :red_heart: :red_heart: :red_heart: :red_heart:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+977,Beautiful,beautiful,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+978,Excellent,excellent,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+979,Gud product,gud product,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+980,Good material. Lookd very elegant. Price is genuine,good material . lookd very elegant . price is genuine,"['material', 'price']","['positive', 'positive']","['fabric_material', 'price_value']",2,False,Fashion,5.0
+981,Nice dress 👌,nice dress :ok_hand:,['dress'],['positive'],['product_item'],1,False,Fashion,3.0
+982,Thik h Good 👍,thik h good :thumbs_up:,['product'],['positive'],['product_item'],1,False,Fashion,4.0
+983,Very nice,very nice,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+984,Service and product was good,service and product was good,"['service', 'product']","['positive', 'positive']","['delivery_service', 'product_item']",2,False,Fashion,4.0
+985,Very good,very good,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+986,Vgd,vgd,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+987,Gud,gud,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+988,♥️♥️♥️♥️,:heart_suit: :heart_suit: :heart_suit: :heart_suit:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+989,Ok,ok,[],[],[],0,False,Fashion,4.0
+990,Bed fabric and stitching loose,bed fabric and stitching loose,"['fabric', 'stitching', 'loose']","['negative', 'negative', 'negative']","['fabric_material', 'quality_build', 'fit_size']",3,False,Fashion,2.0
+991,Nice,nice,['product'],['negative'],['product_item'],1,False,Fashion,1.0
+992,Good,good,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+993,Product is very good,product is very good,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+994,Very good,very good,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+995,Excellent 👍👍👍👌👌👌,excellent :thumbs_up: :thumbs_up: :ok_hand: :ok_hand:,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+996,"Photo mein thora hard quality dikh raha tha, real mein soft type ka hai, lekin accha dikh raha hai 👍👍","photo mein thoda hard quality dikh raha tha , real mein soft type ka hai , lekin accha dikh raha hai :thumbs_up: :thumbs_up:",['quality'],['negative'],['quality_build'],1,True,Fashion,4.0
+997,Very good,very good,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+998,Amazing,amazing,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+999,Nice,nice,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+1000,It's g5,it ' s g5,['product'],['positive'],['product_item'],1,False,Fashion,4.0
+1001,So sweet,so sweet,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+1002,Beautiful,beautiful,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+1003,Good,good,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+1004,Just wow,just wow,['product'],['positive'],['product_item'],1,False,Fashion,5.0
+1005,Nice dress,nice dress,['dress'],['positive'],['product_item'],1,False,Fashion,4.0
+1006,Good,good,['product'],['positive'],['product_item'],1,False,Fashion,4.0
+1007,Good 👍,good :thumbs_up:,['product'],['positive'],['product_item'],1,False,Fashion,4.0
+1008,Nice,nice,['product'],['positive'],['product_item'],1,False,Fashion,4.0

@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.git
+.github
+.vscode
+.idea
+*.ipynb
+NLP_ABSA.ipynb
+SentiMix_ABSA_Starter.ipynb
+.DS_Store
+*.log
+venv/
+env/
+.env

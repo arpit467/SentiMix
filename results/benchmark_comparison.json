@@ -1,0 +1,902 @@
+[
+  {
+    "model_name": "Rule-Based Baseline",
+    "accuracy": 0.40889212827988336,
+    "precision_macro": 0.5943898683391039,
+    "recall_macro": 0.4937464857416156,
+    "f1_macro": 0.4057379524080616,
+    "f1_weighted": 0.44543532837091837,
+    "per_class_f1": {
+      "negative": 0.3956574185765983,
+      "neutral": 0.3298791018998273,
+      "positive": 0.49167733674775926
+    },
+    "confusion_matrix": [
+      [
+        164,
+        395,
+        16
+      ],
+      [
+        36,
+        382,
+        25
+      ],
+      [
+        54,
+        1096,
+        576
+      ]
+    ],
+    "classification_report": {
+      "negative": {
+        "precision": 0.6456692913385826,
+        "recall": 0.2852173913043478,
+        "f1-score": 0.3956574185765983,
+        "support": 575.0
+      },
+      "neutral": {
+        "precision": 0.20395088093966898,
+        "recall": 0.8623024830699775,
+        "f1-score": 0.3298791018998273,
+        "support": 443.0
+      },
+      "positive": {
+        "precision": 0.93354943273906,
+        "recall": 0.33371958285052145,
+        "f1-score": 0.49167733674775926,
+        "support": 1726.0
+      },
+      "accuracy": 0.40889212827988336,
+      "macro avg": {
+        "precision": 0.5943898683391039,
+        "recall": 0.4937464857416156,
+        "f1-score": 0.4057379524080616,
+        "support": 2744.0
+      },
+      "weighted avg": {
+        "precision": 0.7554360071733148,
+        "recall": 0.40889212827988336,
+        "f1-score": 0.44543532837091837,
+        "support": 2744.0
+      }
+    },
+    "latency_total_sec": 0.43233466148376465,
+    "latency_ms_per_sample": 0.15755636351449148,
+    "total_test_samples": 2744,
+    "hinglish_subset": {
+      "count": 2563,
+      "accuracy": 0.38743659773702693,
+      "f1_macro": 0.3899872973755185
+    },
+    "english_subset": {
+      "count": 181,
+      "accuracy": 0.712707182320442,
+      "f1_macro": 0.4721948158480666
+    },
+    "domain_breakdown": {
+      "laptop": {
+        "count": 654,
+        "accuracy": 0.4434250764525994,
+        "f1_macro": 0.37268250267861996
+      },
+      "restaurant": {
+        "count": 1134,
+        "accuracy": 0.281305114638448,
+        "f1_macro": 0.26069034308283984
+      },
+      "meesho_ecommerce": {
+        "count": 297,
+        "accuracy": 0.6835016835016835,
+        "f1_macro": 0.4963385886965193
+      },
+      "flipkart_ecommerce": {
+        "count": 305,
+        "accuracy": 0.5737704918032787,
+        "f1_macro": 0.5055455888037584
+      },
+      "amazon_ecommerce": {
+        "count": 174,
+        "accuracy": 0.3103448275862069,
+        "f1_macro": 0.28800110278778884
+      },
+      "ecommerce_electronics": {
+        "count": 180,
+        "accuracy": 0.45,
+        "f1_macro": 0.40714063599613753
+      }
+    },
+    "top_aspects_f1": {
+      "product": {
+        "count": 167,
+        "f1_macro": 0.47889159062584435
+      },
+      "food": {
+        "count": 86,
+        "f1_macro": 0.21957950725074013
+      },
+      "service": {
+        "count": 61,
+        "f1_macro": 0.3165485103469599
+      },
+      "quality": {
+        "count": 61,
+        "f1_macro": 0.40350877192982454
+      },
+      "price": {
+        "count": 60,
+        "f1_macro": 0.40491452991452986
+      },
+      "size": {
+        "count": 46,
+        "f1_macro": 0.4153846153846154
+      },
+      "Food": {
+        "count": 39,
+        "f1_macro": 0.12380952380952381
+      },
+      "battery": {
+        "count": 35,
+        "f1_macro": 0.35664335664335667
+      },
+      "performance": {
+        "count": 33,
+        "f1_macro": 0.5131313131313131
+      },
+      "fabric": {
+        "count": 29,
+        "f1_macro": 0.34357762017336485
+      }
+    }
+  },
+  {
+    "model_name": "TF-IDF + Logistic Regression",
+    "accuracy": 0.7124635568513119,
+    "precision_macro": 0.6482371503684577,
+    "recall_macro": 0.6822720137489512,
+    "f1_macro": 0.6533962338539988,
+    "f1_weighted": 0.729754822053324,
+    "per_class_f1": {
+      "negative": 0.6672428694900605,
+      "neutral": 0.47766323024054985,
+      "positive": 0.8152826018313861
+    },
+    "confusion_matrix": [
+      [
+        386,
+        131,
+        58
+      ],
+      [
+        73,
+        278,
+        92
+      ],
+      [
+        123,
+        312,
+        1291
+      ]
+    ],
+    "classification_report": {
+      "negative": {
+        "precision": 0.6632302405498282,
+        "recall": 0.671304347826087,
+        "f1-score": 0.6672428694900605,
+        "support": 575.0
+      },
+      "neutral": {
+        "precision": 0.3855755894590846,
+        "recall": 0.6275395033860045,
+        "f1-score": 0.47766323024054985,
+        "support": 443.0
+      },
+      "positive": {
+        "precision": 0.8959056210964608,
+        "recall": 0.7479721900347625,
+        "f1-score": 0.8152826018313861,
+        "support": 1726.0
+      },
+      "accuracy": 0.7124635568513119,
+      "macro avg": {
+        "precision": 0.6482371503684577,
+        "recall": 0.6822720137489512,
+        "f1-score": 0.6533962338539988,
+        "support": 2744.0
+      },
+      "weighted avg": {
+        "precision": 0.7647596488553268,
+        "recall": 0.7124635568513119,
+        "f1-score": 0.729754822053324,
+        "support": 2744.0
+      }
+    },
+    "latency_total_sec": 6.65936803817749,
+    "latency_ms_per_sample": 2.4268833958372777,
+    "total_test_samples": 2744,
+    "hinglish_subset": {
+      "count": 2563,
+      "accuracy": 0.6956691377292236,
+      "f1_macro": 0.6451365740361285
+    },
+    "english_subset": {
+      "count": 181,
+      "accuracy": 0.9502762430939227,
+      "f1_macro": 0.8424487594390507
+    },
+    "domain_breakdown": {
+      "laptop": {
+        "count": 654,
+        "accuracy": 0.6039755351681957,
+        "f1_macro": 0.5682952164331311
+      },
+      "restaurant": {
+        "count": 1134,
+        "accuracy": 0.5696649029982364,
+        "f1_macro": 0.5186584810650813
+      },
+      "meesho_ecommerce": {
+        "count": 297,
+        "accuracy": 0.8888888888888888,
+        "f1_macro": 0.6936474718937835
+      },
+      "flipkart_ecommerce": {
+        "count": 305,
+        "accuracy": 0.9868852459016394,
+        "f1_macro": 0.9900862291526824
+      },
+      "amazon_ecommerce": {
+        "count": 174,
+        "accuracy": 0.9885057471264368,
+        "f1_macro": 0.9799455115910813
+      },
+      "ecommerce_electronics": {
+        "count": 180,
+        "accuracy": 0.9833333333333333,
+        "f1_macro": 0.9881760751325969
+      }
+    },
+    "top_aspects_f1": {
+      "product": {
+        "count": 167,
+        "f1_macro": 0.7742360596326497
+      },
+      "food": {
+        "count": 86,
+        "f1_macro": 0.47077156695261363
+      },
+      "service": {
+        "count": 61,
+        "f1_macro": 0.5027417027417028
+      },
+      "quality": {
+        "count": 61,
+        "f1_macro": 0.6127777777777778
+      },
+      "price": {
+        "count": 60,
+        "f1_macro": 0.7121693121693121
+      },
+      "size": {
+        "count": 46,
+        "f1_macro": 0.8410991636798087
+      },
+      "Food": {
+        "count": 39,
+        "f1_macro": 0.5442890442890443
+      },
+      "battery": {
+        "count": 35,
+        "f1_macro": 0.5498401627433885
+      },
+      "performance": {
+        "count": 33,
+        "f1_macro": 0.5448028673835125
+      },
+      "fabric": {
+        "count": 29,
+        "f1_macro": 0.3151515151515151
+      }
+    }
+  },
+  {
+    "model_name": "IndicBERT",
+    "accuracy": 0.6325,
+    "precision_macro": 0.5738143549650363,
+    "recall_macro": 0.5923351158645277,
+    "f1_macro": 0.572306036784351,
+    "f1_weighted": 0.6509270464275789,
+    "per_class_f1": {
+      "negative": 0.5671641791044776,
+      "neutral": 0.4022346368715084,
+      "positive": 0.7475192943770672
+    },
+    "confusion_matrix": [
+      [
+        95,
+        44,
+        31
+      ],
+      [
+        21,
+        72,
+        42
+      ],
+      [
+        49,
+        107,
+        339
+      ]
+    ],
+    "classification_report": {
+      "negative": {
+        "precision": 0.5757575757575758,
+        "recall": 0.5588235294117647,
+        "f1-score": 0.5671641791044776,
+        "support": 170.0
+      },
+      "neutral": {
+        "precision": 0.32286995515695066,
+        "recall": 0.5333333333333333,
+        "f1-score": 0.4022346368715084,
+        "support": 135.0
+      },
+      "positive": {
+        "precision": 0.8228155339805825,
+        "recall": 0.6848484848484848,
+        "f1-score": 0.7475192943770672,
+        "support": 495.0
+      },
+      "accuracy": 0.6325,
+      "macro avg": {
+        "precision": 0.5738143549650363,
+        "recall": 0.5923351158645277,
+        "f1-score": 0.572306036784351,
+        "support": 800.0
+      },
+      "weighted avg": {
+        "precision": 0.6859499014317058,
+        "recall": 0.6325,
+        "f1-score": 0.6509270464275789,
+        "support": 800.0
+      }
+    },
+    "latency_total_sec": 53.25186824798584,
+    "latency_ms_per_sample": 66.5648353099823,
+    "total_test_samples": 800,
+    "hinglish_subset": {
+      "count": 752,
+      "accuracy": 0.6196808510638298,
+      "f1_macro": 0.5694241017309539
+    },
+    "english_subset": {
+      "count": 48,
+      "accuracy": 0.8333333333333334,
+      "f1_macro": 0.43492063492063493
+    },
+    "domain_breakdown": {
+      "restaurant": {
+        "count": 333,
+        "accuracy": 0.5345345345345346,
+        "f1_macro": 0.4826244641328808
+      },
+      "meesho_ecommerce": {
+        "count": 89,
+        "accuracy": 0.7415730337078652,
+        "f1_macro": 0.36571428571428566
+      },
+      "amazon_ecommerce": {
+        "count": 50,
+        "accuracy": 0.88,
+        "f1_macro": 0.5838383838383838
+      },
+      "flipkart_ecommerce": {
+        "count": 87,
+        "accuracy": 0.9080459770114943,
+        "f1_macro": 0.802029822029822
+      },
+      "ecommerce_electronics": {
+        "count": 44,
+        "accuracy": 0.8409090909090909,
+        "f1_macro": 0.8388278388278387
+      },
+      "laptop": {
+        "count": 197,
+        "accuracy": 0.5177664974619289,
+        "f1_macro": 0.4951488898727108
+      }
+    },
+    "top_aspects_f1": {
+      "product": {
+        "count": 46,
+        "f1_macro": 0.3920377867746289
+      },
+      "food": {
+        "count": 24,
+        "f1_macro": 0.25925925925925924
+      },
+      "service": {
+        "count": 20,
+        "f1_macro": 0.5202020202020202
+      },
+      "Food": {
+        "count": 18,
+        "f1_macro": 0.6111111111111112
+      },
+      "price": {
+        "count": 17,
+        "f1_macro": 0.8035353535353535
+      },
+      "quality": {
+        "count": 14,
+        "f1_macro": 1.0
+      },
+      "battery": {
+        "count": 14,
+        "f1_macro": 0.9474747474747476
+      },
+      "size": {
+        "count": 13,
+        "f1_macro": 0.9022556390977443
+      },
+      "charging": {
+        "count": 9,
+        "f1_macro": 0.5555555555555555
+      },
+      "delivery": {
+        "count": 8,
+        "f1_macro": 0.75
+      }
+    }
+  },
+  {
+    "model_name": "Multilingual MiniLM",
+    "accuracy": 0.63,
+    "precision_macro": 0.5676412979205413,
+    "recall_macro": 0.5889879183996832,
+    "f1_macro": 0.5699007465060151,
+    "f1_weighted": 0.6483793838518962,
+    "per_class_f1": {
+      "negative": 0.6022727272727273,
+      "neutral": 0.36627906976744184,
+      "positive": 0.7411504424778761
+    },
+    "confusion_matrix": [
+      [
+        106,
+        34,
+        30
+      ],
+      [
+        28,
+        63,
+        44
+      ],
+      [
+        48,
+        112,
+        335
+      ]
+    ],
+    "classification_report": {
+      "negative": {
+        "precision": 0.5824175824175825,
+        "recall": 0.6235294117647059,
+        "f1-score": 0.6022727272727273,
+        "support": 170.0
+      },
+      "neutral": {
+        "precision": 0.3014354066985646,
+        "recall": 0.4666666666666667,
+        "f1-score": 0.36627906976744184,
+        "support": 135.0
+      },
+      "positive": {
+        "precision": 0.8190709046454768,
+        "recall": 0.6767676767676768,
+        "f1-score": 0.7411504424778761,
+        "support": 495.0
+      },
+      "accuracy": 0.63,
+      "macro avg": {
+        "precision": 0.5676412979205413,
+        "recall": 0.5889879183996832,
+        "f1-score": 0.5699007465060151,
+        "support": 800.0
+      },
+      "weighted avg": {
+        "precision": 0.6814310833935079,
+        "recall": 0.63,
+        "f1-score": 0.6483793838518962,
+        "support": 800.0
+      }
+    },
+    "latency_total_sec": 25.965974807739258,
+    "latency_ms_per_sample": 32.45746850967407,
+    "total_test_samples": 800,
+    "hinglish_subset": {
+      "count": 752,
+      "accuracy": 0.6183510638297872,
+      "f1_macro": 0.5687905862277899
+    },
+    "english_subset": {
+      "count": 48,
+      "accuracy": 0.8125,
+      "f1_macro": 0.41089743589743594
+    },
+    "domain_breakdown": {
+      "restaurant": {
+        "count": 333,
+        "accuracy": 0.5075075075075075,
+        "f1_macro": 0.46675799404395835
+      },
+      "meesho_ecommerce": {
+        "count": 89,
+        "accuracy": 0.7640449438202247,
+        "f1_macro": 0.47034447034447036
+      },
+      "amazon_ecommerce": {
+        "count": 50,
+        "accuracy": 0.94,
+        "f1_macro": 0.8767052767052768
+      },
+      "flipkart_ecommerce": {
+        "count": 87,
+        "accuracy": 0.9080459770114943,
+        "f1_macro": 0.8561910902336435
+      },
+      "ecommerce_electronics": {
+        "count": 44,
+        "accuracy": 0.5909090909090909,
+        "f1_macro": 0.41646966115051226
+      },
+      "laptop": {
+        "count": 197,
+        "accuracy": 0.583756345177665,
+        "f1_macro": 0.5557624831309043
+      }
+    },
+    "top_aspects_f1": {
+      "product": {
+        "count": 46,
+        "f1_macro": 0.40080971659919024
+      },
+      "food": {
+        "count": 24,
+        "f1_macro": 0.4804008252284115
+      },
+      "service": {
+        "count": 20,
+        "f1_macro": 0.5849436392914654
+      },
+      "Food": {
+        "count": 18,
+        "f1_macro": 0.6111111111111112
+      },
+      "price": {
+        "count": 17,
+        "f1_macro": 0.6649859943977591
+      },
+      "quality": {
+        "count": 14,
+        "f1_macro": 1.0
+      },
+      "battery": {
+        "count": 14,
+        "f1_macro": 0.5421245421245421
+      },
+      "size": {
+        "count": 13,
+        "f1_macro": 0.8194444444444444
+      },
+      "charging": {
+        "count": 9,
+        "f1_macro": 0.8615384615384616
+      },
+      "delivery": {
+        "count": 8,
+        "f1_macro": 0.5357142857142857
+      }
+    }
+  },
+  {
+    "model_name": "XLM-RoBERTa",
+    "accuracy": 0.57125,
+    "precision_macro": 0.5471650571650571,
+    "recall_macro": 0.5600514953456129,
+    "f1_macro": 0.5285788970492674,
+    "f1_weighted": 0.5972732452545909,
+    "per_class_f1": {
+      "negative": 0.51875,
+      "neutral": 0.3847980997624703,
+      "positive": 0.6821885913853318
+    },
+    "confusion_matrix": [
+      [
+        83,
+        56,
+        31
+      ],
+      [
+        14,
+        81,
+        40
+      ],
+      [
+        53,
+        149,
+        293
+      ]
+    ],
+    "classification_report": {
+      "negative": {
+        "precision": 0.5533333333333333,
+        "recall": 0.48823529411764705,
+        "f1-score": 0.51875,
+        "support": 170.0
+      },
+      "neutral": {
+        "precision": 0.28321678321678323,
+        "recall": 0.6,
+        "f1-score": 0.3847980997624703,
+        "support": 135.0
+      },
+      "positive": {
+        "precision": 0.804945054945055,
+        "recall": 0.591919191919192,
+        "f1-score": 0.6821885913853318,
+        "support": 495.0
+      },
+      "accuracy": 0.57125,
+      "macro avg": {
+        "precision": 0.5471650571650571,
+        "recall": 0.5600514953456129,
+        "f1-score": 0.5285788970492674,
+        "support": 800.0
+      },
+      "weighted avg": {
+        "precision": 0.6634359182484182,
+        "recall": 0.57125,
+        "f1-score": 0.5972732452545909,
+        "support": 800.0
+      }
+    },
+    "latency_total_sec": 69.58992338180542,
+    "latency_ms_per_sample": 86.98740422725677,
+    "total_test_samples": 800,
+    "hinglish_subset": {
+      "count": 752,
+      "accuracy": 0.5638297872340425,
+      "f1_macro": 0.5315175581362147
+    },
+    "english_subset": {
+      "count": 48,
+      "accuracy": 0.6875,
+      "f1_macro": 0.31872294372294374
+    },
+    "domain_breakdown": {
+      "restaurant": {
+        "count": 333,
+        "accuracy": 0.43843843843843844,
+        "f1_macro": 0.36836153259083915
+      },
+      "meesho_ecommerce": {
+        "count": 89,
+        "accuracy": 0.6853932584269663,
+        "f1_macro": 0.35745007680491553
+      },
+      "amazon_ecommerce": {
+        "count": 50,
+        "accuracy": 0.8,
+        "f1_macro": 0.5218490429758035
+      },
+      "flipkart_ecommerce": {
+        "count": 87,
+        "accuracy": 0.9310344827586207,
+        "f1_macro": 0.8868589743589744
+      },
+      "ecommerce_electronics": {
+        "count": 44,
+        "accuracy": 0.7272727272727273,
+        "f1_macro": 0.7267080745341614
+      },
+      "laptop": {
+        "count": 197,
+        "accuracy": 0.49238578680203043,
+        "f1_macro": 0.46959069042435964
+      }
+    },
+    "top_aspects_f1": {
+      "product": {
+        "count": 46,
+        "f1_macro": 0.3273182957393484
+      },
+      "food": {
+        "count": 24,
+        "f1_macro": 0.48412698412698413
+      },
+      "service": {
+        "count": 20,
+        "f1_macro": 0.38888888888888884
+      },
+      "Food": {
+        "count": 18,
+        "f1_macro": 0.36684303350970016
+      },
+      "price": {
+        "count": 17,
+        "f1_macro": 0.7655011655011655
+      },
+      "quality": {
+        "count": 14,
+        "f1_macro": 1.0
+      },
+      "battery": {
+        "count": 14,
+        "f1_macro": 0.8461538461538461
+      },
+      "size": {
+        "count": 13,
+        "f1_macro": 0.8194444444444444
+      },
+      "charging": {
+        "count": 9,
+        "f1_macro": 0.5757575757575758
+      },
+      "delivery": {
+        "count": 8,
+        "f1_macro": 0.5833333333333334
+      }
+    }
+  },
+  {
+    "model_name": "MuRIL",
+    "accuracy": 0.40625,
+    "precision_macro": 0.3775349889377781,
+    "recall_macro": 0.41204859047996306,
+    "f1_macro": 0.31100949297308095,
+    "f1_weighted": 0.3988415927948671,
+    "per_class_f1": {
+      "negative": 0.052083333333333336,
+      "neutral": 0.3495798319327731,
+      "positive": 0.5313653136531366
+    },
+    "confusion_matrix": [
+      [
+        5,
+        88,
+        77
+      ],
+      [
+        6,
+        104,
+        25
+      ],
+      [
+        11,
+        268,
+        216
+      ]
+    ],
+    "classification_report": {
+      "negative": {
+        "precision": 0.22727272727272727,
+        "recall": 0.029411764705882353,
+        "f1-score": 0.052083333333333336,
+        "support": 170.0
+      },
+      "neutral": {
+        "precision": 0.22608695652173913,
+        "recall": 0.7703703703703704,
+        "f1-score": 0.3495798319327731,
+        "support": 135.0
+      },
+      "positive": {
+        "precision": 0.6792452830188679,
+        "recall": 0.43636363636363634,
+        "f1-score": 0.5313653136531366,
+        "support": 495.0
+      },
+      "accuracy": 0.40625,
+      "macro avg": {
+        "precision": 0.3775349889377781,
+        "recall": 0.41204859047996306,
+        "f1-score": 0.31100949297308095,
+        "support": 800.0
+      },
+      "weighted avg": {
+        "precision": 0.5067306473264225,
+        "recall": 0.40625,
+        "f1-score": 0.3988415927948671,
+        "support": 800.0
+      }
+    },
+    "latency_total_sec": 58.222732067108154,
+    "latency_ms_per_sample": 72.77841508388519,
+    "total_test_samples": 800,
+    "hinglish_subset": {
+      "count": 752,
+      "accuracy": 0.3776595744680851,
+      "f1_macro": 0.2958867344939607
+    },
+    "english_subset": {
+      "count": 48,
+      "accuracy": 0.8541666666666666,
+      "f1_macro": 0.3071161048689139
+    },
+    "domain_breakdown": {
+      "restaurant": {
+        "count": 333,
+        "accuracy": 0.2702702702702703,
+        "f1_macro": 0.21005291005291005
+      },
+      "meesho_ecommerce": {
+        "count": 89,
+        "accuracy": 0.7865168539325843,
+        "f1_macro": 0.36153846153846153
+      },
+      "amazon_ecommerce": {
+        "count": 50,
+        "accuracy": 0.78,
+        "f1_macro": 0.3578544061302682
+      },
+      "flipkart_ecommerce": {
+        "count": 87,
+        "accuracy": 0.5402298850574713,
+        "f1_macro": 0.2338308457711443
+      },
+      "ecommerce_electronics": {
+        "count": 44,
+        "accuracy": 0.4318181818181818,
+        "f1_macro": 0.30158730158730157
+      },
+      "laptop": {
+        "count": 197,
+        "accuracy": 0.30456852791878175,
+        "f1_macro": 0.23562555226363116
+      }
+    },
+    "top_aspects_f1": {
+      "product": {
+        "count": 46,
+        "f1_macro": 0.31007751937984496
+      },
+      "food": {
+        "count": 24,
+        "f1_macro": 0.08507936507936509
+      },
+      "service": {
+        "count": 20,
+        "f1_macro": 0.07675438596491228
+      },
+      "Food": {
+        "count": 18,
+        "f1_macro": 0.24175824175824176
+      },
+      "price": {
+        "count": 17,
+        "f1_macro": 0.21241830065359477
+      },
+      "quality": {
+        "count": 14,
+        "f1_macro": 0.2608695652173913
+      },
+      "battery": {
+        "count": 14,
+        "f1_macro": 0.5789473684210527
+      },
+      "size": {
+        "count": 13,
+        "f1_macro": 0.21052631578947367
+      },
+      "charging": {
+        "count": 9,
+        "f1_macro": 0.4375
+      },
+      "delivery": {
+        "count": 8,
+        "f1_macro": 0.1818181818181818
+      }
+    }
+  }
+]
