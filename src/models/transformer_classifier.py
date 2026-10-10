@@ -42,7 +42,6 @@ class BaseTransformerABSAModel:
             C=1.0,
             max_iter=1000,
             class_weight="balanced",
-            multi_class="multinomial",
             solver="lbfgs",
             random_state=42
         )

@@ -43,7 +43,6 @@ class TFIDFLogisticABSAModel:
             C=self.c_reg,
             max_iter=self.max_iter,
             class_weight="balanced",
-            multi_class="multinomial",
             solver="lbfgs",
             random_state=42
         )
