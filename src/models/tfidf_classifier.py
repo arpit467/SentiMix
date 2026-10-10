@@ -84,11 +84,23 @@ class TFIDFLogisticABSAModel:
         X_vec = self.vectorizer.transform(text_feat)
         ml_probs = self.classifier.predict_proba(X_vec)[0]
         
-        # Blend with lexicon prior (70% ML, 30% Lexicon)
+        # Blend with lexicon prior
         _, _, rule_probs_dict = self.rule_engine.predict_pair(sentence, aspect)
         rule_probs = np.array([rule_probs_dict["negative"], rule_probs_dict["neutral"], rule_probs_dict["positive"]])
         
-        blended_probs = 0.65 * ml_probs + 0.35 * rule_probs
+        # If lexicon is highly confident (e.g. strong polarity words or negation), weight lexicon heavier
+        rule_conf = float(np.max(rule_probs))
+        if rule_conf >= 0.75:
+            weight_rule = 0.60
+            weight_ml = 0.40
+        elif rule_conf >= 0.65:
+            weight_rule = 0.50
+            weight_ml = 0.50
+        else:
+            weight_rule = 0.35
+            weight_ml = 0.65
+            
+        blended_probs = weight_ml * ml_probs + weight_rule * rule_probs
         pred_id = int(np.argmax(blended_probs))
         
         probs_dict = {
@@ -97,6 +109,7 @@ class TFIDFLogisticABSAModel:
             "positive": float(blended_probs[2])
         }
         return INV_LABEL_MAP[pred_id], pred_id, probs_dict
+
 
     def predict_batch(self, df: pd.DataFrame) -> Tuple[np.ndarray, np.ndarray]:
         if not self.is_trained:

@@ -176,7 +176,7 @@ async def process_batch_file(
         aspect_records = []
         category_counts = {}
         aspect_counts = {}
-        overall_sentiments = {"Positive": 0, "Negative": 0, "Neutral": 0}
+        overall_sentiments = {"Positive": 0, "Negative": 0, "Neutral": 0, "Mixed": 0}
         hinglish_count = 0
         total_confidence = 0.0
         aspects_count_total = 0
@@ -256,6 +256,7 @@ async def process_batch_file(
         pos_pct = round(overall_sentiments.get("Positive", 0) / total_reviews * 100, 1) if total_reviews > 0 else 0.0
         neg_pct = round(overall_sentiments.get("Negative", 0) / total_reviews * 100, 1) if total_reviews > 0 else 0.0
         neu_pct = round(overall_sentiments.get("Neutral", 0) / total_reviews * 100, 1) if total_reviews > 0 else 0.0
+        mixed_pct = round(overall_sentiments.get("Mixed", 0) / total_reviews * 100, 1) if total_reviews > 0 else 0.0
         net_sentiment = round(pos_pct - neg_pct, 1)
 
         # Save enriched CSV
@@ -278,7 +279,7 @@ async def process_batch_file(
             "avg_confidence": avg_conf,
             "net_sentiment_score": net_sentiment,
             "sentiment_counts": overall_sentiments,
-            "sentiment_percentages": {"Positive": pos_pct, "Negative": neg_pct, "Neutral": neu_pct},
+            "sentiment_percentages": {"Positive": pos_pct, "Negative": neg_pct, "Neutral": neu_pct, "Mixed": mixed_pct},
             "top_categories": formatted_top_categories,
             "top_aspect_terms": formatted_top_aspects,
             "download_url": f"/api/download/{out_filename}",
@@ -286,6 +287,7 @@ async def process_batch_file(
             "sample_results": enriched_rows[:50],
             "latency_sec": latency_sec
         })
+
     except HTTPException:
         raise
     except Exception as e:

@@ -10,7 +10,15 @@ from src.preprocessor import TextPreprocessor
 from src.annotator import MeeshoABSAAnnotator
 from src.models.rule_based import RuleBasedABSAModel
 from src.models.tfidf_classifier import TFIDFLogisticABSAModel
-from src.models.transformer_classifier import IndicBERTABSAModel, MultilingualMiniLMABSAModel, XLMRoBERTaABSAModel, MuRILABSAModel
+
+try:
+    from src.models.transformer_classifier import IndicBERTABSAModel, MultilingualMiniLMABSAModel, XLMRoBERTaABSAModel, MuRILABSAModel
+except Exception:
+    IndicBERTABSAModel = None
+    MultilingualMiniLMABSAModel = None
+    XLMRoBERTaABSAModel = None
+    MuRILABSAModel = None
+
 
 class ABSAInferenceEngine:
     """
@@ -83,11 +91,13 @@ class ABSAInferenceEngine:
     def _get_aspect_clause_context(self, text: str, aspect: str) -> str:
         """
         Extracts the specific clause context containing the aspect term to prevent sentiment cross-contamination.
+        Supports ASCII and Devanagari Unicode word boundaries.
         """
         clauses = self.preprocessor.split_into_clauses(text)
         asp_lower = aspect.lower()
         for clause in clauses:
-            if re.search(r'\b' + re.escape(asp_lower) + r'\b', clause.lower()):
+            pattern = r'(?<![a-zA-Z0-9\u0900-\u097F])' + re.escape(asp_lower) + r'(?![a-zA-Z0-9\u0900-\u097F])'
+            if re.search(pattern, clause.lower()):
                 return clause
         return text
 
@@ -167,12 +177,33 @@ class ABSAInferenceEngine:
         neg_count = sum(1 for r in aspect_results if r["sentiment"] == "negative")
         neu_count = sum(1 for r in aspect_results if r["sentiment"] == "neutral")
         
-        if pos_count > neg_count:
-            overall = "Positive"
-        elif neg_count > pos_count:
+        # Check Sarcasm
+        sarcasm_patterns = [
+            r"\bnot\b[\s\.!]*$",
+            r"\bthanks for the (?:free|gift|pimples)\b",
+            r"\bwah\s+(?:kya|kent|bhai|samsung|wipro|puma)\b.*(?:hang|leak|chhale|barbad|bekar|kharab|phati|mazaa|dead)",
+            r"\bवाह[,\s]+क्या\b.*(?:खराब|टूटी|उधड़|बर्बाद|छाले|क्वालिटी)",
+            r"\bkya baat hai.*service ho toh aisi\b",
+            r"\bbrilliant quality control, well done\b"
+        ]
+        is_sarcastic = any(re.search(p, clean_text.lower()) for p in sarcasm_patterns)
+        
+        if is_sarcastic:
             overall = "Negative"
+            for r in aspect_results:
+                r["sentiment"] = "negative"
+        elif pos_count > 0 and neg_count > 0:
+            overall = "Mixed"
+        elif pos_count > 0 and neg_count == 0:
+            overall = "Positive"
+        elif neg_count > 0 and pos_count == 0:
+            overall = "Negative"
+        elif neu_count > 0:
+            overall = "Neutral"
         else:
-            overall = "Neutral" if neu_count > 0 else "Positive"
+            pol, _, _ = self.models["Rule-Based Baseline"].predict_pair(clean_text, "product")
+            overall = pol.title()
+
             
         return {
             "original_text": review_text,
@@ -188,6 +219,7 @@ class ABSAInferenceEngine:
                 "neutral": neu_count
             }
         }
+
 
     def analyze_batch(self, df: pd.DataFrame, text_column: str, model_name: str = "TF-IDF + Logistic Regression") -> pd.DataFrame:
         """

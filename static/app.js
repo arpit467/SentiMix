@@ -396,13 +396,21 @@ function renderBatchCharts(data) {
     if (batchDonutChart) batchDonutChart.destroy();
     
     const counts = data.sentiment_counts || {};
+    const labels = counts.Mixed !== undefined ? ['Positive', 'Mixed', 'Neutral', 'Negative'] : ['Positive', 'Neutral', 'Negative'];
+    const chartData = counts.Mixed !== undefined ?
+      [counts.Positive || 0, counts.Mixed || 0, counts.Neutral || 0, counts.Negative || 0] :
+      [counts.Positive || 0, counts.Neutral || 0, counts.Negative || 0];
+    const colors = counts.Mixed !== undefined ?
+      ['#10b981', '#8b5cf6', '#f59e0b', '#f43f5e'] :
+      ['#10b981', '#f59e0b', '#f43f5e'];
+
     batchDonutChart = new Chart(ctxDonut, {
       type: 'doughnut',
       data: {
-        labels: ['Positive', 'Neutral', 'Negative'],
+        labels: labels,
         datasets: [{
-          data: [counts.Positive || 0, counts.Neutral || 0, counts.Negative || 0],
-          backgroundColor: ['#10b981', '#f59e0b', '#f43f5e'],
+          data: chartData,
+          backgroundColor: colors,
           borderColor: '#0f172a',
           borderWidth: 3
         }]
@@ -417,6 +425,7 @@ function renderBatchCharts(data) {
       }
     });
   }
+
 
   // Chart 2: Top Aspect Categories Stacked Bar
   const ctxCat = document.getElementById('batchAspectCategoryBarChart');

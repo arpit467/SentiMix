@@ -1,11 +1,18 @@
 from .rule_based import RuleBasedABSAModel
 from .tfidf_classifier import TFIDFLogisticABSAModel
-from .transformer_classifier import (
-    BaseTransformerABSAModel,
-    IndicBERTABSAModel,
-    XLMRoBERTaABSAModel,
-    MuRILABSAModel
-)
+
+try:
+    from .transformer_classifier import (
+        BaseTransformerABSAModel,
+        IndicBERTABSAModel,
+        XLMRoBERTaABSAModel,
+        MuRILABSAModel
+    )
+except Exception:
+    BaseTransformerABSAModel = None
+    IndicBERTABSAModel = None
+    XLMRoBERTaABSAModel = None
+    MuRILABSAModel = None
 
 __all__ = [
     "RuleBasedABSAModel",

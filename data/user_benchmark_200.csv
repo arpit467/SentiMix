@@ -1,0 +1,201 @@
+review_id,product_name,product_category,review_text,language,platform,rating,expected_aspects,expected_sentiments,expected_overall_sentiment
+SMX0001,Mamaearth Vitamin C Face Wash,Beauty,Refreshing smell and gentle on my skin. The bottle design is leaky though.,English,Amazon,4,fragrance|skin_effect|packaging,Positive|Positive|Negative,Mixed
+SMX0002,Daikin Split AC,Appliances,कूलिंग अच्छी है लेकिन बिजली का बिल काफी बढ़ गया। सर्विस वाले समय पर नहीं आए।,Hindi,Flipkart,3,cooling|power_consumption|customer_service,Positive|Negative|Negative,Mixed
+SMX0003,Banarasi Silk Saree,Clothing,Saree ka colour bilkul photo jaisa hai aur fabric bhi shandar. Shaadi mein sabne tareef ki.,Hinglish,Meesho,5,color|fabric,Positive|Positive,Positive
+SMX0004,Herbal Hair Oil,Beauty,बाल झड़ना कम नहीं हुआ और खुशबू इतनी तेज़ है कि सिरदर्द हो गया। पैसे बर्बाद।,Hindi,Meesho,2,effectiveness|fragrance|price,Negative|Negative|Negative,Negative
+SMX0005,Cargo Pants,Clothing,"Pockets bade hain par fabric mein quality nahi hai, 2 wash mein hi ghis gaya. Disappointed.",Hinglish,Flipkart,2,design|fabric|durability,Positive|Negative|Negative,Mixed
+SMX0006,Crocs Clogs,Footwear,"Fake crocs mile hain, smell bahut buri hai. Return karna pada.",Hinglish,Meesho,1,authenticity|smell,Negative|Negative,Negative
+SMX0007,Lenovo IdeaPad Laptop,Electronics,"Performance is smooth for office work, but the fan noise is annoying and it heats up while gaming.",English,Flipkart,3,performance|noise|heating,Positive|Negative|Negative,Mixed
+SMX0008,Samsung 25W Fast Charger,Electronics,"Stopped working after 12 days. Wow, great durability Samsung, really impressive. Not.",English,Amazon,1,durability,Negative,Negative
+SMX0009,Lakme Absolute Matte Lipstick,Beauty,Shade is gorgeous and it stays put for 6 hours. Not drying at all.,English,Amazon,5,color|longevity|texture,Positive|Positive|Positive,Positive
+SMX0010,Tan Leather Loafers,Footwear,"Oh fantastic, the sole detached on my first day at the office. Best purchase ever, truly.",English,Flipkart,1,durability,Negative,Negative
+SMX0011,Philips Dry Iron,Appliances,"Iron theek theek kaam karta hai, nothing special. Wire ki length bhi average hai.",Hinglish,Meesho,3,performance|design,Neutral|Neutral,Neutral
+SMX0012,Georgette Saree,Clothing,"साड़ी का डिज़ाइन बहुत सुंदर है, पर रंग थोड़ा फीका निकला। कुल मिलाकर अच्छी है।",Hindi,Flipkart,4,design|color,Positive|Negative,Mixed
+SMX0013,Prestige Pressure Cooker,Appliances,Cooker ki quality zabardast hai aur safety valve bhi sahi kaam karta hai. Kaafi tikau lag raha hai.,Hinglish,Amazon,5,build_quality|safety|durability,Positive|Positive|Positive,Positive
+SMX0014,Dove Deodorant Spray,Beauty,Fragrance is nice but the protection fades by afternoon. Average.,English,Amazon,3,fragrance|longevity,Positive|Negative,Mixed
+SMX0015,Patanjali Saundarya Face Pack,Beauty,"Rash ho gaya face pe, ab doctor ke chakkar lagane padenge. Bilkul mat lena.",Hinglish,Flipkart,1,skin_effect,Negative,Negative
+SMX0016,HP Laptop 15s,Electronics,ऑफिस के काम के लिए बहुत स्मूद चलता है और डिस्प्ले साफ है। कीमत के हिसाब से बेहतरीन।,Hindi,Flipkart,5,performance|display|price,Positive|Positive|Positive,Positive
+SMX0017,Men's Running Shoes,Footwear,Surprisingly good quality for this price. Cushioning is nice and no foot pain at all.,English,Meesho,5,quality|price|comfort,Positive|Positive|Positive,Positive
+SMX0018,Havells Mixer Grinder,Appliances,Mixer bahut shor karta hai aur 1 mahine mein jar leak hone laga. Customer care ka koi response nahi.,Hinglish,Amazon,2,noise|durability|customer_service,Negative|Negative|Negative,Negative
+SMX0019,Sports Bra,Clothing,Great support during running and the fabric is breathable. Definitely worth every rupee.,English,Amazon,5,comfort|fabric|price,Positive|Positive|Positive,Positive
+SMX0020,Noise ColorFit Pro Smartwatch,Electronics,"Not bad at all. Display is bright and the strap is comfortable, but the step counter is not very accurate.",English,Flipkart,4,display|comfort|accuracy,Positive|Positive|Negative,Mixed
+SMX0021,Aloe Vera Gel,Beauty,Gel thanda hai aur skin ko hydrate karta hai. Packing bhi ekdum safe aayi.,Hinglish,Meesho,4,skin_effect|packaging,Positive|Positive,Positive
+SMX0022,Portronics Webcam,Electronics,Video quality is good enough for meetings. The mic is garbage though.,English,Flipkart,4,camera|microphone,Positive|Negative,Mixed
+SMX0023,Daily Wear Flip Flops,Footwear,Light and comfortable for daily use. Strap is sturdy. Colour is a little different but not a deal-breaker.,English,Meesho,4,comfort|durability|color,Positive|Positive|Neutral,Positive
+SMX0024,Daily Flip Flops,Footwear,"Daily use ke liye perfect hain, halka aur soft. Rate bhi kam hai.",Hinglish,Flipkart,5,comfort|price,Positive|Positive,Positive
+SMX0025,Usha Ceiling Fan,Appliances,हवा बहुत तेज़ है और बिजली भी कम खाता है। बस इंस्टालेशन में देर हुई।,Hindi,Amazon,4,performance|power_consumption|installation,Positive|Positive|Negative,Mixed
+SMX0026,Mi Wired Earphones,Electronics,"वाह, क्या शानदार ईयरफोन हैं, एक हफ्ते में ही खराब हो गए। क्वालिटी का तो जवाब नहीं।",Hindi,Meesho,2,durability,Negative,Negative
+SMX0027,Sports Sandals,Footwear,"Grip is bad on wet floors, almost slipped twice. Looks nice but that's dangerous.",English,Amazon,2,grip|design,Negative|Positive,Mixed
+SMX0028,Polo T-shirt,Clothing,"Normal t-shirt hai, na kuch khaas na kharab. Size M aaya, normal fitting.",Hinglish,Amazon,3,quality|size,Neutral|Neutral,Neutral
+SMX0029,Realme Buds T300,Electronics,Bass is decent but the left bud keeps disconnecting. Bluetooth connectivity is a joke.,English,Meesho,2,sound_quality|connectivity,Positive|Negative,Mixed
+SMX0030,Himalaya Neem Face Wash,Beauty,"तैलीय त्वचा के लिए बढ़िया है, मुहांसे कम हुए। बस ढक्कन थोड़ा ढीला है।",Hindi,Flipkart,4,skin_effect|packaging,Positive|Negative,Mixed
+SMX0031,Crocs Classic Clogs,Footwear,Fake product received. Logo is misprinted and the smell is awful. Sending back.,English,Amazon,1,authenticity|smell,Negative|Negative,Negative
+SMX0032,Walking Shoes,Footwear,"Cushioning ekdum mast hai, long walk pe bhi pair nahi dukhte. Price thoda zyada hai.",Hinglish,Amazon,4,comfort|price,Positive|Negative,Mixed
+SMX0033,Anker USB-C Cable,Electronics,Not a single issue in 6 months. Charging speed is fast and the braiding is tough.,English,Amazon,5,charging_speed|durability,Positive|Positive,Positive
+SMX0034,Skechers Walking Shoes,Footwear,"Walking on clouds, literally. Perfect size and lightweight.",English,Flipkart,5,comfort|size,Positive|Positive,Positive
+SMX0035,Perfume Combo Pack,Beauty,Khushboo achhi hai par 15 minute mein ud jati hai. Bottle bhi sasti si lagti hai.,Hinglish,Meesho,2,fragrance|longevity|packaging,Positive|Negative|Negative,Mixed
+SMX0036,Biotique Face Pack,Beauty,"Caused breakouts within two days. Seriously, thanks for the free pimples.",English,Flipkart,1,skin_effect,Negative,Negative
+SMX0037,Usha Steam Iron,Appliances,Heats up in the usual time and the press is average. Price is what you'd expect.,English,Meesho,3,performance|price,Neutral|Neutral,Neutral
+SMX0038,Everyday Sunscreen SPF 30,Beauty,"सनस्क्रीन औसत है, न बहुत अच्छा न बुरा। चिपचिपापन भी सामान्य है।",Hindi,Amazon,3,effectiveness|texture,Neutral|Neutral,Neutral
+SMX0039,Puma Softride Running Shoes,Footwear,Very comfortable for long runs and the grip is excellent. Sole feels durable too.,English,Amazon,5,comfort|grip|durability,Positive|Positive|Positive,Positive
+SMX0040,Sports Track Pants,Clothing,"जिम के लिए बेहतरीन हैं, हल्के और आरामदायक। डिलीवरी भी एक दिन पहले हो गई।",Hindi,Amazon,5,comfort|delivery,Positive|Positive,Positive
+SMX0041,Zipper Hoodie,Clothing,"पहली धुलाई में ही रंग निकल गया और सिलाई उधड़ गई। घटिया क्वालिटी, कभी मत खरीदना।",Hindi,Meesho,1,color|stitching,Negative|Negative,Negative
+SMX0042,Morphy Richards Toaster,Appliances,Burns the bread on one side no matter the setting. Looks fancy but useless.,English,Flipkart,2,performance|design,Negative|Positive,Mixed
+SMX0043,Dell 24 inch Monitor,Electronics,"Colours are vibrant and the stand is sturdy. It has no speakers though, which I expected at this price.",English,Amazon,4,color|build_quality|sound_quality,Positive|Positive|Neutral,Positive
+SMX0044,Lakme Eyeconic Kajal,Beauty,Kajal ekdum smudge proof hai aur poore din tikta hai. Colour bhi gehra black.,Hinglish,Flipkart,5,smudge_resistance|longevity|color,Positive|Positive|Positive,Positive
+SMX0045,boAt Rockerz Headphones,Electronics,साउंड क्वालिटी शानदार है और बैटरी दो दिन आराम से चलती है। पैसे वसूल प्रोडक्ट!,Hindi,Amazon,5,sound_quality|battery|price,Positive|Positive|Positive,Positive
+SMX0046,Havells Ceiling Fan,Appliances,Air delivery is great but it makes a clicking sound at high speed. Installation took long.,English,Amazon,3,performance|noise|installation,Positive|Negative|Negative,Mixed
+SMX0047,Gym Training Shoes,Footwear,"Grip theek hai, design average hai. Is price mein chalta hai.",Hinglish,Amazon,3,grip|design|price,Neutral|Neutral|Neutral,Neutral
+SMX0048,Kurta Pajama Set,Clothing,Kurta ki stitching achi hai aur fitting bhi theek. Bas packing aur better ho sakti thi.,Hinglish,Amazon,4,stitching|fit|packaging,Positive|Positive|Negative,Mixed
+SMX0049,Himalaya Neem Face Wash,Beauty,"Works for my oily skin, no dryness. The cap breaks easily though.",English,Amazon,4,skin_effect|packaging,Positive|Negative,Mixed
+SMX0050,Campus Casual Shoes,Footwear,"Budget mein achhe shoes hain. Look bhi stylish hai, bas sole thoda hard hai.",Hinglish,Flipkart,4,price|design|comfort,Positive|Positive|Negative,Mixed
+SMX0051,Night Suit Set,Clothing,Night suit ekdum soft aur comfortable. Print bhi cute hai. Defintely buy again.,Hinglish,Flipkart,5,comfort|design,Positive|Positive,Positive
+SMX0052,Fast Charging USB Cable,Electronics,"Cable ki quality acchi hai, fast charging bhi support karta hai. Is price mein toh best hai.",Hinglish,Meesho,4,quality|charging_speed|price,Positive|Positive|Positive,Positive
+SMX0053,Bridal Lehenga,Clothing,"Lehenga ka design pyara hai, par dupatta ka material bahut patla hai. Okay okay hai paise ke hisaab se.",Hinglish,Meesho,3,design|fabric|price,Positive|Negative|Neutral,Mixed
+SMX0054,Mamaearth Onion Shampoo,Beauty,"Bal jhadna kam nahi hua, ulta smell itni tez hai ki sar dard ho gaya. Paisa barbaad.",Hinglish,Amazon,2,effectiveness|fragrance|price,Negative|Negative|Negative,Negative
+SMX0055,Reebok Gym Shoes,Footwear,Okay shoes. Neither great nor bad. Gets the job done.,English,Amazon,3,quality,Neutral,Neutral
+SMX0056,boAt Rockerz 450 Bluetooth Headphones,Electronics,Sound quality is amazing for the price and the battery easily lasts 2 days. Totally worth it.,English,Amazon,5,sound_quality|battery|price,Positive|Positive|Positive,Positive
+SMX0057,Redmi 12,Electronics,कैमरा बहुत अच्छा है लेकिन बैटरी जल्दी खत्म हो जाती है। डिस्प्ले भी ठीक-ठाक है।,Hindi,Flipkart,3,camera|battery|display,Positive|Negative|Neutral,Mixed
+SMX0058,Lakme Matte Lipstick,Beauty,शेड बहुत सुंदर है और पूरे दिन टिकती है। होंठ सूखते भी नहीं हैं।,Hindi,Amazon,5,color|longevity|texture,Positive|Positive|Positive,Positive
+SMX0059,Levi's 511 Slim Fit Jeans,Clothing,Perfect fit and the denim feels premium. Colour has not faded even after 5 washes.,English,Amazon,5,fit|fabric|color,Positive|Positive|Positive,Positive
+SMX0060,boAt Airdopes 141,Electronics,Bhai sound quality ekdum mast hai aur battery bhi 2 din chalti hai. Paisa vasool!,Hinglish,Flipkart,5,sound_quality|battery|price,Positive|Positive|Positive,Positive
+SMX0061,Gym Track Pant,Clothing,"Gym ke liye best hai, stretchable aur light weight. Delivery bhi fast thi.",Hinglish,Flipkart,4,comfort|delivery,Positive|Positive,Positive
+SMX0062,Women's Block Heels,Footwear,Pretty design but the heel height is higher than described and my feet hurt after an hour.,English,Meesho,3,design|comfort,Positive|Negative,Mixed
+SMX0063,Nail Paint Set,Beauty,Colours bahut sundar hain aur 4 din tak chipping nahi hui. Bottle ka brush thoda mota hai.,Hinglish,Meesho,4,color|longevity|applicator,Positive|Positive|Negative,Mixed
+SMX0064,ASIAN Sports Shoes,Footwear,जूते बहुत आरामदायक हैं और पकड़ भी बढ़िया है। दौड़ने के लिए एकदम सही।,Hindi,Amazon,5,comfort|grip,Positive|Positive,Positive
+SMX0065,Orient Ceiling Fan,Appliances,Fan ki speed zabardast hai aur awaaz bilkul nahi. Dekhne mein bhi premium lagta hai.,Hinglish,Amazon,4,performance|noise|design,Positive|Positive|Positive,Positive
+SMX0066,WOW Aloe Vera Gel,Beauty,Cooling and non-sticky. Used it after sunburn and it helped a lot.,English,Flipkart,4,texture|effectiveness,Positive|Positive,Positive
+SMX0067,Women's Flat Sandal,Footwear,Design pyara hai but fitting thodi tight hai. Ek size bada lena chahiye tha.,Hinglish,Meesho,3,design|size,Positive|Negative,Mixed
+SMX0068,Allen Solly Formal Shirt,Clothing,"Fits well, but the price is too high for this quality.",English,Amazon,3,fit|price|quality,Positive|Negative|Negative,Mixed
+SMX0069,Redmi Buds 5C,Electronics,Product is fine but delivery took 11 days even though it said 2-day delivery. Terrible logistics.,English,Amazon,2,quality|delivery,Neutral|Negative,Negative
+SMX0070,Rubber Chappal Pair,Footwear,"एक हफ्ते में ही पट्टी टूट गई। बहुत घटिया क्वालिटी है, पैसे बेकार गए।",Hindi,Meesho,1,durability|price,Negative|Negative,Negative
+SMX0071,Matte Lipstick Combo,Beauty,Shades bahut pretty hain aur kaafi sasti bhi hain. Bas thodi si dry feel hoti hai lips pe.,Hinglish,Meesho,4,color|price|texture,Positive|Positive|Negative,Mixed
+SMX0072,Women's Sandals,Footwear,डिज़ाइन प्यारा है लेकिन फिटिंग ढीली है। एक साइज़ छोटा लेना चाहिए था।,Hindi,Meesho,3,design|size,Positive|Negative,Mixed
+SMX0073,Maybelline Fit Me Foundation,Beauty,Coverage is good but the shade was too dark for me and it feels cakey after a few hours.,English,Flipkart,3,coverage|shade_match|texture,Positive|Negative|Negative,Mixed
+SMX0074,Zebronics Gaming Keyboard,Electronics,Keys sab theek hain but 3 din baad kuch keys kaam nahi kar rahi. Bakwas quality.,Hinglish,Meesho,2,durability,Negative,Negative
+SMX0075,Noise Smartwatch,Electronics,घड़ी देखने में सुंदर है और स्ट्रैप आरामदायक है। बैटरी भी तीन दिन चलती है।,Hindi,Amazon,4,design|comfort|battery,Positive|Positive|Positive,Positive
+SMX0076,Embroidered Ethnic Mojaris,Footwear,Beautiful embroidery and the fit is snug. Packaging was bubble wrapped so zero damage.,English,Meesho,4,design|fit|packaging,Positive|Positive|Positive,Positive
+SMX0077,Formal Trousers,Clothing,"Size chart galat hai, 32 order kiya par 30 jaisa aaya. Kapda bhi garam hai summer ke liye.",Hinglish,Amazon,2,size|fabric,Negative|Negative,Negative
+SMX0078,Lotus Herbals Hair Colour,Beauty,Colour came out patchy and the ammonia smell gave me a headache. Won't repeat.,English,Amazon,2,color|fragrance,Negative|Negative,Negative
+SMX0079,Pigeon Electric Kettle,Appliances,Stopped heating within a week. Lid is flimsy. Waste of money.,English,Meesho,1,performance|build_quality|price,Negative|Negative|Negative,Negative
+SMX0080,Perfume Spray Pack,Beauty,खुशबू अच्छी है पर पंद्रह मिनट में उड़ जाती है। बोतल भी सस्ती लगती है।,Hindi,Meesho,2,fragrance|longevity|packaging,Positive|Negative|Negative,Mixed
+SMX0081,boAt Stone Bluetooth Speaker,Electronics,Sound bahut loud hai aur bass bhi dhamakedaar. Ghar ki party mein sabko pasand aaya.,Hinglish,Amazon,5,sound_quality,Positive,Positive
+SMX0082,Leather Formal Shoes,Footwear,Leather quality acchi hai aur office mein sab ko pasand aaye. Delivery ek din late thi but chalega.,Hinglish,Amazon,4,material|design|delivery,Positive|Positive|Negative,Mixed
+SMX0083,Dupatta Set of 3,Clothing,"Dupatta ka work bahut sundar hai, bilkul nahi lagta ki sasta hai. Loved it!",Hinglish,Meesho,4,design|price,Positive|Positive,Positive
+SMX0084,Pigeon Gas Stove,Appliances,Stove ka build solid hai aur flame achi aati hai. Price ke hisaab se top.,Hinglish,Meesho,4,build_quality|performance|price,Positive|Positive|Positive,Positive
+SMX0085,Sandwich Maker,Appliances,Sandwich ekdum crispy banta hai aur cleaning bhi easy. Paise vasool.,Hinglish,Meesho,5,performance|cleaning|price,Positive|Positive|Positive,Positive
+SMX0086,Bata Formal Shoes,Footwear,Looks classy but they bite my heel. Need to break them in for a week before they feel okay.,English,Flipkart,3,design|comfort,Positive|Negative,Mixed
+SMX0087,Women's Floral Kurti,Clothing,Material is soft and the design looks just like the picture. Stitching at the sleeves could be better.,English,Meesho,4,fabric|design|stitching,Positive|Positive|Negative,Mixed
+SMX0088,Eureka Forbes Vacuum,Appliances,"Vacuum ka suction aur dustbin size dono average hain, kaam chal jata hai.",Hinglish,Amazon,3,performance|design,Neutral|Neutral,Neutral
+SMX0089,Stiletto Heels,Footwear,Heel utni acchi nahi lag rahi jaisi pics mein thi. Chalne mein dikkat hoti hai aur sole slippery hai.,Hinglish,Flipkart,2,design|comfort|grip,Negative|Negative|Negative,Negative
+SMX0090,Winter Puffer Jacket,Clothing,जैकेट बहुत गर्म है और देखने में स्टाइलिश भी। थोड़ी भारी ज़रूर है।,Hindi,Amazon,4,warmth|design|comfort,Positive|Positive|Negative,Mixed
+SMX0091,Wipro LED Bulbs Pack of 4,Appliances,"Two of the four bulbs were dead on arrival. Brilliant quality control, well done Wipro.",English,Flipkart,1,quality,Negative,Negative
+SMX0092,Samsung Galaxy M14,Electronics,"Wah kya phone hai, 2 hafte mein hang hone laga. Zabardast performance hai Samsung ki, mazaa aa gaya.",Hinglish,Amazon,1,performance,Negative,Negative
+SMX0093,Maybelline Lash Sensational Mascara,Beauty,Volume accha deta hai but 2 ghante mein smudge ho jata hai. Okay type hai.,Hinglish,Flipkart,3,effectiveness|smudge_resistance,Positive|Negative,Mixed
+SMX0094,Cotton Formal Shirt,Clothing,"Waah, delivery mein 15 din lagaye aur upar se shirt phati hui mili. Kya baat hai, service ho toh aisi.",Hinglish,Amazon,1,delivery|quality,Negative|Negative,Negative
+SMX0095,Lakme 9to5 Foundation,Beauty,"Coverage theek hai, na jyada na kam. Shade mere skin tone se match nahi hua.",Hinglish,Amazon,2,coverage|shade_match,Neutral|Negative,Negative
+SMX0096,Garnier Fructis Shampoo,Beauty,"Does clean hair fine, nothing special. Fragrance is decent. Packaging arrived slightly crushed.",English,Meesho,3,effectiveness|fragrance|packaging,Neutral|Positive|Negative,Mixed
+SMX0097,Leggings Combo,Clothing,"Stretchy, opaque and comfortable. Not at all see-through even when bending. Loved it.",English,Meesho,5,fabric|comfort,Positive|Positive,Positive
+SMX0098,Bajaj Mixer Grinder 750W,Appliances,मिक्सर बहुत शोर करता है और एक महीने में जार लीक होने लगा। कस्टमर केयर कोई जवाब नहीं देता।,Hindi,Amazon,2,noise|durability|customer_service,Negative|Negative|Negative,Negative
+SMX0099,Nike Revolution Running Shoes,Footwear,"Shoes bahut comfortable hain, running ke liye ekdum perfect. Grip bhi mast hai.",Hinglish,Amazon,5,comfort|grip,Positive|Positive,Positive
+SMX0100,LG 7kg Washing Machine,Appliances,Cleans clothes thoroughly and is very quiet. Installation guy was prompt and polite.,English,Flipkart,5,performance|noise|installation,Positive|Positive|Positive,Positive
+SMX0101,Round Neck T-shirt,Clothing,"टी-शर्ट सामान्य है, न बहुत अच्छी न खराब। साइज़ भी सामान्य आया।",Hindi,Flipkart,3,quality|size,Neutral|Neutral,Neutral
+SMX0102,Mi Power Bank 20000mAh,Electronics,"Charges my phone 4 times. Not heavy, build feels solid. Delivery was on time.",English,Amazon,4,battery|build_quality|delivery,Positive|Positive|Positive,Positive
+SMX0103,Ethnic Kurta Set for Men,Clothing,"Packaging was neat and delivery fast. Kurta fit is average, a bit loose around the shoulders.",English,Flipkart,3,packaging|delivery|fit,Positive|Positive|Negative,Mixed
+SMX0104,Party Wear Heels,Footwear,फोटो जैसे बिल्कुल नहीं हैं और चलने में दिक्कत होती है। सोल भी फिसलन भरा है।,Hindi,Meesho,2,design|comfort|grip,Negative|Negative|Negative,Negative
+SMX0105,Printed Hoodie,Clothing,Hoodie dikhne mein stylish hai but fabric thoda rough hai aur size chhota aaya.,Hinglish,Amazon,3,design|fabric|size,Positive|Negative|Negative,Mixed
+SMX0106,Slim Fit Jeans,Clothing,"Jeans ki fitting badhiya hai, comfort bhi mast. Bas thoda sa lamba hai, alter karana padega.",Hinglish,Flipkart,4,fit|comfort|size,Positive|Positive|Negative,Mixed
+SMX0107,Samsung Double Door Fridge,Appliances,"Cooling mast hai, bijli ka bill bhi kam aaya. Delivery aur installation dono time pe hue.",Hinglish,Flipkart,5,cooling|power_consumption|delivery|installation,Positive|Positive|Positive|Positive,Positive
+SMX0108,Kids Sandals,Footwear,"Bacche ko fit aa gaye aur light hain. Colour bright hai, bacche khush!",Hinglish,Meesho,4,fit|comfort|color,Positive|Positive|Positive,Positive
+SMX0109,Herbal Face Pack,Beauty,चेहरे पर रैश हो गया। अब डॉक्टर के चक्कर लगाने पड़ेंगे। बिल्कुल मत लेना।,Hindi,Amazon,1,skin_effect,Negative,Negative
+SMX0110,Kent Water Purifier,Appliances,"Wah Kent wah, 2 mahine mein hi leakage shuru. Service wale bhi 10 din baad aaye. Kya service hai.",Hinglish,Flipkart,1,durability|customer_service,Negative|Negative,Negative
+SMX0111,Leather Formal Shoes,Footwear,चमड़ा अच्छी क्वालिटी का है और दिखने में शानदार। बस थोड़े टाइट हैं।,Hindi,Flipkart,4,material|design|size,Positive|Positive|Negative,Mixed
+SMX0112,Sports Shoes Mesh,Footwear,"Shoes theek hain, na zyada acche na kharab. Colour pic jaisa hi hai, kuch naya nahi.",Hinglish,Flipkart,3,quality|color,Neutral|Neutral,Neutral
+SMX0113,Sparx Sandals,Footwear,Sole came off after one month. Price was low so I guess you get what you pay for.,English,Meesho,2,durability|price,Negative|Neutral,Negative
+SMX0114,Philips Air Fryer,Appliances,Cooks evenly and cleaning is a breeze. Uses very little oil and the fries come out crispy.,English,Amazon,5,performance|cleaning,Positive|Positive,Positive
+SMX0115,Men's Denim Jeans,Clothing,"साइज़ चार्ट गलत है, 32 मंगाई तो 30 आई। कपड़ा भी बहुत पतला है।",Hindi,Amazon,2,size|fabric,Negative|Negative,Negative
+SMX0116,Inalsa Hand Blender,Appliances,Blender 2 baar use karne ke baad hi motor jal gaya. Bahut bekaar product hai. Paisa waste.,Hinglish,Amazon,2,durability|price,Negative|Negative,Negative
+SMX0117,Himalaya Neem Face Wash,Beauty,"Oily skin ke liye mast hai, pimples kam hue. Bas cap thodi loose hai.",Hinglish,Amazon,4,skin_effect|packaging,Positive|Negative,Mixed
+SMX0118,LG Split AC,Appliances,AC ki cooling to acchi hai lekin installation walon ne 3 din lagaye aur extra paise maange. Kaafi irritating.,Hinglish,Amazon,3,cooling|installation,Positive|Negative,Mixed
+SMX0119,Suede Loafers,Footwear,"Size 9 mangaya tha, 8 aaya. Seller se baat ki toh usne phone hi kaat diya. Worst experience.",Hinglish,Amazon,1,size|customer_service,Negative|Negative,Negative
+SMX0120,Fleece Winter Hoodie,Clothing,Super warm without being bulky. Fleece is soft and the hood keeps its shape. Value for money.,English,Flipkart,5,warmth|fabric|price,Positive|Positive|Positive,Positive
+SMX0121,Realme Narzo 60,Electronics,Camera to kaafi accha hai but battery bahut jaldi khatam ho jati hai. Display bhi thoda dull lagta hai.,Hinglish,Amazon,3,camera|battery|display,Positive|Negative|Negative,Mixed
+SMX0122,Perfume Gift Combo Set,Beauty,Smells nice for 10 minutes then vanishes. Longevity is zero. Don't trust the fancy bottle.,English,Meesho,2,fragrance|longevity,Positive|Negative,Mixed
+SMX0123,JBL Go 3,Electronics,Tiny but loud! Sound quality is crisp and it survived a fall from my bike. Totally recomended.,English,Flipkart,5,sound_quality|durability|size,Positive|Positive|Positive,Positive
+SMX0124,Mi Smart TV 43 inch,Electronics,"Picture quality badhiya hai, installation bhi time pe hua. Remote thoda cheap feel hota hai.",Hinglish,Flipkart,4,display|installation|build_quality,Positive|Positive|Negative,Mixed
+SMX0125,Ambrane Power Bank,Electronics,"चार्जिंग बहुत धीमी है और पावर बैंक गर्म हो जाता है। बिल्कुल बेकार है, पैसे बर्बाद।",Hindi,Flipkart,1,charging_speed|heating|price,Negative|Negative|Negative,Negative
+SMX0126,Kolhapuri Chappal,Footwear,"Original jaisi quality hai aur fitting bhi perfect. Sasta aur tikau, 100% recommend.",Hinglish,Meesho,5,quality|fit|price|durability,Positive|Positive|Positive|Positive,Positive
+SMX0127,Ambrane Fast Charger,Electronics,Charger garam ho jata hai bohot zyada aur phone charge hi nahi karta. Paisa barbaad.,Hinglish,Flipkart,1,charging_speed|heating|price,Negative|Negative|Negative,Negative
+SMX0128,Nivea Body Lotion,Beauty,"Absorbs quickly, no sticky feeling, and my skin stays soft all day.",English,Amazon,5,texture|effectiveness,Positive|Positive,Positive
+SMX0129,Voltas 1.5 Ton AC,Appliances,Cools the room in the expected time. Electricity consumption is about what I expected. Nothing more to add.,English,Flipkart,3,cooling|power_consumption,Neutral|Neutral,Neutral
+SMX0130,Lenovo Tab M10,Electronics,Bachhon ki online class ke liye perfect tablet hai. Display clear hai aur performance smooth.,Hinglish,Amazon,5,display|performance,Positive|Positive,Positive
+SMX0131,Pebble Cosmos Smartwatch,Electronics,Display bright hai lekin touch kabhi kabhi kaam nahi karta aur app connect hi nahi hota. Frustrating hai yaar.,Hinglish,Amazon,2,display|touch_response|connectivity,Positive|Negative|Negative,Mixed
+SMX0132,Kids School Shoes,Footwear,Too tight even though I ordered the recommended size. The size chart is completely unreliable.,English,Flipkart,2,size,Negative,Negative
+SMX0133,Sony SRS Bluetooth Speaker,Electronics,Sony ka koi jawab nahi! Sound crystal clear aur build quality top notch hai.,Hinglish,Flipkart,5,sound_quality|build_quality,Positive|Positive,Positive
+SMX0134,Bata Sneakers,Footwear,Bata ki quality ka koi mukabla nahi. Comfortable aur durable dono.,Hinglish,Amazon,5,comfort|durability,Positive|Positive,Positive
+SMX0135,Waterproof Kajal,Beauty,काजल स्मज प्रूफ है और काला गहरा है। पैकेजिंग भी सुरक्षित थी।,Hindi,Meesho,4,smudge_resistance|color|packaging,Positive|Positive|Positive,Positive
+SMX0136,Garnier Color Naturals Hair Colour,Beauty,Colour ekdum natural aaya aur grey hair acche se cover hue. Smell bhi zyada nahi tha.,Hinglish,Amazon,5,color|effectiveness|fragrance,Positive|Positive|Positive,Positive
+SMX0137,Men's Boxer Shorts,Clothing,Waist band lost its elasticity after two washes. Not buying this brand ever again.,English,Amazon,1,durability,Negative,Negative
+SMX0138,Casual Sneakers,Footwear,"वाह, इतने आरामदायक जूते कि पहली बार पहनते ही छाले पड़ गए। बहुत बढ़िया!",Hindi,Amazon,2,comfort,Negative,Negative
+SMX0139,Nivea Soft Cream,Beauty,Winter mein skin ekdum soft rehti hai. Smell bhi pyaari hai aur non-sticky hai.,Hinglish,Amazon,5,skin_effect|fragrance|texture,Positive|Positive|Positive,Positive
+SMX0140,Plum SPF 50 Sunscreen,Beauty,"No white cast and no greasy feel. Finally a sunscreen that works for Indian skin. Not cheap, but worth every rupee.",English,Flipkart,5,texture|effectiveness|price,Positive|Positive|Positive,Positive
+SMX0141,Crompton Storage Geyser,Appliances,Water heats in 10 mins but the body has a small dent from delivery. Seller refused return.,English,Flipkart,3,performance|packaging|customer_service,Positive|Negative|Negative,Mixed
+SMX0142,Garnier Vitamin C Serum,Beauty,Mere face pe glow aa gaya 2 hafte mein. Texture halki hai aur sticky nahi. Love it!,Hinglish,Amazon,5,effectiveness|texture,Positive|Positive,Positive
+SMX0143,Men's Cotton Polo T-shirt,Clothing,"Fabric is thin and see-through. Size runs too small, ordered L but it fits like S.",English,Flipkart,2,fabric|size,Negative|Negative,Negative
+SMX0144,Prestige Induction Cooktop,Appliances,Heats up fast and the touch panel is responsive. The cord is a bit short though.,English,Flipkart,4,performance|ease_of_use|design,Positive|Positive|Negative,Mixed
+SMX0145,HP Deskjet Printer,Electronics,Print quality mast hai par ink bahut mehngi hai. Setup karne mein thodi dikkat hui.,Hinglish,Amazon,3,print_quality|price|installation,Positive|Negative|Negative,Mixed
+SMX0146,Revlon Nail Enamel,Beauty,Chipped in one day and the brush is terrible. Colour is pretty though.,English,Meesho,2,longevity|applicator|color,Negative|Negative|Positive,Mixed
+SMX0147,Symphony Air Cooler,Appliances,"Cooler ki hawa bilkul garam aati hai, paani ki tanki bhi leak karti hai. Bohot bura.",Hinglish,Flipkart,1,cooling|build_quality,Negative|Negative,Negative
+SMX0148,Maxi Dress Pink,Clothing,"Received a completely different colour. Pink, not the maroon shown. Great job misleading customers, seller.",English,Meesho,1,color|customer_service,Negative|Negative,Negative
+SMX0149,Men's Round Neck T-shirt,Clothing,T-shirt ka fabric bahut soft hai aur fitting ekdum perfect. Value for money hai bhai.,Hinglish,Meesho,5,fabric|fit|price,Positive|Positive|Positive,Positive
+SMX0150,Casual Shirt Combo,Clothing,Worst quallity. Stitching came off on the first wear and customer care never replied.,English,Meesho,1,quality|customer_service,Negative|Negative,Negative
+SMX0151,Whirlpool Washing Machine,Appliances,Kapde ekdum saaf hote hain aur machine ki awaaz bhi kam hai. Highly recommended!,Hinglish,Flipkart,5,performance|noise,Positive|Positive,Positive
+SMX0152,Puma Slippers,Footwear,"Wah bhai, slippers itne comfortable hain ki pehle din hi paon mein chhale pad gaye. Great job Puma.",Hinglish,Flipkart,2,comfort,Negative,Negative
+SMX0153,Fire-Boltt Ninja Call Pro,Electronics,Packing was good but the watch itself feels cheap and the strap broke in a week.,English,Meesho,2,packaging|build_quality|durability,Positive|Negative|Negative,Mixed
+SMX0154,WOW Onion Hair Oil,Beauty,Smell is unbearable and it did nothing for hair fall after a month. Total waste.,English,Meesho,2,fragrance|effectiveness,Negative|Negative,Negative
+SMX0155,Fire-Boltt Phoenix Smartwatch,Electronics,"Watch dekhne mein bahut sundar hai aur strap comfortable hai. Battery 3 din chalti hai, no complaints.",Hinglish,Meesho,4,design|comfort|battery,Positive|Positive|Positive,Positive
+SMX0156,Mivi Duopods,Electronics,Sound accha hai lekin ek earbud 1 week mein dead ho gaya. Return process bhi jhanjhat wala hai.,Hinglish,Meesho,2,sound_quality|durability|return_process,Positive|Negative|Negative,Mixed
+SMX0157,Girls Party Frock,Clothing,Looks pretty but my daughter got rashes after wearing it. The fabric is very itchy.,English,Flipkart,2,design|fabric|comfort,Positive|Negative|Negative,Mixed
+SMX0158,Anarkali Kurti,Clothing,Photo mein jaisa dikh raha tha waisa bilkul nahi hai. Colour bhi fade hai aur stitching dhili.,Hinglish,Meesho,2,design|color|stitching,Negative|Negative|Negative,Negative
+SMX0159,Soft Flip Flops,Footwear,"रोज़ के इस्तेमाल के लिए अच्छी हैं, हल्की और नरम। दाम भी कम है।",Hindi,Amazon,4,comfort|price,Positive|Positive,Positive
+SMX0160,Electric Kettle 1.5L,Appliances,"केतली ठीक-ठाक काम करती है, कुछ खास नहीं। ढक्कन भी सामान्य है।",Hindi,Meesho,3,performance|build_quality,Neutral|Neutral,Neutral
+SMX0161,Redmi Power Bank 10000mAh,Electronics,"Power bank theek hai, charging speed normal hai. Na bahut accha na bura. Delivery bhi normal thi.",Hinglish,Flipkart,3,charging_speed|delivery,Neutral|Neutral,Neutral
+SMX0162,Kids School Shoes,Footwear,बच्चे को एकदम फिट आए और बहुत हल्के हैं। रंग भी चटक है।,Hindi,Flipkart,5,fit|comfort|color,Positive|Positive|Positive,Positive
+SMX0163,Campus Sneakers,Footwear,"Good looking sneakers at a budget price. Took a while to arrive, delivery was a bit slow.",English,Flipkart,4,design|price|delivery,Positive|Positive|Negative,Mixed
+SMX0164,Cotton Kurti,Clothing,कपड़ा बहुत नरम है और फिटिंग एकदम सही है। रंग भी फोटो जैसा ही है।,Hindi,Meesho,5,fabric|fit|color,Positive|Positive|Positive,Positive
+SMX0165,OnePlus Nord Buds,Electronics,"Noise cancellation sahi mein kaam karta hai, but mic quality calls pe average hai. Overall decent hai.",Hinglish,Amazon,4,noise_cancellation|microphone,Positive|Negative,Mixed
+SMX0166,IFB Front Load Washing Machine,Appliances,कपड़े बिल्कुल साफ़ धुलते हैं और आवाज़ भी बहुत कम है। इंस्टालेशन वाला भी विनम्र था।,Hindi,Flipkart,5,performance|noise|installation,Positive|Positive|Positive,Positive
+SMX0167,Woodland Leather Boots,Footwear,"Rugged and waterproof, survived the monsoon without a leak. Leather smells great.",English,Amazon,5,durability|waterproofing|material,Positive|Positive|Positive,Positive
+SMX0168,Redmi Note 13 5G,Electronics,Camera is great in daylight but the battery drains way too fast. Display is gorgeous though.,English,Flipkart,3,camera|battery|display,Positive|Negative|Positive,Mixed
+SMX0169,Sugar Cosmetics Smudge Me Not Kajal,Beauty,"Smudge proof, waterproof, and jet black. Lasts through a whole wedding day.",English,Flipkart,5,smudge_resistance|longevity,Positive|Positive,Positive
+SMX0170,Biotique Bhringraj Hair Oil,Beauty,"Wah kya hair oil hai, bal aur jyada jhadne lage. Thanks for the gift Biotique.",Hinglish,Meesho,1,effectiveness,Negative,Negative
+SMX0171,Rubber Chappal,Footwear,"Ek hafte mein strap toot gayi. Kya bakwas quality hai, paisa barbad.",Hinglish,Meesho,1,durability|quality,Negative|Negative,Negative
+SMX0172,Orient Table Fan,Appliances,"Compact, silent, and strong airflow. Perfect for my study desk.",English,Meesho,5,size|noise|performance,Positive|Positive|Positive,Positive
+SMX0173,Puffer Jacket,Clothing,"Itni sardi mein bhi thandi lagti hai, ye jacket kaise warm hai? Bilkul bekaar, paisa waste.",Hinglish,Flipkart,1,warmth|price,Negative|Negative,Negative
+SMX0174,LG Double Door Refrigerator,Appliances,कूलिंग शानदार है और डिलीवरी समय पर हुई। बिजली की खपत भी कम है।,Hindi,Flipkart,5,cooling|delivery|power_consumption,Positive|Positive|Positive,Positive
+SMX0175,Portable Bluetooth Speaker,Electronics,"आवाज़ ठीक-ठाक है, कुछ खास नहीं। डिलीवरी भी सामान्य रही।",Hindi,Meesho,3,sound_quality|delivery,Neutral|Neutral,Neutral
+SMX0176,Bajaj Mixer Grinder,Appliances,Motor is loud and smells burning within 5 minutes of use. Jars are good quality though.,English,Amazon,2,noise|performance|build_quality,Negative|Negative|Positive,Mixed
+SMX0177,IFB Microwave Oven,Appliances,Microwave ka performance acchha hai aur menu easy hai. Packaging mein thoda dent tha but chal gaya.,Hinglish,Amazon,4,performance|ease_of_use|packaging,Positive|Positive|Negative,Mixed
+SMX0178,Nivea Body Lotion Soft,Beauty,"त्वचा बहुत मुलायम रहती है, खुशबू भी प्यारी है और चिपचिपाहट बिल्कुल नहीं।",Hindi,Flipkart,5,skin_effect|fragrance|texture,Positive|Positive|Positive,Positive
+SMX0179,Vaseline Body Lotion,Beauty,Skin soft karta hai aur smell halki si hai jo mujhe pasand hai. Thoda mehnga lagta hai.,Hinglish,Flipkart,4,skin_effect|fragrance|price,Positive|Positive|Negative,Mixed
+SMX0180,Bajaj Room Heater,Appliances,Heating jaldi hoti hai aur kamra garam rehta hai. Bas thoda sa awaaz karta hai.,Hinglish,Flipkart,4,performance|noise,Positive|Negative,Mixed
+SMX0181,Eureka Forbes Vacuum Cleaner,Appliances,Suction power is brilliant and the attachments are really useful.,English,Amazon,5,performance|accessories,Positive|Positive,Positive
+SMX0182,Kent RO Water Purifier,Appliances,"Water tastes great. Technician took 3 days to come for installation though, very slow.",English,Amazon,4,water_quality|installation,Positive|Negative,Mixed
+SMX0183,Cotton Saree,Clothing,Colour looks slightly duller than the photos. Fabric is nice and soft though.,English,Meesho,3,color|fabric,Negative|Positive,Mixed
+SMX0184,Zebronics Soundbar,Electronics,"Sound is okay, nothing special. Installation was average too, it did the job for a small room.",English,Flipkart,3,sound_quality|installation,Neutral|Neutral,Neutral
+SMX0185,Oppo A78,Electronics,Phone hangs every few minutes and customer service just keeps asking me to restart it. Total waste of mony.,English,Amazon,1,performance|customer_service|price,Negative|Negative|Negative,Negative
+SMX0186,Cotton Palazzo,Clothing,Palazzo comfortable hai but color wash ke baad thoda nikal gaya. Price ke hisaab se theek hai.,Hinglish,Meesho,3,comfort|color|price,Positive|Negative|Positive,Mixed
+SMX0187,Lotus Safe Sun Sunscreen,Beauty,Sunscreen white cast chhodta hai aur thoda greasy bhi lagta hai. SPF theek hai shayad.,Hinglish,Flipkart,2,texture|effectiveness,Negative|Neutral,Negative
+SMX0188,Track Pants Pack of 2,Clothing,Comfortable for the gym and the elastic is strong. Delivery was a day early.,English,Amazon,4,comfort|durability|delivery,Positive|Positive|Positive,Positive
+SMX0189,Crompton Instant Geyser,Appliances,Paani jaldi garam ho jata hai aur bijli kam khata hai. Installation wale bhi helpful the.,Hinglish,Meesho,4,performance|power_consumption|installation,Positive|Positive|Positive,Positive
+SMX0190,Designer Lehenga,Clothing,"लहंगे की कढ़ाई अच्छी है, लेकिन दुपट्टे का कपड़ा बहुत हल्का है। दाम के हिसाब से ठीक है।",Hindi,Meesho,3,design|fabric|price,Positive|Negative|Neutral,Mixed
+SMX0191,Denim Jacket,Clothing,"Does what a denim jacket should. Average fit, average stitching. No complaints, no praise.",English,Flipkart,3,fit|stitching,Neutral|Neutral,Neutral
+SMX0192,Compact Water Purifier,Appliances,"दो महीने में ही लीकेज शुरू हो गई। वाह, क्या क्वालिटी है, बहुत बढ़िया सर्विस भी!",Hindi,Meesho,1,durability|customer_service,Negative|Negative,Negative
+SMX0193,Adidas Adilette Slides,Footwear,Soft cushioning and easy to clean. Slightly overpriced but the brand does hold up.,English,Amazon,4,comfort|price|durability,Positive|Negative|Positive,Mixed
+SMX0194,Samsung Convection Microwave,Appliances,Heating is uneven and the turntable rattles. Customer support just keeps saying 'we will call you back'.,English,Amazon,2,performance|noise|customer_service,Negative|Negative|Negative,Negative
+SMX0195,Bosch Dishwasher,Appliances,Cleans decently but uses a lot of water and takes ages to finish a cycle. Not worth the premium.,English,Amazon,3,performance|efficiency|price,Positive|Negative|Negative,Mixed
+SMX0196,Minimalist 10% Niacinamide Serum,Beauty,Texture is light and non-greasy. Visible reduction in marks after 3 weeks. Slightly pricey for the quantity.,English,Amazon,4,texture|effectiveness|price,Positive|Positive|Negative,Mixed
+SMX0197,Prestige Induction Cooktop,Appliances,इंडक्शन जल्दी गरम होता है और इस्तेमाल में आसान है। कीमत भी वाजिब है।,Hindi,Amazon,4,performance|ease_of_use|price,Positive|Positive|Positive,Positive
+SMX0198,Logitech M235 Wireless Mouse,Electronics,"Smooth, silent clicks and the battery has lasted 8 months so far. No complaints at all.",English,Amazon,5,noise|battery,Positive|Positive,Positive
+SMX0199,Woollen Sweater,Clothing,Sweater started shedding fur on day one. Warmth is okay but I look like a sheep now lol.,English,Amazon,2,quality|warmth,Negative|Neutral,Negative
+SMX0200,Samsung Smart TV,Electronics,पिक्चर क्वालिटी बहुत बढ़िया है और इंस्टालेशन समय पर हुआ। रिमोट थोड़ा कमज़ोर लगता है।,Hindi,Amazon,4,display|installation|build_quality,Positive|Positive|Negative,Mixed
