@@ -190,15 +190,22 @@ class RuleBasedABSAModel:
 
     def predict_batch(self, df: pd.DataFrame) -> Tuple[np.ndarray, np.ndarray]:
         """
-        Runs prediction over DataFrame with 'sentence'/'clean_sentence' and 'aspect' columns.
+        Runs prediction over DataFrame with 'sentence'/'text'/'clean_text' and 'aspect' columns.
         Returns: (y_pred, y_probs)
         """
         y_pred = []
         y_probs = []
         for _, row in df.iterrows():
-            sent = row.get("clean_sentence", row["sentence"])
-            asp = row["aspect"]
-            pred_label_name, pred_id, probs = self.predict_pair(sent, asp)
+            if "clean_text" in row:
+                sent = row["clean_text"]
+            elif "text" in row:
+                sent = row["text"]
+            elif "clean_sentence" in row:
+                sent = row["clean_sentence"]
+            else:
+                sent = row.get("sentence", "")
+            asp = row.get("aspect", "product")
+            pred_label_name, pred_id, probs = self.predict_pair(str(sent), str(asp))
             y_pred.append(pred_id)
             y_probs.append([probs["negative"], probs["neutral"], probs["positive"]])
         return np.array(y_pred), np.array(y_probs)

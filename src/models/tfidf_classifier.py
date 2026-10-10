@@ -57,9 +57,22 @@ class TFIDFLogisticABSAModel:
             combined.append(paired_text)
         return combined
 
+    def _extract_sents(self, df: pd.DataFrame) -> List[str]:
+        if "clean_text" in df.columns:
+            return df["clean_text"].astype(str).tolist()
+        elif "text" in df.columns:
+            return df["text"].astype(str).tolist()
+        elif "clean_sentence" in df.columns:
+            return df["clean_sentence"].astype(str).tolist()
+        elif "sentence" in df.columns:
+            return df["sentence"].astype(str).tolist()
+        return [""] * len(df)
+
     def train(self, train_df: pd.DataFrame, val_df: pd.DataFrame = None) -> Dict[str, float]:
         print(f"Training {self.name} on {len(train_df)} samples...")
-        X_texts = self._prepare_text_features(train_df["sentence"].tolist(), train_df["aspect"].tolist())
+        sents = self._extract_sents(train_df)
+        asps = train_df["aspect"].astype(str).tolist()
+        X_texts = self._prepare_text_features(sents, asps)
         y_train = train_df["label"].values
         
         X_vec = self.vectorizer.fit_transform(X_texts)
@@ -116,9 +129,9 @@ class TFIDFLogisticABSAModel:
             raise ValueError("Model is not trained yet.")
         y_pred = []
         y_probs = []
-        for _, row in df.iterrows():
-            sent = row.get("clean_sentence", row["sentence"])
-            asp = row["aspect"]
+        sents = self._extract_sents(df)
+        asps = df["aspect"].astype(str).tolist()
+        for sent, asp in zip(sents, asps):
             lbl, lid, probs = self.predict_pair(sent, asp)
             y_pred.append(lid)
             y_probs.append([probs["negative"], probs["neutral"], probs["positive"]])

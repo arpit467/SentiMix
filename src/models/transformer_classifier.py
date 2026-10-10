@@ -80,9 +80,22 @@ class BaseTransformerABSAModel:
             
         return np.vstack(all_embeddings)
 
+    def _extract_sents(self, df: pd.DataFrame) -> List[str]:
+        if "clean_text" in df.columns:
+            return df["clean_text"].astype(str).tolist()
+        elif "text" in df.columns:
+            return df["text"].astype(str).tolist()
+        elif "clean_sentence" in df.columns:
+            return df["clean_sentence"].astype(str).tolist()
+        elif "sentence" in df.columns:
+            return df["sentence"].astype(str).tolist()
+        return [""] * len(df)
+
     def train(self, train_df: pd.DataFrame, val_df: pd.DataFrame = None, batch_size: int = 32) -> Dict[str, float]:
         print(f"\n--- Training {self.name} on {len(train_df)} samples ---")
-        X_train_emb = self._extract_embeddings(train_df["sentence"].tolist(), train_df["aspect"].tolist(), batch_size=batch_size)
+        sents = self._extract_sents(train_df)
+        asps = train_df["aspect"].astype(str).tolist()
+        X_train_emb = self._extract_embeddings(sents, asps, batch_size=batch_size)
         y_train = train_df["label"].values
         
         self.classifier.fit(X_train_emb, y_train)
@@ -119,7 +132,9 @@ class BaseTransformerABSAModel:
     def predict_batch(self, df: pd.DataFrame, batch_size: int = 32) -> Tuple[np.ndarray, np.ndarray]:
         if not self.is_trained:
             raise ValueError(f"Model {self.name} is not trained yet.")
-        emb = self._extract_embeddings(df["sentence"].tolist(), df["aspect"].tolist(), batch_size=batch_size)
+        sents = self._extract_sents(df)
+        asps = df["aspect"].astype(str).tolist()
+        emb = self._extract_embeddings(sents, asps, batch_size=batch_size)
         y_pred = self.classifier.predict(emb)
         y_probs = self.classifier.predict_proba(emb)
         return y_pred, y_probs

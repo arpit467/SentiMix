@@ -23,3 +23,6 @@ Thumbs.db
 
 # Large temporary results if generated dynamically
 results/absa_analyzed_*.csv
+scratch/
+audit_all_notebooks.py
+print_nb_cells.py
