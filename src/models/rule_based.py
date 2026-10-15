@@ -29,7 +29,7 @@ POSITIVE_LEXICON = {
     "अच्छा", "अच्छी", "अच्छे", "बढ़िया", "शानदार", "सुंदर", "मस्त", "जबरदस्त", "बेहतरीन",
     "प्यारा", "प्यारी", "सस्ता", "सस्ते", "संतुष्ट", "नरम", "आरामदायक", "साफ", "सही",
     "किफायती", "पैसे वसूल", "दमदार", "तेज़", "वाजिब", "पसंद", "चमक", "सुविधाजनक",
-    "मुलायम", "मजबूत", "सुरक्षित", "विनम्र", "स्मूद", "बेस्ट", "सुपर", "हल्का", "हल्के",
+    "मुलायम", "मजबूत", "सुरक्षित", "विनम्र", "स्मूद", "बेस्ट", "सुपर",
     "चटक", "कूल", "शीतल", "गर्म"
 }
 
@@ -40,25 +40,27 @@ NEGATIVE_LEXICON = {
     "tight", "late", "delay", "delayed", "missing", "faded", "fades", "fade", "fading",
     "dull", "duller", "rash", "rashes", "allergy", "irritation", "smelly", "third class",
     "waste of money", "fraud", "scam", "uncomfortable", "not good", "never buy", "hard",
-    "transparent", "tear", "torn", "slow", "blurry", "noisy", "hang", "hangs", "laggy",
+    "transparent", "tear", "torn", "tearing", "slow", "blurry", "noisy", "hang", "hangs", "laggy",
     "overpriced", "expensive", "drain", "drains", "draining", "heating", "leaky", "leak",
-    "leaks", "leaking", "stopped working", "detached", "breakouts", "pimples", "dead on arrival",
+    "leaks", "leaking", "leaked", "stopped working", "detached", "breakouts", "pimples", "dead on arrival",
     "dead", "fake", "headache", "awful", "unreliable", "itchy", "unbearable", "slippery",
     "crushed", "flimsy", "patchy", "shedding", "hurts", "bite", "garbage", "dent",
     "misprinted", "burns", "annoying", "cakey", "chipped", "chipping", "smudge", "disconnecting",
+    "crack", "cracked", "cracking", "broken", "broke", "damage", "damaged", "damages",
+    "scratch", "scratched", "scratches", "stain", "stained", "expired", "expiry", "refurbished",
     
     # Hinglish
     "bakwas", "bkwas", "bekar", "bekaar", "kharab", "khrab", "bura", "buri", "ghatiya",
-    "paisa barbad", "chhota", "chhoti", "bada", "badi", "garam", "shor", "chhale",
-    "chhole", "dukhte", "sasti", "jhanjhat", "dhili", "patla", "toot", "phati", "thandi",
-    "dikkat", "mat lena", "mat khareedo", "barbad", "barbaad",
+    "paisa barbad", "garam", "shor", "chhale", "chhole", "dukhte", "sasti", "jhanjhat",
+    "dhili", "patla", "toot", "toota", "tooti", "toote", "phati", "phata", "phate", "thandi",
+    "dikkat", "mat lena", "mat khareedo", "barbad", "barbaad", "ganda", "purana", "nakli",
     
     # Devanagari Hindi
-    "खराब", "घटिया", "बेकार", "बर्बाद", "बकवास", "बुरा", "बुरी", "टूटा", "टूटी", "फटा",
-    "फटी", "लीक", "लीकेज", "धीमी", "धीमा", "महंगा", "महंगी", "दर्द", "मुसीबत", "परेशान",
-    "झंझट", "रैश", "चिपचिपा", "चिपचिपापन", "फिसलन", "कमज़ोर", "अविश्वसनीय", "मुहांसे",
-    "उधड़", "झड़ना", "सिरदर्द", "चोट", "छाले", "शोर", "फीका", "नकली", "धोखा", "भारी",
-    "बदबू", "देर", "ढीला", "ढीली", "कमजोर"
+    "खराब", "घटिया", "बेकार", "बर्बाद", "बकवास", "बुरा", "बुरी", "टूटा", "टूटी", "टूटे",
+    "फटा", "फटी", "फटे", "लीक", "लीकेज", "धीमी", "धीमा", "महंगा", "महंगी", "दर्द",
+    "मुसीबत", "परेशान", "झंझट", "रैश", "चिपचिपा", "चिपचिपापन", "फिसलन", "कमज़ोर",
+    "अविश्वसनीय", "मुहांसे", "उधड़", "झड़ना", "सिरदर्द", "चोट", "छाले", "शोर", "फीका",
+    "नकली", "धोखा", "बदबू", "देर", "ढीला", "ढीली", "कमजोर", "दरार", "दाग"
 }
 
 NEUTRAL_LEXICON = {

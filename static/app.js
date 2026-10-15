@@ -184,7 +184,10 @@ function renderManualAnalysisResults(data) {
     overallEl.style.color = 'var(--neutral)';
   }
 
-  document.getElementById('kpi-language-type').textContent = data.is_hinglish ? 'Hinglish (Code-Mixed)' : 'English (Standard)';
+  const langDisplay = data.detected_language ? 
+    (data.detected_language === 'Hindi' ? 'Hindi (Devanagari)' : (data.detected_language === 'Hinglish' ? 'Hinglish (Code-Mixed)' : 'English (Standard)')) :
+    (data.is_hinglish ? 'Hinglish (Code-Mixed)' : 'English (Standard)');
+  document.getElementById('kpi-language-type').textContent = langDisplay;
   document.getElementById('kpi-latency-val').textContent = `${data.latency_ms} ms`;
 
   // 2. Clause & Normalization Preview
@@ -896,7 +899,7 @@ function renderBatchTable(records) {
     const badgeClass = `badge-pill ${r.sentiment}`;
     const badgeText = r.sentiment.toUpperCase();
     const confPct = ((r.confidence || 0.85) * 100).toFixed(1);
-    const langStr = r.is_hinglish ? 'Hinglish' : 'English';
+    const langStr = r.detected_language || (r.is_hinglish ? 'Hinglish' : 'English');
 
     tr.innerHTML = `
       <td>${i + 1}</td>

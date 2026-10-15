@@ -91,26 +91,58 @@ class TextPreprocessor:
         return " ".join(normalized_tokens)
 
     @staticmethod
+    def detect_language(text: str) -> str:
+        """
+        Accurately identifies the primary language of the review:
+        - "Hindi": Substantial Devanagari Unicode script (>= 3 chars or >= 15% alphabetic content)
+        - "Hinglish": Latin script with multiple unambiguous Romanized Hindi tokens (>= 2 distinct words)
+        - "English": Standard English vocabulary with no Devanagari and absence of code-mixing
+        """
+        if not isinstance(text, str) or not text.strip():
+            return "English"
+
+        devanagari_chars = len(re.findall(r"[\u0900-\u097F]", text))
+        total_alpha = len(re.findall(r"[a-zA-Z\u0900-\u097F]", text))
+
+        # 1. Hindi script check
+        if devanagari_chars >= 3 or (total_alpha > 0 and (devanagari_chars / total_alpha) >= 0.15):
+            return "Hindi"
+
+        # 2. English vs Hinglish Roman check
+        tokens = re.findall(r"\b[a-zA-Z]+\b", text.lower())
+        if not tokens:
+            return "English"
+
+        unambiguous_hindi = {
+            "hai", "hain", "tha", "thi", "nahi", "nahin", "nhi", "bahut", "bohot", "bhut", "bhot",
+            "accha", "acchi", "acche", "acha", "achi", "ache", "badiya", "badhiya", "bekar", "bekaar",
+            "kharab", "khrab", "ghatiya", "shandar", "mast", "paisa", "paise", "kaise", "apna", "apni", "apne",
+            "mera", "meri", "mere", "tera", "teri", "tere", "lekin", "magar", "bhi", "toh", "karo", "karna",
+            "karte", "karta", "karti", "kiya", "kiye", "hoga", "hogi", "hoge", "raha", "rahi", "rahe",
+            "gaya", "gayi", "gaye", "diya", "diye", "liya", "liye", "chahiye", "dekho", "dekha", "sahi",
+            "galat", "bakwas", "khareeda", "pasand", "aaya", "aayi", "aaye", "wala", "wali", "wale", "kuch",
+            "sabse", "dikat", "dikkat", "kapda", "kapde", "sasta", "saste", "mehenga", "mehnge", "chhota",
+            "chhoti", "bada", "badi", "bilkul", "ekdam", "phir", "kabhi", "kyun", "kyu", "kya", "yeh",
+            "woh", "khushbu", "shaadi", "tareef", "ghis", "shor", "mat", "thoda", "thodi", "zyada", "jyada",
+            "khareed", "liye"
+        }
+
+        matched = [t for t in tokens if t in unambiguous_hindi]
+        if len(matched) >= 2 and (len(matched) / len(tokens)) >= 0.06:
+            return "Hinglish"
+        if len(matched) >= 3:
+            return "Hinglish"
+
+        return "English"
+
+    @staticmethod
     def is_hinglish(text: str, threshold: float = 0.08) -> bool:
         """
-        Determines if a review contains Hindi or Hindi-English code-mixed content.
+        Determines if a review is code-mixed Hinglish (or contains Hindi content).
         """
-        if not isinstance(text, str):
-            return False
-        
-        # Check Devanagari characters
-        has_devanagari = bool(re.search(r"[\u0900-\u097F]", text))
-        if has_devanagari:
-            return True
-        
-        # Check Romanized Hindi vocabulary
-        tokens = set(re.findall(r"\b[a-z]+\b", text.lower()))
-        if not tokens:
-            return False
-        
-        matched_hindi = tokens.intersection(HINDI_ROMAN_INDICATORS)
-        ratio = len(matched_hindi) / max(len(tokens), 1)
-        return len(matched_hindi) >= 1 or ratio >= threshold
+        lang = TextPreprocessor.detect_language(text)
+        return lang in ("Hinglish", "Hindi")
+
 
     @staticmethod
     def split_into_clauses(text: str) -> List[str]:

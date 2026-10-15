@@ -163,26 +163,60 @@ class ABSAInferenceEngine:
                 "probabilities": {k: round(float(v), 4) for k, v in probs.items()}
             })
             
-        # Step 3: Overall Sentiment Synthesis
-        pos_count = sum(1 for r in aspect_results if r["sentiment"] == "positive")
-        neg_count = sum(1 for r in aspect_results if r["sentiment"] == "negative")
-        neu_count = sum(1 for r in aspect_results if r["sentiment"] == "neutral")
+        detected_lang = self.preprocessor.detect_language(str(review_text))
+        is_hing = (detected_lang == "Hinglish")
         
+        # Step 3: Overall Sentiment Synthesis
+        pos_aspects = [r for r in aspect_results if r["sentiment"] == "positive"]
+        neg_aspects = [r for r in aspect_results if r["sentiment"] == "negative"]
+        neu_aspects = [r for r in aspect_results if r["sentiment"] == "neutral"]
+        
+        pos_count = len(pos_aspects)
+        neg_count = len(neg_aspects)
+        neu_count = len(neu_aspects)
+        
+        pos_prob_sum = sum(r["probabilities"]["positive"] for r in aspect_results)
+        neg_prob_sum = sum(r["probabilities"]["negative"] for r in aspect_results)
+        neu_prob_sum = sum(r["probabilities"]["neutral"] for r in aspect_results)
+
         # Check Sarcasm
         is_sarcastic = any(re.search(p, clean_text.lower()) for p in SARCASM_PATTERNS)
         
+        contrastive_pat = re.compile(r"\b(?:but|lekin|magar|par|however|though|although|while|except|लेकिन|मगर|किंतु|परंतु|पर|तथापि)\b", re.IGNORECASE)
+        neutral_indicators = re.compile(r"\b(?:average|normal|nothing special|theek theek|theek thaak|okay|ok ok|does the job|gets the job done|as expected|usual|औसत|सामान्य|ठीक-ठाक|ठीक ठाक|न बुरा न अच्छा)\b", re.IGNORECASE)
+        has_contrast = bool(contrastive_pat.search(clean_text))
+
         if is_sarcastic:
             overall = "Negative"
             for r in aspect_results:
                 r["sentiment"] = "negative"
-        elif pos_count > 0 and neg_count > 0:
-            overall = "Mixed"
-        elif pos_count > 0 and neg_count == 0:
-            overall = "Positive"
-        elif neg_count > 0 and pos_count == 0:
-            overall = "Negative"
-        elif neu_count > 0:
+        # Neutral Check: Explicit neutral indicators or zero non-neutral aspects
+        elif neutral_indicators.search(clean_text) and (pos_count == 0 or neg_count == 0):
             overall = "Neutral"
+        elif pos_count == 0 and neg_count == 0:
+            overall = "Neutral"
+        # Strict Mixed Criterion (Requires real contrast, avoids over-predicting Mixed)
+        elif pos_count >= 1 and neg_count >= 1:
+            if has_contrast:
+                overall = "Mixed"
+            elif pos_count >= 2 * neg_count:
+                overall = "Positive"
+            elif neg_count >= 2 * pos_count:
+                overall = "Negative"
+            else:
+                overall = "Mixed"
+        # Positive Dominance
+        elif pos_count > 0 and neg_count == 0:
+            if neu_count > pos_count and neu_prob_sum > pos_prob_sum:
+                overall = "Neutral"
+            else:
+                overall = "Positive"
+        # Negative Dominance
+        elif neg_count > 0 and pos_count == 0:
+            if neu_count > neg_count and neu_prob_sum > neg_prob_sum:
+                overall = "Neutral"
+            else:
+                overall = "Negative"
         else:
             pol, _, _ = self.models["Rule-Based Baseline"].predict_pair(clean_text, "product")
             overall = pol.title()
@@ -191,6 +225,7 @@ class ABSAInferenceEngine:
             "original_text": review_text,
             "cleaned_text": clean_text,
             "is_hinglish": is_hing,
+            "detected_language": detected_lang,
             "model_used": model_name,
             "aspects_found": len(aspect_results),
             "aspect_breakdown": aspect_results,

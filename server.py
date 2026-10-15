@@ -286,7 +286,8 @@ async def process_batch_file(
             aspect_summary_str = "; ".join([f"{a['aspect']} ({a['sentiment'].upper()})" for a in aspects_in_review])
             
             row_dict = row.to_dict()
-            row_dict["Detected_Language"] = "Hinglish" if res["is_hinglish"] else "English"
+            lang_label = res.get("detected_language", "Hinglish" if res["is_hinglish"] else "English")
+            row_dict["Detected_Language"] = lang_label
             row_dict["Overall_Sentiment"] = overall
             row_dict["Aspects_Extracted"] = aspect_summary_str if aspect_summary_str else "Product-level"
             row_dict["Num_Aspects"] = len(aspects_in_review)
@@ -320,6 +321,7 @@ async def process_batch_file(
                     "sentiment": sent,
                     "confidence": round(float(conf), 4),
                     "is_hinglish": res["is_hinglish"],
+                    "detected_language": res.get("detected_language", "Hinglish" if res["is_hinglish"] else "English"),
                     "clause": asp_info.get("clause_context", "")
                 })
 

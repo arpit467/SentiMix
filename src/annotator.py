@@ -253,17 +253,42 @@ class DynamicAspectExtractor:
             "is", "was", "are", "were", "the", "a", "an", "and", "or", "to", "in", "on", "for", "with",
             "days", "day", "night", "month", "months", "time", "product", "item", "aur", "mila", "mile",
             "total", "vibrant", "soft", "loud", "noisy", "fast", "slow", "heavy", "good", "bad", "stars",
-            "star", "reviews", "review", "order", "ordered"
+            "star", "reviews", "review", "order", "ordered",
+            # Hinglish verbs, auxiliaries, particles, and non-aspect tokens
+            "gaya", "gayi", "gaye", "jata", "jati", "jate", "aaya", "aayi", "aaye", "aata", "aati", "aate",
+            "diya", "diye", "liya", "liye", "kare", "karo", "karna", "karte", "karta", "karti", "kiya", "kiye",
+            "hoga", "hogi", "hoge", "raha", "rahi", "rahe", "hota", "hoti", "hote", "hua", "hui", "hue",
+            "lagta", "lagti", "lagte", "laga", "lagi", "lage", "padega", "padegi", "pada", "padi", "pade",
+            "chahiye", "sakta", "sakti", "sakte", "hai", "hain", "tha", "thi", "the", "ka", "ki", "ke", "ko",
+            "se", "mein", "me", "par", "pe", "tak", "liye", "bhi", "hi", "toh", "to", "ne", "aur", "ya",
+            "lekin", "magar", "parantu", "kintu", "jab", "tab", "ab", "kab", "kya", "kyun", "kyu", "kaise",
+            "kahan", "ye", "yeh", "wo", "woh", "is", "in", "us", "un", "mera", "meri", "mere", "apna", "apni",
+            "apne", "hum", "tum", "aap", "kuch", "sab", "sabse", "sabne", "sabko", "koi", "bilkul", "ekdam",
+            "bahut", "bohot", "bhut", "bhot", "zyada", "jyada", "thoda", "thodi", "kam", "din", "dino", "dinon",
+            "time", "hours", "hour", "days", "day", "months", "month", "years", "year", "weeks", "week",
+            "transit", "item", "product", "thing", "things", "review", "reviews", "stars", "star", "halka",
+            "halke", "bhari", "order", "ordered", "wow", "oh", "hey", "ghis", "tareef", "shaadi", "office",
+            "purana", "nakli", "fake", "photo", "picture", "jaisa", "jaisi", "jaise", "bilkul"
         })
         
         self.devanagari_ignore = {
             "है", "हैं", "था", "थी", "थे", "का", "की", "के", "को", "से", "में", "भी", "बहुत", "काफी",
             "थोड़ा", "थोड़ी", "ज्यादा", "बिल्कुल", "एकदम", "तो", "अब", "जब", "तब", "कुछ", "खास", "लगा",
-            "लगी", "रहा", "रही", "रहे", "होना", "होता", "होती", "करो", "करना", "करे", "वाले", "वाला",
+            "लगी", "लगे", "रहा", "रही", "रहे", "होना", "होता", "होती", "होते", "करो", "करना", "करे", "वाले", "वाला",
             "वाली", "यह", "ये", "वह", "वो", "मेरा", "मेरी", "मेरे", "अपना", "अपनी", "अपने", "लेकिन",
-            "पर", "मगर", "और", "या", "बस", "कुल", "मिलाकर", "हो", "गया", "गई", "गए", "पड़ेगा", "पड़ेगी",
+            "पर", "मगर", "और", "या", "बस", "कुल", "मिलाकर", "हो", "गया", "गई", "गए", "गयी", "पड़ेगा", "पड़ेगी",
             "अच्छा", "अच्छी", "अच्छे", "बढ़िया", "शानदार", "खराब", "घटिया", "बेकार", "बर्बाद", "बुरा",
-            "छोटा", "बड़ा", "सस्ता", "महंगा", "सही", "गलत", "मिला", "मिली", "मिले", "दिया", "दी", "गया"
+            "छोटा", "बड़ा", "सस्ता", "महंगा", "सही", "गलत", "मिला", "मिली", "मिले", "दिया", "दी", "दिए",
+            "नहीं", "ना", "मत", "बिना", "इतनी", "इतना", "इतने", "उतनी", "उतना", "उतने", "कि",
+            "आया", "आई", "आए", "आना", "जाना", "जाता", "जाती", "जाते", "हुई", "हुआ", "हुए", "होगी", "होगा", "होगे",
+            "देना", "लिया", "ली", "लेना", "किया", "किए", "कर", "करके", "पड़ा", "पड़ी", "पड़े",
+            "सका", "सकी", "सके", "सकता", "सकती", "सकते", "चाहिए", "समय", "वक्त", "दिन", "दिनों", "महीना", "महीने",
+            "साल", "बार", "घंटे", "मिनट", "कम", "सभी", "कोई", "सबने", "सबको", "इस", "इन", "उस", "उन",
+            "किस", "किन", "मुझे", "मुझको", "हम", "हमारा", "हमारी", "हमारे", "हमें", "तुम", "तुम्हारे", "आप", "आपका",
+            "आपकी", "आपके", "कौन", "क्या", "क्यों", "कहाँ", "कैसे", "कितना", "कितनी", "कितने", "वाह", "अरे", "हाय", "ओह",
+            "हल्का", "हल्के", "हल्की", "भारी", "साफ", "नया", "नई", "नए", "पुराना", "पुरानी", "पुराने", "बढ़", "घट",
+            "चल", "चला", "चली", "चले", "चलता", "चलती", "चलते", "दिख", "दिखा", "दिखी", "दिखे", "दिखता", "दिखती", "दिखते",
+            "लगता", "लगती", "लगते", "तेज़", "धीमा", "धीमी", "सुंदर", "प्यारा", "प्यारी"
         }
 
     def infer_category(self, aspect: str) -> str:
@@ -330,15 +355,16 @@ class DynamicAspectExtractor:
             for kw, cat, pat in self.compiled_aspect_patterns:
                 if pat.search(cl_lower):
                     kw_clean = kw.strip().lower()
-                    if kw_clean not in self.ignore_tokens:
+                    if kw_clean not in self.ignore_tokens and len(kw_clean) > 2:
                         candidates.append((kw_clean, cat, cl_clean))
             
-            # Step B: Devanagari Hindi Dynamic Aspect Discovery
+            # Step B: Devanagari Hindi Dynamic Aspect Discovery (Filtered against function words)
             dev_words = re.findall(r"[\u0900-\u097F]+", cl_clean)
             for dw in dev_words:
-                if dw not in self.devanagari_ignore and len(dw) > 1:
+                if dw not in self.devanagari_ignore and len(dw) >= 3:
                     cat = self.infer_category(dw)
-                    candidates.append((dw.lower(), cat, cl_clean))
+                    if cat != "product_feature" or dw in ["कूलिंग", "सर्विस", "बिजली", "बिल", "सिरदर्द", "झड़ना", "खुशबू", "पैसे", "बाल"]:
+                        candidates.append((dw.lower(), cat, cl_clean))
                     
             # Step C: English / Romanized Hinglish POS Noun Phrase Chunking (Captures unseen novel terms)
             tokens = nltk.word_tokenize(cl_clean)
@@ -360,13 +386,13 @@ class DynamicAspectExtractor:
                         if valid_words:
                             aspect_term = " ".join(valid_words)
                             aspect_term = re.sub(r"^[^\w]+|[^\w]+$", "", aspect_term).strip()
-                            if aspect_term and len(aspect_term) > 2:
+                            if aspect_term and len(aspect_term) > 2 and aspect_term not in self.ignore_tokens:
                                 cat = self.infer_category(aspect_term)
                                 candidates.append((aspect_term, cat, cl_clean))
                 except Exception:
                     pass
                     
-        # Step D: Maximal Phrase Subsumption & Deduplication (keep specific compound phrases over redundant fragments)
+        # Step D: Maximal Phrase Subsumption & Deduplication
         candidates = sorted(candidates, key=lambda x: len(x[0]), reverse=True)
         dedup_results = []
         seen_aspects = set()
@@ -374,7 +400,6 @@ class DynamicAspectExtractor:
         for asp, cat, cl in candidates:
             if asp in seen_aspects:
                 continue
-            # Check if this aspect is a redundant sub-word of an already kept aspect in the same clause
             is_subsumed = False
             for k_asp, k_cat, k_cl in dedup_results:
                 if cl == k_cl and asp in k_asp and asp != k_asp:
@@ -384,6 +409,11 @@ class DynamicAspectExtractor:
                 seen_aspects.add(asp)
                 dedup_results.append((asp, cat, cl))
                 
+        # Cap at top 4 most salient aspects to prevent span explosion and noise
+        if len(dedup_results) > 4:
+            # Prioritize aspects belonging to defined categories over generic
+            dedup_results = sorted(dedup_results, key=lambda x: (0 if x[1] != 'product_feature' else 1))[:4]
+
         # Step E: Fallback if no specific noun was detected
         if not dedup_results:
             dedup_results.append(("product", "product_item", text))
