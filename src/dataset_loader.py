@@ -144,8 +144,39 @@ class ABSADatasetLoader:
             train_a, test_a = train_test_split(aug_pairs, test_size=0.2, random_state=42, stratify=aug_pairs["label"])
             datasets["augmented_train"] = train_a.reset_index(drop=True)
             datasets["augmented_test"] = test_a.reset_index(drop=True)
+
+        # 7. User Benchmark Golden Dataset (Meesho, Flipkart, Amazon)
+        user_bench_path = os.path.join(self.data_dir, "user_benchmark_200.csv")
+        if os.path.exists(user_bench_path):
+            u_df = pd.read_csv(user_bench_path)
+            u_pairs = []
+            for _, row in u_df.iterrows():
+                asps = str(row.get("expected_aspects", "")).split("|")
+                sents = str(row.get("expected_sentiments", "")).split("|")
+                sent_text = str(row.get("review_text", ""))
+                clean_s = self.preprocessor.normalize_hinglish(sent_text)
+                is_hing = self.preprocessor.is_hinglish(sent_text)
+                dom = str(row.get("product_category", "ecommerce")).lower()
+                for a, s in zip(asps, sents):
+                    a = a.strip()
+                    s = s.strip().lower()
+                    if a and s in LABEL_TO_ID:
+                        u_pairs.append({
+                            "sentence": sent_text,
+                            "clean_sentence": clean_s,
+                            "aspect": a,
+                            "polarity": s,
+                            "label": LABEL_TO_ID[s],
+                            "is_hinglish": is_hing,
+                            "domain": dom
+                        })
+            u_pairs_df = pd.DataFrame(u_pairs)
+            if len(u_pairs_df) > 0:
+                train_u, test_u = train_test_split(u_pairs_df, test_size=0.25, random_state=42, stratify=u_pairs_df["label"])
+                datasets["user_benchmark_train"] = train_u.reset_index(drop=True)
+                datasets["user_benchmark_test"] = test_u.reset_index(drop=True)
             
-        # 7. Combined Master Train and Test
+        # 8. Combined Master Train and Test
         train_dfs = [datasets[k] for k in datasets if "train" in k]
         test_dfs = [datasets[k] for k in datasets if "test" in k]
         

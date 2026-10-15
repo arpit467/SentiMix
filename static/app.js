@@ -579,16 +579,86 @@ if (dropZone) {
   });
 }
 
+let currentDatasetColumns = [];
+let detectedDatasetColumn = "";
+
 function onDatasetFileSelected(e) {
   if (e.target.files && e.target.files.length > 0) {
     handleDatasetFile(e.target.files[0]);
   }
 }
 
-function handleDatasetFile(file) {
+async function handleDatasetFile(file) {
   selectedBatchFile = file;
-  document.getElementById('drop-zone-title').innerHTML = `✅ Selected: <b>${file.name}</b> (${(file.size/1024).toFixed(1)} KB)`;
-  document.getElementById('batch-config-bar').style.display = 'flex';
+  const dropTitle = document.getElementById('drop-zone-title');
+  if (dropTitle) {
+    dropTitle.innerHTML = `✅ Selected: <b>${file.name}</b> (${(file.size / 1024).toFixed(1)} KB)`;
+  }
+  
+  const configBar = document.getElementById('batch-config-bar');
+  if (configBar) {
+    configBar.style.display = 'flex';
+  }
+
+  const previewBox = document.getElementById('batch-column-preview-box');
+  const previewText = document.getElementById('batch-column-preview-text');
+  const colSelect = document.getElementById('batch-text-column');
+
+  if (previewBox && previewText) {
+    previewBox.style.display = 'block';
+    previewText.innerHTML = `⏳ Inspecting dataset columns in <b>${file.name}</b>...`;
+  }
+
+  try {
+    const formData = new FormData();
+    formData.append('file', file);
+    const res = await fetch('/api/inspect_dataset_columns', {
+      method: 'POST',
+      body: formData
+    });
+    
+    if (res.ok) {
+      const data = await res.json();
+      currentDatasetColumns = data.columns || [];
+      detectedDatasetColumn = data.detected_column || "";
+
+      if (colSelect && currentDatasetColumns.length > 0) {
+        colSelect.innerHTML = '';
+        currentDatasetColumns.forEach(col => {
+          const opt = document.createElement('option');
+          opt.value = col;
+          opt.textContent = (col === detectedDatasetColumn) ? `🎯 ${col} (Auto-Detected Review Text)` : col;
+          colSelect.appendChild(opt);
+        });
+        if (detectedDatasetColumn) {
+          colSelect.value = detectedDatasetColumn;
+        }
+      }
+
+      if (previewBox && previewText) {
+        if (detectedDatasetColumn) {
+          const previewSnippet = data.preview ? ` — Sample: <i style="color: var(--text-secondary);">"${data.preview}"</i>` : '';
+          previewText.innerHTML = `🎯 Review text column detected: <b style="color: #818cf8;">${detectedDatasetColumn}</b>${previewSnippet}`;
+        } else {
+          previewText.innerHTML = `ℹ️ Please choose which column contains the review text from the dropdown above.`;
+        }
+      }
+    }
+  } catch (err) {
+    console.warn("Column inspection error:", err);
+    if (previewText) {
+      previewText.innerHTML = `⚠️ Could not auto-inspect columns. The server will auto-detect the review text column during processing.`;
+    }
+  }
+}
+
+function onBatchColumnChanged() {
+  const colSelect = document.getElementById('batch-text-column');
+  const previewText = document.getElementById('batch-column-preview-text');
+  if (colSelect && previewText) {
+    const selected = colSelect.value;
+    previewText.innerHTML = `📌 Selected review text column: <b style="color: #818cf8;">${selected}</b>`;
+  }
 }
 
 function loadSampleTestDataset() {
@@ -1143,4 +1213,33 @@ function updateEvaluationModelView() {
 // Initial Auto-Execution on Page Load
 document.addEventListener('DOMContentLoaded', () => {
   fetch('/api/health').catch(e => console.warn(e));
+
+  // Drag and drop listeners for dataset file upload zone
+  const dropZone = document.getElementById('dataset-drop-zone');
+  if (dropZone) {
+    ['dragenter', 'dragover'].forEach(eventName => {
+      dropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropZone.classList.add('drag-active');
+      }, false);
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+      dropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropZone.classList.remove('drag-active');
+      }, false);
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        handleDatasetFile(e.dataTransfer.files[0]);
+      }
+    }, false);
+  }
 });
+

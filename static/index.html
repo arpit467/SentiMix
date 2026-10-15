@@ -876,10 +876,10 @@
         </div>
 
         <!-- Upload Configuration Controls -->
-        <div id="batch-config-bar" class="batch-controls-row" style="display: none;">
+        <div id="batch-config-bar" class="batch-controls-row" style="display: none; margin-top: 1.25rem;">
           <div class="form-group" style="flex: 1;">
             <label class="form-label" for="batch-text-column">Review/Comment Column:</label>
-            <select id="batch-text-column" class="input-select">
+            <select id="batch-text-column" class="input-select" onchange="onBatchColumnChanged()">
               <option value="">Auto-Detect Review Column</option>
             </select>
           </div>
@@ -899,6 +899,11 @@
               <span>⚡ Run ABSA on Uploaded Dataset</span>
             </button>
           </div>
+        </div>
+
+        <!-- Column Detection Confirmation Banner -->
+        <div id="batch-column-preview-box" style="display: none; margin-top: 0.75rem; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.25); padding: 0.65rem 1rem; border-radius: var(--radius-sm); font-size: 0.85rem;">
+          <span id="batch-column-preview-text"></span>
         </div>
 
         <!-- Sample Dataset Download Button -->

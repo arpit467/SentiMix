@@ -159,6 +159,76 @@ async def get_dataset_samples(split: str = "combined_train", limit: int = 50, po
         "records": records
     })
 
+def detect_text_column(df: pd.DataFrame) -> str:
+    columns = list(df.columns)
+    if not columns:
+        return ""
+    
+    # Priority 1: Exact matches for common review/comment column names
+    exact_priorities = [
+        "review_text", "reviews_text", "customer_review", "customer_reviews",
+        "review", "reviews", "comments", "comment", "feedback_text", "feedback",
+        "sentence", "sentences", "text", "body", "content", "statement"
+    ]
+    for p in exact_priorities:
+        for c in columns:
+            if c.lower().strip() == p:
+                return c
+                
+    # Helper to check if a column looks like an ID, date, or metadata
+    def is_metadata_col(name: str) -> bool:
+        n = name.lower().strip()
+        metadata_terms = [
+            "_id", "id", "_code", "code", "index", "serial", "sr_no", "sno",
+            "rating", "ratings", "score", "star", "stars",
+            "date", "timestamp", "time", "year", "month", "day",
+            "url", "link", "image", "images", "photo", "photos",
+            "expected_", "polarity", "sentiment", "aspect", "category",
+            "label", "labels", "platform", "language", "lang", "helpful"
+        ]
+        return any(n == t or n.endswith("_" + t) or n.endswith(t) or n.startswith(t + "_") for t in metadata_terms)
+
+    clean_cols = [c for c in columns if not is_metadata_col(c)]
+    
+    # Priority 2: Substring matches among clean non-metadata columns
+    kw_candidates = [
+        c for c in clean_cols
+        if any(kw in c.lower() for kw in ["review", "comment", "feedback", "sentence", "text", "content", "msg"])
+    ]
+    if kw_candidates:
+        return max(kw_candidates, key=lambda c: df[c].dropna().astype(str).str.len().mean() if len(df[c].dropna()) > 0 else 0)
+        
+    if clean_cols:
+        return max(clean_cols, key=lambda c: df[c].dropna().astype(str).str.len().mean() if len(df[c].dropna()) > 0 else 0)
+        
+    return max(columns, key=lambda c: df[c].dropna().astype(str).str.len().mean() if len(df[c].dropna()) > 0 else 0)
+
+@app.post("/api/inspect_dataset_columns")
+async def inspect_dataset_columns(file: UploadFile = File(...)):
+    try:
+        if file.filename.endswith(".csv"):
+            df = pd.read_csv(file.file, nrows=20)
+        elif file.filename.endswith((".xlsx", ".xls")):
+            df = pd.read_excel(file.file, nrows=20)
+        elif file.filename.endswith(".txt"):
+            return JSONResponse({"columns": ["review"], "detected_column": "review", "preview": "Plain text review line"})
+        else:
+            return JSONResponse({"columns": [], "detected_column": ""})
+            
+        columns = list(df.columns)
+        detected = detect_text_column(df)
+        preview_sample = ""
+        if detected in df.columns and len(df[detected].dropna()) > 0:
+            preview_sample = str(df[detected].dropna().iloc[0])[:120]
+            
+        return JSONResponse({
+            "columns": columns,
+            "detected_column": detected,
+            "preview": preview_sample
+        })
+    except Exception as e:
+        return JSONResponse({"columns": [], "detected_column": "", "error": str(e)})
+
 @app.post("/api/batch")
 async def process_batch_file(
     file: UploadFile = File(...),
@@ -186,9 +256,7 @@ async def process_batch_file(
             raise HTTPException(status_code=400, detail="Uploaded file has no columns.")
             
         if not text_col or text_col not in columns:
-            # Auto-detect text column
-            candidates = [c for c in columns if any(kw in c.lower() for kw in ["comment", "review", "text", "sentence", "feedback", "body", "content", "msg", "message"])]
-            text_col = candidates[0] if candidates else columns[0]
+            text_col = detect_text_column(df)
 
         total_reviews = len(df)
         aspect_records = []

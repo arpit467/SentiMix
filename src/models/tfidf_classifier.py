@@ -97,21 +97,12 @@ class TFIDFLogisticABSAModel:
         X_vec = self.vectorizer.transform(text_feat)
         ml_probs = self.classifier.predict_proba(X_vec)[0]
         
-        # Blend with lexicon prior
+        # Light blend with lexicon prior (preserving ML as dominant predictor)
         _, _, rule_probs_dict = self.rule_engine.predict_pair(sentence, aspect)
         rule_probs = np.array([rule_probs_dict["negative"], rule_probs_dict["neutral"], rule_probs_dict["positive"]])
         
-        # If lexicon is highly confident (e.g. strong polarity words or negation), weight lexicon heavier
-        rule_conf = float(np.max(rule_probs))
-        if rule_conf >= 0.75:
-            weight_rule = 0.60
-            weight_ml = 0.40
-        elif rule_conf >= 0.65:
-            weight_rule = 0.50
-            weight_ml = 0.50
-        else:
-            weight_rule = 0.35
-            weight_ml = 0.65
+        weight_ml = 0.85
+        weight_rule = 0.15
             
         blended_probs = weight_ml * ml_probs + weight_rule * rule_probs
         pred_id = int(np.argmax(blended_probs))
