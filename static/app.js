@@ -1,6 +1,10 @@
 // Global Chart Instances
 let singlePolarChart = null;
 let singleBarChart = null;
+let multiSentimentChart = null;
+let multiCategoryChart = null;
+let multiLangChart = null;
+let multiTermsChart = null;
 let batchDonutChart = null;
 let batchCategoryChart = null;
 let batchLangChart = null;
@@ -11,17 +15,9 @@ let evalDomainChart = null;
 
 let selectedBatchFile = null;
 let globalBatchAspectRecords = [];
+let globalMultiAspectRecords = [];
 let benchmarkComparisonDetails = [];
-
-// Preset Reviews
-const PRESETS = {
-  flipkart: "Display bahut vibrant hai 120Hz AMOLED aur battery life 2 days chalti hai lekin camera zoom night me bekar hai",
-  amazon: "Voice recognition accurate hai Hindi and English me aur bass clarity super solid hai, fast delivery",
-  meesho: "Fabric bahut achcha hai aur design bhi bahut pyara hai but pant ki fitting thodi loose hai",
-  laptop: "Laptop ka boot time fast hai aur keyboard typing smooth hai par battery backup sirf 3 hours chalta hai",
-  negative: "Ekdum ghatiya product hai mat khareedo total waste of money",
-  beauty: "Fragrance bahut mild aur soothing hai, face glows nicely after applying but price thoda expensive laga"
-};
+let currentInputMode = 'single'; // 'single' or 'multi'
 
 // Tab Switching
 function switchNavTab(tabId) {
@@ -42,31 +38,72 @@ function switchNavTab(tabId) {
   }
 }
 
-// Preset Handler
-function applyPreset(key) {
-  if (PRESETS[key]) {
-    document.getElementById('manual-review-text').value = PRESETS[key];
-    document.getElementById('manual-custom-aspects').value = "";
-    runManualAnalysis();
+// Input Mode Switching (Single vs Multi-Review)
+function switchInputMode(mode) {
+  currentInputMode = mode;
+  const singleBtn = document.getElementById('mode-btn-single');
+  const multiBtn = document.getElementById('mode-btn-multi');
+  const textarea = document.getElementById('manual-review-text');
+  const customAspectGroup = document.getElementById('custom-aspect-group');
+  const multiHint = document.getElementById('multi-input-hint');
+  const btn = document.getElementById('btn-manual-analyze');
+  const label = document.getElementById('manual-input-label');
+
+  if (mode === 'single') {
+    if (singleBtn) singleBtn.classList.add('active');
+    if (multiBtn) multiBtn.classList.remove('active');
+    if (label) label.textContent = "Customer Review Text:";
+    if (textarea) {
+      textarea.placeholder = "Enter customer review (e.g. Fabric quality bahut achhi hai aur design pyara hai lekin pant ki fitting loose hai)...";
+      textarea.rows = 3;
+    }
+    if (customAspectGroup) customAspectGroup.style.display = 'block';
+    if (multiHint) multiHint.style.display = 'none';
+    if (btn) btn.innerHTML = '<span>🚀 Analyze Review Sentiments</span>';
+  } else {
+    if (multiBtn) multiBtn.classList.add('active');
+    if (singleBtn) singleBtn.classList.remove('active');
+    if (label) label.textContent = "Multiple Customer Reviews (One review per line):";
+    if (textarea) {
+      textarea.placeholder = "Enter or paste multiple customer reviews (one review per line):\nFabric quality achha hai but button loose hai\nVoice recognition accurate hai Hindi and English me\nDisplay vibrant hai but battery life 2 hours chalti hai";
+      textarea.rows = 6;
+    }
+    if (customAspectGroup) customAspectGroup.style.display = 'none';
+    if (multiHint) multiHint.style.display = 'block';
+    if (btn) btn.innerHTML = '<span>⚡ Analyze All Reviews in Bulk</span>';
   }
 }
 
 // ----------------------------------------------------
-// 1. MANUAL REVIEW ANALYZER
+// 1. MANUAL & MULTI REVIEW ANALYZER
 // ----------------------------------------------------
 async function runManualAnalysis() {
-  const text = document.getElementById('manual-review-text').value.trim();
+  const rawText = document.getElementById('manual-review-text').value.trim();
   const modelName = document.getElementById('manual-model-select').value;
   const customAspects = document.getElementById('manual-custom-aspects').value.trim();
-  const btn = document.getElementById('btn-manual-analyze');
 
-  if (!text) {
-    alert("Please enter a customer review to analyze.");
+  if (!rawText) {
+    alert("Please enter at least one customer review to analyze.");
     return;
   }
 
+  const lines = rawText.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+
+  if (currentInputMode === 'multi' || lines.length > 1) {
+    await runMultiReviewAnalysis(lines, modelName);
+  } else {
+    await runSingleReviewAnalysis(lines[0], modelName, customAspects);
+  }
+}
+
+async function runSingleReviewAnalysis(text, modelName, customAspects) {
+  const btn = document.getElementById('btn-manual-analyze');
   btn.innerHTML = '<span>⏳ Analyzing Sentiment...</span>';
   btn.disabled = true;
+
+  // Hide multi results
+  const multiSec = document.getElementById('multi-results-section');
+  if (multiSec) multiSec.style.display = 'none';
 
   try {
     const res = await fetch('/api/analyze', {
@@ -80,16 +117,52 @@ async function runManualAnalysis() {
     });
 
     if (!res.ok) {
-      throw new Error(`Server returned error: ${res.statusText}`);
+      const err = await res.json();
+      throw new Error(err.detail || res.statusText);
     }
 
     const data = await res.json();
     renderManualAnalysisResults(data);
   } catch (err) {
-    console.error("Analysis failed:", err);
+    console.error("Single review analysis failed:", err);
     alert("Error running sentiment analysis: " + err.message);
   } finally {
     btn.innerHTML = '<span>🚀 Analyze Review Sentiments</span>';
+    btn.disabled = false;
+  }
+}
+
+async function runMultiReviewAnalysis(reviews, modelName) {
+  const btn = document.getElementById('btn-manual-analyze');
+  btn.innerHTML = `<span>⏳ Analyzing ${reviews.length} Reviews...</span>`;
+  btn.disabled = true;
+
+  // Hide single results
+  const singleSec = document.getElementById('manual-results-section');
+  if (singleSec) singleSec.style.display = 'none';
+
+  try {
+    const res = await fetch('/api/analyze_bulk', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        reviews: reviews,
+        model_name: modelName
+      })
+    });
+
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.detail || res.statusText);
+    }
+
+    const data = await res.json();
+    renderMultiAnalysisResults(data);
+  } catch (err) {
+    console.error("Multi review analysis failed:", err);
+    alert("Error running bulk sentiment analysis: " + err.message);
+  } finally {
+    btn.innerHTML = '<span>⚡ Analyze All Reviews in Bulk</span>';
     btn.disabled = false;
   }
 }
@@ -261,6 +334,221 @@ function renderSingleReviewCharts(aspects) {
       }
     });
   }
+}
+
+// ----------------------------------------------------
+// MULTI-REVIEW RENDERING & VISUAL ANALYTICS
+// ----------------------------------------------------
+function renderMultiAnalysisResults(data) {
+  const multiSec = document.getElementById('multi-results-section');
+  if (!multiSec) return;
+  multiSec.style.display = 'block';
+
+  // 1. KPIs
+  const totalRev = data.total_reviews || 0;
+  const totalAsp = data.total_aspects || 0;
+  const hingPct = data.hinglish_percentage || 0;
+  const netScore = data.net_sentiment_score || 0;
+  const avgConf = data.avg_confidence || 0;
+
+  document.getElementById('multi-kpi-total-reviews').textContent = totalRev.toLocaleString();
+  document.getElementById('multi-kpi-total-aspects').textContent = totalAsp.toLocaleString();
+  document.getElementById('multi-kpi-hinglish-pct').textContent = `${hingPct}%`;
+  
+  const netEl = document.getElementById('multi-kpi-net-sentiment');
+  netEl.textContent = (netScore >= 0 ? `+${netScore}` : `${netScore}`) + '%';
+  netEl.style.color = netScore >= 0 ? 'var(--success)' : 'var(--danger)';
+
+  document.getElementById('multi-kpi-avg-conf').textContent = `${avgConf}%`;
+  document.getElementById('multi-chart-total-count').textContent = `${totalRev} Reviews`;
+
+  // Download Button
+  const dlBtn = document.getElementById('multi-btn-download-csv');
+  if (dlBtn && data.download_url) {
+    dlBtn.href = data.download_url;
+  }
+
+  // 2. Render Charts
+  renderMultiCharts(data);
+
+  // 3. Render Table
+  globalMultiAspectRecords = data.aspect_records || [];
+  renderMultiTable(globalMultiAspectRecords);
+}
+
+function renderMultiCharts(data) {
+  // Chart 1: Donut
+  const ctxDonut = document.getElementById('multiSentimentDonutChart');
+  if (ctxDonut) {
+    if (multiSentimentChart) multiSentimentChart.destroy();
+    const counts = data.sentiment_counts || {};
+    const labels = counts.Mixed !== undefined ? ['Positive', 'Mixed', 'Neutral', 'Negative'] : ['Positive', 'Neutral', 'Negative'];
+    const chartData = counts.Mixed !== undefined ?
+      [counts.Positive || 0, counts.Mixed || 0, counts.Neutral || 0, counts.Negative || 0] :
+      [counts.Positive || 0, counts.Neutral || 0, counts.Negative || 0];
+    const colors = counts.Mixed !== undefined ?
+      ['#10b981', '#8b5cf6', '#f59e0b', '#f43f5e'] :
+      ['#10b981', '#f59e0b', '#f43f5e'];
+
+    multiSentimentChart = new Chart(ctxDonut, {
+      type: 'doughnut',
+      data: {
+        labels: labels,
+        datasets: [{
+          data: chartData,
+          backgroundColor: colors,
+          borderColor: '#0f172a',
+          borderWidth: 3
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'bottom', labels: { color: '#cbd5e1', font: { family: 'Outfit', size: 12 } } }
+        },
+        cutout: '68%'
+      }
+    });
+  }
+
+  // Chart 2: Stacked Bar for categories
+  const ctxCat = document.getElementById('multiAspectCategoryBarChart');
+  if (ctxCat) {
+    if (multiCategoryChart) multiCategoryChart.destroy();
+    const topCats = data.top_categories || [];
+    const labels = topCats.map(c => c.category);
+    const pos = topCats.map(c => c.positive);
+    const neu = topCats.map(c => c.neutral);
+    const neg = topCats.map(c => c.negative);
+
+    multiCategoryChart = new Chart(ctxCat, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [
+          { label: 'Positive', data: pos, backgroundColor: '#10b981' },
+          { label: 'Neutral', data: neu, backgroundColor: '#f59e0b' },
+          { label: 'Negative', data: neg, backgroundColor: '#f43f5e' }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: { stacked: true, grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#94a3b8' } },
+          y: { stacked: true, beginAtZero: true, grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#94a3b8' } }
+        },
+        plugins: {
+          legend: { position: 'top', labels: { color: '#cbd5e1', font: { family: 'Outfit', size: 11 } } }
+        }
+      }
+    });
+  }
+
+  // Chart 3: Language Pie
+  const ctxLang = document.getElementById('multiLanguagePieChart');
+  if (ctxLang) {
+    if (multiLangChart) multiLangChart.destroy();
+    const hingPct = data.hinglish_percentage || 0;
+    const purePct = data.pure_lang_percentage || Math.max(0, 100 - hingPct);
+
+    multiLangChart = new Chart(ctxLang, {
+      type: 'pie',
+      data: {
+        labels: ['Hinglish (Code-Mixed)', 'Standard English'],
+        datasets: [{
+          data: [hingPct, purePct],
+          backgroundColor: ['#6366f1', '#06b6d4'],
+          borderColor: '#0f172a',
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'bottom', labels: { color: '#cbd5e1', font: { family: 'Outfit', size: 12 } } }
+        }
+      }
+    });
+  }
+
+  // Chart 4: Top Aspect Keywords Bar
+  const ctxTerms = document.getElementById('multiAspectTermsBarChart');
+  if (ctxTerms) {
+    if (multiTermsChart) multiTermsChart.destroy();
+    const topTerms = data.top_aspect_terms || [];
+    const labels = topTerms.map(t => t.aspect);
+    const counts = topTerms.map(t => t.total);
+
+    multiTermsChart = new Chart(ctxTerms, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Frequency',
+          data: counts,
+          backgroundColor: 'rgba(99, 102, 241, 0.8)',
+          borderRadius: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#94a3b8' } },
+          y: { beginAtZero: true, grid: { color: 'rgba(255, 255, 255, 0.05)' }, ticks: { color: '#94a3b8' } }
+        }
+      }
+    });
+  }
+}
+
+function renderMultiTable(records) {
+  const tbody = document.getElementById('multi-data-table-body');
+  if (!tbody) return;
+  tbody.innerHTML = '';
+
+  if (!records || records.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; color: var(--text-muted);">No records found.</td></tr>';
+    return;
+  }
+
+  records.forEach((r, i) => {
+    const tr = document.createElement('tr');
+    const badgeClass = `badge-pill ${r.sentiment}`;
+    const badgeText = (r.sentiment || 'neutral').toUpperCase();
+    const confPct = ((r.confidence || 0.85) * 100).toFixed(1);
+    const langStr = r.is_hinglish ? 'Hinglish' : 'English';
+
+    tr.innerHTML = `
+      <td>${i + 1}</td>
+      <td style="max-width: 320px; font-size: 0.85rem;">${r.review}</td>
+      <td><b style="color: #fff;">${r.aspect}</b></td>
+      <td><span class="badge-mini">${r.category}</span></td>
+      <td><span class="${badgeClass}">${badgeText}</span></td>
+      <td><span style="color: #38bdf8;">${confPct}%</span></td>
+      <td><span style="font-size: 0.8rem; color: var(--text-muted);">${langStr}</span></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function filterMultiTable() {
+  const searchInput = document.getElementById('multi-table-search');
+  const search = searchInput ? searchInput.value.toLowerCase().trim() : '';
+  const polFilter = document.getElementById('multi-table-polarity-filter');
+  const polarity = polFilter ? polFilter.value : 'all';
+
+  const filtered = globalMultiAspectRecords.filter(r => {
+    const matchesSearch = !search || (r.review && r.review.toLowerCase().includes(search)) || (r.aspect && r.aspect.toLowerCase().includes(search)) || (r.category && r.category.toLowerCase().includes(search));
+    const matchesPol = (polarity === 'all') || (r.sentiment && r.sentiment.toLowerCase() === polarity);
+    return matchesSearch && matchesPol;
+  });
+
+  renderMultiTable(filtered);
 }
 
 // ----------------------------------------------------
@@ -577,6 +865,26 @@ async function loadBenchmarkHubData() {
     benchmarkComparisonDetails = data.details || [];
 
     if (tableData.length > 0) {
+      // Populate Benchmark Hub Table dynamically from API
+      const tableBody = document.getElementById('benchmark-hub-table-body');
+      if (tableBody) {
+        tableBody.innerHTML = '';
+        tableData.forEach(row => {
+          const tr = document.createElement('tr');
+          const isTfidf = (row['Model'] || '').includes('TF-IDF');
+          tr.innerHTML = `
+            <td><b style="${isTfidf ? 'color: #6366f1;' : ''}">${row['Model']}</b></td>
+            <td><span class="${isTfidf ? 'badge-pill positive' : ''}">${row['Accuracy (%)']}%</span></td>
+            <td><span class="${isTfidf ? 'badge-pill positive' : ''}">${row['Macro F1 (%)']}%</span></td>
+            <td>${row['Weighted F1 (%)']}%</td>
+            <td><span class="${isTfidf ? 'badge-pill positive' : ''}">${row['Hinglish F1 (%)']}%</span></td>
+            <td><b style="${isTfidf ? 'color: #10b981;' : ''}">${row['Latency (ms/item)']} ms</b></td>
+            <td>${row['Architecture Type']}</td>
+          `;
+          tableBody.appendChild(tr);
+        });
+      }
+
       const labels = tableData.map(r => r['Model'].replace(' + Logistic Regression', ' + LR').replace('Baseline', '').trim());
       const macroF1 = tableData.map(r => r['Macro F1 (%)']);
       const hinglishF1 = tableData.map(r => r['Hinglish F1 (%)']);
@@ -834,5 +1142,5 @@ function updateEvaluationModelView() {
 
 // Initial Auto-Execution on Page Load
 document.addEventListener('DOMContentLoaded', () => {
-  runManualAnalysis();
+  fetch('/api/health').catch(e => console.warn(e));
 });

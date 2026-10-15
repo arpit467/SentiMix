@@ -2,6 +2,7 @@ import os
 import sys
 import re
 import ast
+import nltk
 import pandas as pd
 from typing import List, Tuple, Dict, Any, Set
 
@@ -185,12 +186,12 @@ NEGATION_TOKENS = {
     "don't", "dont", "नहीं", "ना", "न", "मत", "बिना"
 }
 
-# Sarcastic cues indicating overall dissatisfaction despite positive surface words
+# Sarcastic cues indicating overall dissatisfaction despite positive surface words (Generalized without hardcoded brands)
 SARCASM_PATTERNS = [
     r"\bnot\b[\s\.!]*$",
-    r"\bthanks for the (?:free|gift|pimples)\b",
-    r"\bwah\s+(?:kya|kent|bhai|samsung|wipro|puma)\b.*(?:hang|leak|chhale|barbad|bekar|kharab|phati|mazaa|dead)",
-    r"\bवाह[,\s]+क्या\b.*(?:खराब|टूटी|उधड़|बर्बाद|छाले|क्वालिटी)",
+    r"\bthanks for the (?:free|gift|damaged|broken|pimples)\b",
+    r"\b(?:wah|shabash|kya baat hai|great job|well done)\b.*(?:hang|leak|chhale|barbad|bekar|kharab|phati|mazaa|dead|worst|pathetic|useless)",
+    r"\bवाह[,\s]+क्या\b.*(?:खराब|टूटी|उधड़|बर्बाद|छाले|क्वालिटी|कचरा)",
     r"\bkya baat hai.*service ho toh aisi\b",
     r"\bbrilliant quality control, well done\b"
 ]
@@ -198,7 +199,7 @@ SARCASM_PATTERNS = [
 
 # Strict Stop Words & Intensifiers (MUST NEVER be treated as aspect terms)
 STOP_WORDS_AND_MODIFIERS = {
-    "is", "was", "are", "the", "a", "an", "and", "or", "to", "in", "on", "for", "with",
+    "is", "was", "are", "were", "the", "a", "an", "and", "or", "to", "in", "on", "for", "with",
     "hai", "hain", "tha", "thi", "the", "ho", "ka", "ki", "ke", "ko", "se", "me", "mein",
     "bhi", "bahut", "bohot", "bhut", "bhot", "very", "kaafi", "kafi", "kfi", "thoda",
     "thodi", "thora", "zyada", "jada", "jyada", "bilkul", "ekdum", "sirf", "toh", "to", "so",
@@ -217,9 +218,24 @@ STOP_WORDS_AND_MODIFIERS = {
     "पर", "मगर", "और", "या", "बस", "कुल", "मिलाकर", "हो", "गया", "गई", "गए", "पड़ेगा", "पड़ेगी"
 }
 
-class MeeshoABSAAnnotator:
+
+class DynamicAspectExtractor:
+    """
+    Completely Dynamic Open-Vocabulary Aspect Extractor:
+    1. Segments reviews into clauses around contrastive markers.
+    2. Runs NLTK POS-tagging + Noun Phrase (NP) chunking (<JJ|JJR|JJS>* <NN|NNS|NNP|NNPS>+)
+       to discover arbitrary, unseen product aspects and compound terms from any customer review.
+    3. Extracts Romanized code-mixed Hindi (Hinglish) and Devanagari Unicode nouns.
+    4. Filters out stopwords, pure sentiment adjectives, and grammatical particles.
+    5. Dynamically assigns aspect categories using semantic keyword clustering or head noun semantics.
+    """
     def __init__(self):
         self.preprocessor = TextPreprocessor()
+        self.grammar = r"""
+            NP: {<JJ|JJR|JJS>* <NN|NNS|NNP|NNPS>+}
+        """
+        self.chunker = nltk.RegexpParser(self.grammar)
+        
         # Build flattened keyword lookup sorted by length descending
         self.keyword_to_category = {}
         for cat, kws in ASPECT_CATEGORIES.items():
@@ -230,6 +246,156 @@ class MeeshoABSAAnnotator:
             (kw, self.keyword_to_category[kw.lower()], re.compile(r'(?<![a-zA-Z0-9\u0900-\u097F])' + re.escape(kw.lower()) + r'(?![a-zA-Z0-9\u0900-\u097F])'))
             for kw in self.sorted_keywords
         ]
+        
+        # Stop words & sentiment words that should never be aspect terms
+        self.ignore_tokens = set(STOP_WORDS_AND_MODIFIERS) | set(POSITIVE_LEXICON) | set(NEGATIVE_LEXICON) | set(NEUTRAL_LEXICON) | set(NEGATION_TOKENS)
+        self.ignore_tokens.update({
+            "is", "was", "are", "were", "the", "a", "an", "and", "or", "to", "in", "on", "for", "with",
+            "days", "day", "night", "month", "months", "time", "product", "item", "aur", "mila", "mile",
+            "total", "vibrant", "soft", "loud", "noisy", "fast", "slow", "heavy", "good", "bad", "stars",
+            "star", "reviews", "review", "order", "ordered"
+        })
+        
+        self.devanagari_ignore = {
+            "है", "हैं", "था", "थी", "थे", "का", "की", "के", "को", "से", "में", "भी", "बहुत", "काफी",
+            "थोड़ा", "थोड़ी", "ज्यादा", "बिल्कुल", "एकदम", "तो", "अब", "जब", "तब", "कुछ", "खास", "लगा",
+            "लगी", "रहा", "रही", "रहे", "होना", "होता", "होती", "करो", "करना", "करे", "वाले", "वाला",
+            "वाली", "यह", "ये", "वह", "वो", "मेरा", "मेरी", "मेरे", "अपना", "अपनी", "अपने", "लेकिन",
+            "पर", "मगर", "और", "या", "बस", "कुल", "मिलाकर", "हो", "गया", "गई", "गए", "पड़ेगा", "पड़ेगी",
+            "अच्छा", "अच्छी", "अच्छे", "बढ़िया", "शानदार", "खराब", "घटिया", "बेकार", "बर्बाद", "बुरा",
+            "छोटा", "बड़ा", "सस्ता", "महंगा", "सही", "गलत", "मिला", "मिली", "मिले", "दिया", "दी", "गया"
+        }
+
+    def infer_category(self, aspect: str) -> str:
+        asp = aspect.lower().strip()
+        # Direct lookup
+        if asp in self.keyword_to_category:
+            return self.keyword_to_category[asp]
+            
+        # Substring lookup in taxonomy
+        for kw, cat, pat in self.compiled_aspect_patterns:
+            if pat.search(asp):
+                return cat
+                
+        # Semantic dynamic fallbacks
+        if any(w in asp for w in ["battery", "backup", "charging", "charger", "power", "बैटरी", "चार्ज"]):
+            return "battery_power"
+        if any(w in asp for w in ["camera", "photo", "picture", "lens", "selfie", "zoom", "कैमरा", "तस्वीर"]):
+            return "camera_photography"
+        if any(w in asp for w in ["display", "screen", "amoled", "oled", "120hz", "90hz", "brightness", "डिस्प्ले", "स्क्रीन"]):
+            return "display_screen"
+        if any(w in asp for w in ["speed", "performance", "ram", "processor", "lag", "fps", "heating", "boot", "परफॉरमेंस", "स्पीड"]):
+            return "performance_speed"
+        if any(w in asp for w in ["sound", "audio", "bass", "speaker", "speakers", "mic", "volume", "voice", "awaaz", "awaz", "साउंड", "आवाज़"]):
+            return "audio_sound"
+        if any(w in asp for w in ["fabric", "cloth", "material", "silk", "cotton", "stuff", "kapda", "कपड़ा", "कपड़े", "सिल्क"]):
+            return "fabric_material"
+        if any(w in asp for w in ["fit", "fitting", "size", "length", "waist", "सूट", "फिटिंग", "साइज़"]):
+            return "fit_size"
+        if any(w in asp for w in ["design", "look", "looks", "color", "colour", "shade", "print", "स्टाइल", "रंग"]):
+            return "design_appearance"
+        if any(w in asp for w in ["delivery", "courier", "shipping", "package", "packaging", "box", "agent", "seller", "support", "refund", "policy", "service", "customer", "डिलीवरी", "पैकिंग"]):
+            return "delivery_service"
+        if any(w in asp for w in ["price", "cost", "paisa", "rate", "worth", "affordable", "expensive", "sasta", "दाम", "पैसे", "कीमत"]):
+            return "price_value"
+        if any(w in asp for w in ["comfort", "comfortable", "strap", "cushion", "sole", "आराम"]):
+            return "comfort_ergonomics"
+        if any(w in asp for w in ["quality", "build", "stitching", "durable", "body", "frame", "zipper", "क्वालिटी"]):
+            return "quality_build"
+        if any(w in asp for w in ["fragrance", "smell", "scent", "khushbu", "खुशबू"]):
+            return "scent_fragrance"
+        if any(w in asp for w in ["skin", "face", "hair", "moisture", "glow", "त्वचा", "चेहरा"]):
+            return "skin_beauty_effect"
+        return "product_feature"
+
+    def extract_aspects(self, text: str) -> List[Tuple[str, str, str]]:
+        """
+        Dynamically extracts aspect terms, their inferred categories, and clause contexts.
+        Returns: [(aspect_term, category, clause_context)]
+        """
+        if not text or not str(text).strip():
+            return []
+            
+        clauses = self.preprocessor.split_into_clauses(text)
+        candidates = []
+        
+        for clause in clauses:
+            cl_clean = clause.strip()
+            if not cl_clean:
+                continue
+                
+            cl_lower = cl_clean.lower()
+            
+            # Step A: Check for established multi-word and single-word taxonomy terms
+            for kw, cat, pat in self.compiled_aspect_patterns:
+                if pat.search(cl_lower):
+                    kw_clean = kw.strip().lower()
+                    if kw_clean not in self.ignore_tokens:
+                        candidates.append((kw_clean, cat, cl_clean))
+            
+            # Step B: Devanagari Hindi Dynamic Aspect Discovery
+            dev_words = re.findall(r"[\u0900-\u097F]+", cl_clean)
+            for dw in dev_words:
+                if dw not in self.devanagari_ignore and len(dw) > 1:
+                    cat = self.infer_category(dw)
+                    candidates.append((dw.lower(), cat, cl_clean))
+                    
+            # Step C: English / Romanized Hinglish POS Noun Phrase Chunking (Captures unseen novel terms)
+            tokens = nltk.word_tokenize(cl_clean)
+            if tokens:
+                try:
+                    tagged = nltk.pos_tag(tokens)
+                    tree = self.chunker.parse(tagged)
+                    
+                    for subtree in tree.subtrees(filter=lambda t: t.label() == "NP"):
+                        phrase_tokens = [w.lower() for w, _ in subtree.leaves()]
+                        valid_words = [
+                            w for w in phrase_tokens
+                            if w not in self.ignore_tokens
+                            and len(w) > 2
+                            and not w.isdigit()
+                            and not bool(re.search(r"[\u0900-\u097F]", w))
+                        ]
+                        
+                        if valid_words:
+                            aspect_term = " ".join(valid_words)
+                            aspect_term = re.sub(r"^[^\w]+|[^\w]+$", "", aspect_term).strip()
+                            if aspect_term and len(aspect_term) > 2:
+                                cat = self.infer_category(aspect_term)
+                                candidates.append((aspect_term, cat, cl_clean))
+                except Exception:
+                    pass
+                    
+        # Step D: Maximal Phrase Subsumption & Deduplication (keep specific compound phrases over redundant fragments)
+        candidates = sorted(candidates, key=lambda x: len(x[0]), reverse=True)
+        dedup_results = []
+        seen_aspects = set()
+        
+        for asp, cat, cl in candidates:
+            if asp in seen_aspects:
+                continue
+            # Check if this aspect is a redundant sub-word of an already kept aspect in the same clause
+            is_subsumed = False
+            for k_asp, k_cat, k_cl in dedup_results:
+                if cl == k_cl and asp in k_asp and asp != k_asp:
+                    is_subsumed = True
+                    break
+            if not is_subsumed:
+                seen_aspects.add(asp)
+                dedup_results.append((asp, cat, cl))
+                
+        # Step E: Fallback if no specific noun was detected
+        if not dedup_results:
+            dedup_results.append(("product", "product_item", text))
+            
+        return dedup_results
+
+
+class MeeshoABSAAnnotator:
+    def __init__(self):
+        self.preprocessor = TextPreprocessor()
+        self.dynamic_extractor = DynamicAspectExtractor()
+        self.keyword_to_category = self.dynamic_extractor.keyword_to_category
 
     def _determine_clause_sentiment(self, clause: str, overall_rating: float = 4.0) -> str:
         clause_clean = clause.lower()
@@ -266,12 +432,10 @@ class MeeshoABSAAnnotator:
         
         if has_negation:
             if pos_count > 0 and neg_count == 0:
-                # "not good", "accha nahi hai", "सुंदर नहीं है", "not accurate", "not drying"
                 if "not drying" in clause_clean or "no dryness" in clause_clean:
                     return "positive"
                 return "negative"
             elif neg_count > 0:
-                # "no defect", "no foot pain", "no white cast", "no complaints", "awaaz bilkul nahi"
                 if any(good_neg in clause_clean for good_neg in ["no pain", "no foot pain", "no white cast", "no complaints", "no issues", "zero damage", "no problem", "awaaz bilkul nahi", "awaaz nahi", "noise bilkul nahi", "no dryness"]):
                     return "positive"
                 return "negative"
@@ -294,49 +458,24 @@ class MeeshoABSAAnnotator:
 
     def annotate_review(self, text: str, rating: float = 4.0, mapped_sentiment: str = "") -> Dict[str, Any]:
         clean_norm = self.preprocessor.normalize_hinglish(text)
-        clauses = self.preprocessor.split_into_clauses(text)
         
         aspect_terms = []
         at_polarity = []
         aspect_categories = []
-        found_terms = set()
         
         # Sarcasm check across whole text
         is_sarcastic = any(re.search(p, clean_norm.lower()) for p in SARCASM_PATTERNS)
         
-        # 1. First Pass: Match known aspect keywords
-        for clause in clauses:
-            clause_sent = self._determine_clause_sentiment(clause, rating)
+        # Dynamically extract all aspects and clauses
+        extracted_triples = self.dynamic_extractor.extract_aspects(text)
+        
+        for asp, cat, cl_context in extracted_triples:
+            clause_sent = self._determine_clause_sentiment(cl_context, rating)
             if is_sarcastic:
                 clause_sent = "negative"
-                
-            clause_lower = clause.lower()
-            for kw, cat, pat in self.compiled_aspect_patterns:
-                if pat.search(clause_lower):
-                    if kw.lower() not in found_terms and kw.lower() not in STOP_WORDS_AND_MODIFIERS:
-                        found_terms.add(kw.lower())
-                        aspect_terms.append(kw)
-                        at_polarity.append(clause_sent)
-                        aspect_categories.append(cat)
-        
-        # 2. Fallback if no specific aspect term was matched
-        if not aspect_terms and len(clean_norm) > 2:
-            default_aspect = "product"
-            fallback_pol = self._determine_clause_sentiment(clean_norm, rating)
-            if is_sarcastic:
-                fallback_pol = "negative"
-            if mapped_sentiment and isinstance(mapped_sentiment, str):
-                ms = mapped_sentiment.lower()
-                if "good" in ms or "pos" in ms:
-                    fallback_pol = "positive"
-                elif "bad" in ms or "neg" in ms:
-                    fallback_pol = "negative"
-                elif "avg" in ms or "average" in ms or "neu" in ms:
-                    fallback_pol = "neutral"
-            aspect_terms.append(default_aspect)
-            at_polarity.append(fallback_pol)
-            aspect_categories.append("product_item")
-
+            aspect_terms.append(asp)
+            at_polarity.append(clause_sent)
+            aspect_categories.append(cat)
             
         return {
             "sentence": text,

@@ -55,6 +55,10 @@ class AnalyzeRequest(BaseModel):
     model_name: Optional[str] = "TF-IDF + Logistic Regression"
     custom_aspects: Optional[str] = ""
 
+class BulkAnalyzeRequest(BaseModel):
+    reviews: List[str]
+    model_name: Optional[str] = "TF-IDF + Logistic Regression"
+
 @app.get("/", response_class=HTMLResponse)
 async def read_index():
     index_path = os.path.join(os.path.dirname(__file__), "static", "index.html")
@@ -90,6 +94,14 @@ async def analyze_sentiment(req: AnalyzeRequest):
     )
     latency_ms = round((time.time() - t0) * 1000, 2)
     result["latency_ms"] = latency_ms
+    return JSONResponse(result)
+
+@app.post("/api/analyze_bulk")
+async def analyze_sentiment_bulk(req: BulkAnalyzeRequest):
+    valid_reviews = [r.strip() for r in req.reviews if r and str(r).strip()]
+    if not valid_reviews:
+        raise HTTPException(status_code=400, detail="Reviews list cannot be empty.")
+    result = engine.analyze_multiple_reviews(valid_reviews, model_name=req.model_name)
     return JSONResponse(result)
 
 @app.get("/api/benchmarks")
@@ -160,8 +172,14 @@ async def process_batch_file(
             df = pd.read_csv(file.file)
         elif file.filename.endswith((".xlsx", ".xls")):
             df = pd.read_excel(file.file)
+        elif file.filename.endswith(".txt"):
+            content = (await file.read()).decode("utf-8", errors="ignore")
+            lines = [line.strip() for line in content.splitlines() if line.strip()]
+            if not lines:
+                raise HTTPException(status_code=400, detail="Uploaded .txt file is empty.")
+            df = pd.DataFrame({"review": lines})
         else:
-            raise HTTPException(status_code=400, detail="Unsupported file format. Please upload CSV or Excel (.xlsx/.xls).")
+            raise HTTPException(status_code=400, detail="Unsupported file format. Please upload CSV, Excel (.xlsx/.xls), or Plain Text (.txt).")
             
         columns = list(df.columns)
         if not columns:

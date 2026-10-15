@@ -220,20 +220,29 @@
       border-radius: var(--radius-full);
     }
 
-    .presets-section { margin-bottom: 1.25rem; }
-    .section-label { font-size: 0.82rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.5rem; }
-    .presets-chip-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .preset-btn {
-      background: rgba(255, 255, 255, 0.04);
+    .mode-switcher-row { display: flex; gap: 0.75rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+    .mode-tab-btn {
+      background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-subtle);
       color: var(--text-secondary);
-      padding: 0.45rem 0.85rem;
-      border-radius: var(--radius-full);
-      font-size: 0.82rem;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius-sm);
       cursor: pointer;
       transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
     }
-    .preset-btn:hover { background: rgba(99, 102, 241, 0.15); border-color: var(--primary-light); color: #fff; transform: translateY(-1px); }
+    .mode-tab-btn:hover { background: rgba(99, 102, 241, 0.15); border-color: var(--primary-light); color: #fff; transform: translateY(-1px); }
+    .mode-tab-btn.active {
+      background: var(--primary-gradient);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: var(--shadow-glow);
+    }
 
     .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
     .form-label { font-size: 0.85rem; font-weight: 500; color: var(--text-secondary); }
@@ -578,37 +587,37 @@
         <div class="card-header-row">
           <div>
             <h2 class="card-title">🔍 Real-Time Aspect Sentiment Classifier</h2>
-            <p class="card-desc">Type or select any customer review in Hinglish or English to extract fine-grained aspects and analyze sentiments with dynamic visual charts.</p>
+            <p class="card-desc">Analyze single or multiple customer reviews dynamically in Hinglish or English with open-vocabulary aspect extraction and visual charts.</p>
           </div>
-          <div class="badge-accent">Live NLP Engine</div>
+          <div class="badge-accent">Dynamic NLP Engine</div>
         </div>
 
-        <!-- Quick Example Presets -->
-        <div class="presets-section">
-          <div class="section-label">✨ Quick Preset Reviews (Click to Test):</div>
-          <div class="presets-chip-grid">
-            <button class="preset-btn" onclick="applyPreset('flipkart')">📱 Flipkart: Phone, AMOLED & Battery</button>
-            <button class="preset-btn" onclick="applyPreset('amazon')">🎧 Amazon: Bass, Mic & Fast Delivery</button>
-            <button class="preset-btn" onclick="applyPreset('meesho')">👗 Meesho: Kurti Fabric, Design & Fitting</button>
-            <button class="preset-btn" onclick="applyPreset('laptop')">💻 Laptop: Boot Speed vs Battery Drain</button>
-            <button class="preset-btn" onclick="applyPreset('negative')">😡 Negative: Ghatiya Quality & Refund</button>
-            <button class="preset-btn" onclick="applyPreset('beauty')">💄 Beauty: Face Glow vs High Price</button>
-          </div>
+        <!-- Mode Switcher: Single vs Multi-Review -->
+        <div class="mode-switcher-row">
+          <button type="button" id="mode-btn-single" class="mode-tab-btn active" onclick="switchInputMode('single')">
+            <span>✍️ Single Review Mode</span>
+          </button>
+          <button type="button" id="mode-btn-multi" class="mode-tab-btn" onclick="switchInputMode('multi')">
+            <span>📝 Multi-Review Batch Mode (One per line)</span>
+          </button>
         </div>
 
         <!-- Text Input -->
         <div class="form-group">
-          <label class="form-label" for="manual-review-text">Customer Review Text:</label>
-          <textarea id="manual-review-text" class="input-textarea" rows="3" placeholder="Enter customer review (e.g. Display bahut vibrant hai 120Hz AMOLED aur battery life 2 days chalti hai lekin camera zoom night me bekar hai)...">Display bahut vibrant hai 120Hz AMOLED aur battery life 2 days chalti hai lekin camera zoom night me bekar hai</textarea>
+          <label class="form-label" id="manual-input-label" for="manual-review-text">Customer Review Text:</label>
+          <textarea id="manual-review-text" class="input-textarea" rows="3" placeholder="Enter customer review (e.g. Fabric quality bahut achhi hai aur design pyara hai lekin pant ki fitting loose hai)..."></textarea>
+          <div id="multi-input-hint" style="display: none; font-size: 0.82rem; color: #38bdf8; margin-top: 0.35rem;">
+            💡 <b>Multi-Review Mode Active:</b> Enter or paste multiple reviews (one review per line). All reviews will be analyzed together with aggregate analytics and interactive charts.
+          </div>
         </div>
 
         <!-- Parameters Controls Grid -->
         <div class="controls-grid">
-          <div class="form-group">
+          <div class="form-group" id="custom-aspect-group">
             <label class="form-label" for="manual-custom-aspects">Custom Aspect Filter (Optional):</label>
             <input type="text" id="manual-custom-aspects" class="input-text" placeholder="e.g. display, battery, camera (Leave blank for automated discovery)">
           </div>
-          <div class="form-group">
+          <div class="form-group" style="flex: 1;">
             <label class="form-label" for="manual-model-select">Classification Model:</label>
             <select id="manual-model-select" class="input-select">
               <option value="TF-IDF + Logistic Regression" selected>TF-IDF + Logistic Regression (Recommended • 72.6% Acc • 0.29ms)</option>
@@ -697,6 +706,152 @@
 
       </section>
 
+      <!-- MULTI-REVIEW BATCH RESULTS (Rendered dynamically when analyzing multiple reviews) -->
+      <section id="multi-results-section" class="results-fade-in" style="display: none; margin-top: 1.5rem;">
+        
+        <!-- Multi-Review KPI Stats Grid -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-icon">📄</div>
+            <div class="kpi-info">
+              <div class="kpi-value" id="multi-kpi-total-reviews">0</div>
+              <div class="kpi-label">Reviews Analyzed</div>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">🎯</div>
+            <div class="kpi-info">
+              <div class="kpi-value" id="multi-kpi-total-aspects">0</div>
+              <div class="kpi-label">Aspects Extracted</div>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">🇮🇳</div>
+            <div class="kpi-info">
+              <div class="kpi-value" id="multi-kpi-hinglish-pct">0%</div>
+              <div class="kpi-label">Hinglish Code-Mixed</div>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">📈</div>
+            <div class="kpi-info">
+              <div class="kpi-value" id="multi-kpi-net-sentiment">+0.0%</div>
+              <div class="kpi-label">Net Sentiment Score</div>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-icon">⭐</div>
+            <div class="kpi-info">
+              <div class="kpi-value" id="multi-kpi-avg-conf">0%</div>
+              <div class="kpi-label">Avg Confidence</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Download Enriched Report Action Banner -->
+        <div class="action-banner" style="margin-top: 1.25rem;">
+          <div>
+            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.15rem; color: #fff; margin-bottom: 0.25rem;">✅ Multi-Review ABSA Completed!</h3>
+            <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.85rem;">All reviews dynamically parsed with aspect extraction, language classification, and sentiment polarities.</p>
+          </div>
+          <a id="multi-btn-download-csv" href="#" class="btn-download" download="absa_multi_review_report.csv">
+            <span>📥 Export Analyzed CSV</span>
+          </a>
+        </div>
+
+        <!-- 4 Visual Analytics Charts for Multi Reviews -->
+        <div class="charts-dual-grid" style="margin-top: 1.5rem;">
+          
+          <!-- Chart 1: Overall Sentiment Donut -->
+          <div class="glass-card">
+            <div class="chart-header-row">
+              <h3 class="card-subheading">🍩 Overall Sentiment Distribution</h3>
+              <span class="badge-mini" id="multi-chart-total-count">0 Reviews</span>
+            </div>
+            <p class="chart-desc">Proportion of Positive, Neutral, Negative, and Mixed sentiments across the reviews.</p>
+            <div class="chart-canvas-wrapper">
+              <canvas id="multiSentimentDonutChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Chart 2: Top Categories Stacked Bar -->
+          <div class="glass-card">
+            <div class="chart-header-row">
+              <h3 class="card-subheading">📊 Top Aspect Categories Sentiment Matrix</h3>
+              <span class="badge-mini">Fine-Grained</span>
+            </div>
+            <p class="chart-desc">Positive vs. Negative vs. Neutral polarity distribution across top extracted aspect categories.</p>
+            <div class="chart-canvas-wrapper">
+              <canvas id="multiAspectCategoryBarChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Chart 3: Language Code-Mix Breakdown -->
+          <div class="glass-card">
+            <div class="chart-header-row">
+              <h3 class="card-subheading">🌐 Language Code-Mix (Hinglish vs. English)</h3>
+              <span class="badge-mini">Linguistic</span>
+            </div>
+            <p class="chart-desc">Ratio of Hindi-English Romanized code-mixed text vs. monolingual English reviews.</p>
+            <div class="chart-canvas-wrapper">
+              <canvas id="multiLanguagePieChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Chart 4: Top Aspect Keywords Frequency -->
+          <div class="glass-card">
+            <div class="chart-header-row">
+              <h3 class="card-subheading">🔥 Top 10 Aspect Terms Frequency</h3>
+              <span class="badge-mini">Keywords</span>
+            </div>
+            <p class="chart-desc">Most frequently discussed product features and components in the input reviews.</p>
+            <div class="chart-canvas-wrapper">
+              <canvas id="multiAspectTermsBarChart"></canvas>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Filterable Review Table -->
+        <div class="glass-card" style="margin-top: 1.5rem;">
+          <div class="table-header-flex">
+            <div>
+              <h3 class="card-subheading">📋 Review Records & Extracted Aspects</h3>
+              <p class="card-desc">Search and filter every extracted aspect and review polarity dynamically.</p>
+            </div>
+            <div class="table-actions">
+              <input type="text" id="multi-table-search" class="input-text-mini" placeholder="🔍 Search review or aspect..." oninput="filterMultiTable()">
+              <select id="multi-table-polarity-filter" class="input-select-mini" onchange="filterMultiTable()">
+                <option value="all">All Sentiments</option>
+                <option value="positive">Positive Only</option>
+                <option value="negative">Negative Only</option>
+                <option value="neutral">Neutral Only</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-scroll-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width: 50px;">#</th>
+                  <th>Customer Review</th>
+                  <th>Extracted Aspect</th>
+                  <th>Category</th>
+                  <th>Aspect Polarity</th>
+                  <th>Confidence</th>
+                  <th>Language</th>
+                </tr>
+              </thead>
+              <tbody id="multi-data-table-body">
+                <!-- Dynamic Rows -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
     </main>
 
     <!-- TAB 2: DATASET ABSA STUDIO & UPLOADER -->
@@ -707,17 +862,17 @@
         <div class="card-header-row">
           <div>
             <h2 class="card-title">📂 Upload & Analyze Any Review Dataset (ABSA Studio)</h2>
-            <p class="card-desc">Upload your CSV or Excel dataset containing customer feedback. The system automatically processes each review, identifies product aspects, predicts polarities, and generates rich visual analytics for the uploaded data.</p>
+            <p class="card-desc">Upload your CSV, Excel, or Plain Text dataset containing customer feedback. The system automatically processes each review, identifies product aspects, predicts polarities, and generates rich visual analytics for the uploaded data.</p>
           </div>
           <div class="badge-accent">Batch ABSA Pipeline</div>
         </div>
 
         <!-- Drag & Drop Zone -->
         <div class="drop-zone" id="dataset-drop-zone" onclick="document.getElementById('dataset-file-input').click()">
-          <input type="file" id="dataset-file-input" style="display: none;" accept=".csv,.xlsx,.xls" onchange="onDatasetFileSelected(event)">
+          <input type="file" id="dataset-file-input" style="display: none;" accept=".csv,.xlsx,.xls,.txt" onchange="onDatasetFileSelected(event)">
           <div class="drop-zone-icon">📁</div>
           <div class="drop-zone-primary-text" id="drop-zone-title">Click to Browse or Drag & Drop Dataset File</div>
-          <div class="drop-zone-subtext">Supported formats: <b>CSV, Excel (.xlsx, .xls)</b> • Meesho, Flipkart, Amazon, or Custom Schemas</div>
+          <div class="drop-zone-subtext">Supported formats: <b>CSV, Excel (.xlsx, .xls), Plain Text (.txt)</b> • Upload 1 or thousands of reviews</div>
         </div>
 
         <!-- Upload Configuration Controls -->
