@@ -25,10 +25,9 @@ This project delivers an end-to-end **Aspect-Based Sentiment Analysis (ABSA)** p
    - Fine-grained aspect term & category tagging (*Battery, Camera, Fabric, Fitting, Price, Delivery, Quality, Fragrance, Service, Display, Audio*).
 4. **Objective 4 (Multi-Model Sentiment Classification):**
    - **Model 1 (Baseline 1):** Rule-Based Lexicon & Syntactic Proximity Baseline.
-   - **Model 2 (Baseline 2):** TF-IDF (Word & Char n-grams) + Multinomial Logistic Regression.
-   - **Model 3 (Transformer 1):** IndicBERT (`ai4bharat/IndicBERTv2-MLM-only`).
-   - **Model 4 (Main Transformer):** XLM-RoBERTa (`xlm-roberta-base`).
-   - **Model 5 (Comparison Transformer):** MuRIL (`google/muril-base-cased`).
+   - **Model 2 (Production Champion):** TF-IDF (Word & Char n-grams) + Multinomial Logistic Regression.
+   - **Model 3 (Indian Language Transformer):** IndicBERT (`ai4bharat/IndicBERTv2-MLM-only`).
+   - **Model 4 (Efficient Cross-Lingual Transformer):** Multilingual MiniLM (`sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`).
 5. **Objective 5 (Comparative Benchmarking & Deployment):**
    - Comprehensive multi-metric evaluation (Accuracy, Macro/Weighted F1, Precision, Recall, Hinglish subset F1, and Latency).
    - High-performance **FastAPI Glassmorphic Web Application & REST API** for real-time manual analysis, batch dataset processing with visual charts, and benchmark evaluation.
@@ -90,15 +89,17 @@ python run_full_pipeline.py
 
 ---
 
-## 📊 4. Models Benchmarked
+## 📊 4. Models Benchmarked & Master Results
 
-| Model | Architecture Type | Accuracy | Macro F1 | Hinglish F1 | Latency |
-|---|---|---|---|---|---|
-| **TF-IDF + Logistic Regression** | Classical ML (Word+Char N-Grams) | **72.56%** | **64.20%** | **63.62%** | **0.29 ms** |
-| **IndicBERT** | Indian Language Transformer (110M) | **63.25%** | 57.23% | 56.94% | 66.70 ms |
-| **XLM-RoBERTa** | Cross-Lingual Transformer (278M) | 57.12% | 52.86% | 53.15% | 89.16 ms |
-| **MuRIL** | Transliterated Indian BERT (236M) | 40.62% | 31.10% | 29.59% | 63.31 ms |
-| **Rule-Based Baseline** | Syntactic Proximity Lexicon | 40.12% | 39.66% | 38.05% | **0.16 ms** |
+| Model Name | Architecture Type | Accuracy | Macro F1 | Latency / Item |
+|---|---|---|---|---|
+| **IndicBERT (Fine-Tuned)★** | Indian Language Transformer (278M) | **84.93%** | **78.76%** | **6.55 ms** |
+| **Multilingual MiniLM (Fine-Tuned)** | Sentence Transformer (118M) | **80.84%** | **73.31%** | **2.28 ms** |
+| **TF-IDF + Logistic Regression⚡** | Classical ML (Word+Char N-Grams) | **76.73%** | **68.56%** | **2.34 ms** |
+| **Rule-Based Baseline** | Syntactic Proximity Lexicon | 56.56% | 53.06% | **0.24 ms** |
+
+*★ Quality Champion: Highest Overall Accuracy and Hinglish F1.  
+⚡ Speed Champion: Highest Throughput for CPU-only production infrastructure.*
 
 ---
 

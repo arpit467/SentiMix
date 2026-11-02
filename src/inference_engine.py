@@ -13,19 +13,21 @@ from src.models.rule_based import RuleBasedABSAModel
 from src.models.tfidf_classifier import TFIDFLogisticABSAModel
 
 try:
-    from src.models.transformer_classifier import IndicBERTABSAModel, MultilingualMiniLMABSAModel, XLMRoBERTaABSAModel, MuRILABSAModel
+    from src.models.transformer_classifier import IndicBERTABSAModel, MultilingualMiniLMABSAModel
 except Exception:
     IndicBERTABSAModel = None
     MultilingualMiniLMABSAModel = None
-    XLMRoBERTaABSAModel = None
-    MuRILABSAModel = None
 
 
 class ABSAInferenceEngine:
     """
     Unified end-to-end ABSA inference engine:
     1. Extracts aspect terms & categories dynamically from arbitrary Hinglish/English/Hindi text
-    2. Runs aspect-sentiment classification using any of the 6 trained models
+    2. Runs aspect-sentiment classification using any of the 4 benchmarked models:
+       - TF-IDF + Logistic Regression (Production Champion)
+       - Multilingual MiniLM (Efficient Transformer)
+       - IndicBERT (Indian Language Transformer)
+       - Rule-Based Baseline (Syntactic Proximity)
     3. Produces structured actionable insights, multi-review aggregation, and confidence scores
     """
     def __init__(self, models_dir: str = "results/saved_models"):
@@ -53,8 +55,6 @@ class ABSAInferenceEngine:
         # Transformer models placeholders (instantiated on demand or if checkpoints exist)
         self.models["IndicBERT"] = None
         self.models["Multilingual MiniLM"] = None
-        self.models["XLM-RoBERTa"] = None
-        self.models["MuRIL"] = None
 
     def get_or_load_transformer(self, model_name: str):
         if self.models.get(model_name) is not None:
@@ -63,30 +63,16 @@ class ABSAInferenceEngine:
         if model_name == "IndicBERT":
             m = IndicBERTABSAModel()
             ckpt = os.path.join(self.models_dir, "indicbert")
-            if os.path.exists(os.path.join(ckpt, "classifier_head.joblib")):
+            if os.path.exists(ckpt):
                 m.load(ckpt)
             self.models["IndicBERT"] = m
             return m
         elif model_name == "Multilingual MiniLM":
             m = MultilingualMiniLMABSAModel()
             ckpt = os.path.join(self.models_dir, "minilm")
-            if os.path.exists(os.path.join(ckpt, "classifier_head.joblib")):
+            if os.path.exists(ckpt):
                 m.load(ckpt)
             self.models["Multilingual MiniLM"] = m
-            return m
-        elif model_name == "XLM-RoBERTa":
-            m = XLMRoBERTaABSAModel()
-            ckpt = os.path.join(self.models_dir, "xlm_roberta")
-            if os.path.exists(os.path.join(ckpt, "classifier_head.joblib")):
-                m.load(ckpt)
-            self.models["XLM-RoBERTa"] = m
-            return m
-        elif model_name == "MuRIL":
-            m = MuRILABSAModel()
-            ckpt = os.path.join(self.models_dir, "muril")
-            if os.path.exists(os.path.join(ckpt, "classifier_head.joblib")):
-                m.load(ckpt)
-            self.models["MuRIL"] = m
             return m
         return None
 

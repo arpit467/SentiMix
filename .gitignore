@@ -26,3 +26,13 @@ results/absa_analyzed_*.csv
 scratch/
 audit_all_notebooks.py
 print_nb_cells.py
+
+# Large model weights exceeding GitHub 100MB limit
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+
+# Temporary test files
+test_box.docx

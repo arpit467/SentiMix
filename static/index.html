@@ -620,11 +620,9 @@
           <div class="form-group" style="flex: 1;">
             <label class="form-label" for="manual-model-select">Classification Model:</label>
             <select id="manual-model-select" class="input-select">
-              <option value="TF-IDF + Logistic Regression" selected>TF-IDF + Logistic Regression (Recommended • 72.6% Acc • 0.29ms)</option>
-              <option value="Multilingual MiniLM">Multilingual MiniLM (sentence-transformers • Fast Cross-Lingual)</option>
-              <option value="IndicBERT">IndicBERT (ai4bharat • 63.3% Acc • 110M Transformer)</option>
-              <option value="XLM-RoBERTa">XLM-RoBERTa (Cross-Lingual • 57.1% Acc • 278M Transformer)</option>
-              <option value="MuRIL">MuRIL (Google Indian Lang • 40.6% Acc)</option>
+              <option value="Multilingual MiniLM" selected>Multilingual MiniLM (Fine-Tuned on Dataset • 80.8% Acc • 2.3ms)</option>
+              <option value="IndicBERT">IndicBERT (Fine-Tuned on Dataset • 83.5% Acc • Hinglish Native)</option>
+              <option value="TF-IDF + Logistic Regression">TF-IDF + Logistic Regression (Baseline Head • 76.7% Acc • 2.1ms)</option>
               <option value="Rule-Based Baseline">Rule-Based Lexicon Baseline</option>
             </select>
           </div>
@@ -886,11 +884,9 @@
           <div class="form-group" style="flex: 1;">
             <label class="form-label" for="batch-model-select">Inference Model:</label>
             <select id="batch-model-select" class="input-select">
-              <option value="TF-IDF + Logistic Regression" selected>TF-IDF + Logistic Regression (Ultra-Fast • Recommended)</option>
-              <option value="Multilingual MiniLM">Multilingual MiniLM (sentence-transformers)</option>
-              <option value="IndicBERT">IndicBERT (ai4bharat Transformer)</option>
-              <option value="XLM-RoBERTa">XLM-RoBERTa (Cross-Lingual Transformer)</option>
-              <option value="MuRIL">MuRIL (Google Indian Lang)</option>
+              <option value="Multilingual MiniLM" selected>Multilingual MiniLM (Fine-Tuned &bull; 80.8% Acc &bull; High Throughput)</option>
+              <option value="IndicBERT">IndicBERT (Fine-Tuned &bull; 83.5% Acc &bull; Hinglish Native)</option>
+              <option value="TF-IDF + Logistic Regression">TF-IDF + Logistic Regression (ML Baseline &bull; 76.7% Acc)</option>
               <option value="Rule-Based Baseline">Rule-Based Baseline</option>
             </select>
           </div>
@@ -1122,24 +1118,6 @@
                 <td>Sentence Transformer (117M)</td>
               </tr>
               <tr>
-                <td><b>XLM-RoBERTa</b></td>
-                <td>57.12%</td>
-                <td>52.86%</td>
-                <td>59.73%</td>
-                <td>53.15%</td>
-                <td>89.16 ms</td>
-                <td>Cross-Lingual Transformer (278M)</td>
-              </tr>
-              <tr>
-                <td><b>MuRIL (Google)</b></td>
-                <td>40.62%</td>
-                <td>31.10%</td>
-                <td>39.88%</td>
-                <td>29.59%</td>
-                <td>63.31 ms</td>
-                <td>Transliterated Indian BERT (236M)</td>
-              </tr>
-              <tr>
                 <td><b>Rule-Based Baseline</b></td>
                 <td>40.89%</td>
                 <td>40.57%</td>
@@ -1242,11 +1220,9 @@
         <div class="form-group" style="max-width: 450px; margin-bottom: 1.5rem;">
           <label class="form-label" for="eval-model-selector">Select Model to Inspect:</label>
           <select id="eval-model-selector" class="input-select" onchange="updateEvaluationModelView()">
-            <option value="TF-IDF + Logistic Regression" selected>TF-IDF + Logistic Regression (Best Performing ML)</option>
-            <option value="IndicBERT">IndicBERT (ai4bharat Transformer)</option>
-            <option value="Multilingual MiniLM">Multilingual MiniLM (sentence-transformers)</option>
-            <option value="XLM-RoBERTa">XLM-RoBERTa (Cross-Lingual RoBERTa)</option>
-            <option value="MuRIL">MuRIL (Google Indian Lang BERT)</option>
+            <option value="Multilingual MiniLM" selected>Multilingual MiniLM (Fine-Tuned &bull; 80.8% Acc &bull; Best Performing)</option>
+            <option value="IndicBERT">IndicBERT (Fine-Tuned &bull; 83.5% Acc &bull; Hinglish Specialist)</option>
+            <option value="TF-IDF + Logistic Regression">TF-IDF + Logistic Regression (ML Baseline)</option>
             <option value="Rule-Based Baseline">Rule-Based Syntactic Lexicon</option>
           </select>
         </div>
@@ -1584,32 +1560,7 @@
             </ul>
           </div>
 
-          <!-- Model 4: XLM-RoBERTa -->
-          <div class="arch-card">
-            <div class="arch-tag">57.12% Acc • 278M</div>
-            <h3 class="arch-title">🤖 XLM-RoBERTa</h3>
-            <p class="arch-desc">Massive cross-lingual masked language model pre-trained on 2.5TB of CommonCrawl data across 100+ languages.</p>
-            <ul class="arch-specs-list">
-              <li><b>Base Model:</b> <code>xlm-roberta-base</code> (278M parameters).</li>
-              <li><b>Embedding Dim:</b> 768-dimensional contextual representations.</li>
-              <li><b>Limitation:</b> Transliterated Hinglish creates subword fragmentation on non-phonetic tokens.</li>
-              <li><b>Latency:</b> 89.16 ms / sample.</li>
-            </ul>
-          </div>
-
-          <!-- Model 5: MuRIL -->
-          <div class="arch-card">
-            <div class="arch-tag">40.62% Acc • 236M</div>
-            <h3 class="arch-title">🔤 MuRIL (Google)</h3>
-            <p class="arch-desc">Multilingual Representations for Indian Languages trained on both native scripts and transliterated Indian texts.</p>
-            <ul class="arch-specs-list">
-              <li><b>Base Model:</b> <code>google/muril-base-cased</code> (236M parameters).</li>
-              <li><b>Target:</b> Specifically pre-trained on Romanized and transliterated Hindi pairs.</li>
-              <li><b>Latency:</b> 63.31 ms / sample.</li>
-            </ul>
-          </div>
-
-          <!-- Model 6: Rule-Based Baseline -->
+          <!-- Model 4: Rule-Based Baseline -->
           <div class="arch-card">
             <div class="arch-tag">40.89% Acc • 0.16ms</div>
             <h3 class="arch-title">📐 Syntactic Rule-Based Lexicon</h3>

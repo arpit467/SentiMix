@@ -14,9 +14,7 @@ from src.models.rule_based import RuleBasedABSAModel
 from src.models.tfidf_classifier import TFIDFLogisticABSAModel
 from src.models.transformer_classifier import (
     IndicBERTABSAModel,
-    MultilingualMiniLMABSAModel,
-    XLMRoBERTaABSAModel,
-    MuRILABSAModel
+    MultilingualMiniLMABSAModel
 )
 
 def main():
@@ -110,52 +108,10 @@ def main():
         print(f"Error training Multilingual MiniLM: {e}")
         
     # -------------------------------------------------------------
-    # Model 5: XLM-RoBERTa
-    # -------------------------------------------------------------
-    print("\n" + "=" * 50)
-    print(">>> 6. Training & Evaluating Model 5: XLM-RoBERTa")
-    print("=" * 50)
-    try:
-        train_sample = train_df.sample(min(1800, len(train_df)), random_state=42)
-        test_sample = test_df.sample(min(800, len(test_df)), random_state=42)
-        
-        xlm_model = XLMRoBERTaABSAModel()
-        xlm_model.train(train_sample, val_df=test_sample.head(200), batch_size=64)
-        xlm_save_dir = "results/saved_models/xlm_roberta"
-        xlm_model.save(xlm_save_dir)
-        
-        res_xlm = ModelEvaluator.evaluate_model_on_test_set(xlm_model, test_sample, batch_size=64)
-        all_eval_results.append(res_xlm)
-        print(f"XLM-RoBERTa -> Accuracy: {res_xlm['accuracy']*100:.2f}% | Macro F1: {res_xlm['f1_macro']*100:.2f}% | Latency: {res_xlm['latency_ms_per_sample']:.2f} ms/item")
-    except Exception as e:
-        print(f"Error training XLM-RoBERTa: {e}")
-        
-    # -------------------------------------------------------------
-    # Model 6: MuRIL
-    # -------------------------------------------------------------
-    print("\n" + "=" * 50)
-    print(">>> 7. Training & Evaluating Model 6: MuRIL (google/muril-base-cased)")
-    print("=" * 50)
-    try:
-        train_sample = train_df.sample(min(1800, len(train_df)), random_state=42)
-        test_sample = test_df.sample(min(800, len(test_df)), random_state=42)
-        
-        muril_model = MuRILABSAModel()
-        muril_model.train(train_sample, val_df=test_sample.head(200), batch_size=64)
-        muril_save_dir = "results/saved_models/muril"
-        muril_model.save(muril_save_dir)
-        
-        res_muril = ModelEvaluator.evaluate_model_on_test_set(muril_model, test_sample, batch_size=64)
-        all_eval_results.append(res_muril)
-        print(f"MuRIL -> Accuracy: {res_muril['accuracy']*100:.2f}% | Macro F1: {res_muril['f1_macro']*100:.2f}% | Latency: {res_muril['latency_ms_per_sample']:.2f} ms/item")
-    except Exception as e:
-        print(f"Error training MuRIL: {e}")
-        
-    # -------------------------------------------------------------
     # Comparative Benchmark Summary Table
     # -------------------------------------------------------------
     print("\n" + "=" * 65)
-    print(">>> 8. BENCHMARK COMPARISON TABLE (6 MODELS)")
+    print(">>> 6. BENCHMARK COMPARISON TABLE (4 MODELS)")
     print("=" * 65)
     comparison_df = ModelEvaluator.generate_comparison_table(all_eval_results)
     print(comparison_df.to_string(index=False))

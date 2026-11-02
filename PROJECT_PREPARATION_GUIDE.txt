@@ -1,0 +1,1506 @@
+================================================================================
+SENTIMIX ABSA — MASTER PROJECT PREPARATION & TECHNICAL INTERVIEW GUIDE
+Aspect-Based Sentiment Intelligence for Hindi-English Code-Mixed E-Commerce Reviews
+================================================================================
+Project Version: 2.5 (Enterprise Master Edition)
+Repository: SentiMix ABSA
+Target Domain: Indian E-Commerce Ecosystem (Meesho, Flipkart, Amazon India)
+Target Hardware: Intel CPU / Production Async Server / Google Colab T4 GPU
+Document Type: Complete Comprehensive Viva, Exam & Technical Interview Preparation Guide
+================================================================================
+
+TABLE OF CONTENTS:
+--------------------------------------------------------------------------------
+ 1. Executive Project Summary & The Core Problem
+ 2. Why Monolingual & Sentence-Level Sentiment Models Fail
+ 3. The 4 Fundamental Challenges Solved
+ 4. Complete End-to-End System Architecture (6-Stage Pipeline & Implementation Deep Dive)
+ 5. Multi-Domain Dataset Harmonization & Composition (13,092 Aspect Pairs)
+ 6. The 4 Active Machine Learning & Deep Learning Architectures
+ 7. Why Heavy Transformers (MuRIL & XLM-RoBERTa) Were Pruned
+ 8. Empirical Benchmark Results & Quantitative Comparative Analysis
+ 9. Proprietary Algorithmic Innovations in the Codebase
+10. Backend Microservice & REST API Architecture (FastAPI)
+11. Glassmorphic Frontend & Real-Time Analytics Dashboard
+12. Google Colab & Jupyter Notebook Implementation (NLP_ABSA.ipynb)
+13. Complete File-by-File Repository Walkthrough
+14. Step-by-Step Execution & Deployment Guide
+15. Top 15 Viva / Technical Interview Questions & Expert Model Answers
+================================================================================
+
+
+================================================================================
+1. EXECUTIVE PROJECT SUMMARY & THE CORE PROBLEM
+================================================================================
+Project Title:
+SentiMix ABSA — Multilingual Aspect-Based Sentiment Intelligence
+
+What is this project?
+SentiMix ABSA is an enterprise-grade NLP pipeline that analyzes customer product
+reviews written in Hindi-English Code-Mixed text (popularly known as "Hinglish")
+from Indian e-commerce platforms (Meesho, Flipkart, Amazon India).
+
+Unlike standard sentiment analysis, which assigns a single positive/negative
+label to an entire review, SentiMix ABSA performs fine-grained Aspect-Based
+Sentiment Analysis (ABSA). It identifies every specific product feature mentioned
+(e.g., "fabric", "fitting", "battery", "camera", "price", "delivery") and
+determines the exact sentiment polarity (Positive, Negative, or Neutral) for each
+individual feature, even when contradictory sentiments exist in the same sentence.
+
+Real-World Motivation:
+In Indian retail marketplaces:
+- Over 65% of customer reviews are written in informal Romanized Hinglish (Latin
+  alphabet representing Hindi phonetics, mixed with English words).
+- Example: "Fabric bahut accha hai but fitting bekaar hai"
+- A standard sentiment model classifies this review as "Neutral" or misclassifies
+  it as "Positive", masking the critical defect: the sizing/fitting is ruined!
+- Sellers and product managers cannot take action because the product attribute
+  remains obscured. SentiMix ABSA resolves this by isolating:
+    * Aspect: "fabric"  -> Category: fabric_material -> Sentiment: POSITIVE
+    * Aspect: "fitting" -> Category: fit_size        -> Sentiment: NEGATIVE
+    * Overall Review Status: MIXED POLARITY
+
+
+================================================================================
+2. WHY MONOLINGUAL & SENTENCE-LEVEL SENTIMENT MODELS FAIL
+================================================================================
+1. The Granularity Defect (Sentence-Level vs. Aspect-Level):
+   Sentence-level models produce a single global vector. In compound reviews with
+   opposing sentiment clauses, the positive and negative signals cancel each other
+   out or one dominates the other arbitrarily.
+
+2. The Monolingual Assumption:
+   Models trained on English benchmarks (SemEval-2014 Task 4) fail on Hinglish
+   because words like "accha", "bekar", "ghatiya", "lajawab", "paisa vasool" do
+   not exist in standard English vocabularies and trigger Out-Of-Vocabulary (OOV)
+   flags.
+
+3. The Native Script Limitation:
+   Models trained on Hindi Devanagari script (e.g., Akhtar et al. 2016) expect
+   native characters (e.g., 'कपड़ा', 'खराब'). Over 90% of Indian mobile shoppers
+   type phonetically using standard QWERTY keyboards (Romanized Hinglish), where
+   Devanagari-only models completely fail.
+
+4. Token Fragmentation in Modern Transformers:
+   Subword tokenizers (WordPiece/Byte-Pair Encoding) in models like BERT or
+   IndicBERT fragment informal transliterations into useless character shards:
+   "bekaaaar" -> ["be", "##ka", "##aa", "##ar"], destroying semantic context.
+
+
+================================================================================
+3. THE 4 FUNDAMENTAL CHALLENGES SOLVED
+================================================================================
+Challenge 1: Extreme Orthographic & Phonetic Variability
+- Users spell Hinglish words based on phonetic intuition, leading to massive
+  spelling variations for the same word:
+  * "accha", "achha", "acha", "achaa", "aacha" all mean "good" (अच्छा).
+  * "bekaar", "bekar", "bkar", "bikhar" all mean "worthless/bad" (बेकार).
+  * "bohot", "bhut", "bhot", "bht" all mean "very" (बहुत).
+- Solution: A deterministic Transliteration Canonicalizer in `src/preprocessor.py`
+  normalizes phonetic variants into canonical lemmas prior to vectorization.
+
+Challenge 2: Cross-Clause Sentiment Bleed
+- In compound sentences connected by contrastive markers ("but", "lekin", "magar",
+  "par"), sentiment from one clause spills into adjacent clauses.
+- Example: "Fabric accha hai but fitting bekar hai"
+- Without clause isolation, the strong negative token "bekar" bleeds into the
+  word window of "fabric", causing false negatives.
+- Solution: Syntactic Clause Boundary Segmentation splits reviews on contrastive
+  discourse markers and confines aspect feature extraction strictly to its
+  governing syntactic clause.
+
+Challenge 3: Benchmark Annotation Scarcity
+- Emerging low-cost fashion platforms like Meesho have abundant unannotated
+  reviews but zero public ABSA benchmark datasets.
+- Solution: Developed a Semi-Supervised Clause-Aware Annotator (`src/annotator.py`)
+  that ingested 1,005 raw Meesho fashion reviews and generated 1,481 verified
+  aspect-sentiment pairs across 9 e-commerce dimensions.
+
+Challenge 4: High Inference Latency & Memory Overhead
+- Deploying large transformers (200M+ parameters) in high-throughput enterprise
+  environments causes CPU latencies of 60-90 ms per review and requires heavy RAM.
+- Solution: Architected a hybrid Classical ML model (TF-IDF + Multinomial Logistic
+  Regression with Word + Character N-Grams and Adaptive Confidence Blending) that
+  achieved 76.73% accuracy at 2.34 ms CPU latency (over 420 reviews/sec),
+  outperforming deep transformers on informal Hinglish text.
+
+
+================================================================================
+4. COMPLETE END-TO-END SYSTEM ARCHITECTURE (6-STAGE PIPELINE & IMPLEMENTATION DEEP DIVE)
+================================================================================
+The SentiMix ABSA enterprise architecture operates across 6 decoupled stages:
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ STAGE 1: MULTI-SOURCE INGESTION & DATA LAYER (13,092 Aspect Pairs)           │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ • Ingests & standardizes 7 distinct corpora into a unified schema:           │
+│   1. SemEval 2014 Laptop: 3,845 aspect pairs                                 │
+│   2. SemEval 2014 Restaurant: 3,841 aspect pairs                             │
+│   3. Meesho Multilingual Product Reviews: 1,481 aspect pairs                 │
+│   4. Flipkart Hinglish Mobile & Electronics: 1,522 aspect pairs              │
+│   5. Amazon India Appliances & Electronics: 867 aspect pairs                 │
+│   6. Augmented Hinglish Electronics: 900 aspect pairs                        │
+│   7. Golden Verification Benchmark: 488 aspect pairs (200 diverse reviews)   │
+│ • Unified Master Dataset Split:                                              │
+│   - Training Set: 10,226 aspect pairs                                        │
+│   - Testing Set: 2,866 aspect pairs (46.2% Hinglish ratio)                   │
+└──────────────────────────────────────┬───────────────────────────────────────┘
+                                       ▼ [Standardized Record Stream]
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ STAGE 2: PREPROCESSING, DEMOJIZATION & TRANSLITERATION NORMALIZATION         │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ • Text Preprocessor (`src/preprocessor.py`):                                 │
+│   - Strips URLs, HTML markup, and non-printable control characters.          │
+│   - Emoji Demojizer: Converts emojis into descriptive sentiment tokens       │
+│     (e.g., 😍 -> ':love:', 😡 -> ':rage:', 👎 -> ':thumbs_down:').           │
+│   - Transliteration Canonicalizer: Applies `HINGLISH_SPELLING_MAP` to normal-│
+│     ize phonetic spellings (achha -> accha; bekaar -> bekar; bohot -> bahut).│
+│   - Script Ratio Detector: Calculates Devanagari vs Latin character ratios   │
+│     to tag `is_hinglish` and detect primary language (Hinglish/English/Hindi)│
+└──────────────────────────────────────┬───────────────────────────────────────┘
+                                       ▼ [Normalized & Demojized Text Stream]
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ STAGE 3: CLAUSE BOUNDARY SEGMENTATION & DYNAMIC ASPECT EXTRACTION            │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ • Clause Boundary Splitter:                                                  │
+│   - Identifies discourse markers: 'but', 'lekin', 'magar', 'par', 'however', │
+│     'though', 'aur', 'and', 'yet', 'still'.                                  │
+│   - Isolates independent clauses: "Fabric accha hai" | "fitting bekar hai".  │
+│   - Prevents polarity bleed across opposing aspect spans.                    │
+│ • Dynamic Aspect Extractor (`src/annotator.py`):                             │
+│   - Scans text for continuous aspect candidates (single & multi-word terms). │
+│   - Maps candidates to 9 E-Commerce Retail Categories:                       │
+│     1. battery_power      2. camera_photography  3. display_screen           │
+│     4. performance_speed  5. audio_sound         6. comfort_ergonomics       │
+│     7. fabric_material    8. fit_size            9. price_value/quality_build│
+└──────────────────────────────────────┬───────────────────────────────────────┘
+                                       ▼ [Isolated Clause Spans + Aspect Pairs]
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ STAGE 4: MULTI-MODEL SENTIMENT CLASSIFICATION ENGINE (4 Active Models)       │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ • Model 1: Rule-Based Baseline (`RuleBasedABSAModel`):                       │
+│   - Syntactic proximity window (+/-4 tokens around aspect).                  │
+│   - Hindi/English polarity lexicons + negation inversion ('nahi', 'mat').    │
+│ • Model 2: TF-IDF + Logistic Regression (`TFIDFLogisticABSAModel` - Champ):  │
+│   - FeatureUnion: Word N-Grams (1-3, 15k) + Char N-Grams (3-5, 25k).         │
+│   - Balanced class weights + Sublinear TF scaling.                           │
+│ • Model 3: Multilingual MiniLM (`MultilingualMiniLMABSAModel`):              │
+│   - sentence-transformers 118M params; 384-d contextual embeddings.          │
+│ • Model 4: IndicBERT (`IndicBERTABSAModel`):                                 │
+│   - ai4bharat/IndicBERTv2 ALBERT 110M params; native Indic script reps.      │
+└──────────────────────────────────────┬───────────────────────────────────────┘
+                                       ▼ [Multi-Model Class Probabilities]
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ STAGE 5: SYNTHESIS, SARCASM RESOLUTION & ADAPTIVE CONFIDENCE BLENDING        │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ • Adaptive Confidence Blending:                                              │
+│   - Monitors strong Hinglish polarity cues ('bekar', 'kharab', 'superb', etc)│
+│   - When rule engine confidence >= 70%, elevates rule prior weight from 15%  │
+│     to 35%, overcoming category bias on rare negative phrases.               │
+│ • Discourse Polarity Synthesizer:                                            │
+│   - Aggregates aspect polarities into Net Sentiment score.                   │
+│   - Detects Mixed Polarity when positive and negative aspects coexist.       │
+│   - Sarcasm Resolution: Regex pattern matcher inverts overall review polarity│
+│     to Negative when sarcasm is detected.                                    │
+└──────────────────────────────────────┬───────────────────────────────────────┘
+                                       ▼ [Synthesized Net & Aspect Sentiments]
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ STAGE 6: ENTERPRISE SERVING, REST API & GLASSMORPHIC DASHBOARD               │
+├──────────────────────────────────────────────────────────────────────────────┤
+│ • FastAPI Asynchronous Microservice (`server.py`):                           │
+│   - High-throughput endpoints: /api/analyze, /api/analyze_bulk, /api/batch.  │
+│   - Automated file schema inspection & text column auto-detection.           │
+│ • Glassmorphic Dark UI (`static/index.html` + `static/app.js`):              │
+│   - Real-time review tester with live aspect sentiment highlighting tags.    │
+│   - 4 Dynamic Chart.js interactive analytical dashboards:                    │
+│     1. Aspect Polarity Breakdown    2. Model Performance Radar Chart         │
+│     3. Latency vs. Accuracy Scatter 4. Code-Mixing Ratio Distribution        │
+│ • Audit & Export Engine:                                                     │
+│   - 1-Click Enriched ABSA CSV export with aspect, category, confidence.     │
+│   - Benchmark comparison JSON and audit logs.                                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+--------------------------------------------------------------------------------
+STAGE-BY-STAGE IMPLEMENTATION DEEP DIVE: HOW WE DID IT (METHODS & CODE)
+--------------------------------------------------------------------------------
+Below is the exhaustive technical breakdown of *how* every stage was engineered,
+including the exact Python classes, method signatures, mathematical formulations,
+algorithmic decisions, and production code snippets from the codebase.
+
+================================================================================
+STAGE 1: MULTI-SOURCE INGESTION & DATA HARMONIZATION LAYER
+================================================================================
+Source Files:
+- `src/dataset_loader.py` (Core Harmonization Engine: `ABSADatasetLoader`)
+- `src/annotator.py` (Semi-Supervised Annotator: `MeeshoABSAAnnotator`)
+
+1. Architectural Role & Objective:
+   E-commerce datasets from different platforms come with conflicting schemas,
+   inconsistent column names, malformed stringified Python lists, and disparate
+   polarity label conventions. Stage 1 standardizes 7 distinct corpora into a
+   uniform, flat (sentence, aspect, polarity, label) schema and prepares
+   stratified training and testing splits.
+
+2. Key Classes & Methods Used:
+   • `ABSADatasetLoader.safe_parse_list(val: Any) -> List[str]`:
+     Robust parsing of aspect and polarity lists stored as strings inside CSVs.
+   • `ABSADatasetLoader.load_dataset(file_name: str) -> pd.DataFrame`:
+     Standardizes heterogeneous column headers (`comments`, `review_text`, `sentence`).
+   • `ABSADatasetLoader.create_aspect_pairs(df: pd.DataFrame, domain: str) -> pd.DataFrame`:
+     Flattens multi-aspect reviews into atomic aspect-level training records.
+   • `ABSADatasetLoader.load_all_datasets() -> Dict[str, pd.DataFrame]`:
+     Loads all 7 corpora, performs stratified splits, and builds master datasets.
+   • `MeeshoABSAAnnotator.annotate_meesho_dataset(input_csv, output_csv)`:
+     Semi-supervised annotation of 1,005 raw unannotated Meesho reviews into
+     1,481 aspect-polarity pairs across 9 e-commerce dimensions.
+
+3. Algorithmic Steps & Mechanics (How It Works):
+   Step 1.1: Column Header Standardization:
+     The loader dynamically checks available columns. If `sentence` is absent,
+     it checks for `comments` (Meesho format) or `review_text` (Amazon/Flipkart).
+     Missing aspect and polarity columns default to empty lists `"[]"`.
+
+   Step 1.2: Safe Python List Parsing with Fallback:
+     Aspects in CSV files are frequently stored as stringified representations
+     like `"['fabric', 'fitting']"`. The method `safe_parse_list` first invokes
+     `ast.literal_eval(val.strip())`. If a syntax error occurs due to unescaped
+     quotes or malformed brackets, it activates a regex fallback:
+     `re.sub(r"[\[\]'"]", "", val).strip().split(",")`.
+
+   Step 1.3: Flattening Sentence-Level Rows to Atomic Aspect Triples:
+     A single review like "Fabric accha hai but fitting bekar hai" contains two
+     distinct aspects. The method `create_aspect_pairs` iterates through paired
+     indices `min(len(aspects), len(polarities))` and produces individual rows:
+       Row 1: {sentence: "...", aspect: "fabric", polarity: "positive", label: 2}
+       Row 2: {sentence: "...", aspect: "fitting", polarity: "negative", label: 0}
+     Label mapping: `LABEL_TO_ID = {"negative": 0, "neutral": 1, "positive": 2}`.
+     Non-standard labels (`conflict`, `none`, `mixed`) are mapped to `neutral`.
+
+   Step 1.4: Stratified Train/Test Partitioning:
+     For e-commerce datasets without official splits, stratified 80/20 splits
+     are computed using:
+     `train_test_split(pairs, test_size=0.2, random_state=42, stratify=pairs["label"])`
+     This preserves the exact class distribution (62.6% Pos, 21.6% Neg, 15.8% Neu)
+     in both training and test partitions.
+
+4. Production Code Implementation (`src/dataset_loader.py`):
+```python
+class ABSADatasetLoader:
+    def __init__(self, data_dir: str = "data"):
+        self.data_dir = data_dir
+        self.preprocessor = TextPreprocessor()
+
+    @staticmethod
+    def safe_parse_list(val: Any) -> List[str]:
+        """Safely parse python list strings with ast or regex fallback."""
+        if isinstance(val, list):
+            return val
+        if not isinstance(val, str) or not val.strip():
+            return []
+        try:
+            parsed = ast.literal_eval(val.strip())
+            if isinstance(parsed, list):
+                return [str(x).strip() for x in parsed]
+            return [str(parsed).strip()]
+        except Exception:
+            cleaned = re.sub(r"[\[\]\'\"]", "", val).strip()
+            return [x.strip() for x in cleaned.split(",") if x.strip()]
+
+    def create_aspect_pairs(self, df: pd.DataFrame, domain: str = "general") -> pd.DataFrame:
+        """Flattens sentence-level ABSA data into (sentence, aspect, polarity, label) pairs."""
+        pairs = []
+        for idx, row in df.iterrows():
+            sent = str(row["sentence"])
+            clean_sent = str(row.get("clean_sentence", self.preprocessor.normalize_hinglish(sent)))
+            aspects = row["aspect_terms_list"]
+            polarities = row["at_polarity_list"]
+            is_hing = bool(row.get("is_hinglish", False))
+            
+            for i in range(min(len(aspects), len(polarities))):
+                asp = str(aspects[i]).strip()
+                pol = str(polarities[i]).strip().lower()
+                
+                # Normalize conflicting or ambiguous polarity tags
+                if pol in ["conflict", "none", "mixed"]:
+                    pol = "neutral"
+                if pol not in LABEL_TO_ID:
+                    continue
+                
+                pairs.append({
+                    "sentence": sent,
+                    "clean_sentence": clean_sent,
+                    "aspect": asp,
+                    "polarity": pol,
+                    "label": LABEL_TO_ID[pol],
+                    "is_hinglish": is_hing,
+                    "domain": domain
+                })
+        return pd.DataFrame(pairs)
+```
+
+5. Concrete Transformation Trace:
+   - Input: Raw CSV row from Meesho dataset:
+     `{"comments": "Kurti ka kapda bahut soft hai par fitting loose hai", "ratings": 3.0}`
+   - Semi-Supervised Annotation & Extraction:
+     Aspects detected: `['kapda', 'fitting']` -> Polarities: `['positive', 'negative']`
+   - Output: 2 Standardized Training Tuples:
+     Tuple 1: `(sentence="Kurti ka kapda...", aspect="kapda", polarity="positive", label=2)`
+     Tuple 2: `(sentence="Kurti ka kapda...", aspect="fitting", polarity="negative", label=0)`
+
+
+================================================================================
+STAGE 2: PREPROCESSING, DEMOJIZATION & TRANSLITERATION NORMALIZATION
+================================================================================
+Source Files:
+- `src/preprocessor.py` (Class: `TextPreprocessor`, Dictionary: `HINGLISH_SPELLING_MAP`)
+
+1. Architectural Role & Objective:
+   Hinglish reviews feature noisy HTML markup, URLs, graphical emojis, and massive
+   phonetic spelling variations ("achha", "acha", "aacha"). Stage 2 strips noise,
+   converts graphical emojis into textual sentiment tokens, canonicalizes
+   informal phonetic spellings to standard roots, and identifies the underlying
+   language mixture without corrupting native Devanagari script.
+
+2. Key Methods & Signatures:
+   • `TextPreprocessor.clean_text(text: str) -> str`:
+     Strips URLs and HTML; translates Unicode emojis into text tokens (`:thumbs_up:`).
+   • `TextPreprocessor.normalize_hinglish(text: str) -> str`:
+     Tokenizes preserving Devanagari and Latin, maps phonetic variants to canonical lemmas.
+   • `TextPreprocessor.detect_language(text: str) -> str`:
+     Heuristic script ratio and dictionary density classifier returning "Hindi", "Hinglish", or "English".
+   • `TextPreprocessor.is_hinglish(text: str) -> bool`:
+     Boolean indicator returning `True` if language is "Hinglish" or "Hindi".
+   • `TextPreprocessor.split_into_clauses(text: str) -> List[str]`:
+     Syntactic clause boundary splitter targeting punctuation and contrastive markers.
+
+3. Algorithmic Steps & Mechanics (How It Works):
+   Step 2.1: Regex Cleaning & Demojization:
+     - URLs removed via: `re.sub(r"https?://\S+|www\.\S+", "", text)`
+     - HTML tags removed via: `re.sub(r"<.*?>", "", text)`
+     - Emojis converted via: `emoji.demojize(text, delimiters=(" :", ": "))`
+       (e.g., 😍 becomes `:smiling_face_with_heart-eyes:`, 👎 becomes `:thumbs_down:`).
+     - Whitespace collapsed via: `re.sub(r"\s+", " ", text).strip()`
+
+   Step 2.2: Transliteration Canonicalization:
+     Tokenizes the text preserving Latin words, emoji tags, and Devanagari characters:
+     `tokens = re.findall(r"[a-zA-Z0-9_:]+|[\u0900-\u097F]+|[^\w\s\u0900-\u097F]", cleaned)`
+     Each token is looked up in `HINGLISH_SPELLING_MAP`. If matched, it is replaced:
+       - Positive variants : `{"acha", "achha", "achcha", "aacha"} -> "accha"`
+       - Negative variants : `{"bekaar", "bikhar", "bkar", "beakar"} -> "bekar"`
+       - Modifiers         : `{"bohot", "bhut", "bhot", "bht"} -> "bahut"`
+       - Negations         : `{"nhi", "nh", "nahin", "ni"} -> "nahi"`
+       - Aspect terms      : `{"kapde", "kpda", "kpde"} -> "cloth"`
+     Devanagari characters (`ऀ-ॿ`) remain untouched.
+
+   Step 2.3: Language Detection Formulation:
+     The detector operates via a hierarchical 2-step decision rule:
+     1. Devanagari Check:
+        `devanagari_chars = len(re.findall(r"[\u0900-\u097F]", text))`
+        `total_alpha = len(re.findall(r"[a-zA-Z\u0900-\u097F]", text))`
+        If `devanagari_chars >= 3` or `(devanagari_chars / total_alpha) >= 0.15`:
+          return "Hindi"
+     2. Romanized Hinglish Check:
+        Scans Latin tokens against `unambiguous_hindi` (a curated set of 65+ functional
+        Hinglish words: `hai`, `nahi`, `bahut`, `accha`, `bekar`, `lekin`, `magar`, etc.).
+        `matched = [t for t in tokens if t in unambiguous_hindi]`
+        If `(len(matched) >= 2 and len(matched)/len(tokens) >= 0.06)` or `len(matched) >= 3`:
+          return "Hinglish"
+        Else:
+          return "English"
+
+4. Production Code Implementation (`src/preprocessor.py`):
+```python
+class TextPreprocessor:
+    @staticmethod
+    def clean_text(text: str) -> str:
+        if not isinstance(text, str):
+            return ""
+        # Remove URLs & HTML
+        text = re.sub(r"https?://\S+|www\.\S+", "", text)
+        text = re.sub(r"<.*?>", "", text)
+        # Demojize emojis to descriptive sentiment tokens
+        text = emoji.demojize(text, delimiters=(" :", ": "))
+        # Normalize whitespace while preserving Devanagari Unicode
+        return re.sub(r"\s+", " ", text).strip()
+
+    @staticmethod
+    def normalize_hinglish(text: str) -> str:
+        cleaned = TextPreprocessor.clean_text(text)
+        tokens = re.findall(r"[a-zA-Z0-9_:]+|[\u0900-\u097F]+|[^\w\s\u0900-\u097F]", cleaned)
+        normalized = []
+        for t in tokens:
+            t_lower = t.lower()
+            if t_lower in HINGLISH_SPELLING_MAP:
+                normalized.append(HINGLISH_SPELLING_MAP[t_lower])
+            else:
+                normalized.append(t)
+        return " ".join(normalized)
+
+    @staticmethod
+    def split_into_clauses(text: str) -> List[str]:
+        clean_t = TextPreprocessor.clean_text(text)
+        clause_delimiters = (
+            r"[.,;!?|\n।]+|\b(?:but|lekin|magar|par|however|though|although|"
+            r"while|aur|and|except|पर|लेकिन|मगर|किंतु|परंतु|और|तथा)\b"
+        )
+        raw_clauses = re.split(clause_delimiters, clean_t, flags=re.IGNORECASE)
+        clauses = [c.strip() for c in raw_clauses if len(c.strip()) > 1]
+        return clauses if clauses else [clean_t]
+```
+
+5. Concrete Transformation Trace:
+   - Input: `"Bhoooot achha fabric 😍 but fitting bekaaar hai www.meesho.com"`
+   - After `clean_text`: `"Bhoooot achha fabric :smiling_face_with_heart-eyes: but fitting bekaaar hai"`
+   - After `normalize_hinglish`: `"bahut accha cloth :smiling_face_with_heart-eyes: but fitting bekar hai"`
+   - After `detect_language`: `"Hinglish"` (is_hinglish: `True`)
+
+
+================================================================================
+STAGE 3: CLAUSE BOUNDARY SEGMENTATION & DYNAMIC ASPECT EXTRACTION
+================================================================================
+Source Files:
+- `src/annotator.py` (Class: `DynamicAspectExtractor`)
+- `src/inference_engine.py` (Method: `ABSAInferenceEngine._get_aspect_clause_context`)
+
+1. Architectural Role & Objective:
+   In code-mixed reviews containing contrastive markers ("Fabric accha hai but
+   fitting bekar hai"), evaluating the full sentence causes the negative word
+   "bekar" to bleed into the representation of "fabric". Stage 3 achieves two
+   critical goals:
+   1. Discovers all product aspect terms (both predefined taxonomy and unseen nouns).
+   2. Isolates the exact syntactic clause governing each aspect to prevent sentiment bleed.
+
+2. Key Classes & Methods Used:
+   • `DynamicAspectExtractor.__init__()`:
+     Compiles regexes across 9 taxonomy categories and initializes NLTK RegexpParser:
+     `NP: {<JJ|JJR|JJS>* <NN|NNS|NNP|NNPS>+}`.
+   • `DynamicAspectExtractor.extract_aspects(text: str) -> List[Tuple[str, str, str]]`:
+     Extracts aspect terms, assigns categories, and binds each to its clause context.
+   • `DynamicAspectExtractor.infer_category(aspect: str) -> str`:
+     Maps arbitrary aspect terms to 9 e-commerce retail categories.
+   • `ABSAInferenceEngine._get_aspect_clause_context(text: str, aspect: str) -> str`:
+     Searches segmented clauses and returns strictly the clause housing the aspect.
+
+3. Algorithmic Steps & Mechanics (How It Works):
+   Step 3.1: Clause Boundary Splitting:
+     Reviews are split on discourse markers (`but`, `lekin`, `magar`, `par`, etc.):
+     "Fabric accha hai but fitting bekar hai" -> Clause A: "Fabric accha hai", Clause B: "fitting bekar hai".
+
+   Step 3.2: Multi-Step Aspect Extraction:
+     Within each clause, aspect candidate terms are discovered across 5 distinct passes:
+     - Pass A (Taxonomy Matching):
+       Matches precompiled regex patterns across `ASPECT_CATEGORIES` (sorted by string
+       length descending so compound terms like "battery life" match before "battery"):
+       `pattern = re.compile(r'(?<![a-zA-Z0-9ऀ-ॿ])' + re.escape(kw) + r'(?![a-zA-Z0-9ऀ-ॿ])')`
+     - Pass B (Devanagari Hindi Discovery):
+       Extracts native script words `[ऀ-ॿ]+` of length >= 3, filtering out
+       grammatical particles and auxiliary verbs via `self.devanagari_ignore`.
+     - Pass C (Open-Vocabulary POS Chunking for Unseen Aspects):
+       Tokenizes English/Hinglish text and applies POS tagging:
+       `tagged = nltk.pos_tag(nltk.word_tokenize(clause))`
+       Parses through chunk grammar: `<JJ|JJR|JJS>* <NN|NNS|NNP|NNPS>+`
+       Extracts noun phrases, stripping out stopwords (`self.ignore_tokens`) and
+       sentiment words (`POSITIVE_LEXICON`, `NEGATIVE_LEXICON`).
+     - Pass D (Maximal Phrase Subsumption & Deduplication):
+       Sorts candidates by character length descending. If a shorter aspect is a
+       substring of a longer aspect within the same clause (e.g., "battery" within
+       "battery backup"), the shorter candidate is pruned.
+       Caps output at the top 4 most salient aspects to eliminate span explosion.
+     - Pass E (Default Fallback):
+       If no specific noun is detected, falls back to `("product", "product_item", text)`.
+
+   Step 3.3: Category Inference Hierarchy:
+     Given an extracted aspect term, `infer_category(aspect)` determines its domain:
+     1. Exact lookup in `self.keyword_to_category`.
+     2. Regex substring search against taxonomy.
+     3. Semantic keyword cluster fallbacks:
+        * Contains "battery", "backup", "charging" -> `battery_power`
+        * Contains "camera", "photo", "lens"      -> `camera_photography`
+        * Contains "screen", "display", "amoled"   -> `display_screen`
+        * Contains "fabric", "cloth", "kapda"      -> `fabric_material`
+        * Contains "fit", "fitting", "size"        -> `fit_size`
+        * Contains "sound", "bass", "audio"        -> `audio_sound`
+        * Fallback                                 -> `product_feature`
+
+4. Production Code Implementation (`src/annotator.py` & `src/inference_engine.py`):
+```python
+class DynamicAspectExtractor:
+    def __init__(self):
+        self.preprocessor = TextPreprocessor()
+        self.grammar = r"NP: {<JJ|JJR|JJS>* <NN|NNS|NNP|NNPS>+}"
+        self.chunker = nltk.RegexpParser(self.grammar)
+        # Flattened keyword lookup sorted by length descending
+        self.keyword_to_category = {}
+        for cat, kws in ASPECT_CATEGORIES.items():
+            for kw in kws:
+                self.keyword_to_category[kw.lower()] = cat
+        self.sorted_keywords = sorted(self.keyword_to_category.keys(), key=lambda x: len(x), reverse=True)
+        self.compiled_aspect_patterns = [
+            (kw, self.keyword_to_category[kw.lower()],
+             re.compile(r'(?<![a-zA-Z0-9ऀ-ॿ])' + re.escape(kw.lower()) + r'(?![a-zA-Z0-9ऀ-ॿ])'))
+            for kw in self.sorted_keywords
+        ]
+
+    def extract_aspects(self, text: str) -> List[Tuple[str, str, str]]:
+        """Returns: [(aspect_term, category, clause_context)]"""
+        clauses = self.preprocessor.split_into_clauses(text)
+        candidates = []
+        for clause in clauses:
+            cl_clean = clause.strip()
+            cl_lower = cl_clean.lower()
+            # Step A: Established taxonomy match
+            for kw, cat, pat in self.compiled_aspect_patterns:
+                if pat.search(cl_lower):
+                    if kw not in self.ignore_tokens and len(kw) > 2:
+                        candidates.append((kw, cat, cl_clean))
+            # Step C: NLTK POS Noun Phrase Chunking for arbitrary unseen aspects
+            tokens = nltk.word_tokenize(cl_clean)
+            if tokens:
+                try:
+                    tagged = nltk.pos_tag(tokens)
+                    tree = self.chunker.parse(tagged)
+                    for subtree in tree.subtrees(filter=lambda t: t.label() == "NP"):
+                        phrase_tokens = [w.lower() for w, _ in subtree.leaves()]
+                        valid = [w for w in phrase_tokens if w not in self.ignore_tokens and len(w) > 2]
+                        if valid:
+                            asp_term = " ".join(valid)
+                            cat = self.infer_category(asp_term)
+                            candidates.append((asp_term, cat, cl_clean))
+                except Exception:
+                    pass
+        # Step D: Maximal Phrase Subsumption & Deduplication
+        candidates = sorted(candidates, key=lambda x: len(x[0]), reverse=True)
+        dedup_results = []
+        seen = set()
+        for asp, cat, cl in candidates:
+            if asp not in seen:
+                # Discard if subsumed by longer aspect in the same clause
+                if not any(cl == k_cl and asp in k_asp and asp != k_asp for k_asp, _, k_cl in dedup_results):
+                    seen.add(asp)
+                    dedup_results.append((asp, cat, cl))
+        return dedup_results[:4] if dedup_results else [("product", "product_item", text)]
+```
+
+5. Concrete Transformation Trace:
+   - Review Input: `"Screen bahut crisp hai lekin battery life bekar hai"`
+   - Extracted Aspect Triples:
+     1. `("screen", "display_screen", "Screen bahut crisp hai")`
+     2. `("battery life", "battery_power", "battery life bekar hai")`
+   - Notice: "battery" alone is subsumed by "battery life", and each aspect is
+     strictly bound to its own clause, isolating "crisp" from "bekar".
+
+
+================================================================================
+STAGE 4: MULTI-MODEL SENTIMENT CLASSIFICATION ENGINE (4 ACTIVE MODELS)
+================================================================================
+Source Files:
+- `src/models/rule_based.py` (`RuleBasedABSAModel`)
+- `src/models/tfidf_classifier.py` (`TFIDFLogisticABSAModel` - Champion)
+- `src/models/transformer_classifier.py` (`MultilingualMiniLMABSAModel`, `IndicBERTABSAModel`)
+
+1. Architectural Role & Objective:
+   Given an aspect term and its isolated clause context, Stage 4 computes the
+   posterior probability distribution over 3 sentiment classes:
+   `P(y ∈ {Negative, Neutral, Positive} | clause, aspect)`.
+   Four distinct models were constructed under identical interfaces to enable
+   rigorous scientific comparison.
+
+2. Model Architectures & How They Were Implemented:
+
+   -----------------------------------------------------------------------------
+   MODEL 1: Rule-Based Syntactic Proximity Baseline (`RuleBasedABSAModel`)
+   -----------------------------------------------------------------------------
+   - Mechanics:
+     * Tokenizes normalized text: `re.findall(r"[a-z0-9_:]+|[ऀ-ॿ]+", clean_s)`.
+     * Locates aspect index `asp_idx` and extracts a sliding window of +/-8 tokens:
+       `window_words = words[max(0, asp_idx - 8) : min(len(words), asp_idx + len(asp_words) + 8)]`
+     * Double Negation Handling: Scans `DOUBLE_NEG_POSITIVE` ("not bad", "no issues",
+       "zero damage", "bura nahi") -> directly predicts Positive (confidence 0.80).
+     * Neutral Lexicon Check: Scans `NEUTRAL_LEXICON` ("theek", "okay", "average", "chalega")
+       -> directly predicts Neutral (confidence 0.70).
+     * Negation Inversion: If `NEGATION_TERMS` ("nahi", "not", "mat", "नहीं") exist within
+       the window before a positive sentiment word, the polarity is inverted to Negative.
+     * Emoji Sentiment Boost: Adds +1.5 polarity points for positive emoji tags (`:heart:`,
+       `:thumbs_up:`) and +1.5 for negative emoji tags (`:rage:`, `:thumbs_down:`).
+
+   -----------------------------------------------------------------------------
+   MODEL 2: TF-IDF + Multinomial Logistic Regression (`TFIDFLogisticABSAModel`)
+   -----------------------------------------------------------------------------
+   - Production Champion (76.73% Accuracy, 68.56% Macro F1, 2.34 ms Latency).
+   - Paired Feature Formulation:
+     To make the linear classifier aspect-aware, the sentence and aspect are
+     synthesized into a single paired token sequence:
+     `paired_text = f"ASPECT_{aspect} {aspect} [SEP] {sentence}"`
+   - Subword + Word FeatureUnion:
+     Combines two sparse TF-IDF feature spaces into a single 40,000-dimensional matrix:
+     ```python
+     self.vectorizer = FeatureUnion([
+         ("word_tfidf", TfidfVectorizer(
+             ngram_range=(1, 3), max_features=15000, sublinear_tf=True
+         )),
+         ("char_tfidf", TfidfVectorizer(
+             analyzer="char_wb", ngram_range=(3, 5), max_features=25000, sublinear_tf=True
+         ))
+     ])
+     ```
+   - Mathematical Formulation of Subword Character N-Grams:
+     Character n-grams inside word boundaries (`char_wb`) capture phonetic root
+     substrings across spelling variants. For example, the 4-grams of "bekaar"
+     include `['beka', 'ekar', 'kaar']`, which overlap heavily with "bekar"
+     `['beka', 'ekar']`. This allows the linear model to generalize across
+     arbitrary Hinglish transliterations without requiring morphological lemmatizers.
+   - Classifier:
+     `LogisticRegression(C=1.0, max_iter=1000, class_weight="balanced", solver="lbfgs")`
+     `class_weight="balanced"` dynamically computes inverse-frequency weights:
+     `w_j = N / (K * N_j)`, counteracting the severe 62.6% positive class imbalance.
+
+   -----------------------------------------------------------------------------
+   MODELS 3 & 4: Deep Transformers (`BaseTransformerABSAModel`)
+   -----------------------------------------------------------------------------
+   - Model 3: `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` (118M params)
+   - Model 4: `ai4bharat/IndicBERTv2-MLM-only` (110M params)
+   - Input Encoding:
+     Paired tokenization: `tokenizer(batch_sents, batch_asps, padding=True, truncation=True, max_length=128)`
+   - Contextual Representation Extraction:
+     Passes tokenized pairs through the pre-trained transformer stack with gradients disabled (`torch.no_grad()`).
+     Applies attention-mask mean pooling over the final hidden states:
+     ```python
+     last_hidden = outputs.last_hidden_state  # Shape: (batch, seq_len, hidden_dim)
+     mask = inputs["attention_mask"].unsqueeze(-1).expand(last_hidden.size()).float()
+     sum_mask = torch.clamp(mask.sum(1), min=1e-9)
+     batch_emb = (torch.sum(last_hidden * mask, 1) / sum_mask).cpu().numpy()
+     ```
+   - Downstream Head: Calibrated Logistic Regression head fitted on the 384-d (MiniLM)
+     or 768-d (IndicBERT) pooled embeddings.
+
+3. Production Training & Prediction Code (`src/models/tfidf_classifier.py`):
+```python
+class TFIDFLogisticABSAModel:
+    def __init__(self, c_reg: float = 1.0, max_iter: int = 1000):
+        self.name = "TF-IDF + Logistic Regression"
+        self.preprocessor = TextPreprocessor()
+        self.rule_engine = RuleBasedABSAModel()
+        self.vectorizer = FeatureUnion([
+            ("word_tfidf", TfidfVectorizer(ngram_range=(1, 3), max_features=15000, sublinear_tf=True)),
+            ("char_tfidf", TfidfVectorizer(analyzer="char_wb", ngram_range=(3, 5), max_features=25000, sublinear_tf=True))
+        ])
+        self.classifier = LogisticRegression(
+            C=c_reg, max_iter=max_iter, class_weight="balanced", solver="lbfgs", random_state=42
+        )
+        self.is_trained = False
+
+    def train(self, train_df: pd.DataFrame, val_df: pd.DataFrame = None) -> Dict[str, float]:
+        sents = [self.preprocessor.normalize_hinglish(str(s)) for s in train_df["sentence"]]
+        asps = [self.preprocessor.normalize_hinglish(str(a)) for a in train_df["aspect"]]
+        X_texts = [f"ASPECT_{a} {a} [SEP] {s}" for s, a in zip(sents, asps)]
+        y_train = train_df["label"].values
+
+        X_vec = self.vectorizer.fit_transform(X_texts)
+        self.classifier.fit(X_vec, y_train)
+        self.is_trained = True
+        return {"train_accuracy": float(np.mean(self.classifier.predict(X_vec) == y_train))}
+```
+
+
+================================================================================
+STAGE 5: SYNTHESIS, SARCASM RESOLUTION & ADAPTIVE CONFIDENCE BLENDING
+================================================================================
+Source Files:
+- `src/models/tfidf_classifier.py` (`predict_pair` with Adaptive Blending)
+- `src/annotator.py` (`SARCASM_PATTERNS`)
+- `src/inference_engine.py` (`ABSAInferenceEngine.analyze_review`)
+
+1. Architectural Role & Objective:
+   Stage 5 acts as the reasoning and decision layer. It handles three crucial edge cases:
+   1. Dynamic probability blending between statistical ML and symbolic lexicon priors.
+   2. Detecting sarcastic mock praise and inverting sentiments accordingly.
+   3. Synthesizing individual aspect polarities into an accurate overall review status
+      ("Mixed", "Positive", "Negative", or "Neutral").
+
+2. Algorithmic Steps & Mathematical Formulations:
+
+   Step 5.1: Adaptive Confidence Blending Formulation:
+     In retail domains, certain aspect terms are overwhelmingly positive in the
+     training corpus (e.g., "fitting" is positive in ~70% of clothing reviews).
+     When a rare negative phrase appears like "fitting bekar hai", the learned
+     ML prior can overpower the negative n-gram.
+     To fix this without degrading overall performance, the engine dynamically
+     adjusts blending weights:
+     ```python
+     ml_probs = self.classifier.predict_proba(X_vec)[0]
+     _, _, rule_probs_dict = self.rule_engine.predict_pair(sentence, aspect)
+     rule_probs = np.array([rule_probs_dict["negative"], rule_probs_dict["neutral"], rule_probs_dict["positive"]])
+
+     # High-Confidence Rule Trigger
+     if max(rule_probs) >= 0.70:
+         weight_ml = 0.65
+         weight_rule = 0.35
+     else:
+         weight_ml = 0.85
+         weight_rule = 0.15
+
+     blended_probs = weight_ml * ml_probs + weight_rule * rule_probs
+     pred_id = int(np.argmax(blended_probs))
+     ```
+     Result: On "fitting bekar hai", rule confidence for Negative reaches 0.80,
+     elevating `weight_rule` to 0.35 and producing an unambiguous Negative
+     prediction (blended prob 0.5217), completely resolving the category prior bias.
+
+   Step 5.2: Sarcasm Pattern Resolution:
+     Evaluates regex patterns representing contrastive mock praise:
+     ```python
+     SARCASM_PATTERNS = [
+         r"not[\s\.!]*$",
+         r"thanks for the (?:free|gift|damaged|broken|pimples)",
+         r"(?:wah|shabash|kya baat hai|great job|well done).*(?:hang|leak|chhale|barbad|bekar|kharab|phati|mazaa|dead|worst|pathetic|useless)",
+         r"वाह[,\s]+क्या.*(?:खराब|टूटी|उधड़|बर्बाद|छाले|क्वालिटी|कचरा)",
+         r"kya baat hai.*service ho toh aisi"
+     ]
+     ```
+     When a pattern matches, `is_sarcastic` is set to `True`. The synthesizer
+     forces all aspect polarities and the net review sentiment to `Negative`.
+
+   Step 5.3: Discourse Polarity Decision Tree (Net Sentiment):
+     Given individual aspect polarities, the overall review sentiment is resolved
+     using the following deterministic hierarchy:
+     1. If `is_sarcastic` -> Net: "Negative"
+     2. Neutral Indicators Check:
+        If review contains "average", "theek thaak", "ok ok", "chalega" AND
+        (pos_count == 0 or neg_count == 0) -> Net: "Neutral"
+     3. Strict Mixed Polarity Criterion:
+        If `pos_count >= 1` AND `neg_count >= 1`:
+          - If contrastive marker (`but`, `lekin`, `magar`, `par`) present -> Net: "Mixed"
+          - If `pos_count >= 2 * neg_count` -> Net: "Positive"
+          - If `neg_count >= 2 * pos_count` -> Net: "Negative"
+          - Else -> Net: "Mixed"
+     4. Single Polarity Dominance:
+        - If `pos_count > 0` and `neg_count == 0` -> Net: "Positive"
+          (unless neutral probability mass exceeds positive mass).
+        - If `neg_count > 0` and `pos_count == 0` -> Net: "Negative"
+          (unless neutral probability mass exceeds negative mass).
+     5. Fallback: Rule-based prediction over whole text.
+
+3. Production Code Implementation (`src/inference_engine.py`):
+```python
+# Step 3 in ABSAInferenceEngine.analyze_review:
+pos_aspects = [r for r in aspect_results if r["sentiment"] == "positive"]
+neg_aspects = [r for r in aspect_results if r["sentiment"] == "negative"]
+neu_aspects = [r for r in aspect_results if r["sentiment"] == "neutral"]
+pos_count, neg_count, neu_count = len(pos_aspects), len(neg_aspects), len(neu_aspects)
+
+is_sarcastic = any(re.search(p, clean_text.lower()) for p in SARCASM_PATTERNS)
+has_contrast = bool(re.search(r"(?:but|lekin|magar|par|however|though|aur|लेकिन|मगर|पर)", clean_text, re.IGNORECASE))
+
+if is_sarcastic:
+    overall = "Negative"
+    for r in aspect_results:
+        r["sentiment"] = "negative"
+elif pos_count >= 1 and neg_count >= 1:
+    if has_contrast or (pos_count == neg_count):
+        overall = "Mixed"
+    elif pos_count >= 2 * neg_count:
+        overall = "Positive"
+    elif neg_count >= 2 * pos_count:
+        overall = "Negative"
+    else:
+        overall = "Mixed"
+elif pos_count > 0 and neg_count == 0:
+    overall = "Positive"
+elif neg_count > 0 and pos_count == 0:
+    overall = "Negative"
+else:
+    overall = "Neutral"
+```
+
+
+================================================================================
+STAGE 6: ENTERPRISE SERVING, REST API & GLASSMORPHIC DASHBOARD
+================================================================================
+Source Files:
+- `server.py` (FastAPI REST Server & File Parser)
+- `static/index.html` (Semantic Dashboard Structure)
+- `static/style.css` (Glassmorphic Styling)
+- `static/app.js` (Async Frontend Controller & Chart.js Engine)
+
+1. Architectural Role & Objective:
+   Stage 6 operationalizes the trained models into an enterprise microservice.
+   It provides low-latency REST endpoints for real-time single-review inference,
+   bulk file batch processing (CSV/Excel/TXT) with smart text-column auto-detection,
+   and an interactive Glassmorphic analytics dashboard.
+
+2. Key Endpoints & Architectural Methods:
+   • `POST /api/analyze` (Real-Time Single Review ABSA):
+     Receives Pydantic payload `AnalyzeRequest(text, model_name, custom_aspects)`,
+     invokes `ABSAInferenceEngine.analyze_review`, and returns millisecond latency.
+   • `detect_text_column(df: pd.DataFrame) -> str`:
+     Intelligent heuristic function that scans uploaded spreadsheets and identifies
+     the review text column without requiring manual configuration by the user.
+   • `POST /api/batch` (High-Throughput File Processor):
+     Accepts multipart file upload (CSV, XLSX, XLS, TXT). Auto-detects text column,
+     iterates rows through `engine.analyze_review()`, appends 4 enriched columns:
+     `Detected_Language`, `Overall_Sentiment`, `Aspects_Extracted`, `Num_Aspects`.
+     Saves enriched dataset to `results/absa_analyzed_{timestamp}.csv` and serves
+     it via `GET /api/download/{filename}`.
+   • `static/app.js` (Analytical Chart.js Engine):
+     Renders 4 interactive charts dynamically on the client side:
+     1. Aspect Polarity Breakdown (Horizontal Stacked Bar)
+     2. Model Performance Radar (Accuracy, Macro F1, Weighted F1, Hinglish F1, etc.)
+     3. Latency vs. Accuracy Scatter Plot
+     4. Language Mixture Doughnut Chart
+
+3. Algorithmic Text Column Detection (`detect_text_column` in `server.py`):
+   Users frequently upload raw e-commerce files with random column names.
+   The algorithm isolates the text column via a 3-tier heuristic filter:
+   - Tier 1: Filters out known metadata columns via `is_metadata_col(name)`:
+     Rejects `id`, `serial`, `rating`, `star`, `date`, `timestamp`, `url`, `image`,
+     `polarity`, `sentiment`, `label`, `platform`, `helpful`.
+   - Tier 2: Priority keyword search among remaining clean columns:
+     Matches `["review", "comment", "feedback", "sentence", "text", "content", "msg"]`.
+   - Tier 3: Maximum Mean Text Length Tiebreaker:
+     Among candidate matches, selects the column with the highest average character length:
+     `max(candidates, key=lambda c: df[c].dropna().astype(str).str.len().mean())`.
+
+4. Production Code Implementation (`server.py` & `static/app.js`):
+```python
+# Server-side text column auto-detection (server.py)
+def detect_text_column(df: pd.DataFrame) -> str:
+    columns = list(df.columns)
+    def is_metadata_col(name: str) -> bool:
+        n = name.lower().strip()
+        metadata_terms = [
+            "_id", "id", "rating", "ratings", "score", "star", "stars",
+            "date", "timestamp", "time", "url", "polarity", "sentiment"
+        ]
+        return any(n == t or n.endswith("_" + t) or n.startswith(t + "_") for t in metadata_terms)
+
+    clean_cols = [c for c in columns if not is_metadata_col(c)]
+    kw_candidates = [
+        c for c in clean_cols
+        if any(kw in c.lower() for kw in ["review", "comment", "feedback", "sentence", "text", "content"])
+    ]
+    if kw_candidates:
+        return max(kw_candidates, key=lambda c: df[c].dropna().astype(str).str.len().mean())
+    return clean_cols[0] if clean_cols else columns[0]
+```
+
+```javascript
+// Client-side dynamic aspect badge rendering (static/app.js)
+function renderAspectBadges(aspectBreakdown) {
+    const container = document.getElementById("aspectBadgesContainer");
+    container.innerHTML = "";
+    aspectBreakdown.forEach(item => {
+        const badge = document.createElement("div");
+        const polarityClass = `badge-${item.sentiment.toLowerCase()}`; // badge-positive, badge-negative, badge-neutral
+        badge.className = `aspect-badge ${polarityClass}`;
+        badge.innerHTML = `
+            <span class="badge-aspect">${escapeHtml(item.aspect)}</span>
+            <span class="badge-category">(${escapeHtml(item.category)})</span>
+            <span class="badge-sentiment">${item.sentiment.toUpperCase()}</span>
+            <span class="badge-confidence">${(item.confidence * 100).toFixed(1)}%</span>
+        `;
+        container.appendChild(badge);
+    });
+}
+```
+
+--------------------------------------------------------------------------------
+SUMMARY: HOW ALL 6 STAGES COOPERATE IN A SINGLE INFERENCE PASS
+--------------------------------------------------------------------------------
+When a user submits:
+"Fabric soft hai but fitting bekaar hai 😍"
+
+1. Stage 1: Data schemas and label conventions were harmonized during training.
+2. Stage 2: `TextPreprocessor` converts 😍 to `:smiling_face_with_heart-eyes:` and
+   normalizes "bekaar" -> "bekar", returning language "Hinglish".
+3. Stage 3: `split_into_clauses` segments the text at "but". `extract_aspects`
+   extracts "fabric" (fabric_material) inside "Fabric soft hai" and "fitting"
+   (fit_size) inside "fitting bekar hai", preventing cross-clause sentiment bleed.
+4. Stage 4: `TFIDFLogisticABSAModel` extracts subword char n-grams (3-5) and word
+   n-grams (1-3) for both pairs independently.
+5. Stage 5: Rule engine detects "bekar" (rule confidence 0.80), triggering Adaptive
+   Confidence Blending to boost rule prior weight to 35%, ensuring "fitting" is
+   classified as Negative (0.5217 prob). Discourse synthesizer detects opposing
+   polarities linked by "but" and flags overall status as "Mixed".
+6. Stage 6: FastAPI serializes the response in 2.34 ms; Glassmorphic UI renders
+   a Green badge for "fabric", a Red badge for "fitting", and updates the live Chart.js
+   breakdown dashboard.
+
+
+================================================================================
+5. MULTI-DOMAIN DATASET HARMONIZATION & COMPOSITION (13,092 ASPECT PAIRS)
+================================================================================
+The project unifies 7 distinct datasets located in the `data/` folder:
+
+1. `complete_laptop_train.csv` & `complete_laptop_test.csv` (SemEval 2014 Task 4)
+   - Domain: Computers & Hardware
+   - Total Aspect Pairs: 3,845 (3,045 train / 800 test)
+   - Format: Sentence-aspect-polarity triplets.
+
+2. `Complete_restaurant_train.csv` & `Complete_restaurant_test.csv` (SemEval 2014)
+   - Domain: Dining, Ambience & Service
+   - Total Aspect Pairs: 3,841 (3,041 train / 800 test)
+   - Format: Sentence-aspect-polarity triplets.
+
+3. `meesho_annotated_absa.csv` (Meesho Multilingual Product Reviews)
+   - Source: 1,005 raw unannotated customer reviews from Meesho fashion/beauty.
+   - Annotated: Processed via `MeeshoABSAAnnotator` into 1,481 aspect-sentiment pairs.
+   - Domains: Ethnic wear, sarees, kurtas, makeup, cosmetics, footwear.
+   - Language: Informal colloquial Hinglish ("kapda soft hai", "fitting tight hai").
+
+4. `flipkart_reviews_annotated_absa.csv` (Flipkart Hinglish Dataset)
+   - Total Aspect Pairs: 1,522 pairs.
+   - Domain: Smartphones, Bluetooth earbuds, electronics, phone cases.
+   - Language: Tech slang & Hinglish ("battery backup mast hai", "display lag kar raha").
+
+5. `amazon_reviews_annotated_absa.csv` (Amazon India Reviews)
+   - Total Aspect Pairs: 867 pairs.
+   - Domain: Home appliances, kitchenware, fitness trackers, chargers.
+
+6. `augmented_ecommerce_hinglish_absa.csv`
+   - Total Aspect Pairs: 900 curated code-mixed aspect pairs.
+   - Created via `generate_ecommerce_augmented_data.py` to balance under-represented
+     categories (audio, comfort, build quality) and edge-case Hinglish slang.
+
+7. `user_benchmark_200.csv` (Golden Verification Benchmark)
+   - 200 carefully curated, challenging multi-aspect reviews.
+   - Contains 488 verified ground-truth aspect-polarity pairs.
+   - Used as the ultimate sanity check for mixed polarity and sarcasm.
+
+Master Dataset Split Summary:
+- Total Harmonized Aspect Pairs : 13,092
+- Master Training Set (`combined_train`): 10,226 aspect pairs
+- Master Test Set (`combined_test`)     : 2,866 aspect pairs
+- Hinglish Ratio in Test Set            : 46.2% code-mixed samples
+- Class Distribution in Test Set        :
+    * Positive : 1,793 (62.6%)
+    * Negative :   620 (21.6%)
+    * Neutral  :   453 (15.8%)
+
+
+================================================================================
+6. THE 4 ACTIVE MACHINE LEARNING & DEEP LEARNING ARCHITECTURES
+================================================================================
+The project implements and evaluates 4 distinct models under identical conditions:
+
+--------------------------------------------------------------------------------
+MODEL 1: Syntactic Rule-Based Baseline (`RuleBasedABSAModel` in `src/models/rule_based.py`)
+--------------------------------------------------------------------------------
+- Architecture: Syntactic Proximity Lexicon Matching.
+- Feature Representation:
+  * Proximity window of +/-4 tokens centered on the extracted aspect term.
+  * Curated Hinglish sentiment dictionaries:
+    - Positive: accha, mast, badhiya, shandar, zabardast, lajawab, pyara, sundar, etc.
+    - Negative: bekar, kharab, ghatiya, bakwas, dikkat, problem, barbad, etc.
+  * Negation handling: Scans for inversion triggers ('nahi', 'nh', 'mat', 'na')
+    within 3 tokens before a sentiment word, inverting positive to negative.
+  * Emoji weighting: Embeds sentiment scores for parsed emoji tags.
+- Role in Project: Interpretable baseline and fast sanity check; provides the
+  prior probabilities for hybrid blending.
+
+--------------------------------------------------------------------------------
+MODEL 2: TF-IDF + Multinomial Logistic Regression (`TFIDFLogisticABSAModel` in `src/models/tfidf_classifier.py`)
+--------------------------------------------------------------------------------
+- Status: PRODUCTION CHAMPION (Highest Accuracy, Best Macro F1, Lowest Latency).
+- Architecture: Classical ML with Subword Character & Word FeatureUnion.
+- Feature Engineering:
+  * Formulates sentence-aspect pairs: `ASPECT_{aspect} {aspect} [SEP] {sentence}`
+  * FeatureUnion combining two vectorizers:
+    1. Word-level TF-IDF: N-gram range (1, 3), 15,000 max features, sublinear TF.
+    2. Character-level TF-IDF: Analyzer 'char_wb', N-gram range (3, 5), 25,000 max
+       features, sublinear TF.
+  * Why Char N-Grams matter: Character n-grams (3-5) capture subword phonetic
+    roots across spelling variations (e.g., 'beka', 'ekar', 'kaar' match 'bekaar'
+    and 'bekar' alike) without requiring dictionary lookups.
+- Classifier:
+  * Multinomial Logistic Regression (L-BFGS solver, max_iter=1000).
+  * Class Weight: 'balanced' (counteracts the 62.6% positive class imbalance).
+- Adaptive Confidence Blending:
+  * Blends ML softmax probabilities with rule-based prior probabilities.
+  * Default weight: 85% ML + 15% Rule Prior.
+  * High-Confidence Boost: When strong polarity cues trigger rule confidence >= 70%,
+    rule weight is elevated to 35%, correcting rare misclassifications.
+
+--------------------------------------------------------------------------------
+MODEL 3: Multilingual MiniLM (`MultilingualMiniLMABSAModel` in `src/models/transformer_classifier.py`)
+--------------------------------------------------------------------------------
+- HuggingFace Model ID: `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`
+- Parameters: 118 Million
+- Architecture & Dual-Mode Training:
+  * Mode A: True End-to-End Fine-Tuning (`AutoModelForSequenceClassification`):
+    - Backpropagates cross-entropy loss through all 12 transformer encoder layers using AdamW optimizer.
+    - Sentence-Pair Formulation: `sentence [SEP] aspect`.
+    - Class-Weighted Loss: Dynamically balances class loss weights (w_j = N / (3 * N_j)).
+    - Checkpoint: Saved via `model.save_pretrained("results/saved_models/minilm")`.
+  * Mode B: Linear Probing / Feature Extraction (Frozen Backbone):
+    - Extracts 384-dimensional dense contextual sentence representations using mean-pooling over attention masks.
+    - Trains a calibrated Logistic Regression head on top of frozen embeddings for instant low-power CPU inference.
+- Role: Primary production transformer offering ultra-fast cross-lingual transfer (28 ms CPU latency, <4 ms GPU latency).
+
+--------------------------------------------------------------------------------
+MODEL 4: IndicBERT (`IndicBERTABSAModel` in `src/models/transformer_classifier.py`)
+--------------------------------------------------------------------------------
+- HuggingFace Model ID: `ai4bharat/IndicBERTv2-MLM-only`
+- Parameters: 110 Million
+- Architecture & Dual-Mode Training:
+  * Compact ALBERT-based architecture pre-trained on 12 Indian languages (8.98 billion tokens of Indic text).
+  * Mode A: True End-to-End Fine-Tuning (`AutoModelForSequenceClassification` with PyTorch AdamW).
+  * Mode B: Linear Probing Head on 768-dimensional contextual pooled embeddings.
+- Role: Specialized Indian language transformer benchmark tailored for Indic script morphology.
+
+--------------------------------------------------------------------------------
+CRITICAL ARCHITECTURAL INSIGHT: LINEAR PROBING VS. TRUE END-TO-END FINE-TUNING
+--------------------------------------------------------------------------------
+Why TF-IDF + Logistic Regression initially outperformed MiniLM and IndicBERT:
+1. Training Data Exposure:
+   - TF-IDF + Logistic Regression was trained on the ENTIRE 10,226 master dataset.
+   - Initial transformer evaluations used Linear Probing (frozen weights) trained on a
+     subsample of only 1,800 records to prevent long CPU delays on hardware without GPUs.
+2. Representation Adaptation:
+   - Linear Probing keeps all 118M transformer parameters completely FROZEN.
+     The pre-trained attention heads never update to recognize informal Romanized
+     Hinglish idioms ("bekaar", "mast", "paisa vasool", "theek thaak").
+   - TF-IDF with character n-grams (3-5), on the other hand, directly captures phonetic
+     subword roots ("beka", "ekar", "kaar") across spelling variations without dictionary lookup.
+3. How True End-to-End Fine-Tuning Resolves This:
+   - With our updated `fine_tune()` method in `src/models/transformer_classifier.py`,
+     all 118M weights are updated via backpropagation.
+   - On Google Colab T4 GPU (`NLP_ABSA.ipynb`), full 3-epoch fine-tuning across the
+     entire 10,226 dataset completes in ~3-4 minutes, allowing MiniLM to learn
+     nuanced Hinglish syntax and push classification accuracy higher!
+
+
+================================================================================
+7. WHY HEAVY TRANSFORMERS (MuRIL & XLM-RoBERTa) WERE PRUNED
+================================================================================
+During project development, MuRIL (236M parameters) and XLM-RoBERTa (278M parameters)
+were initially considered but systematically PRUNED based on empirical findings:
+
+1. Extreme CPU Latency:
+   - XLM-RoBERTa took 78.4 ms per review.
+   - MuRIL took 64.2 ms per review.
+   - In contrast, TF-IDF + Logistic Regression requires only 2.34 ms (33x faster).
+   - In an e-commerce catalog processing 100,000 reviews, XLM-RoBERTa takes over
+     2.1 hours on CPU, while TF-IDF finishes in under 4 minutes!
+
+2. Severe Token Fragmentation on Romanized Text:
+   - MuRIL was pre-trained predominantly on native Devanagari script text.
+   - When fed informal Romanized Hinglish with elongated vowels ("bohooooot achhaaa"),
+     MuRIL's subword tokenizer fragments the words into meaningless 1-2 character
+     pieces, severely degrading contextual attention.
+
+3. High Memory Footprint:
+   - Loading XLM-RoBERTa and MuRIL into memory simultaneously consumed over 3.2 GB
+     of RAM, causing out-of-memory errors on standard cloud containers and laptops.
+   - Pruning them left the project lean, fast, responsive, and robust.
+
+
+================================================================================
+8. EMPIRICAL BENCHMARK RESULTS & QUANTITATIVE COMPARATIVE ANALYSIS
+================================================================================
+All 4 models were evaluated on the identical 2,866-pair master test set on standard
+CPU hardware. Results from `results/benchmark_table.csv` and `results/benchmark_comparison.json`:
+
+┌──────────────────────────────────┬─────────────────────────────────┬──────────┬──────────┬──────────────┐
+│ Model Name                       │ Architecture Type               │ Accuracy │ Macro F1 │ Latency      │
+├──────────────────────────────────┼─────────────────────────────────┼──────────┼──────────┼──────────────┤
+│ IndicBERT (Fine-Tuned)★          │ Indian Language Transformer     │  84.93%  │  78.76%  │  6.55 ms/item│
+│ Multilingual MiniLM (Fine-Tuned) │ Sentence Transformer (118M)     │  80.84%  │  73.31%  │  2.28 ms/item│
+│ TF-IDF + Logistic Regression⚡    │ Classical ML (Word+Char N-Grams)│  76.73%  │  68.56%  │  2.34 ms/item│
+│ Rule-Based Baseline              │ Syntactic Proximity Lexicon     │  56.56%  │  53.06%  │  0.24 ms/item│
+└──────────────────────────────────┴─────────────────────────────────┴──────────┴──────────┴──────────────┘
+★ Production Quality Champion (Highest Overall Accuracy & Hinglish Understanding).
+⚡ Production Speed/Throughput Champion (Ultra-low latency, fast CPU inference).
+
+Detailed Per-Class Performance for TF-IDF + Logistic Regression:
+- Positive Class: Precision: 88.52% | Recall: 84.72% | F1-Score: 86.58% (Support: 1,793)
+- Negative Class: Precision: 65.88% | Recall: 71.94% | F1-Score: 68.77% (Support:   620)
+- Neutral Class : Precision: 49.05% | Recall: 51.21% | F1-Score: 50.11% (Support:   453)
+- Overall Accuracy: 76.73% | Macro F1: 68.56% | Weighted F1: 77.03%
+
+Key Scientific Insights & Paradigm Shift:
+1. From Linear Probing to True End-to-End Fine-Tuning:
+   Initially, when evaluated under Linear Probing (frozen backbone + logistic head),
+   transformers underperformed TF-IDF (70.8% and 67.8% vs 76.7%) because generic
+   pre-trained weights could not align with informal Hinglish e-commerce grammar.
+   However, once full end-to-end backpropagation with AdamW and AMP (FP16) was executed
+   across all 10,226 pairs, IndicBERT surged to 84.93% (+17.13%) and MiniLM surged
+   to 80.84% (+10.04%), decisively proving that contextual multi-head attention
+   outperforms classical bag-of-ngrams when properly fine-tuned on code-mixed data.
+
+2. Model-by-Model Comparative Analysis & Critical Limitations:
+   a) Model 1: Rule-Based Syntactic Baseline (56.56% Acc, 0.24 ms)
+      - Ideal Fit: Sub-millisecond microcontroller/edge inference with strict zero-ML compute.
+      - NOT a Good Fit: Production customer intelligence. Zero context awareness (cannot resolve
+        "Price heavy hai" vs "Bass heavy hai"), fails completely on unseen slang ("bawaal", "kattai"),
+        and cannot handle complex syntactic negations.
+   b) Model 2: TF-IDF + Logistic Regression (76.73% Acc, 2.34 ms)
+      - Ideal Fit: High-throughput CPU microservices (430 req/sec) without requiring GPU hardware.
+      - NOT a Good Fit: High-stakes sentiment analysis. Suffers from Bag-of-Words blindness (cannot
+        distinguish "Screen accha hai battery nahi" from "Battery accha hai screen nahi"),
+        lacks deep attention to isolate distant cross-clause dependencies, and cannot detect sarcasm.
+   c) Model 3: Multilingual MiniLM (80.84% Acc, 2.28 ms)
+      - Ideal Fit: Optimal production balance between accuracy and high concurrency web traffic.
+      - NOT a Good Fit: When maximum Indian dialect nuance is paramount. Its tokenizer was pre-trained
+        on generic multilingual web corpora, leading to subword fragmentation on noisy Romanized slang.
+   d) Model 4: IndicBERT (84.93% Acc, 6.55 ms)
+      - Ideal Fit: Undisputed Quality Champion. Best Hinglish nuance and highest precision.
+      - NOT a Good Fit: Low-resource edge devices (e.g. mobile or low-RAM micro-instances) due to
+        its 278M parameter footprint (1.11 GB weights) and 3x higher latency (6.55 ms GPU / 74 ms CPU).
+
+3. Neutral Class is the Most Challenging:
+   Across all models, the Neutral class exhibited lower F1 (~58-66%) because neutral
+   reviews frequently contain mild positive modifiers ("theek hai", "chalega",
+   "ok ok product") that lie on the decision boundary between neutral and positive.
+
+
+================================================================================
+9. PROPRIETARY ALGORITHMIC INNOVATIONS IN THE CODEBASE
+================================================================================
+1. Syntactic Clause Boundary Segmentation:
+   - Location: `src/inference_engine.py` (`_get_aspect_clause_context`)
+   - How it works: Uses regex splitting on conjunctions:
+     `r'\b(but|lekin|magar|par|however|though|although|aur|and|yet)\b'`
+   - When an aspect is evaluated, the engine isolates the exact clause containing
+     the aspect term.
+   - Result: In "Screen accha hai lekin battery bekaar hai", "screen" is sent to
+     the classifier with only "Screen accha hai", preventing "bekaar" from
+     contaminating the prediction.
+
+2. Transliteration Canonicalization (`HINGLISH_SPELLING_MAP`):
+   - Location: `src/preprocessor.py`
+   - Maps hundreds of phonetic variations to canonical lemmas:
+     * {'achha', 'accha', 'acha', 'achaa', 'aacha'} -> 'accha'
+     * {'bekaar', 'bekar', 'bkar', 'bikhar'} -> 'bekar'
+     * {'bohot', 'bhut', 'bhot', 'bht'} -> 'bahut'
+     * {'ghatiya', 'ghatya', 'gatiya'} -> 'ghatiya'
+   - Preserves Devanagari script Unicode range `\u0900-\u097F` without corruption.
+
+3. Emoji Demojization & Sentiment Preservation:
+   - Location: `src/preprocessor.py` (`clean_text`)
+   - Replaces Unicode emojis with descriptive text tags:
+     😍 -> ':love:', 😡 -> ':rage:', 👎 -> ':thumbs_down:', 👍 -> ':thumbs_up:'.
+   - Allows both TF-IDF n-grams and lexicon engines to extract sentiment intensity
+     from visual icons.
+
+4. Adaptive Confidence Blending:
+   - Location: `src/models/tfidf_classifier.py` (`predict_pair`)
+   - Baseline formulation: `P_final = 0.85 * P_ml + 0.15 * P_rule`
+   - Dynamic Adjustment: When rule engine detects unambiguous sentiment keywords
+     (confidence >= 0.70):
+     `P_final = 0.65 * P_ml + 0.35 * P_rule`
+   - Solved Bug: Resolves edge cases like "fitting bekar hai" where the high class
+     prior for "fitting" (which is positive 70% of the time in fashion datasets)
+     previously biased the ML model to predict positive. With adaptive blending,
+     "bekar" elevates rule weight, ensuring a clean Negative prediction (0.5217).
+
+5. Sarcasm Detection & Sentiment Inversion:
+   - Location: `src/annotator.py` (`SARCASM_PATTERNS`) & `src/inference_engine.py`
+   - Evaluates regular expressions for sarcastic Hinglish constructs:
+     * "waah kya .* hai" (mock praise followed by defect)
+     * "kya baat hai .* tut gaya" (praise followed by broken item)
+     * "superb product .* 1 din me band" (praise followed by failure)
+   - Action: When detected, inverts overall review sentiment to Negative and flags
+     the review with `is_sarcastic: true`.
+
+
+================================================================================
+10. BACKEND MICROSERVICE & REST API ARCHITECTURE (FASTAPI)
+================================================================================
+The backend is implemented in `server.py` using FastAPI and Uvicorn.
+It runs asynchronously on `http://localhost:8000`.
+
+REST API Endpoints:
+--------------------------------------------------------------------------------
+1. `GET /`
+   - Serves the compiled Glassmorphic Analytics Dashboard (`static/index.html`).
+
+2. `GET /api/health`
+   - Returns: `{"status": "healthy", "service": "SentiMix ABSA API", "version": "2.0.0"}`
+
+3. `POST /api/analyze`
+   - Body: `{"text": "Fabric soft hai but fitting bekar hai", "model_name": "TF-IDF + Logistic Regression", "custom_aspects": ""}`
+   - Returns full ABSA JSON:
+     * `overall_sentiment`: "Mixed"
+     * `is_hinglish`: true
+     * `detected_language`: "Hinglish"
+     * `aspect_breakdown`: List of extracted aspects, categories, sentiments,
+       confidence scores, and clause contexts.
+     * `latency_ms`: Execution latency in milliseconds.
+
+4. `POST /api/analyze_bulk`
+   - Body: `{"reviews": ["Review 1...", "Review 2..."], "model_name": "TF-IDF + Logistic Regression"}`
+   - High-speed batch inference returning aggregated statistics.
+
+5. `GET /api/benchmarks`
+   - Returns JSON containing comparative benchmark metrics for all 4 models,
+     per-class F1-scores, and confusion matrices.
+
+6. `GET /api/datasets?split=combined_train&limit=50&hinglish_only=false`
+   - Returns interactive sample records from any of the 7 ingested datasets.
+
+7. `POST /api/inspect_dataset_columns`
+   - Multipart file upload (CSV / Excel / TXT).
+   - Executes `detect_text_column(df)` to automatically detect which column
+     contains customer reviews without requiring user configuration.
+
+8. `POST /api/batch`
+   - Multipart file upload (CSV / Excel / TXT) for large-scale catalog analysis.
+   - Processes thousands of reviews, appends 4 enriched ABSA columns:
+     `Detected_Language`, `Overall_Sentiment`, `Aspects_Extracted`, `Num_Aspects`.
+   - Saves enriched file to `results/absa_analyzed_{timestamp}.csv`.
+   - Returns aggregate category breakdown, top aspect terms, and download URL.
+
+9. `GET /api/download/{filename}`
+   - Downloads enriched CSV file generated by batch processing.
+
+
+================================================================================
+11. GLASSMORPHIC FRONTEND & REAL-TIME ANALYTICS DASHBOARD
+================================================================================
+Implemented using Vanilla HTML5, Modern CSS3, and JavaScript (`static/`):
+- `static/index.html`: Fully semantic layout with ambient glow backdrop.
+- `static/style.css`: Glassmorphic styling (`backdrop-filter: blur(20px)`,
+  translucent borders, responsive grid layouts).
+- `static/app.js`: Asynchronous frontend controller with zero framework bloat.
+
+Key UI Sections:
+1. Live ABSA Interactive Studio:
+   - Textarea for typing custom reviews or selecting pre-loaded Hinglish presets.
+   - Interactive model dropdown (switch between TF-IDF, MiniLM, IndicBERT, Rule-Based).
+   - Custom aspect targeting input.
+   - Color-coded aspect badges (Green = Positive, Red = Negative, Yellow = Neutral).
+2. Bulk Batch CSV / Excel Processor:
+   - Drag-and-drop file upload zone.
+   - Automatic column selector with smart detection.
+   - Live progress indicator.
+   - 1-Click download of Enriched CSV.
+3. 4 Interactive Visual Analytics Charts (Chart.js):
+   - Chart 1: Aspect Polarity Breakdown (Multi-category horizontal stacked bar).
+   - Chart 2: Model Performance Radar Chart (Multi-metric model comparison).
+   - Chart 3: Latency vs. Accuracy Scatter Plot (Speed vs. Quality visualization).
+   - Chart 4: Code-Mixing Ratio Distribution (Doughnut chart of language splits).
+4. Dataset Explorer Modal:
+   - Live filterable table of training and testing data splits.
+
+
+================================================================================
+12. GOOGLE COLAB & JUPYTER NOTEBOOK IMPLEMENTATION (NLP_ABSA.ipynb)
+================================================================================
+File: `NLP_ABSA.ipynb` (22 Cells, Fully Standalone, Cleaned & Validated)
+
+Notebook Architecture:
+- Cell 1: 1-Click Environment Setup & Auto-Detection:
+  * Detects Google Colab environment automatically.
+  * Clones repository or unzips data files.
+  * Checks for T4 GPU acceleration (`torch.cuda.is_available()`).
+- Section 1 (Cells 2-3): Multi-Domain Dataset Loading & Harmonization.
+- Section 2 (Cells 4-5): Code-Mixed Preprocessing, Demojization & Hinglish Tagging.
+- Section 3 (Cells 6-7): Clause Segmentation & Dynamic Aspect Extraction.
+- Section 4 (Cells 8-9): Model 1 Evaluation (Rule-Based Baseline).
+- Section 5 (Cells 10-11): Model 2 Training & Saving (TF-IDF + Logistic Regression).
+- Section 6 (Cells 12-13): Model 3 Training & Evaluation (Multilingual MiniLM).
+- Section 7 (Cells 14-15): Model 4 Training & Evaluation (IndicBERT).
+- Section 8 (Cells 16-17): 4-in-1 Confusion Matrix Heatmap Plotting (Seaborn/Matplotlib)
+  and export of `benchmark_table.csv` and `benchmark_comparison.json`.
+- Section 9 (Cells 18-19): End-to-End Inference Engine Live Verification.
+- Section 10 (Cells 20-21): 1-Click Zip Packaging & Download (`sentimix_results.zip`).
+
+
+================================================================================
+13. COMPLETE FILE-BY-FILE REPOSITORY WALKTHROUGH
+================================================================================
+Repository Structure:
+c:\Users\ARPIT\OneDrive\Desktop\EduBot\NLP\
+│
+├── server.py                   # FastAPI REST API server & batch processing engine
+├── app.py                      # Production WSGI/ASGI entrypoint for cloud hosting
+├── run_full_pipeline.py        # Master Python CLI script to train & evaluate all models
+├── NLP_ABSA.ipynb              # Master Google Colab / Jupyter Notebook (22 cells)
+├── SentiMix_ABSA_Starter.ipynb # Exploratory starter notebook
+├── requirements.txt            # Python dependencies (torch, transformers, fastapi, etc.)
+├── Procfile                    # Cloud deployment process file (web: uvicorn server:app)
+├── Dockerfile                  # Containerization specification for Docker deployment
+├── README.md                   # Project documentation and setup guide
+│
+├── data/                       # Ingested & harmonized benchmark datasets (10 files)
+│   ├── complete_laptop_train.csv
+│   ├── complete_laptop_test.csv
+│   ├── Complete_restaurant_train.csv
+│   ├── Complete_restaurant_test.csv
+│   ├── meesho_annotated_absa.csv
+│   ├── Multilingual_Meesho_Review_Dataset.csv
+│   ├── flipkart_reviews_annotated_absa.csv
+│   ├── amazon_reviews_annotated_absa.csv
+│   ├── augmented_ecommerce_hinglish_absa.csv
+│   └── user_benchmark_200.csv
+│
+├── src/                        # Core Python NLP modules
+│   ├── __init__.py             # Package initializer
+│   ├── preprocessor.py         # Text cleaner, transliteration canonicalizer, demojizer
+│   ├── annotator.py            # Dynamic aspect extractor, 9 categories, sarcasm regex
+│   ├── dataset_loader.py       # Multi-source dataset harmonizer, train/test pair creator
+│   ├── inference_engine.py     # End-to-end ABSA pipeline, clause splitter, synthesis
+│   ├── evaluation.py           # Evaluation metrics, confusion matrix, F1 calculator
+│   ├── torch_fix.py            # Compatibility patch for PyTorch 2.6+ Windows weights_only
+│   └── models/                 # Model implementations
+│       ├── __init__.py         # Exports 4 active models
+│       ├── rule_based.py       # Model 1: Proximity lexicon matcher
+│       ├── tfidf_classifier.py # Model 2: TF-IDF + Logistic Reg with Adaptive Blending
+│       └── transformer_classifier.py # Models 3 & 4: Multilingual MiniLM & IndicBERT
+│
+├── static/                     # Web dashboard assets
+│   ├── index.html              # Glassmorphic dashboard HTML5 structure
+│   ├── style.css               # Glassmorphic CSS3 design system
+│   └── app.js                  # Frontend async API client & Chart.js renderer
+│
+└── results/                    # Generated artifacts & trained model weights
+    ├── saved_models/           # Serialized weights
+    │   ├── tfidf_logistic.joblib  # Production champion weights (4.9 MB)
+    │   ├── minilm/                # MiniLM classification head checkpoint
+    │   └── indicbert/             # IndicBERT classification head checkpoint
+    ├── benchmark_table.csv     # Scientific evaluation metrics CSV
+    ├── benchmark_comparison.json # Detailed per-class metrics & confusion matrices
+    └── sentimix_results.zip    # 1-Click packaged benchmark archive
+
+
+================================================================================
+14. STEP-BY-STEP EXECUTION & DEPLOYMENT GUIDE
+================================================================================
+Environment Requirements:
+- Python 3.10, 3.11, or 3.12
+- OS: Windows, Linux, or macOS
+
+Step 1: Install Dependencies
+  pip install -r requirements.txt
+
+Step 2: Run Full Training & Evaluation Pipeline (CLI)
+  python run_full_pipeline.py
+  - Evaluates Model 1 (Rule-Based)
+  - Trains & evaluates Model 2 (TF-IDF + Logistic Regression)
+  - Trains & evaluates Model 3 (Multilingual MiniLM)
+  - Trains & evaluates Model 4 (IndicBERT)
+  - Updates `results/benchmark_table.csv` and `results/benchmark_comparison.json`.
+
+Step 3: Launch Local FastAPI Web Server & Dashboard
+  python server.py
+  - Starts Uvicorn server at http://localhost:8000
+  - Open any browser and navigate to http://localhost:8000 to interact with the UI.
+
+Step 4: Train on Google Colab (Optional GPU Acceleration)
+  - Upload `NLP_ABSA.ipynb` to Google Colab.
+  - Set runtime to T4 GPU.
+  - Run All Cells (Cell 1 automatically sets up repository and dependencies).
+  - Download `sentimix_results.zip` from the final cell.
+
+
+================================================================================
+15. TOP 15 VIVA / TECHNICAL INTERVIEW QUESTIONS & EXPERT MODEL ANSWERS
+================================================================================
+
+Q1: What is the core objective of the SentiMix ABSA project?
+A1: SentiMix ABSA performs fine-grained Aspect-Based Sentiment Analysis on Hindi-
+    English Code-Mixed (Hinglish) e-commerce product reviews. Instead of assigning
+    a single global sentiment to an entire review, it extracts specific product
+    features (e.g., fabric, fit, battery, price) and determines the exact polarity
+    (Positive, Negative, Neutral) of each feature independently, mitigating cross-
+    clause sentiment bleed and transliteration spelling variations.
+
+Q2: What is "Cross-Clause Sentiment Bleed" and how do you solve it?
+A2: In compound reviews like "Fabric accha hai but fitting bekaar hai", standard
+    sentence-level models pool all tokens together, causing the strong negative
+    word "bekaar" to bleed into the positive aspect "fabric". SentiMix solves this
+    by performing Syntactic Clause Boundary Segmentation on contrastive discourse
+    markers ("but", "lekin", "magar", "par"). Each aspect term is bound strictly
+    to its governing syntactic clause, eliminating polarity contamination.
+
+Q3: Why did TF-IDF + Logistic Regression outperform deep transformers like IndicBERT?
+A3: On noisy Romanized code-mixed text, deep transformers suffer from subword token
+    fragmentation because informal phonetic spellings (e.g. "bohooooot", "bekaaar")
+    are not in their pre-trained tokenizers. Our TF-IDF model utilizes a FeatureUnion
+    of character n-grams (3-5) and word n-grams (1-3) with balanced class weights.
+    Character n-grams capture subword phonetic roots directly, making the model
+    immune to spelling variations while executing in 2.34 ms (33x faster than
+    transformers).
+
+Q4: What is Transliteration Canonicalization?
+A4: Hinglish lacks standardized orthography. Users spell words phonetically (e.g.,
+    "accha", "achha", "acha", "achaa" all represent 'अच्छा' / good). Our
+    Transliteration Canonicalizer uses an empirical mapping dictionary to normalize
+    these phonetic variants to canonical root forms before feature extraction,
+    drastically reducing vocabulary sparsity and OOV errors.
+
+Q5: What is Adaptive Confidence Blending?
+A5: In certain retail categories, strong prior distributions can bias statistical
+    classifiers (e.g., "fitting" is positive in ~70% of fashion reviews). In an
+    edge case like "fitting bekar hai", the prior may overpower the negative word.
+    Adaptive Confidence Blending monitors rule engine confidence: when strong
+    polarity keywords trigger >= 70% rule confidence, the rule prior weight is
+    dynamically elevated from 15% to 35%, ensuring flawless contrastive clause
+    polarity resolution without degrading general accuracy.
+
+Q6: How did you handle unannotated Meesho data without manual labeling?
+A6: We developed a semi-supervised clause-aware ABSA annotator (`MeeshoABSAAnnotator`
+    in `src/annotator.py`). It ingested 1,005 raw fashion/beauty reviews, segmented
+    them into clauses, mapped noun phrase aspect candidates to 9 predefined retail
+    dimensions, and applied calibrated lexicon polarity scoring to generate 1,481
+    high-quality aspect-polarity training pairs.
+
+Q7: Why were MuRIL and XLM-RoBERTa pruned from the final system?
+A7: MuRIL (236M) and XLM-RoBERTa (278M) were pruned because of excessive CPU inference
+    latency (64-78 ms per review), high memory footprint (>3.2 GB RAM), and subword
+    tokenizer fragmentation on Romanized Hinglish. Pruning them reduced server memory
+    usage by 70% while improving inference throughput to over 420 reviews/sec.
+
+Q8: How does the system handle emojis in reviews?
+A8: The `TextPreprocessor` converts emojis into descriptive sentiment tokens
+    (e.g., 😍 -> ':love:', 😡 -> ':rage:', 👎 -> ':thumbs_down:'). These tokens
+    are preserved across vectorization and assigned specific polarity weights in
+    the rule and ML models, ensuring emotional intensity is fully captured.
+
+Q9: How does the pipeline detect and handle sarcasm?
+A9: The system uses a Discourse Polarity Synthesizer containing curated sarcasm
+    regex patterns that detect contrastive mock praise (e.g., "waah kya phone hai
+    1 din me kharab ho gaya"). When triggered, the review is tagged with
+    `is_sarcastic: true` and the net review sentiment is inverted to Negative.
+
+Q10: What are the 9 retail aspect categories supported?
+A10: 1. battery_power, 2. camera_photography, 3. display_screen, 4. performance_speed,
+     5. audio_sound, 6. comfort_ergonomics, 7. fabric_material, 8. fit_size, and
+     9. price_value / quality_build / delivery_service.
+
+Q11: What evaluation metrics were used to benchmark the models?
+A11: Accuracy, Macro-Averaged F1-Score, Weighted F1-Score, Macro-Precision, Macro-Recall,
+     Hinglish Subset F1-Score, and per-sample CPU Inference Latency (ms). Macro F1
+     was prioritized over Accuracy because the dataset has class imbalance (62.6%
+     positive).
+
+Q12: How is the overall sentiment of a multi-aspect review computed?
+A12: The Discourse Polarity Synthesizer aggregates aspect polarities:
+     - If both Positive (>=1) and Negative (>=1) aspects coexist, the review is
+       classified as "Mixed Polarity".
+     - If sarcasm is detected, it is classified as "Negative".
+     - Otherwise, the dominant probability sum determines whether it is Positive,
+       Negative, or Neutral.
+
+Q13: How does the FastAPI batch processing handle varying CSV formats?
+A13: The `detect_text_column` function analyzes uploaded files using priority
+     keyword matching ("review", "comment", "feedback", "sentence", "text") and
+     filters out metadata columns (IDs, ratings, timestamps). It selects the column
+     with the highest mean text length automatically, allowing users to upload any
+     e-commerce export file without manual schema mapping.
+
+Q14: What is the purpose of `src/torch_fix.py`?
+A14: In PyTorch 2.6+, loading legacy scikit-learn or model checkpoints on Windows
+     can trigger strict `weights_only=True` security exceptions. `torch_fix.py`
+     safely wraps `torch.load` to guarantee backwards compatibility across Windows
+     and Linux environments without crashing the server.
+
+Q15: How can a seller use SentiMix ABSA for business intelligence?
+A15: Sellers can upload their customer review export (CSV/Excel). SentiMix processes
+     it in seconds and returns an Enriched CSV showing exact feature defects (e.g.,
+     "fabric is 95% positive, but sizing/fit is 80% negative"). The seller can
+     immediately contact the supplier to fix sizing measurements while marketing
+     the premium fabric quality, preventing expensive return rates.
+================================================================================
+END OF PREPARATION GUIDE — SENTIMIX ABSA ENTERPRISE MASTER EDITION
+================================================================================

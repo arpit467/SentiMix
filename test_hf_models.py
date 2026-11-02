@@ -5,9 +5,8 @@ print("PyTorch Version:", torch.__version__)
 print("Checking model architectures...")
 
 models_to_test = [
-    ("IndicBERT", "ai4bharat/indic-bert"),
-    ("XLM-RoBERTa", "xlm-roberta-base"),
-    ("MuRIL", "google/muril-base-cased")
+    ("IndicBERT", "ai4bharat/IndicBERTv2-MLM-only"),
+    ("Multilingual MiniLM", "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
 ]
 
 for name, model_id in models_to_test:

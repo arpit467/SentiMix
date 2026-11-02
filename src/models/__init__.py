@@ -5,20 +5,18 @@ try:
     from .transformer_classifier import (
         BaseTransformerABSAModel,
         IndicBERTABSAModel,
-        XLMRoBERTaABSAModel,
-        MuRILABSAModel
+        MultilingualMiniLMABSAModel
     )
 except Exception:
     BaseTransformerABSAModel = None
     IndicBERTABSAModel = None
-    XLMRoBERTaABSAModel = None
-    MuRILABSAModel = None
+    MultilingualMiniLMABSAModel = None
 
 __all__ = [
     "RuleBasedABSAModel",
     "TFIDFLogisticABSAModel",
     "BaseTransformerABSAModel",
     "IndicBERTABSAModel",
-    "XLMRoBERTaABSAModel",
-    "MuRILABSAModel"
+    "MultilingualMiniLMABSAModel"
 ]
+
